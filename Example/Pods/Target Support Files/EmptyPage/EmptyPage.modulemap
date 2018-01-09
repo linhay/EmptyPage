@@ -1,0 +1,6 @@
+framework module EmptyPage {
+  umbrella header "EmptyPage-umbrella.h"
+
+  export *
+  module * { export * }
+}
