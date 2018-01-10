@@ -19,6 +19,7 @@ class TableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.separatorStyle = .none
     getData()
   }
 
