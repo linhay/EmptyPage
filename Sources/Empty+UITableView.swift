@@ -1,9 +1,8 @@
 //
-//  TableView+Empty.swift
-//  B7iOSShop
+//  Empty+UITableView.swift
+//  EmptyPage
 //
-//  Created by BigL on 2016/12/9.
-//  Copyright © 2016年 spzjs.b7iosshop.com. All rights reserved.
+//  Created by bigl on 2018/1/9.
 //
 
 import UIKit
