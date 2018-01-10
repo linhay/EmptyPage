@@ -21,5 +21,4 @@ public struct EmptyPage {
                            replace: #selector(UICollectionView.coll_emptyReloadData),
                            class: UICollectionView.self)
   }
-  
 }
