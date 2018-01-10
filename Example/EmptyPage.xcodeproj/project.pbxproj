@@ -16,6 +16,7 @@
 		9D7F634A2004DD7A0028F898 /* InputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F63492004DD7A0028F898 /* InputTableViewController.swift */; };
 		9D7F634C2004DE770028F898 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F634B2004DE770028F898 /* EmptyView.swift */; };
 		9D7F634E2004DE8B0028F898 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F634D2004DE8B0028F898 /* EmptyView.xib */; };
+		9D7F63522005B9840028F898 /* EmptyPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F63512005B9840028F898 /* EmptyPageType.swift */; };
 		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		9D7F63492004DD7A0028F898 /* InputTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewController.swift; sourceTree = "<group>"; };
 		9D7F634B2004DE770028F898 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		9D7F634D2004DE8B0028F898 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		9D7F63512005B9840028F898 /* EmptyPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPageType.swift; sourceTree = "<group>"; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B9825AB205A0A5E1168F3C90 /* Pods-EmptyPage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				9D7F634B2004DE770028F898 /* EmptyView.swift */,
 				9D7F634D2004DE8B0028F898 /* EmptyView.xib */,
 				9D7F63492004DD7A0028F898 /* InputTableViewController.swift */,
+				9D7F63512005B9840028F898 /* EmptyPageType.swift */,
 			);
 			name = "Example for EmptyPage";
 			path = EmptyPage;
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7F63522005B9840028F898 /* EmptyPageType.swift in Sources */,
 				9D7F634A2004DD7A0028F898 /* InputTableViewController.swift in Sources */,
 				9D7F634C2004DE770028F898 /* EmptyView.swift in Sources */,
 				9D7F63482004DD270028F898 /* CollectionViewController.swift in Sources */,

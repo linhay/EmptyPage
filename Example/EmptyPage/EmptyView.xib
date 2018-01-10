@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,11 +19,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLu-Wu-YZG">
-                    <rect key="frame" x="0.0" y="183" width="375" height="321"/>
+                    <rect key="frame" x="0.0" y="181" width="375" height="325"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5K8-Ol-hKM">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="5K8-Ol-hKM">
                             <rect key="frame" x="87.5" y="20" width="200" height="200"/>
-                            <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="FW4-S3-QCt"/>
                                 <constraint firstAttribute="width" secondItem="5K8-Ol-hKM" secondAttribute="height" id="Oyp-xm-qmI"/>
@@ -34,24 +34,40 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bom-wO-hBi">
-                            <rect key="frame" x="20" y="271" width="335" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="刷新"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bom-wO-hBi">
+                            <rect key="frame" x="207.5" y="271" width="147.5" height="34"/>
+                            <color key="backgroundColor" red="0.88127130270004272" green="0.93141007423400879" blue="0.82342082262039185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="重新请求">
+                                <color key="titleColor" red="0.23529411759999999" green="0.51764705879999995" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                             <connections>
-                                <action selector="tapEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="Wj5-sS-6gX"/>
+                                <action selector="tapEvent2:" destination="iN0-l3-epB" eventType="touchUpInside" id="MoA-vC-2Uw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xj4-eC-j95">
+                            <rect key="frame" x="20" y="271" width="147.5" height="34"/>
+                            <color key="backgroundColor" red="0.86432033777236938" green="0.81398719549179077" blue="0.65888136625289917" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="加载数据">
+                                <color key="titleColor" red="0.23529411759999999" green="0.51764705879999995" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="tapEvent1:" destination="iN0-l3-epB" eventType="touchUpInside" id="m2b-yM-cfj"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="xj4-eC-j95" firstAttribute="leading" secondItem="HLu-Wu-YZG" secondAttribute="leading" constant="20" id="2Qs-t7-x1z"/>
                         <constraint firstItem="5K8-Ol-hKM" firstAttribute="centerX" secondItem="HLu-Wu-YZG" secondAttribute="centerX" id="7fY-tP-VsS"/>
+                        <constraint firstItem="xj4-eC-j95" firstAttribute="trailing" secondItem="HLu-Wu-YZG" secondAttribute="centerX" constant="-20" id="D8N-ps-GOq"/>
                         <constraint firstItem="Bom-wO-hBi" firstAttribute="top" secondItem="SUn-qs-8N6" secondAttribute="bottom" constant="10" id="FJE-Da-PCG"/>
                         <constraint firstItem="5K8-Ol-hKM" firstAttribute="top" secondItem="HLu-Wu-YZG" secondAttribute="top" constant="20" id="MG3-A9-SYs"/>
+                        <constraint firstAttribute="bottom" secondItem="xj4-eC-j95" secondAttribute="bottom" constant="20" id="WVX-k9-fRg"/>
+                        <constraint firstItem="xj4-eC-j95" firstAttribute="top" secondItem="SUn-qs-8N6" secondAttribute="bottom" constant="10" id="XNN-C8-ubs"/>
                         <constraint firstAttribute="trailing" secondItem="Bom-wO-hBi" secondAttribute="trailing" constant="20" id="ZbP-7n-JWN"/>
+                        <constraint firstItem="Bom-wO-hBi" firstAttribute="leading" secondItem="HLu-Wu-YZG" secondAttribute="centerX" constant="20" id="awT-Av-88h"/>
                         <constraint firstAttribute="trailing" secondItem="SUn-qs-8N6" secondAttribute="trailing" constant="10" id="dbL-0e-tE8"/>
                         <constraint firstItem="SUn-qs-8N6" firstAttribute="top" secondItem="5K8-Ol-hKM" secondAttribute="bottom" constant="20" id="e8B-cV-oTi"/>
-                        <constraint firstItem="Bom-wO-hBi" firstAttribute="leading" secondItem="HLu-Wu-YZG" secondAttribute="leading" constant="20" id="nDQ-sC-Sai"/>
                         <constraint firstAttribute="bottom" secondItem="Bom-wO-hBi" secondAttribute="bottom" constant="20" id="pnh-AN-19c"/>
                         <constraint firstItem="SUn-qs-8N6" firstAttribute="leading" secondItem="HLu-Wu-YZG" secondAttribute="leading" constant="10" id="uwT-Je-V6H"/>
                     </constraints>
@@ -64,7 +80,16 @@
                 <constraint firstItem="HLu-Wu-YZG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jx8-kb-Br4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btn1" destination="xj4-eC-j95" id="m2I-KQ-6Iw"/>
+                <outlet property="btn2" destination="Bom-wO-hBi" id="qGG-Up-pfN"/>
+                <outlet property="imageView" destination="5K8-Ol-hKM" id="bhc-CB-i41"/>
+                <outlet property="textLabel" destination="SUn-qs-8N6" id="8t5-yv-KCt"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="empty" width="64" height="55"/>
+    </resources>
 </document>
