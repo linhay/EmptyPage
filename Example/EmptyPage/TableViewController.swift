@@ -11,8 +11,6 @@ import EmptyPage
 
 class TableViewController: UITableViewController {
 
-  let emptyView = EmptyView.initFromNib
-
   var count = 0 {
     didSet{
       tableView.reloadData()
@@ -21,8 +19,26 @@ class TableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.emptyView = emptyView
-    emptyView.delegate = self
+    getData()
+  }
+
+
+  func getData() {
+    tableView?.emptyView = EmptyView.loading()
+    tableView?.reloadData()
+    /// 延时5s模拟网络请求
+    let time = DispatchTime.now() + .milliseconds(Int(5 * 1000))
+    DispatchQueue.global().asyncAfter(deadline: time) {
+      DispatchQueue.main.async { [weak self] in
+        guard let base = self else { return }
+        base.tableView?.emptyView = EmptyView.noData(block1: {
+          base.count = 50
+        }){
+          base.getData()
+        }
+        base.tableView?.reloadData()
+      }
+    }
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,11 +60,4 @@ class TableViewController: UITableViewController {
   }
 
 }
-
-extension TableViewController: EmptyViewDelegate {
-  func emptyView(view: EmptyView, tapEvent: UIButton) {
-    count = 10
-  }
-}
-
 
