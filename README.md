@@ -63,10 +63,10 @@ let emptyView: EmptyPageView = .onlyImages(images: [UIImage])
                    
 // 图片(支持单张与多张) + 标题 + 描述 + 一个按钮 的样式
 let emptyView: EmptyPageView = .standard(images: [UIImage(named: "empty")!],
-										title: "标题",
-										 text: "描述文本",
-									 btnTitle: "按钮标题") {
-										 print("按钮事件")
+					title: "标题",
+					text: "描述文本",
+					btnTitle: "按钮标题") {
+					print("按钮事件")
 	}
 
 // 设置
