@@ -7,7 +7,7 @@
 
 ## 示例:
 
-![demo](./ReadmeData/empty1.gif) ![demo](./ReadmeData/empty2.gif)
+![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)
 
 ## 安装
 
