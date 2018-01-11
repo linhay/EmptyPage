@@ -87,7 +87,7 @@ extension EmptyPageView {
                                duration: TimeInterval = 0,
                                repeatCount: Int = 0) -> EmptyPageView {
     let view = EmptyPageStyle2View.initFromNib
-    view.config(images: images)
+    view.config(images: images, duration: duration, repeatCount: repeatCount)
     return mix(view: view)
   }
   
