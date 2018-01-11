@@ -13,7 +13,7 @@ import EmptyPage
 extension EmptyView {
 
   static func loading() -> EmptyView {
-    return EmptyView.config(images:  UIImage(named: "load")!,
+    return EmptyView.config(images:  UIImage(named: "load-0")!,
                             isRotation: true,
                             text: nil,
                             btnTitle1: nil,

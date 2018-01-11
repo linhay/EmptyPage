@@ -11,11 +11,17 @@ s.source = { :git => 'https://github.com/bigL055/EmptyPage.git', :tag => s.versi
 
 s.ios.deployment_target = '8.0'
 
-s.source_files = ["Sources/*/**","Sources/*/*/**","Sources/**"]
+s.subspec 'Core' do |ss|
+ss.source_files = 'Sources/**'
+end
+
+s.subspec 'Resources' do |ss|
+ss.source_files = 'Resources/**'
+ss.dependency 'EmptyPage/Core'
+end
 
 s.public_header_files = ["Sources/EmptyPage.h"]
 s.requires_arc = true
-
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end

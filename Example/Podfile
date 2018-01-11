@@ -1,6 +1,6 @@
 use_frameworks!
 
 target 'EmptyPage_Example' do
-  pod 'EmptyPage', :path => '../'
+  pod 'EmptyPage/Resources', :path => '../'
 
 end
