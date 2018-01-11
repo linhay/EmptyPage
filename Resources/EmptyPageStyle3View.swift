@@ -13,17 +13,19 @@ class EmptyPageStyle3View: UIView,EmptyPageViewProtocol {
     didSet{
       label.numberOfLines = 0
       label.textAlignment = .center
+      label.textColor = .black
     }
   }
 
-  func config(style: EmptyPage3Style = .title, text: String) {
-    switch style {
-    case .title:
-      label.textColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
-    case .text:
-      label.textColor = UIColor(red: 146 / 255, green: 146 / 255, blue: 146 / 255, alpha: 1)
-    }
+  func config(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) {
     label.text = text
+    label.textColor = color
+    label.font = font
   }
+
+  func congfig(attributed: NSAttributedString) {
+    label.attributedText = attributed
+  }
+
   
 }

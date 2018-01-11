@@ -18,11 +18,10 @@ class InputTableViewController: UITableViewController {
 
   @IBAction func onlyTextEvent(_ sender: UIButton) {
     let vc = UITableViewController(style: .plain)
-    vc.tableView.setEmpty(view: .onlyText(style: .title, text: "没有更多信息了"))
+    vc.tableView.setEmpty(view: .onlyText(text: "没有更多信息了"))
     vc.tableView.separatorStyle = .none
     navigationController?.pushViewController(vc, animated: true)
   }
-
   
   @IBAction func onlyImagesEvent(_ sender: Any) {
     let vc = UITableViewController(style: .plain)
@@ -36,7 +35,7 @@ class InputTableViewController: UITableViewController {
 
   @IBAction func standardEvent(_ sender: UIButton) {
     let vc = UITableViewController(style: .plain)
-    let emptyView = EmptyPageView.standard(image: UIImage(named: "empty")!, title: "title", text: "text", btnTitle: "btnTitle") {
+    let emptyView = EmptyPageView.standard(images: [UIImage(named: "empty")!], title: "标题", text: "描述文本", btnTitle: "按钮标题") {
       let alert = UIAlertController(title: "standard", message: nil, preferredStyle: .alert)
       let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
       alert.addAction(action)
@@ -54,7 +53,7 @@ class InputTableViewController: UITableViewController {
       return UIImage(named: "load-\(item)")!
     }
     
-    let emptyView = EmptyPageView.standard(images: images,duration: 1.5,repeatCount: 0,title: "标题",text: "空白页描述",btnTitle: "点击试试") {
+    let emptyView = EmptyPageView.standard(images: [UIImage(named: "empty")!], duration: 1.5, title: "标题", text: "描述文本", btnTitle: "按钮标题") {
       let alert = UIAlertController(title: "standard", message: nil, preferredStyle: .alert)
       let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
       alert.addAction(action)
