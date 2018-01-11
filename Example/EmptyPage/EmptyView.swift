@@ -8,7 +8,19 @@
 
 import UIKit
 
-class EmptyView: UIView {
+protocol EmptyPageViewProtocol: class {
+
+}
+
+extension EmptyPageViewProtocol {
+  static var initFromNib: Self {
+    return Bundle.main.loadNibNamed(String(describing: self),
+                                    owner: nil,
+                                    options: nil)?.first! as! Self
+  }
+}
+
+class EmptyView: UIView,EmptyPageViewProtocol {
 
   @IBOutlet private weak var imageView: UIImageView!
   @IBOutlet private weak var textLabel: UILabel!
@@ -17,13 +29,6 @@ class EmptyView: UIView {
 
   private var btnBlock1: (()->())?
   private var btnBlock2: (()->())?
-
-
-  class var initFromNib: EmptyView {
-    return Bundle.main.loadNibNamed(String(describing: self),
-                                    owner: nil,
-                                    options: nil)?.first! as! EmptyView
-  }
 
   @IBAction func tapEvent1(_ sender: UIButton) {
     btnBlock1?()
@@ -79,11 +84,11 @@ class EmptyView: UIView {
 
   func begin(animate: Bool) {
     guard animate else { return }
-    let rotationAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
+    let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
     rotationAnimation.toValue = CGFloat.pi * 2
     rotationAnimation.duration = 2
     rotationAnimation.isCumulative = true
-    rotationAnimation.repeatCount = Float.infinity
+    rotationAnimation.repeatCount = .infinity
     imageView.layer.add(rotationAnimation, forKey: "rotationAnimation")
   }
 

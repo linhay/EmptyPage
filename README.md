@@ -5,16 +5,21 @@
 [![License](https://img.shields.io/cocoapods/l/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
 [![Platform](https://img.shields.io/cocoapods/p/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
 
-## Example
+## 示例:
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+![demo](./ReadmeData/empty1.gif)
+![demo](./ReadmeData/empty2.gif)
 
-## Requirements
 
-## Installation
 
-EmptyPage is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/120693/11602670/57ef6b26-9adc-11e5-9f95-b226a2491654.png" height="180"><img src="https://cloud.githubusercontent.com/assets/120693/11602672/5c303ac6-9adc-11e5-9006-3275a16b7ec8.png" height="180">
+<img src="https://cloud.githubusercontent.com/assets/120693/11602674/5ed8a808-9adc-11e5-9e30-f55beacf9a94.png" height="180"><img src="https://cloud.githubusercontent.com/assets/120693/11602678/660d660e-9adc-11e5-8a67-0c3036c20862.gif" height="180">
+</p>
+## 安装
+
+- 使用cocoapods安装
 
 ```ruby
 pod 'EmptyPage'

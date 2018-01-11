@@ -60,6 +60,102 @@
                                             <segue destination="0DB-YH-7Gi" kind="show" id="BUe-YW-8Cd"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="WWm-rH-Tbp">
+                                        <rect key="frame" x="0.0" y="148" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WWm-rH-Tbp" id="FRG-XO-qYI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8H-0N-RfY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="tableView+onlyText"/>
+                                                    <connections>
+                                                        <action selector="onlyTextEvent:" destination="EPY-bd-m6C" eventType="touchUpInside" id="KFW-6V-3EW"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="J8H-0N-RfY" firstAttribute="top" secondItem="FRG-XO-qYI" secondAttribute="top" id="J7y-yI-fXK"/>
+                                                <constraint firstAttribute="trailing" secondItem="J8H-0N-RfY" secondAttribute="trailing" id="PKL-Hc-dUc"/>
+                                                <constraint firstItem="J8H-0N-RfY" firstAttribute="leading" secondItem="FRG-XO-qYI" secondAttribute="leading" id="fNb-tA-alL"/>
+                                                <constraint firstAttribute="bottom" secondItem="J8H-0N-RfY" secondAttribute="bottom" id="lie-tS-MfA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="RhV-9S-och">
+                                        <rect key="frame" x="0.0" y="208" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RhV-9S-och" id="4Ty-hD-mPq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dH8-PH-6CV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="tableView+Images"/>
+                                                    <connections>
+                                                        <action selector="onlyImagesEvent:" destination="EPY-bd-m6C" eventType="touchUpInside" id="kbz-uo-eSL"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dH8-PH-6CV" firstAttribute="leading" secondItem="4Ty-hD-mPq" secondAttribute="leading" id="Tzt-fU-owL"/>
+                                                <constraint firstItem="dH8-PH-6CV" firstAttribute="top" secondItem="4Ty-hD-mPq" secondAttribute="top" id="X2A-Ia-9Vn"/>
+                                                <constraint firstAttribute="bottom" secondItem="dH8-PH-6CV" secondAttribute="bottom" id="bjm-iH-8hQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="dH8-PH-6CV" secondAttribute="trailing" id="zva-nR-gdJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="8bI-NH-HcE">
+                                        <rect key="frame" x="0.0" y="268" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8bI-NH-HcE" id="afa-0u-eKv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqp-Yj-e9b">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="tableView+standard"/>
+                                                    <connections>
+                                                        <action selector="standardEvent:" destination="EPY-bd-m6C" eventType="touchUpInside" id="WS2-cH-bOZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zqp-Yj-e9b" secondAttribute="bottom" id="8Ln-Gn-3ZY"/>
+                                                <constraint firstItem="zqp-Yj-e9b" firstAttribute="leading" secondItem="afa-0u-eKv" secondAttribute="leading" id="Hkp-fN-Ca2"/>
+                                                <constraint firstAttribute="trailing" secondItem="zqp-Yj-e9b" secondAttribute="trailing" id="RWy-GJ-XXn"/>
+                                                <constraint firstItem="zqp-Yj-e9b" firstAttribute="top" secondItem="afa-0u-eKv" secondAttribute="top" id="gfy-qT-f4r"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="4A5-8p-FRA">
+                                        <rect key="frame" x="0.0" y="328" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4A5-8p-FRA" id="SLv-6G-koO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W45-t0-B42">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="tableView+standard+load"/>
+                                                    <connections>
+                                                        <action selector="standardLoadEvent:" destination="EPY-bd-m6C" eventType="touchUpInside" id="EAx-qH-4UJ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="W45-t0-B42" secondAttribute="bottom" id="3c3-S0-jiy"/>
+                                                <constraint firstItem="W45-t0-B42" firstAttribute="leading" secondItem="SLv-6G-koO" secondAttribute="leading" id="MQ4-7W-M4n"/>
+                                                <constraint firstItem="W45-t0-B42" firstAttribute="top" secondItem="SLv-6G-koO" secondAttribute="top" id="WQ4-Mc-eVU"/>
+                                                <constraint firstAttribute="trailing" secondItem="W45-t0-B42" secondAttribute="trailing" id="jUa-lv-8dd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -106,7 +202,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgZ-eG-XLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="649"/>
+            <point key="canvasLocation" x="2383" y="-54"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="UK6-px-yq4">
@@ -134,7 +230,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAF-1G-BYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="-67"/>
+            <point key="canvasLocation" x="1382" y="-54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QjE-Va-aPb">
