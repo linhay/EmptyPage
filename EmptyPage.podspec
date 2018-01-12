@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name             = 'EmptyPage'
 s.version          = '1.1.0'
-s.summary          = 'iOS - 空白页占位图'
+s.summary          = 'iOS - 轻量级空白页占位图'
 
 
 s.homepage         = 'https://github.com/bigL055/EmptyPage'
