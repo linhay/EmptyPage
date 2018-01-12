@@ -1,15 +1,15 @@
 //
-//  EmptyPageStyle3View.swift
-//  BuyerEmptyPage
+//  EmptyPageForText.swift
+//  EmptyPage
 //
-//  Created by bigl on 2018/1/11.
-//
+//  Created by bigl on 2018/1/10.
+//  Copyright © 2018年 linhey <linhan.linhey@outlook.com>. All rights reserved.
 
 import UIKit
 
-class EmptyPageStyle3View: UIView,EmptyPageViewProtocol {
+public class EmptyPageForText: UIView,EmptyPageViewProtocol {
 
-  @IBOutlet weak var label: UILabel!{
+  @IBOutlet public weak var label: UILabel!{
     didSet{
       label.numberOfLines = 0
       label.textAlignment = .center

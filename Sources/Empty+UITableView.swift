@@ -2,8 +2,9 @@
 //  Empty+UITableView.swift
 //  EmptyPage
 //
-//  Created by bigl on 2018/1/9.
-//
+//  Created by bigl on 2018/1/10.
+//  Copyright © 2018年 linhey <linhan.linhey@outlook.com>. All rights reserved.
+
 
 import UIKit
 

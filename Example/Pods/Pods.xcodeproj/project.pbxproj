@@ -9,22 +9,22 @@
 /* Begin PBXBuildFile section */
 		1CDCA571FED59C578D0F058DC34AD360 /* EmptyPage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B46EECEB60ED02E011BE0944E077307 /* EmptyPage-dummy.m */; };
 		1D30D4DAF79F126FA895C3FE8FE5FC54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		4518AF1293E5EE5B4EE5A61C0F64736F /* EmptyPageStyle2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9553FD3096AEC861619A1AB7CF549C /* EmptyPageStyle2View.swift */; };
-		4B7581DCAEAE0F61E955D7623A655ABB /* EmptyPageStyle3View.xib in Sources */ = {isa = PBXBuildFile; fileRef = 5CB73D42859A306AAEC6B2952AB2D944 /* EmptyPageStyle3View.xib */; };
+		4518AF1293E5EE5B4EE5A61C0F64736F /* EmptyPageForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9553FD3096AEC861619A1AB7CF549C /* EmptyPageForImage.swift */; };
+		4B7581DCAEAE0F61E955D7623A655ABB /* EmptyPageForText.xib in Sources */ = {isa = PBXBuildFile; fileRef = 5CB73D42859A306AAEC6B2952AB2D944 /* EmptyPageForText.xib */; };
 		4E21F586E8139E20D2A5D24E688534E0 /* RunTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B7FDC5E3E0DF7E827F7F47AEFB596 /* RunTime.swift */; };
-		4FDB22B36E153A18A7F32B8046F349AD /* EmptyPageStyle3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDC766CAADAC46BEBCD885E00D2535 /* EmptyPageStyle3View.swift */; };
+		4FDB22B36E153A18A7F32B8046F349AD /* EmptyPageForText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDC766CAADAC46BEBCD885E00D2535 /* EmptyPageForText.swift */; };
 		57ED0DFED44D705DFC582F73F7D9E203 /* EmptyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251F55EFA269ED83339BF36F4F129B92 /* EmptyPage.swift */; };
 		62BCA05B56BFB444C6AE98E01B76379F /* Empty+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2FD9322C13C83C09DE74ED00C8AF3 /* Empty+UITableView.swift */; };
 		7E4A5C75785D4AB4709D5375E39470C2 /* EmptyPage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4CBA1ADD8CBDEC78A8CD89F4046F671 /* EmptyPage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		818F377CAD6DD690EAE2F21F27212D4A /* Pods-EmptyPage_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E827C6CB4448580085C80F8B0A54EF3 /* Pods-EmptyPage_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F367402A3EA6D7770775481ABEAD077 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		997D347972A1446E813F39293010224E /* EmptyPageStyle1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95E0A897121DC7CFCA33E62EEAA64DB /* EmptyPageStyle1View.swift */; };
+		997D347972A1446E813F39293010224E /* EmptyPageForStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95E0A897121DC7CFCA33E62EEAA64DB /* EmptyPageForStandard.swift */; };
 		A6C242A87C688A5C74A52AF82A725CEC /* Empty+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC0FF3F52DD42AB04E1CCBBD4E3ADE /* Empty+UICollectionView.swift */; };
 		A77963E7C938EE9CE0DAB012CB8333AD /* Empty+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD54E13A3C01583B45669876AF5BB93 /* Empty+UIScrollView.swift */; };
 		B084D5BAFABD6CD2110A95DFBE0B1B31 /* EmptyView+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6100A1CF3FDA155526063A3372EEBF91 /* EmptyView+UIScrollView.swift */; };
 		B453B3007C97F64194D1B9BA29447D4B /* EmptyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3D6F8E2E7D698D478A9E35E210032E /* EmptyPageView.swift */; };
-		BDDB454D187B1D026F092412DB9CFC54 /* EmptyPageStyle2View.xib in Sources */ = {isa = PBXBuildFile; fileRef = E8F5DBFB6163A4ED99EC7E6F45DB0DA3 /* EmptyPageStyle2View.xib */; };
-		CC1102FA9E60BC60EB4EB9B80C1423CD /* EmptyPageStyle1View.xib in Sources */ = {isa = PBXBuildFile; fileRef = C161DEA6DBE2D5DAB33A5AA5C4C559E4 /* EmptyPageStyle1View.xib */; };
+		BDDB454D187B1D026F092412DB9CFC54 /* EmptyPageForImage.xib in Sources */ = {isa = PBXBuildFile; fileRef = E8F5DBFB6163A4ED99EC7E6F45DB0DA3 /* EmptyPageForImage.xib */; };
+		CC1102FA9E60BC60EB4EB9B80C1423CD /* EmptyPageForStandard.xib in Sources */ = {isa = PBXBuildFile; fileRef = C161DEA6DBE2D5DAB33A5AA5C4C559E4 /* EmptyPageForStandard.xib */; };
 		D7179F188812EA7CAFB8DC7F42259E63 /* EmptyPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B4EEA9C34E58D7765505D68360152EA /* EmptyPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5371EB86B346B8F2CD271845796F389 /* Pods-EmptyPage_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE5C58B469C8B72F6DFD34D14CCD21B /* Pods-EmptyPage_Example-dummy.m */; };
 /* End PBXBuildFile section */
@@ -49,27 +49,27 @@
 		302B7FDC5E3E0DF7E827F7F47AEFB596 /* RunTime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RunTime.swift; path = Sources/RunTime.swift; sourceTree = "<group>"; };
 		3A6DADEE093E4CFCB0CB32BD1B43250E /* Pods-EmptyPage_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EmptyPage_Example-resources.sh"; sourceTree = "<group>"; };
 		3E827C6CB4448580085C80F8B0A54EF3 /* Pods-EmptyPage_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EmptyPage_Example-umbrella.h"; sourceTree = "<group>"; };
-		3EDEDB4030ABDAFD61DD3B334298E930 /* EmptyPage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EmptyPage.framework; path = EmptyPage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EDEDB4030ABDAFD61DD3B334298E930 /* EmptyPage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EmptyPage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C25A682A9CFFA77F95D04AFF5CDFDB /* Pods-EmptyPage_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EmptyPage_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		590B36D0D53E68A317559458B0255189 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5CB73D42859A306AAEC6B2952AB2D944 /* EmptyPageStyle3View.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageStyle3View.xib; path = Resources/EmptyPageStyle3View.xib; sourceTree = "<group>"; };
+		5CB73D42859A306AAEC6B2952AB2D944 /* EmptyPageForText.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageForText.xib; path = Resources/EmptyPageForText.xib; sourceTree = "<group>"; };
 		6100A1CF3FDA155526063A3372EEBF91 /* EmptyView+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EmptyView+UIScrollView.swift"; path = "Resources/EmptyView+UIScrollView.swift"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		667209B9D85279B4CE4696D63D1D604D /* EmptyPage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EmptyPage.xcconfig; sourceTree = "<group>"; };
 		6CD2FD9322C13C83C09DE74ED00C8AF3 /* Empty+UITableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UITableView.swift"; path = "Sources/Empty+UITableView.swift"; sourceTree = "<group>"; };
 		896056BA18CE78EB3E91950D07F160F6 /* EmptyPage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EmptyPage-prefix.pch"; sourceTree = "<group>"; };
-		92CDC766CAADAC46BEBCD885E00D2535 /* EmptyPageStyle3View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageStyle3View.swift; path = Resources/EmptyPageStyle3View.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AB96A6256833DB6472418F420C0EC9A9 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EmptyPage_Example.framework; path = "Pods-EmptyPage_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF808ECEE80C013DC1662FEA22F5D94D /* Pods-EmptyPage_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-EmptyPage_Example.modulemap"; sourceTree = "<group>"; };
-		B95E0A897121DC7CFCA33E62EEAA64DB /* EmptyPageStyle1View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageStyle1View.swift; path = Resources/EmptyPageStyle1View.swift; sourceTree = "<group>"; };
+		92CDC766CAADAC46BEBCD885E00D2535 /* EmptyPageForText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForText.swift; path = Resources/EmptyPageForText.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AB96A6256833DB6472418F420C0EC9A9 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF808ECEE80C013DC1662FEA22F5D94D /* Pods-EmptyPage_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EmptyPage_Example.modulemap"; sourceTree = "<group>"; };
+		B95E0A897121DC7CFCA33E62EEAA64DB /* EmptyPageForStandard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForStandard.swift; path = Resources/EmptyPageForStandard.swift; sourceTree = "<group>"; };
 		BB3D6F8E2E7D698D478A9E35E210032E /* EmptyPageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageView.swift; path = Resources/EmptyPageView.swift; sourceTree = "<group>"; };
 		BFD54E13A3C01583B45669876AF5BB93 /* Empty+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UIScrollView.swift"; path = "Sources/Empty+UIScrollView.swift"; sourceTree = "<group>"; };
-		C161DEA6DBE2D5DAB33A5AA5C4C559E4 /* EmptyPageStyle1View.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageStyle1View.xib; path = Resources/EmptyPageStyle1View.xib; sourceTree = "<group>"; };
-		CC9553FD3096AEC861619A1AB7CF549C /* EmptyPageStyle2View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageStyle2View.swift; path = Resources/EmptyPageStyle2View.swift; sourceTree = "<group>"; };
-		D3972D41F08AEBFA86D8675F879120A2 /* EmptyPage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = EmptyPage.modulemap; sourceTree = "<group>"; };
+		C161DEA6DBE2D5DAB33A5AA5C4C559E4 /* EmptyPageForStandard.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageForStandard.xib; path = Resources/EmptyPageForStandard.xib; sourceTree = "<group>"; };
+		CC9553FD3096AEC861619A1AB7CF549C /* EmptyPageForImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForImage.swift; path = Resources/EmptyPageForImage.swift; sourceTree = "<group>"; };
+		D3972D41F08AEBFA86D8675F879120A2 /* EmptyPage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = EmptyPage.modulemap; sourceTree = "<group>"; };
 		DC661E6A9DD95E720D8ECA124AE4A10A /* Pods-EmptyPage_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EmptyPage_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		E8F5DBFB6163A4ED99EC7E6F45DB0DA3 /* EmptyPageStyle2View.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageStyle2View.xib; path = Resources/EmptyPageStyle2View.xib; sourceTree = "<group>"; };
+		E8F5DBFB6163A4ED99EC7E6F45DB0DA3 /* EmptyPageForImage.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageForImage.xib; path = Resources/EmptyPageForImage.xib; sourceTree = "<group>"; };
 		F4CBA1ADD8CBDEC78A8CD89F4046F671 /* EmptyPage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EmptyPage-umbrella.h"; sourceTree = "<group>"; };
 		F9BC0FF3F52DD42AB04E1CCBBD4E3ADE /* Empty+UICollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UICollectionView.swift"; path = "Sources/Empty+UICollectionView.swift"; sourceTree = "<group>"; };
 		FCE5C58B469C8B72F6DFD34D14CCD21B /* Pods-EmptyPage_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EmptyPage_Example-dummy.m"; sourceTree = "<group>"; };
@@ -139,12 +139,12 @@
 		48EC67BD26C20B71003FB98566C39B4F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B95E0A897121DC7CFCA33E62EEAA64DB /* EmptyPageStyle1View.swift */,
-				C161DEA6DBE2D5DAB33A5AA5C4C559E4 /* EmptyPageStyle1View.xib */,
-				CC9553FD3096AEC861619A1AB7CF549C /* EmptyPageStyle2View.swift */,
-				E8F5DBFB6163A4ED99EC7E6F45DB0DA3 /* EmptyPageStyle2View.xib */,
-				92CDC766CAADAC46BEBCD885E00D2535 /* EmptyPageStyle3View.swift */,
-				5CB73D42859A306AAEC6B2952AB2D944 /* EmptyPageStyle3View.xib */,
+				B95E0A897121DC7CFCA33E62EEAA64DB /* EmptyPageForStandard.swift */,
+				C161DEA6DBE2D5DAB33A5AA5C4C559E4 /* EmptyPageForStandard.xib */,
+				CC9553FD3096AEC861619A1AB7CF549C /* EmptyPageForImage.swift */,
+				E8F5DBFB6163A4ED99EC7E6F45DB0DA3 /* EmptyPageForImage.xib */,
+				92CDC766CAADAC46BEBCD885E00D2535 /* EmptyPageForText.swift */,
+				5CB73D42859A306AAEC6B2952AB2D944 /* EmptyPageForText.xib */,
 				BB3D6F8E2E7D698D478A9E35E210032E /* EmptyPageView.swift */,
 				6100A1CF3FDA155526063A3372EEBF91 /* EmptyView+UIScrollView.swift */,
 			);
@@ -314,12 +314,12 @@
 				62BCA05B56BFB444C6AE98E01B76379F /* Empty+UITableView.swift in Sources */,
 				1CDCA571FED59C578D0F058DC34AD360 /* EmptyPage-dummy.m in Sources */,
 				57ED0DFED44D705DFC582F73F7D9E203 /* EmptyPage.swift in Sources */,
-				997D347972A1446E813F39293010224E /* EmptyPageStyle1View.swift in Sources */,
-				CC1102FA9E60BC60EB4EB9B80C1423CD /* EmptyPageStyle1View.xib in Sources */,
-				4518AF1293E5EE5B4EE5A61C0F64736F /* EmptyPageStyle2View.swift in Sources */,
-				BDDB454D187B1D026F092412DB9CFC54 /* EmptyPageStyle2View.xib in Sources */,
-				4FDB22B36E153A18A7F32B8046F349AD /* EmptyPageStyle3View.swift in Sources */,
-				4B7581DCAEAE0F61E955D7623A655ABB /* EmptyPageStyle3View.xib in Sources */,
+				997D347972A1446E813F39293010224E /* EmptyPageForStandard.swift in Sources */,
+				CC1102FA9E60BC60EB4EB9B80C1423CD /* EmptyPageForStandard.xib in Sources */,
+				4518AF1293E5EE5B4EE5A61C0F64736F /* EmptyPageForImage.swift in Sources */,
+				BDDB454D187B1D026F092412DB9CFC54 /* EmptyPageForImage.xib in Sources */,
+				4FDB22B36E153A18A7F32B8046F349AD /* EmptyPageForText.swift in Sources */,
+				4B7581DCAEAE0F61E955D7623A655ABB /* EmptyPageForText.xib in Sources */,
 				B453B3007C97F64194D1B9BA29447D4B /* EmptyPageView.swift in Sources */,
 				B084D5BAFABD6CD2110A95DFBE0B1B31 /* EmptyView+UIScrollView.swift in Sources */,
 				4E21F586E8139E20D2A5D24E688534E0 /* RunTime.swift in Sources */,

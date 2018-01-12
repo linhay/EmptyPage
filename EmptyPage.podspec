@@ -20,7 +20,6 @@ ss.source_files = 'Resources/**'
 ss.dependency 'EmptyPage/Core'
 end
 
-s.public_header_files = ["Sources/EmptyPage.h"]
 s.requires_arc = true
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 

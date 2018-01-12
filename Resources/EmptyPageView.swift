@@ -1,10 +1,9 @@
 //
 //  EmptyPageView.swift
-//  B7iOSBuyer
+//  EmptyPage
 //
 //  Created by bigl on 2018/1/10.
-//  Copyright © 2018年 com.spzjs.b7iosbuy. All rights reserved.
-//
+//  Copyright © 2018年 linhey <linhan.linhey@outlook.com>. All rights reserved.
 
 import UIKit
 
@@ -28,10 +27,10 @@ extension EmptyPageViewProtocol {
 public class EmptyPageView: UIView {
 
   /// 预设默认背景色
-  static var backColor: UIColor = UIColor(red: 244 / 255, green: 244 / 255, blue: 244 / 255, alpha: 1)
+  public static var backColor: UIColor = UIColor(red: 244 / 255, green: 244 / 255, blue: 244 / 255, alpha: 1)
 
   /// 获取一个空白页背景View
-  class var backgroundView: EmptyPageView {
+  public class var backgroundView: EmptyPageView {
     let view = EmptyPageView(frame: UIScreen.main.bounds)
     view.backgroundColor = EmptyPageView.backColor
     return view
@@ -41,7 +40,7 @@ public class EmptyPageView: UIView {
   ///
   /// - Parameter view: 空白页内容样式
   /// - Returns: 空白页
-  class func mix(view: UIView) -> EmptyPageView {
+  public class func mix(view: UIView) -> EmptyPageView {
     let backView = backgroundView
     backView.addSubview(view)
     
@@ -74,10 +73,17 @@ public class EmptyPageView: UIView {
     
     return backView
   }
-  
+
 }
 
 extension EmptyPageView {
+
+  struct StandardView {
+    public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
+    public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
+    public static var standard: EmptyPageForStandard { return EmptyPageForStandard.initFromNib }
+  }
+
 
   /// 纯文字
   ///
@@ -87,7 +93,7 @@ extension EmptyPageView {
   ///   - font: 文本字体大小, default: 18
   /// - Returns: 空白页
   public class func onlyText(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) -> EmptyPageView {
-    let view = EmptyPageStyle3View.initFromNib
+    let view = EmptyPageForText.initFromNib
     view.config(text: text, color: color, font: font)
     return mix(view: view)
   }
@@ -97,7 +103,7 @@ extension EmptyPageView {
   /// - Parameter attributed: 富文本
   /// - Returns: 空白页
   public class func onlyText(attributed: NSAttributedString) -> EmptyPageView {
-    let view = EmptyPageStyle3View.initFromNib
+    let view = EmptyPageForText.initFromNib
     view.congfig(attributed: attributed)
     return mix(view: view)
   }
@@ -107,7 +113,7 @@ extension EmptyPageView {
   /// - Parameter image: 图片
   /// - Returns: 空白页
   public class func onlyImage(image: UIImage) -> EmptyPageView {
-    let view = EmptyPageStyle2View.initFromNib
+    let view = EmptyPageForImage.initFromNib
     view.config(images: [image])
     return mix(view: view)
   }
@@ -120,7 +126,7 @@ extension EmptyPageView {
   ///   - repeatCount: 图片组循环播放次数
   /// - Returns: 空白页
   public class func onlyImages(images: [UIImage], duration: TimeInterval = 0, repeatCount: Int = 0) -> EmptyPageView {
-    let view = EmptyPageStyle2View.initFromNib
+    let view = EmptyPageForImage.initFromNib
     view.config(images: images, duration: duration, repeatCount: repeatCount)
     return mix(view: view)
   }
@@ -158,7 +164,7 @@ extension EmptyPageView {
                              btnTitleFont: UIFont = .systemFont(ofSize: 18),
                              btnBackColor: UIColor = .blue,
                              event: EmptyEvent) -> EmptyPageView {
-    let view = EmptyPageStyle1View.initFromNib
+    let view = EmptyPageForStandard.initFromNib
     view.config(images: images,
                 duration: duration,
                 repeatCount: repeatCount,
@@ -186,7 +192,7 @@ extension EmptyPageView {
                              btnTitleFont: UIFont = .systemFont(ofSize: 18),
                              btnBackColor: UIColor = .blue,
                              event: EmptyEvent) -> EmptyPageView {
-    let view = EmptyPageStyle1View.initFromNib
+    let view = EmptyPageForStandard.initFromNib
     view.config(images: images,
                 duration: duration,
                 repeatCount: repeatCount,

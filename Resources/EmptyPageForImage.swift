@@ -1,13 +1,13 @@
 //
-//  EmptyPageStyle2View.swift
-//  BuyerEmptyPage
+//  EmptyPageForImage.swift
+//  EmptyPage
 //
 //  Created by bigl on 2018/1/10.
-//
+//  Copyright © 2018年 linhey <linhan.linhey@outlook.com>. All rights reserved.
 
 import UIKit
 
-class EmptyPageStyle2View: UIView,EmptyPageViewProtocol {
+class EmptyPageForImage: UIView,EmptyPageViewProtocol {
 
 
   @IBOutlet weak var imageView: UIImageView!
