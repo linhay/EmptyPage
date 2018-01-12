@@ -35,9 +35,10 @@ pod 'EmptyPage/Resources'
 
 - 由于swift 4.0 取消了 `'initialize' ` 函数,所以需要在合适的时机执行以下函数才可以正常工作:
 
-  ```swift
-  EmptyPage.begin()
-  ```
+
+```swift
+EmptyPage.begin()
+```
 
 - 只引入 `'EmptyPage/Core'`:
 
