@@ -9,15 +9,13 @@ import UIKit
 
 class BuyerEmptyPage { }
 
-protocol EmptyPageViewProtocol: class {
-  
-}
+protocol EmptyPageViewProtocol: class { }
 
 public typealias EmptyEvent = (()->())?
 
 
 extension EmptyPageViewProtocol {
-  static var initFromNib: Self {
+  static public var initFromNib: Self {
     return Bundle(for: BuyerEmptyPage.self).loadNibNamed(String(describing: self),
                                                          owner: nil,
                                                          options: nil)?.first! as! Self
@@ -25,10 +23,10 @@ extension EmptyPageViewProtocol {
 }
 
 public class EmptyPageView: UIView {
-
+  
   /// 预设默认背景色
   public static var backColor: UIColor = UIColor(red: 244 / 255, green: 244 / 255, blue: 244 / 255, alpha: 1)
-
+  
   /// 获取一个空白页背景View
   public class var backgroundView: EmptyPageView {
     let view = EmptyPageView(frame: UIScreen.main.bounds)
@@ -73,18 +71,18 @@ public class EmptyPageView: UIView {
     
     return backView
   }
-
+  
 }
 
 extension EmptyPageView {
-
+  
   struct StandardView {
     public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
     public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
     public static var standard: EmptyPageForStandard { return EmptyPageForStandard.initFromNib }
   }
-
-
+  
+  
   /// 纯文字
   ///
   /// - Parameters:
@@ -97,7 +95,7 @@ extension EmptyPageView {
     view.config(text: text, color: color, font: font)
     return mix(view: view)
   }
-
+  
   /// 纯文字(富文本)
   ///
   /// - Parameter attributed: 富文本
@@ -107,7 +105,7 @@ extension EmptyPageView {
     view.congfig(attributed: attributed)
     return mix(view: view)
   }
-
+  
   /// 纯图片(单张)
   ///
   /// - Parameter image: 图片
@@ -131,7 +129,7 @@ extension EmptyPageView {
     return mix(view: view)
   }
   
-
+  
   /// 默认样式
   ///
   /// - Parameters:

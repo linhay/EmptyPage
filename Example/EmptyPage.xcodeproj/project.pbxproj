@@ -11,13 +11,11 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		9D7F63462004DD170028F898 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F63452004DD170028F898 /* TableViewController.swift */; };
-		9D7F63482004DD270028F898 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F63472004DD270028F898 /* CollectionViewController.swift */; };
-		9D7F634A2004DD7A0028F898 /* InputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F63492004DD7A0028F898 /* InputTableViewController.swift */; };
-		9D7F634C2004DE770028F898 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F634B2004DE770028F898 /* EmptyView.swift */; };
-		9D7F634E2004DE8B0028F898 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F634D2004DE8B0028F898 /* EmptyView.xib */; };
-		9D7F63522005B9840028F898 /* EmptyPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F63512005B9840028F898 /* EmptyPageType.swift */; };
 		9D7F63542005ED050028F898 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F63532005ED050028F898 /* .swift-version */; };
+		9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB38C200866C7002264E7 /* HomeViewController.swift */; };
+		9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */; };
+		9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */; };
+		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
 		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,13 +32,11 @@
 		72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EmptyPage.podspec; path = ../EmptyPage.podspec; sourceTree = "<group>"; };
 		7A0D4B6758498EB40AB7A721 /* Pods_EmptyPage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2DDCFE4E0A31B1EDF137CB /* Pods-EmptyPage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9D7F63452004DD170028F898 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		9D7F63472004DD270028F898 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		9D7F63492004DD7A0028F898 /* InputTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewController.swift; sourceTree = "<group>"; };
-		9D7F634B2004DE770028F898 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		9D7F634D2004DE8B0028F898 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
-		9D7F63512005B9840028F898 /* EmptyPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPageType.swift; sourceTree = "<group>"; };
 		9D7F63532005ED050028F898 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
+		9D9EB38C200866C7002264E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPageForCustom.swift; sourceTree = "<group>"; };
+		9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPageForCustom.xib; sourceTree = "<group>"; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B9825AB205A0A5E1168F3C90 /* Pods-EmptyPage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,12 +81,10 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				9D7F63452004DD170028F898 /* TableViewController.swift */,
-				9D7F63472004DD270028F898 /* CollectionViewController.swift */,
-				9D7F634B2004DE770028F898 /* EmptyView.swift */,
-				9D7F634D2004DE8B0028F898 /* EmptyView.xib */,
-				9D7F63492004DD7A0028F898 /* InputTableViewController.swift */,
-				9D7F63512005B9840028F898 /* EmptyPageType.swift */,
+				9D9EB38C200866C7002264E7 /* HomeViewController.swift */,
+				9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */,
+				9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */,
+				9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */,
 			);
 			name = "Example for EmptyPage";
 			path = EmptyPage;
@@ -197,9 +191,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D7F634E2004DE8B0028F898 /* EmptyView.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				9D7F63542005ED050028F898 /* .swift-version in Resources */,
 			);
@@ -266,12 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D7F63522005B9840028F898 /* EmptyPageType.swift in Sources */,
-				9D7F634A2004DD7A0028F898 /* InputTableViewController.swift in Sources */,
-				9D7F634C2004DE770028F898 /* EmptyView.swift in Sources */,
-				9D7F63482004DD270028F898 /* CollectionViewController.swift in Sources */,
+				9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				9D7F63462004DD170028F898 /* TableViewController.swift in Sources */,
+				9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

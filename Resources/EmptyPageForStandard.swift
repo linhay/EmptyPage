@@ -221,7 +221,7 @@ extension EmptyPageForStandard {
   }
 
   private func configText(attributed: NSAttributedString) {
-    titleLabel.attributedText = attributed
+    textLabel.attributedText = attributed
   }
 
   private func configBtn(title: String,
