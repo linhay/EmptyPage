@@ -34,8 +34,49 @@ class HomeViewController: UITableViewController {
     buildSectionForDefault()
     buildSectionForCustom()
     buildByDribbble()
+    buildByEmptystat()
   }
-  
+
+  func buildByEmptystat() {
+    var items = [CellItem]()
+    if true {
+      // http://emptystat.es/image/167120251047
+      let view = EmptyPageView.StandardView.standard
+      view.imageAspect = 457 / 285
+      view.imageView.image = UIImage(named: "empty-1001")
+      let emptyView: EmptyPageView = .mix(view: view)
+      emptyView.backgroundColor = .white
+      view.titleLabel.text = "Nobody is following"
+      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+      view.titleLabel.textColor = UIColor(red: 130 / 255,
+                                          green: 151 / 255,
+                                          blue: 172 / 255,
+                                          alpha: 1)
+      view.textLabel.text = "Following people helps you keep what they're saying and recommending."
+      view.textLabel.textColor = UIColor(red: 176 / 255,
+                                         green: 190 / 255,
+                                         blue: 203 / 255,
+                                         alpha: 1)
+
+      let buttonColor = UIColor(red: 50 / 255,
+                                green: 160 / 255,
+                                blue: 255 / 255,
+                                alpha: 1)
+
+      view.button.layer.borderColor = buttonColor.cgColor
+      view.button.layer.borderWidth = 1
+      view.button.layer.cornerRadius = 5
+      view.button.setTitle("Find interesting people to follow >>", for: .normal)
+      view.button.backgroundColor = .white
+      view.button.setTitleColor(buttonColor, for: .normal)
+      view.button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+      let item = CellItem(title: "emptystat.es",
+                          subTitle: "http://emptystat.es/image/167120251047",
+                          emptyView: emptyView)
+      items.append(item)
+    }
+    sections.append(Section(title: "emptystat.es",items: items))
+  }
   
   func buildByDribbble() {
     var items = [CellItem]()

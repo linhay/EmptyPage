@@ -8,7 +8,7 @@
 import UIKit
 
 public class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
-
+  
   /// imageView
   @IBOutlet public weak var imageView: UIImageView!
   /// 标题 Label
@@ -25,74 +25,74 @@ public class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
   
   /// 响应事件
   public var event: (()->())?
-
+  
   /// 图片距离顶部约束距离, default: 20
   public var imageTopSpace: CGFloat {
     set{ imageTopSpaceConstraint.constant = newValue }
     get{ return imageTopSpaceConstraint.constant }
   }
-
+  
   /// 图片与标题间距, default: 10
   public var imageWithTitleSpace: CGFloat {
     set{ imageWithTitleSpaceConstraint.constant = newValue }
     get{ return imageWithTitleSpaceConstraint.constant }
   }
-
+  
   /// 标题与详情文本间距, default: 10
   public var titleWithTextSpace: CGFloat {
     set{ titleWithTextSpaceConstraint.constant = newValue }
     get{ return titleWithTextSpaceConstraint.constant }
   }
-
+  
   /// 详情文本与按钮间距, default: 10
   public var textWithButtonSpace: CGFloat {
     set{ textWithButtonSpaceConstraint.constant = newValue }
     get{ return textWithButtonSpaceConstraint.constant }
   }
-
+  
   /// 按钮距离底部间距, default: 20
   public var butttonWithBottomSpace: CGFloat {
     set{ butttonWithBottomSpaceConstraint.constant = newValue }
     get{ return butttonWithBottomSpaceConstraint.constant }
   }
-
+  
   /// 图片宽高比, default: 1
   public var imageAspect: CGFloat {
     set{ imageAspectConstraint = imageAspectConstraint.change(multiplier: newValue) }
     get{ return imageAspectConstraint.multiplier }
   }
-
+  
   /// 按钮最小宽度比例, default: 0.618
   public var buttonWidthMinAspect: CGFloat {
     set{ buttonWidthMinAspectConstraint = buttonWidthMinAspectConstraint.change(multiplier: newValue) }
     get{ return buttonWidthMinAspectConstraint.multiplier }
   }
-
+  
   /// 标题左边距, default: 10
   public var titleLeftSpace: CGFloat {
     set{ titleLeftSpaceConstraint.constant = newValue }
     get{ return titleLeftSpaceConstraint.constant }
   }
-
+  
   /// 标题右边距, default: 10
   public var titleRightSpace: CGFloat {
     set{ titleRightSpaceConstraint.constant = newValue }
     get{ return titleRightSpaceConstraint.constant }
   }
-
+  
   /// 详情文本左边距, default: 10
   public var textLeftSpace: CGFloat {
     set{ textLeftSpaceConstraint.constant = newValue }
     get{ return textLeftSpaceConstraint.constant }
   }
-
+  
   /// 详情文本右边距, default: 10
   public var textRightSpace: CGFloat {
     set{ textRightSpaceConstraint.constant = newValue }
     get{ return textRightSpaceConstraint.constant }
   }
-
-
+  
+  
   /// imageView: top -> superView: top = 20
   @IBOutlet private weak var imageTopSpaceConstraint: NSLayoutConstraint!
   /// imageView: bottom -> titleLabel: top = 10
@@ -115,8 +115,8 @@ public class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
   @IBOutlet private weak var textLeftSpaceConstraint: NSLayoutConstraint!
   /// textLabel: right -> superView: right = -10
   @IBOutlet private weak var textRightSpaceConstraint: NSLayoutConstraint!
-
-
+  
+  
   @objc func tapEvent(_ sender: UIButton) {
     event?()
   }
@@ -125,73 +125,73 @@ public class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
 
 
 // MARK: - 对接 EmptyPageView 中函数
-extension EmptyPageForStandard {
-
-  func config(images: [UIImage],
-              duration: TimeInterval = 0,
-              repeatCount: Int = 0,
-              title: NSAttributedString,
-              text: NSAttributedString,
-              btnTitle: String,
-              btnTitleColor: UIColor = .white,
-              btnTitleFont: UIFont = .systemFont(ofSize: 18),
-              btnBackColor: UIColor = .blue,
-              event: EmptyEvent) {
+public extension EmptyPageForStandard {
+  
+  public func config(images: [UIImage],
+                     duration: TimeInterval = 0,
+                     repeatCount: Int = 0,
+                     title: NSAttributedString,
+                     text: NSAttributedString,
+                     btnTitle: String,
+                     btnTitleColor: UIColor = .white,
+                     btnTitleFont: UIFont = .systemFont(ofSize: 18),
+                     btnBackColor: UIColor = .blue,
+                     event: EmptyEvent) {
     configImageView(images: images,
                     duration: duration,
                     repeatCount: repeatCount)
-
+    
     configTitle(attributed: title)
-
+    
     configText(attributed: text)
-
+    
     configBtn(title: btnTitle,
               titleColor: btnTitleColor,
               font: btnTitleFont,
               backColor: btnBackColor,
               event: event)
   }
-
-  func config(images: [UIImage],
-              duration: TimeInterval = 0,
-              repeatCount: Int = 0,
-              title: String,
-              titleColor: UIColor = .black,
-              titleFont: UIFont = .systemFont(ofSize: 18),
-              text: String,
-              textColor: UIColor = .lightGray,
-              textFont: UIFont = .systemFont(ofSize: 18),
-              btnTitle: String,
-              btnTitleColor: UIColor = .white,
-              btnTitleFont: UIFont = .systemFont(ofSize: 18),
-              btnBackColor: UIColor = .blue,
-              event: EmptyEvent) {
-
+  
+  public func config(images: [UIImage],
+                     duration: TimeInterval = 0,
+                     repeatCount: Int = 0,
+                     title: String,
+                     titleColor: UIColor = .black,
+                     titleFont: UIFont = .systemFont(ofSize: 18),
+                     text: String,
+                     textColor: UIColor = .lightGray,
+                     textFont: UIFont = .systemFont(ofSize: 18),
+                     btnTitle: String,
+                     btnTitleColor: UIColor = .white,
+                     btnTitleFont: UIFont = .systemFont(ofSize: 18),
+                     btnBackColor: UIColor = .blue,
+                     event: EmptyEvent) {
+    
     configImageView(images: images,
                     duration: duration,
                     repeatCount: repeatCount)
-
+    
     configTitle(text: title,
                 color: titleColor,
                 font: titleFont)
-
+    
     configText(text: text,
                color: textColor,
                font: textFont)
-
+    
     configBtn(title: btnTitle,
               titleColor: btnTitleColor,
               font: btnTitleFont,
               backColor: btnBackColor,
               event: event)
   }
-
+  
 }
 
 
 // MARK: - private 控件配置 函数
-extension EmptyPageForStandard {
-  private func configImageView(images: [UIImage],duration: TimeInterval, repeatCount: Int) {
+public extension EmptyPageForStandard {
+  public func configImageView(images: [UIImage],duration: TimeInterval, repeatCount: Int) {
     if images.isEmpty { return }
     if images.count == 1 {
       imageView.image = images[0]
@@ -202,33 +202,33 @@ extension EmptyPageForStandard {
     imageView.animationImages = images
     imageView.startAnimating()
   }
-
-
-  private func configTitle(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) {
+  
+  
+  public func configTitle(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) {
     titleLabel.text = text
     titleLabel.textColor = color
     titleLabel.font = font
   }
-
-  private func configTitle(attributed: NSAttributedString) {
+  
+  public func configTitle(attributed: NSAttributedString) {
     titleLabel.attributedText = attributed
   }
-
-  private func configText(text: String, color: UIColor = .lightGray, font: UIFont = .systemFont(ofSize: 18)) {
+  
+  public func configText(text: String, color: UIColor = .lightGray, font: UIFont = .systemFont(ofSize: 18)) {
     textLabel.text = text
     textLabel.textColor = color
     textLabel.font = font
   }
-
-  private func configText(attributed: NSAttributedString) {
+  
+  public func configText(attributed: NSAttributedString) {
     textLabel.attributedText = attributed
   }
-
-  private func configBtn(title: String,
-                         titleColor: UIColor = .white,
-                         font: UIFont = .systemFont(ofSize: 18),
-                         backColor: UIColor = .blue,
-                         event: EmptyEvent) {
+  
+  public func configBtn(title: String,
+                        titleColor: UIColor = .white,
+                        font: UIFont = .systemFont(ofSize: 18),
+                        backColor: UIColor = .blue,
+                        event: EmptyEvent) {
     button.isHidden = title.isEmpty || event == nil
     button.setTitle(title, for: .normal)
     button.setTitleColor(titleColor, for: .normal)
@@ -236,5 +236,5 @@ extension EmptyPageForStandard {
     button.backgroundColor = backColor
     self.event = event
   }
-
+  
 }
