@@ -7,10 +7,10 @@
 
 import UIKit
 
-class EmptyPageForImage: UIView,EmptyPageViewProtocol {
+public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
 
 
-  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet public weak var imageView: UIImageView!
 
   func config(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
     if images.isEmpty { return }
