@@ -76,14 +76,13 @@ public class EmptyPageView: UIView {
 
 public extension EmptyPageView {
   
- public struct StandardView {
+  public struct StandardView {
     public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
     public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
     public static var standard: EmptyPageForStandard {
-      let view =  EmptyPageForStandard.initFromNib
-      print(view)
-      return view
-  }
+      return EmptyPageForStandard.initFromNib
+      
+    }
   }
   
   

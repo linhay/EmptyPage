@@ -8,11 +8,11 @@
 import UIKit
 
 public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
-
-
+  
+  
   @IBOutlet public weak var imageView: UIImageView!
-
-  func config(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
+  
+  public func config(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
     if images.isEmpty { return }
     if images.count == 1 {
       imageView.image = images[0]
@@ -23,6 +23,6 @@ public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
     imageView.animationImages = images
     imageView.startAnimating()
   }
-
-
+  
+  
 }
