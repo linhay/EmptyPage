@@ -15,9 +15,14 @@ s.subspec 'Core' do |ss|
 ss.source_files = 'Sources/**'
 end
 
-s.subspec 'Resources' do |ss|
-ss.source_files = 'Resources/**'
+s.subspec 'Standard' do |ss|
+ss.source_files = 'Standard/**'
 ss.dependency 'EmptyPage/Core'
+end
+
+s.subspec 'Spec' do |ss|
+ss.source_files = 'Spec/**'
+ss.dependency 'EmptyPage/Standard'
 end
 
 s.requires_arc = true

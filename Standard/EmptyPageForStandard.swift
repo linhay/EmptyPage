@@ -38,7 +38,7 @@ public class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
     get{ return imageWithTitleSpaceConstraint.constant }
   }
   
-  /// 标题与详情文本间距, default: 10
+  /// 标题与详情文本间距, default: 5
   public var titleWithTextSpace: CGFloat {
     set{ titleWithTextSpaceConstraint.constant = newValue }
     get{ return titleWithTextSpaceConstraint.constant }

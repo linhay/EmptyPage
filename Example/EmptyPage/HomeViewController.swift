@@ -98,6 +98,7 @@ class HomeViewController: UITableViewController {
                                           green: 151 / 255,
                                           blue: 172 / 255,
                                           alpha: 1)
+      view
       view.textLabel.text = "Something has gone wrong with the internet connection. Let's give it another shot."
 
       view.button.setTitle("TRY AGAIN", for: .normal)

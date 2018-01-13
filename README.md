@@ -28,7 +28,8 @@
 pod 'EmptyPage/Core'
 # 如果预设样式能够满足需求, 可以使用一下形式引入
 pod 'EmptyPage'
-pod 'EmptyPage/Resources'
+pod 'EmptyPage/Standard'
+pod 'EmptyPage/Spec'
 ```
 
 ## 使用
@@ -51,7 +52,7 @@ tableView.emptyView = emptyView	//设置
 tableView.reloadData() // 生效
 ```
 
-- 引入`pod 'EmptyPage'`或者 `pod 'EmptyPage/Resources'`:
+- 引入`pod 'EmptyPage'`或者 `pod 'EmptyPage/Standard'`:
 
 ```swift
 // 🌰:
