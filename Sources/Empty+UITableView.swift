@@ -10,6 +10,12 @@ import UIKit
 
 public extension UITableView {
 
+  @objc func empty_layoutSubviews() {
+    empty_layoutSubviews()
+    guard let emptyView = emptyView, bounds != emptyView.frame else{ return }
+    emptyView.frame = bounds
+  }
+
   @objc func table_emptyReloadData() {
 
     if frame.size.width == 0 || frame.size.height == 0 {
@@ -41,6 +47,5 @@ public extension UITableView {
     guard let view = emptyView else { return }
     view.frame = bounds
     addSubview(view)
-
   }
 }
