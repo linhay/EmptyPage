@@ -33,7 +33,7 @@ class HomeViewController: UITableViewController {
     tableView.sectionHeaderHeight = 40
     buildSectionForDefault()
     buildSectionForCustom()
-    buildByDribbble()
+    // buildByDribbble() // 还没申请授权
     buildByEmptystat()
   }
 
@@ -42,7 +42,7 @@ class HomeViewController: UITableViewController {
     if true {
       // http://emptystat.es/image/167120251047
       let view = EmptyPageView.StandardView.standard
-      view.imageAspect = 457 / 285
+      view.imageAspect = 840 / 546
       view.imageView.image = UIImage(named: "empty-1001")
       let emptyView: EmptyPageView = .mix(view: view)
       emptyView.backgroundColor = .white
@@ -72,6 +72,28 @@ class HomeViewController: UITableViewController {
       view.button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
       let item = CellItem(title: "emptystat.es",
                           subTitle: "http://emptystat.es/image/167120251047",
+                          emptyView: emptyView)
+      items.append(item)
+    }
+
+    if true {
+      // http://emptystat.es/image/162198623343
+      let view = EmptyPageView.StandardView.standard
+      view.imageAspect = 840 / 546
+      view.imageView.image = UIImage(named: "empty-1002")
+      let emptyView: EmptyPageView = .mix(view: view)
+      view.titleLabel.text = "Connection failure"
+      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+      view.titleLabel.textColor = UIColor(red: 130 / 255,
+                                          green: 151 / 255,
+                                          blue: 172 / 255,
+                                          alpha: 1)
+      view.textLabel.text = "Something has gone wrong with the internet connection. Let's give it another shot."
+
+      view.button.setTitle("TRY AGAIN", for: .normal)
+      view.button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+      let item = CellItem(title: "emptystat.es",
+                          subTitle: "http://emptystat.es/image/162198623343",
                           emptyView: emptyView)
       items.append(item)
     }
@@ -113,6 +135,41 @@ class HomeViewController: UITableViewController {
                           emptyView: emptyView)
       items.append(item)
     }
+
+    if true {
+      // http://emptystat.es/image/162198623343
+      let view = EmptyPageView.StandardView.standard
+      view.imageAspect = 457 / 285
+      view.imageView.image = UIImage(named: "404")
+      let emptyView: EmptyPageView = .mix(view: view)
+      emptyView.backgroundColor = UIColor(red: 244 / 255,
+                                          green: 247 / 255,
+                                          blue: 249 / 255,
+                                          alpha: 1)
+
+      view.titleLabel.text = "FILE NOT FOUND"
+      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+      view.titleLabel.textColor = UIColor(red: 130 / 255,
+                                          green: 151 / 255,
+                                          blue: 172 / 255,
+                                          alpha: 1)
+      view.titleWithTextSpace = 0
+      view.textLabel.text = """
+      Lorem ipsum dolor sit amet.
+      conectetur adipscing elit sed do eiusmod
+      """
+
+      view.textLabel.textColor = UIColor(red: 176 / 255,
+                                         green: 190 / 255,
+                                         blue: 203 / 255,
+                                         alpha: 1)
+      view.button.isHidden = true
+      let item = CellItem(title: "404 page - Illustration",
+                          subTitle: "https://dribbble.com/iftikharshaikh",
+                          emptyView: emptyView)
+      items.append(item)
+    }
+
     sections.append(Section(title: "dribbble",items: items))
   }
   

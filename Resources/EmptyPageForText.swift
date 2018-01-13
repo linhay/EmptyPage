@@ -17,13 +17,13 @@ public class EmptyPageForText: UIView,EmptyPageViewProtocol {
     }
   }
 
-  func config(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) {
+ public func config(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) {
     label.text = text
     label.textColor = color
     label.font = font
   }
 
-  func congfig(attributed: NSAttributedString) {
+ public func congfig(attributed: NSAttributedString) {
     label.attributedText = attributed
   }
 
