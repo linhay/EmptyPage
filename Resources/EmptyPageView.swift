@@ -79,7 +79,11 @@ public extension EmptyPageView {
  public struct StandardView {
     public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
     public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
-    public static var standard: EmptyPageForStandard { return EmptyPageForStandard.initFromNib }
+    public static var standard: EmptyPageForStandard {
+      let view =  EmptyPageForStandard.initFromNib
+      print(view)
+      return view
+  }
   }
   
   
