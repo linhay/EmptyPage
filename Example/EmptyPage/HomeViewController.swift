@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  EmptyPage_Example
 //
-//  Created by bigl on 2018/1/12.
+//  Created by linhey on 2018/1/12.
 //  Copyright © 2018年 CocoaPods. All rights reserved.
 //
 
@@ -28,6 +28,7 @@ class HomeViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "EmptyPage"
     tableView.rowHeight = 50
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     tableView.sectionHeaderHeight = 40
