@@ -49,20 +49,23 @@ class HomeViewController: UITableViewController {
                                           green: 247 / 255,
                                           blue: 249 / 255,
                                           alpha: 1)
+
       view.titleLabel.text = "FILE NOT FOUND"
       view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
       view.titleLabel.textColor = UIColor(red: 130 / 255,
-                                         green: 151 / 255,
-                                         blue: 172 / 255,
-                                         alpha: 1)
+                                          green: 151 / 255,
+                                          blue: 172 / 255,
+                                          alpha: 1)
+      view.titleWithTextSpace = 0
       view.textLabel.text = """
       Lorem ipsum dolor sit amet.
       conectetur adipscing elit sed do eiusmod
       """
+
       view.textLabel.textColor = UIColor(red: 176 / 255,
-                                          green: 190 / 255,
-                                          blue: 203 / 255,
-                                          alpha: 1)
+                                         green: 190 / 255,
+                                         blue: 203 / 255,
+                                         alpha: 1)
       view.button.isHidden = true
       let item = CellItem(title: "404 page - Illustration",
                           subTitle: "https://dribbble.com/iftikharshaikh",
@@ -74,7 +77,7 @@ class HomeViewController: UITableViewController {
   
   func buildSectionForCustom() {
     var items = [CellItem]()
-    do{
+    if true {
       let view = EmptyPageForCustom.initFromNib
       view.imageView.image = UIImage(named: "empty")
       view.label.text = "描述文本"
@@ -100,28 +103,28 @@ class HomeViewController: UITableViewController {
                                                       .foregroundColor: UIColor.black])
     attributed.append(attributed2)
     
-    do {
+    if true {
       let item = CellItem(title: "纯文字",
                           subTitle: "默认样式",
                           emptyView: .onlyText(text: "纯文字-默认样式"))
       items.append(item)
     }
     
-    do {
+    if true {
       let item = CellItem(title: "纯文字",
                           subTitle: "富文本样式",
                           emptyView: .onlyText(attributed: attributed))
       items.append(item)
     }
     
-    do{
+    if true {
       let item = CellItem(title: "纯图片",
                           subTitle: "默认样式",
                           emptyView: .onlyImage(image: UIImage(named: "empty")!))
       items.append(item)
     }
     
-    do{
+    if true {
       let item = CellItem(title: "纯图片",
                           subTitle: "图片组样式",
                           emptyView: .onlyImages(images: images,
@@ -131,7 +134,7 @@ class HomeViewController: UITableViewController {
     }
     
     
-    do{
+    if true {
       let item = CellItem(title: "标准",
                           subTitle: "默认样式",
                           emptyView: .standard(images: [UIImage(named: "empty")!],
@@ -144,7 +147,7 @@ class HomeViewController: UITableViewController {
       items.append(item)
     }
     
-    do{
+    if true {
       let item = CellItem(title: "标准",
                           subTitle: "富文本样式",
                           emptyView: .standard(images: images,
