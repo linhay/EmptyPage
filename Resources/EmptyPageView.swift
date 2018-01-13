@@ -41,29 +41,29 @@ public class EmptyPageView: UIView {
   public class func mix(view: UIView) -> EmptyPageView {
     let backView = backgroundView
     backView.addSubview(view)
-    
     view.translatesAutoresizingMaskIntoConstraints = false
+
     let lay1 = NSLayoutConstraint(item: view,
-                                  attribute: NSLayoutAttribute.centerX,
-                                  relatedBy: NSLayoutRelation.equal,
+                                  attribute: .centerX,
+                                  relatedBy: .equal,
                                   toItem: view.superview,
-                                  attribute: NSLayoutAttribute.centerX,
+                                  attribute: .centerX,
                                   multiplier: 1,
                                   constant: 0)
     
     let lay2 = NSLayoutConstraint(item: view,
-                                  attribute: NSLayoutAttribute.centerY,
-                                  relatedBy: NSLayoutRelation.equal,
+                                  attribute: .centerY,
+                                  relatedBy: .equal,
                                   toItem: view.superview,
-                                  attribute: NSLayoutAttribute.centerY,
+                                  attribute: .centerY,
                                   multiplier: 1,
                                   constant: 0)
     
     let lay3 = NSLayoutConstraint(item: view,
-                                  attribute: NSLayoutAttribute.width,
-                                  relatedBy: NSLayoutRelation.equal,
+                                  attribute: .width,
+                                  relatedBy: .equal,
                                   toItem: view.superview,
-                                  attribute: NSLayoutAttribute.width,
+                                  attribute: .width,
                                   multiplier: 1,
                                   constant: 0)
     

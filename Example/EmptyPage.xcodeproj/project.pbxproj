@@ -16,6 +16,11 @@
 		9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */; };
 		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
+		CDA25D592009E4CB003C0E7E /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */; };
+		CDA25D5B2009E4DB003C0E7E /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5A2009E4DB003C0E7E /* DemoCollectionViewController.swift */; };
+		CDA25D5D2009E54F003C0E7E /* EmptyManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyManger.swift */; };
+		CDA25D5F2009E630003C0E7E /* EmptyPageForAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5E2009E630003C0E7E /* EmptyPageForAnimation.swift */; };
+		CDA25D612009E657003C0E7E /* EmptyPageForAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D602009E657003C0E7E /* EmptyPageForAnimation.xib */; };
 		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B9825AB205A0A5E1168F3C90 /* Pods-EmptyPage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
+		CDA25D5A2009E4DB003C0E7E /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
+		CDA25D5C2009E54F003C0E7E /* EmptyManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyManger.swift; sourceTree = "<group>"; };
+		CDA25D5E2009E630003C0E7E /* EmptyPageForAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPageForAnimation.swift; sourceTree = "<group>"; };
+		CDA25D602009E657003C0E7E /* EmptyPageForAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPageForAnimation.xib; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +95,11 @@
 				9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */,
 				9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */,
 				9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */,
+				CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */,
+				CDA25D5A2009E4DB003C0E7E /* DemoCollectionViewController.swift */,
+				CDA25D5C2009E54F003C0E7E /* EmptyManger.swift */,
+				CDA25D5E2009E630003C0E7E /* EmptyPageForAnimation.swift */,
+				CDA25D602009E657003C0E7E /* EmptyPageForAnimation.xib */,
 			);
 			name = "Example for EmptyPage";
 			path = EmptyPage;
@@ -194,6 +209,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
+				CDA25D612009E657003C0E7E /* EmptyPageForAnimation.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
@@ -262,7 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA25D592009E4CB003C0E7E /* DemoTableViewController.swift in Sources */,
+				CDA25D5F2009E630003C0E7E /* EmptyPageForAnimation.swift in Sources */,
 				9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */,
+				CDA25D5B2009E4DB003C0E7E /* DemoCollectionViewController.swift in Sources */,
+				CDA25D5D2009E54F003C0E7E /* EmptyManger.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */,
 			);

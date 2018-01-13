@@ -17,6 +17,15 @@ public struct EmptyPage {
     RunTime.exchangeMethod(selector: #selector(UITableView.reloadData),
                            replace: #selector(UITableView.table_emptyReloadData),
                            class: UITableView.self)
+
+    RunTime.exchangeMethod(selector: #selector(UITableView.layoutSubviews),
+                           replace: #selector(UITableView.empty_layoutSubviews),
+                           class: UITableView.self)
+
+    RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutSubviews),
+                           replace: #selector(UICollectionView.empty_layoutSubviews),
+                           class: UICollectionView.self)
+
     RunTime.exchangeMethod(selector: #selector(UICollectionView.reloadData),
                            replace: #selector(UICollectionView.coll_emptyReloadData),
                            class: UICollectionView.self)
