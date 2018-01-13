@@ -74,9 +74,9 @@ public class EmptyPageView: UIView {
   
 }
 
-extension EmptyPageView {
+public extension EmptyPageView {
   
-  struct StandardView {
+ public struct StandardView {
     public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
     public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
     public static var standard: EmptyPageForStandard { return EmptyPageForStandard.initFromNib }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
+public class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
 
   /// imageView
   @IBOutlet public weak var imageView: UIImageView!

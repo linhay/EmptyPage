@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		9D7F63542005ED050028F898 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F63532005ED050028F898 /* .swift-version */; };
 		9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB38C200866C7002264E7 /* HomeViewController.swift */; };
 		9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */; };
 		9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */; };
 		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
+		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,6 @@
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EmptyPage.podspec; path = ../EmptyPage.podspec; sourceTree = "<group>"; };
 		7A0D4B6758498EB40AB7A721 /* Pods_EmptyPage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +38,7 @@
 		9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPageForCustom.xib; sourceTree = "<group>"; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B9825AB205A0A5E1168F3C90 /* Pods-EmptyPage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,9 +76,9 @@
 		607FACD21AFB9204008FA782 /* Example for EmptyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CDA25D562009A7BD003C0E7E /* Images.xcassets */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				9D9EB38C200866C7002264E7 /* HomeViewController.swift */,
@@ -164,6 +164,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 8H2PX2432F;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -194,8 +195,8 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				9D7F63542005ED050028F898 /* .swift-version in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +394,7 @@
 			baseConfigurationReference = E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -408,6 +410,7 @@
 			baseConfigurationReference = 2A92FDD691F47CFF2DA54F12 /* Pods-EmptyPage_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
