@@ -31,14 +31,23 @@ class HomeViewController: UITableViewController {
     tableView.rowHeight = 50
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     tableView.sectionHeaderHeight = 40
+    buildDemos()
     buildSectionForDefault()
     buildSectionForCustom()
     // buildByDribbble() // 还没申请授权
     buildByEmptystat()
   }
 
+  func buildDemos() {
+    let table = CellItem(title: "tableView示例", subTitle: "tableView", emptyView: EmptyPageView())
+    let collection = CellItem(title: "collectionView示例", subTitle: "collectionView", emptyView: EmptyPageView())
+    sections.append(Section(title: "完整示例", items: [table,collection]))
+  }
+
+
   func buildByEmptystat() {
     var items = [CellItem]()
+
     if true {
       // http://emptystat.es/image/167120251047
       let view = EmptyPageView.StandardView.standard
@@ -97,6 +106,7 @@ class HomeViewController: UITableViewController {
                           emptyView: emptyView)
       items.append(item)
     }
+
     sections.append(Section(title: "emptystat.es",items: items))
   }
   
@@ -178,7 +188,7 @@ class HomeViewController: UITableViewController {
     if true {
       let view = EmptyPageForCustom.initFromNib
       view.imageView.image = UIImage(named: "empty")
-      view.label.text = "描述文本"
+      view.label.text = "Connection failure"
       let item = CellItem(title: "自定义样式",
                           subTitle: "一",
                           emptyView: .mix(view: view))
@@ -193,12 +203,12 @@ class HomeViewController: UITableViewController {
       return UIImage(named: "load-\(item)")!
     }
     
-    let attributed = NSMutableAttributedString(string: "富文本-",
+    let attributed = NSMutableAttributedString(string: "Connection",
                                                attributes: [.font : UIFont.boldSystemFont(ofSize: 30),
                                                             .foregroundColor: UIColor.red])
-    let attributed2 = NSAttributedString(string: "样式",
+    let attributed2 = NSAttributedString(string: " Failure",
                                          attributes: [.font : UIFont.systemFont(ofSize: 20),
-                                                      .foregroundColor: UIColor.black])
+                                                      .foregroundColor: UIColor.darkText])
     attributed.append(attributed2)
     
     if true {
@@ -236,9 +246,9 @@ class HomeViewController: UITableViewController {
       let item = CellItem(title: "标准",
                           subTitle: "默认样式",
                           emptyView: .standard(images: [UIImage(named: "empty")!],
-                                               title: "标题",
-                                               text: "详情文本",
-                                               btnTitle: "按钮文本",
+                                               title: "Connection failure",
+                                               text: "wait for a minture",
+                                               btnTitle: "Try Again",
                                                event: {
                                                 self.alertEvent()
                           }))
@@ -297,10 +307,21 @@ class HomeViewController: UITableViewController {
   
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let vc = UITableViewController(style: .plain)
-    vc.tableView.separatorStyle = .none
-    vc.tableView.setEmpty(view: sections[indexPath.section].items[indexPath.item].emptyView)
-    navigationController?.pushViewController(vc, animated: true)
+    let item = sections[indexPath.section].items[indexPath.item]
+    switch item.subTitle {
+    case "tableView":
+      let vc = DemoTableViewController(style: .plain)
+      navigationController?.pushViewController(vc, animated: true)
+    case "collectionView":
+      let vc = DemoCollectionViewController()
+      navigationController?.pushViewController(vc, animated: true)
+    default:
+      let vc = UITableViewController(style: .plain)
+      vc.tableView.separatorStyle = .none
+      vc.tableView.setEmpty(view: item.emptyView)
+      navigationController?.pushViewController(vc, animated: true)
+    }
+
   }
   
   

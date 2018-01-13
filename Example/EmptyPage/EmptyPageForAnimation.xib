@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KOU-G2-Npc" customClass="EmptyPageForAnimation" customModule="EmptyPage_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J6Q-m4-ZCy">
+                    <rect key="frame" x="85.5" y="0.0" width="204" height="204"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="J6Q-m4-ZCy" secondAttribute="height" multiplier="1:1" id="R8S-pU-ZvW"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="J6Q-m4-ZCy" firstAttribute="width" relation="lessThanOrEqual" secondItem="KOU-G2-Npc" secondAttribute="width" multiplier="0.9" id="7Jq-6E-y8V"/>
+                <constraint firstAttribute="bottom" secondItem="J6Q-m4-ZCy" secondAttribute="bottom" id="Ekp-8a-0PL"/>
+                <constraint firstItem="J6Q-m4-ZCy" firstAttribute="top" secondItem="KOU-G2-Npc" secondAttribute="top" id="GxZ-at-Abt"/>
+                <constraint firstItem="J6Q-m4-ZCy" firstAttribute="centerX" secondItem="KOU-G2-Npc" secondAttribute="centerX" id="WTQ-Xw-qPN"/>
+                <constraint firstItem="J6Q-m4-ZCy" firstAttribute="centerY" secondItem="KOU-G2-Npc" secondAttribute="centerY" id="lyb-Wu-1ai"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="J6Q-m4-ZCy" id="Evg-vD-lik"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53"/>
+        </view>
+    </objects>
+</document>

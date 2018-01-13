@@ -33,11 +33,17 @@
                     <rect key="frame" x="10" y="346" width="180" height="34"/>
                     <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="btn1TapEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="wiX-0v-PdF"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZH-y9-HEH">
                     <rect key="frame" x="210" y="346" width="180" height="34"/>
                     <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="btn2TapEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="gFM-RX-ANG"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
