@@ -17,12 +17,21 @@ public class EmptyPageForText: UIView,EmptyPageViewProtocol {
     }
   }
 
+ /// 设置文本
+ ///
+ /// - Parameters:
+ ///   - text: 文本
+ ///   - color: 文本颜色
+ ///   - font: 文本字体
  public func config(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) {
     label.text = text
     label.textColor = color
     label.font = font
   }
 
+ /// 设置富文本
+ ///
+ /// - Parameter attributed: 富文本
  public func congfig(attributed: NSAttributedString) {
     label.attributedText = attributed
   }

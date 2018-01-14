@@ -20,7 +20,20 @@ public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
   /// imageView: width -> imageView: height = 1
   @IBOutlet private weak var imageAspectConstraint: NSLayoutConstraint!
 
-  public func config(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
+  /// 设置图片
+  ///
+  /// - Parameter image: 图片
+  public func config(image: UIImage) {
+    config(images: [image], duration: 0, repeatCount: 0)
+  }
+
+  /// 设置图片组
+  ///
+  /// - Parameters:
+  ///   - images: 图片组
+  ///   - duration: 播放时长
+  ///   - repeatCount: 循环次数
+  public func config(images: [UIImage],duration: TimeInterval, repeatCount: Int) {
     if let firstImage = images.first,
       firstImage.size.width != 0,
       firstImage.size.height != 0 {

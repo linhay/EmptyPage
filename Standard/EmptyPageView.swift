@@ -76,13 +76,13 @@ public class EmptyPageView: UIView {
 
 public extension EmptyPageView {
   
-  public struct StandardView {
+  public struct ContentView {
+    /// 纯文本样式
     public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
+    /// 纯图片样式
     public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
-    public static var standard: EmptyPageForStandard {
-      return EmptyPageForStandard.initFromNib
-      
-    }
+    /// 标准样式
+    public static var standard: EmptyPageForStandard { return EmptyPageForStandard.initFromNib }
   }
   
   
@@ -115,7 +115,7 @@ public extension EmptyPageView {
   /// - Returns: 空白页
   public class func onlyImage(image: UIImage) -> EmptyPageView {
     let view = EmptyPageForImage.initFromNib
-    view.config(images: [image])
+    view.config(image: image)
     return mix(view: view)
   }
   
@@ -183,6 +183,20 @@ public extension EmptyPageView {
     return mix(view: view)
   }
   
+  /// 默认样式
+  ///
+  /// - Parameters:
+  ///   - images: 图片组
+  ///   - duration: 图片组时长
+  ///   - repeatCount: 图片组循环次数
+  ///   - title: 标题文本
+  ///   - text: 描述文本
+  ///   - btnTitle: 按钮文本
+  ///   - btnTitleColor: 按钮文本颜色
+  ///   - btnTitleFont: 按钮标题字体
+  ///   - btnBackColor: 按钮本背景颜色
+  ///   - event: 按钮点击事件
+  /// - Returns: 空白页
   public class func standard(images: [UIImage],
                              duration: TimeInterval = 0,
                              repeatCount: Int = 0,

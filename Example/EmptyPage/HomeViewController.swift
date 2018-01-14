@@ -51,7 +51,7 @@ class HomeViewController: UITableViewController {
 
     if true {
       // http://emptystat.es/image/167120251047
-      let view = EmptyPageView.StandardView.standard
+      let view = EmptyPageView.ContentView.standard
       view.configImageView(images: [UIImage(named: "empty-1001")!])
       let emptyView: EmptyPageView = .mix(view: view)
       emptyView.backgroundColor = .white
@@ -87,7 +87,7 @@ class HomeViewController: UITableViewController {
 
     if true {
       // http://emptystat.es/image/162198623343
-      let view = EmptyPageView.StandardView.standard
+      let view = EmptyPageView.ContentView.standard
       view.configImageView(images: [UIImage(named: "empty-1002")!])
       let emptyView: EmptyPageView = .mix(view: view)
       view.titleLabel.text = "Connection failure"
@@ -113,7 +113,7 @@ class HomeViewController: UITableViewController {
     var items = [CellItem]()
     if true {
       // https://dribbble.com/shots/2586577-404-page-Illustration
-      let view = EmptyPageView.StandardView.standard
+      let view = EmptyPageView.ContentView.standard
       view.imageAspect = 457 / 285
       view.imageView.image = UIImage(named: "404")
       let emptyView: EmptyPageView = .mix(view: view)
@@ -147,7 +147,7 @@ class HomeViewController: UITableViewController {
 
     if true {
       // http://emptystat.es/image/162198623343
-      let view = EmptyPageView.StandardView.standard
+      let view = EmptyPageView.ContentView.standard
       view.configImageView(images: [UIImage(named: "404")!])
       let emptyView: EmptyPageView = .mix(view: view)
       emptyView.backgroundColor = UIColor(red: 244 / 255,
