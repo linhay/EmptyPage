@@ -20,10 +20,10 @@ ss.source_files = 'Standard/**'
 ss.dependency 'EmptyPage/Core'
 end
 
-s.subspec 'Spec' do |ss|
-ss.source_files = 'Spec/**'
-ss.dependency 'EmptyPage/Standard'
-end
+# s.subspec 'Spec' do |ss|
+# ss.source_files = 'Spec/**'
+# ss.dependency 'EmptyPage/Spec'
+# end
 
 s.requires_arc = true
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
