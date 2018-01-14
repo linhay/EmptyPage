@@ -17,6 +17,7 @@
   "platforms": {
     "ios": "8.0"
   },
+  "public_header_files": "Sources/EmptyPage.h",
   "requires_arc": true,
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "4.0"
@@ -24,22 +25,13 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Sources/**"
+      "source_files": "Sources/*.{swift,h}"
     },
     {
       "name": "Standard",
-      "source_files": "Standard/**",
+      "source_files": "Standard/*.{swift,xib}",
       "dependencies": {
         "EmptyPage/Core": [
-
-        ]
-      }
-    },
-    {
-      "name": "Spec",
-      "source_files": "Spec/**",
-      "dependencies": {
-        "EmptyPage/Standard": [
 
         ]
       }
