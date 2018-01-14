@@ -31,7 +31,7 @@
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EmptyPage.podspec; path = ../EmptyPage.podspec; sourceTree = "<group>"; };
+		72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EmptyPage.podspec; path = ../EmptyPage.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7A0D4B6758498EB40AB7A721 /* Pods_EmptyPage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2DDCFE4E0A31B1EDF137CB /* Pods-EmptyPage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9D7F63532005ED050028F898 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
