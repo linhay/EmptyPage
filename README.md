@@ -11,6 +11,9 @@
 
 ![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)  
 
+### 默认样式(纯文字/纯图片/标准)
+
+![demo1](./readmeData/demo1.PNG)![demo2](./readmeData/demo2.PNG)![demo3](./readmeData/demo3.PNG)
 ## Features
 
 - [x] 支持UICollectionView & UITableView
