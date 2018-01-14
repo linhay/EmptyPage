@@ -1,6 +1,6 @@
 {
   "name": "EmptyPage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "summary": "iOS - 轻量级空白页占位图框架...",
   "homepage": "https://github.com/linhey055/EmptyPage",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/bigl055/EmptyPage.git",
-    "tag": "1.1.0"
+    "tag": "1.2.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -31,6 +31,15 @@
       "source_files": "Standard/**",
       "dependencies": {
         "EmptyPage/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Spec",
+      "source_files": "Spec/**",
+      "dependencies": {
+        "EmptyPage/Standard": [
 
         ]
       }

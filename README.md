@@ -9,8 +9,7 @@
 
 ## 示例:
 
-![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)  ![demo](./readmeData/empty3.gif)
-
+![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)  
 
 ## Features
 
@@ -29,6 +28,7 @@ pod 'EmptyPage/Core'
 # 如果预设样式能够满足需求, 可以使用一下形式引入
 pod 'EmptyPage'
 pod 'EmptyPage/Standard'
+# 后期加入的通用样式将以扩展的形式加入到以下仓库中
 pod 'EmptyPage/Spec'
 ```
 
@@ -43,37 +43,59 @@ EmptyPage.begin()
 
 - 只引入 `'EmptyPage/Core'`:
 
-```swift
-let emptyView = EmptyView() // 自定义空白页
-collectionView.emptyView = emptyView // 设置
-collectionView.reloadData()	// 生效
-
-tableView.emptyView = emptyView	//设置
-tableView.reloadData() // 生效
-```
-
-- 引入`pod 'EmptyPage'`或者 `pod 'EmptyPage/Standard'`:
+  适合构建有丰富特性的自定义样式.
 
 ```swift
-// 🌰:
-// 纯文字
-let emptyView: EmptyPageView = .onlyText(text: "没有更多信息")
-let emptyView: EmptyPageView = .onlyText(attributed: NSAttributedString(string: "没有更多信息"))
-
-// 纯图片(支持单张与多张)
-let emptyView: EmptyPageView = .onlyImages(images: [UIImage])
-                   
-// 图片(支持单张与多张) + 标题 + 描述 + 一个按钮 的样式
-let emptyView: EmptyPageView = .standard(images: [UIImage(named: "empty")!],
-					title: "标题",
-					text: "描述文本",
-					btnTitle: "按钮标题") {
-					print("按钮事件")
-	}
-
-// 设置
-tableView.setEmpty(view: emptyView)
+// 需要自定义空白页样式
+let emptyView = EmptyView()
+// 直接给emptyView属性赋值,会在reloadData的时候判断是否需要显示
+collectionView.emptyView = emptyView
+// 调用reloadData才会判断是否需要显示
+collectionView.reloadData()
 ```
+
+-  引入 `pod 'EmptyPage/Standard'`:
+
+  默认提供了3套默认样式,纯文本样式/纯图片样式/标准样式(图片+标题+描述+按钮形式)
+
+   - 并提供了丰富的设置函数.
+
+
+  - 并且大部分属性都是能直接访问修改.方便个人定制.
+  - 使用EmptyPageView接口实现:
+
+  ```swift
+  // 图片(支持单张与多张) + 标题 + 描述 + 一个按钮 的样式
+  let emptyView: EmptyPageView = .standard(images: [UIImage(named: "empty")!],
+  					title: "标题",
+  					text: "描述文本",
+  					btnTitle: "按钮标题") {
+  					print("按钮事件")
+  	}
+  	
+  // 设置
+  tableView.setEmpty(view: emptyView) // 等价于 tableView.emptyView = emptyView
+  ```
+
+  - 自定义默认样式
+
+  ```swift
+  // 获取标准样式
+  let view = EmptyPageView.ContentView.standard
+  // 自定义配置标准样式
+  view.configImageView(images: [UIImage(named: "empty-1002")!])
+  view.titleLabel.text = "Connection failure"
+  view.button.setTitle("TRY AGAIN", for: .normal)
+  // 将标准样式条添加至背景View上(提供了约束设置的功能)
+  let emptyView: EmptyPageView = .mix(view: view)
+  // 设置
+  tableView.setEmpty(view: emptyView) // 等价于 tableView.emptyView = emptyView
+  ```
+
+
+- 引入`pod 'EmptyPage'`或者 `pod 'EmptyPage/Spec'`:
+
+  **目前是空的**,会在后期加入一些更加通用的样式,提高开发效率😁.
 
 ## Author
 

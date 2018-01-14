@@ -10,7 +10,6 @@ import UIKit
 class BuyerEmptyPage { }
 
 protocol EmptyPageViewProtocol: class { }
-
 public typealias EmptyEvent = (()->())?
 
 
@@ -22,13 +21,13 @@ extension EmptyPageViewProtocol {
   }
 }
 
-public class EmptyPageView: UIView {
+open class EmptyPageView: UIView {
   
   /// 预设默认背景色
-  public static var backColor: UIColor = UIColor(red: 244 / 255, green: 244 / 255, blue: 244 / 255, alpha: 1)
+  open static var backColor: UIColor = UIColor(red: 244 / 255, green: 244 / 255, blue: 244 / 255, alpha: 1)
   
   /// 获取一个空白页背景View
-  public class var backgroundView: EmptyPageView {
+  open class var backgroundView: EmptyPageView {
     let view = EmptyPageView(frame: UIScreen.main.bounds)
     view.backgroundColor = EmptyPageView.backColor
     return view
@@ -38,43 +37,16 @@ public class EmptyPageView: UIView {
   ///
   /// - Parameter view: 空白页内容样式
   /// - Returns: 空白页
-  public class func mix(view: UIView) -> EmptyPageView {
+  open class func mix(view: UIView) -> EmptyPageView {
     let backView = backgroundView
     backView.addSubview(view)
     view.translatesAutoresizingMaskIntoConstraints = false
-
-    let lay1 = NSLayoutConstraint(item: view,
-                                  attribute: .centerX,
-                                  relatedBy: .equal,
-                                  toItem: view.superview,
-                                  attribute: .centerX,
-                                  multiplier: 1,
-                                  constant: 0)
-    
-    let lay2 = NSLayoutConstraint(item: view,
-                                  attribute: .centerY,
-                                  relatedBy: .equal,
-                                  toItem: view.superview,
-                                  attribute: .centerY,
-                                  multiplier: 1,
-                                  constant: 0)
-    
-    let lay3 = NSLayoutConstraint(item: view,
-                                  attribute: .width,
-                                  relatedBy: .equal,
-                                  toItem: view.superview,
-                                  attribute: .width,
-                                  multiplier: 1,
-                                  constant: 0)
-    
+    let lay1 = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: view.superview, attribute: .centerX, multiplier: 1, constant: 0)
+    let lay2 = NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: view.superview, attribute: .centerY, multiplier: 1, constant: 0)
+    let lay3 = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: view.superview, attribute: .width, multiplier: 1, constant: 0)
     backView.addConstraints([lay1,lay2,lay3])
-    
     return backView
   }
-  
-}
-
-public extension EmptyPageView {
   
   public struct ContentView {
     /// 纯文本样式
@@ -93,7 +65,7 @@ public extension EmptyPageView {
   ///   - color: 文本颜色, default: UIColor.black
   ///   - font: 文本字体大小, default: 18
   /// - Returns: 空白页
-  public class func onlyText(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) -> EmptyPageView {
+  open class func onlyText(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) -> EmptyPageView {
     let view = EmptyPageForText.initFromNib
     view.config(text: text, color: color, font: font)
     return mix(view: view)
@@ -103,7 +75,7 @@ public extension EmptyPageView {
   ///
   /// - Parameter attributed: 富文本
   /// - Returns: 空白页
-  public class func onlyText(attributed: NSAttributedString) -> EmptyPageView {
+  open class func onlyText(attributed: NSAttributedString) -> EmptyPageView {
     let view = EmptyPageForText.initFromNib
     view.congfig(attributed: attributed)
     return mix(view: view)
@@ -113,7 +85,7 @@ public extension EmptyPageView {
   ///
   /// - Parameter image: 图片
   /// - Returns: 空白页
-  public class func onlyImage(image: UIImage) -> EmptyPageView {
+  open class func onlyImage(image: UIImage) -> EmptyPageView {
     let view = EmptyPageForImage.initFromNib
     view.config(image: image)
     return mix(view: view)
@@ -126,7 +98,7 @@ public extension EmptyPageView {
   ///   - duration: 图片组循环播放时长
   ///   - repeatCount: 图片组循环播放次数
   /// - Returns: 空白页
-  public class func onlyImages(images: [UIImage], duration: TimeInterval = 0, repeatCount: Int = 0) -> EmptyPageView {
+  open class func onlyImages(images: [UIImage], duration: TimeInterval = 0, repeatCount: Int = 0) -> EmptyPageView {
     let view = EmptyPageForImage.initFromNib
     view.config(images: images, duration: duration, repeatCount: repeatCount)
     return mix(view: view)
@@ -151,7 +123,7 @@ public extension EmptyPageView {
   ///   - btnBackColor: 按钮背景颜色
   ///   - event: 按钮事件
   /// - Returns: 空白页
-  public class func standard(images: [UIImage],
+  open class func standard(images: [UIImage],
                              duration: TimeInterval = 0,
                              repeatCount: Int = 0,
                              title: String,
@@ -197,7 +169,7 @@ public extension EmptyPageView {
   ///   - btnBackColor: 按钮本背景颜色
   ///   - event: 按钮点击事件
   /// - Returns: 空白页
-  public class func standard(images: [UIImage],
+  open class func standard(images: [UIImage],
                              duration: TimeInterval = 0,
                              repeatCount: Int = 0,
                              title: NSAttributedString,
