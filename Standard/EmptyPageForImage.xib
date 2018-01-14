@@ -33,6 +33,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imageAspectConstraint" destination="alO-4h-lid" id="oLb-O2-q6l"/>
                 <outlet property="imageView" destination="5i1-f5-Xqc" id="jW3-yC-GAA"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="53"/>

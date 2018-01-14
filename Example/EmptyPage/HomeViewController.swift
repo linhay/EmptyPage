@@ -52,8 +52,7 @@ class HomeViewController: UITableViewController {
     if true {
       // http://emptystat.es/image/167120251047
       let view = EmptyPageView.StandardView.standard
-      view.imageAspect = 840 / 546
-      view.imageView.image = UIImage(named: "empty-1001")
+      view.configImageView(images: [UIImage(named: "empty-1001")!])
       let emptyView: EmptyPageView = .mix(view: view)
       emptyView.backgroundColor = .white
       view.titleLabel.text = "Nobody is following"
@@ -89,8 +88,7 @@ class HomeViewController: UITableViewController {
     if true {
       // http://emptystat.es/image/162198623343
       let view = EmptyPageView.StandardView.standard
-      view.imageAspect = 840 / 546
-      view.imageView.image = UIImage(named: "empty-1002")
+      view.configImageView(images: [UIImage(named: "empty-1002")!])
       let emptyView: EmptyPageView = .mix(view: view)
       view.titleLabel.text = "Connection failure"
       view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
@@ -150,8 +148,7 @@ class HomeViewController: UITableViewController {
     if true {
       // http://emptystat.es/image/162198623343
       let view = EmptyPageView.StandardView.standard
-      view.imageAspect = 457 / 285
-      view.imageView.image = UIImage(named: "404")
+      view.configImageView(images: [UIImage(named: "404")!])
       let emptyView: EmptyPageView = .mix(view: view)
       emptyView.backgroundColor = UIColor(red: 244 / 255,
                                           green: 247 / 255,
