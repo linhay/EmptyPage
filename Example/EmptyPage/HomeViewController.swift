@@ -212,7 +212,7 @@ class HomeViewController: UITableViewController {
     if true {
       let item = CellItem(title: "纯文字",
                           subTitle: "默认样式",
-                          emptyView: .onlyText(text: "纯文字-默认样式"))
+                          emptyView: .onlyText(text: "Connection failure"))
       items.append(item)
     }
     

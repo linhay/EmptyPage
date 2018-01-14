@@ -7,12 +7,12 @@
 
 import UIKit
 
-public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
+open class EmptyPageForImage: UIView,EmptyPageViewProtocol {
   
-  @IBOutlet public weak var imageView: UIImageView!
+  @IBOutlet open weak var imageView: UIImageView!
 
   /// 图片宽高比, default: 1
-  public var imageAspect: CGFloat {
+  open var imageAspect: CGFloat {
     set{ imageAspectConstraint = imageAspectConstraint.change(multiplier: newValue) }
     get{ return imageAspectConstraint.multiplier }
   }
@@ -23,7 +23,7 @@ public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
   /// 设置图片
   ///
   /// - Parameter image: 图片
-  public func config(image: UIImage) {
+  open func config(image: UIImage) {
     config(images: [image], duration: 0, repeatCount: 0)
   }
 
@@ -33,7 +33,7 @@ public class EmptyPageForImage: UIView,EmptyPageViewProtocol {
   ///   - images: 图片组
   ///   - duration: 播放时长
   ///   - repeatCount: 循环次数
-  public func config(images: [UIImage],duration: TimeInterval, repeatCount: Int) {
+  open func config(images: [UIImage],duration: TimeInterval, repeatCount: Int) {
     if let firstImage = images.first,
       firstImage.size.width != 0,
       firstImage.size.height != 0 {
