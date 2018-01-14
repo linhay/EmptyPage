@@ -1,21 +1,20 @@
 PODS:
-  - EmptyPage (1.1.0):
-    - EmptyPage/Core (= 1.1.0)
-    - EmptyPage/Standard (= 1.1.0)
-  - EmptyPage/Core (1.1.0)
-  - EmptyPage/Standard (1.1.0):
+  - EmptyPage/Core (1.2.0)
+  - EmptyPage/Spec (1.2.0):
+    - EmptyPage/Standard
+  - EmptyPage/Standard (1.2.0):
     - EmptyPage/Core
 
 DEPENDENCIES:
-  - EmptyPage (from `../`)
+  - EmptyPage/Spec (from `../`)
 
 EXTERNAL SOURCES:
   EmptyPage:
     :path: ../
 
 SPEC CHECKSUMS:
-  EmptyPage: 5ebfde22d950728b28357c8eeab5c340d3e012e8
+  EmptyPage: 376d1b3daa183d48e3eff14d4a7ea4079af62c7c
 
-PODFILE CHECKSUM: be72b6ee90dc37d0a363ce1202462c02e0c2f770
+PODFILE CHECKSUM: e72acdad5b5ccb510a7f1029738e2427d6e418b2
 
 COCOAPODS: 1.4.0.rc.1
