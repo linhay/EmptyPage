@@ -191,16 +191,21 @@ public extension EmptyPageForStandard {
 
 // MARK: - private 控件配置 函数
 public extension EmptyPageForStandard {
-  public func configImageView(images: [UIImage],duration: TimeInterval, repeatCount: Int) {
-    if images.isEmpty { return }
-    if images.count == 1 {
-      imageView.image = images[0]
-      return
+  public func configImageView(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
+    if let firstImage = images.first,
+      firstImage.size.width != 0,
+      firstImage.size.height != 0 {
+      imageAspect = firstImage.size.width / firstImage.size.height
+      if images.count == 1 {
+        imageView.image = firstImage
+      }
+      else{
+        imageView.animationDuration = duration
+        imageView.animationRepeatCount = repeatCount
+        imageView.animationImages = images
+        imageView.startAnimating()
+      }
     }
-    imageView.animationDuration = duration
-    imageView.animationRepeatCount = repeatCount
-    imageView.animationImages = images
-    imageView.startAnimating()
   }
   
   
