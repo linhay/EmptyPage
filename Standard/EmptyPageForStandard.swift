@@ -137,6 +137,7 @@ public extension EmptyPageForStandard {
                      btnTitleFont: UIFont = .systemFont(ofSize: 18),
                      btnBackColor: UIColor = .blue,
                      event: EmptyEvent) {
+
     configImageView(images: images,
                     duration: duration,
                     repeatCount: repeatCount)
@@ -151,7 +152,25 @@ public extension EmptyPageForStandard {
               backColor: btnBackColor,
               event: event)
   }
-  
+
+  /// 默认样式
+  ///
+  /// - Parameters:
+  ///   - images: 图片组
+  ///   - duration: 图片组循环播放时长
+  ///   - repeatCount: 图片组循环播放次数
+  ///   - title: 标题文本
+  ///   - titleColor: 标题颜色, default: UIColor.black
+  ///   - titleFont: 标题字体, default: 18
+  ///   - text: 详情文本
+  ///   - textColor: 详情文本颜色, default: UIColor.lightGray
+  ///   - textFont: 详情字体, default: 18
+  ///   - btnTitle: 按钮标题文本
+  ///   - btnTitleColor: 按钮标题文本颜色 default: UIColor.white
+  ///   - btnTitleFont: 按钮标题文本字体 default: 18
+  ///   - btnBackColor: 按钮背景颜色
+  ///   - event: 按钮事件
+  /// - Returns: 空白页
   public func config(images: [UIImage],
                      duration: TimeInterval = 0,
                      repeatCount: Int = 0,
@@ -191,6 +210,20 @@ public extension EmptyPageForStandard {
 
 // MARK: - private 控件配置 函数
 public extension EmptyPageForStandard {
+  
+  /// 设置图片
+  ///
+  /// - Parameter image: 图片
+  public func configImageView(image: UIImage) {
+    configImageView(images: [image], duration: 0, repeatCount: 0)
+  }
+  
+  /// 设置图片组
+  ///
+  /// - Parameters:
+  ///   - images: 图片组
+  ///   - duration: 播放时长
+  ///   - repeatCount: 循环次数
   public func configImageView(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
     if let firstImage = images.first,
       firstImage.size.width != 0,
@@ -209,26 +242,52 @@ public extension EmptyPageForStandard {
   }
   
   
+  /// 设置标题
+  ///
+  /// - Parameters:
+  ///   - text: 文本
+  ///   - color: 文本颜色
+  ///   - font: 字体大小
   public func configTitle(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) {
     titleLabel.text = text
     titleLabel.textColor = color
     titleLabel.font = font
   }
   
+  /// 设置标题
+  ///
+  /// - Parameter attributed: 富文本
   public func configTitle(attributed: NSAttributedString) {
     titleLabel.attributedText = attributed
   }
   
+  /// 设置描述文本
+  ///
+  /// - Parameters:
+  ///   - text: 文本
+  ///   - color: 文本颜色
+  ///   - font: 字体大小
   public func configText(text: String, color: UIColor = .lightGray, font: UIFont = .systemFont(ofSize: 18)) {
     textLabel.text = text
     textLabel.textColor = color
     textLabel.font = font
   }
   
+  /// 设置描述文本
+  ///
+  /// - Parameter attributed: 富文本
   public func configText(attributed: NSAttributedString) {
     textLabel.attributedText = attributed
   }
   
+  /// 设置按钮
+  ///
+  /// - Parameters:
+  ///   - title: 文本
+  ///   - titleColor: 文本颜色
+  ///   - font: 文本字体
+  ///   - backColor: 按钮背景颜色
+  ///   - event: 按钮事件
   public func configBtn(title: String,
                         titleColor: UIColor = .white,
                         font: UIFont = .systemFont(ofSize: 18),
