@@ -2,7 +2,7 @@
   "name": "EmptyPage",
   "version": "1.2.0",
   "summary": "iOS - 轻量级空白页占位图框架...",
-  "homepage": "https://github.com/linhey055/EmptyPage",
+  "homepage": "https://github.com/bigl055/EmptyPage",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -14,10 +14,12 @@
     "git": "https://github.com/bigl055/EmptyPage.git",
     "tag": "1.2.0"
   },
+  "public_header_files": [
+    "Sources/EmptyPage.h"
+  ],
   "platforms": {
     "ios": "8.0"
   },
-  "public_header_files": "Sources/EmptyPage.h",
   "requires_arc": true,
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "4.0"

@@ -8,7 +8,7 @@
 
 # EmptyPage
 
-iOS 快速集成空白页视图.
+一个UITableView / UICollectionView扩展，用于在视图没有内容显示的时候显示空白页.
 
 ###Features
 

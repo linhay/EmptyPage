@@ -14,11 +14,7 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
 
   let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
-  var rows = 0{
-    didSet{
-      collectionView.reloadData()
-    }
-  }
+  var rows = 0
 
 
   override func viewDidLoad() {
@@ -40,6 +36,7 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
 
   func getData() {
     collectionView.setEmpty(view: EmptyStates.loading)
+    collectionView.reloadData()
     rows = 0
     sleep(3) {[weak self] in
       guard let base = self else { return }
@@ -48,30 +45,33 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
         base.getData()
       }) {[weak self] in
         guard let base = self else { return }
-        base.rows = 20
+        base.rows = 2
+        base.collectionView.insertItems(at: [IndexPath(row: 0, section: 0),
+                                             IndexPath(row: 1, section: 0)])
       }
       base.collectionView.reloadData()
     }
   }
 
 
-   func numberOfSections(in collectionView: UICollectionView) -> Int {
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
 
 
-   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return rows
   }
 
-   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     cell.backgroundColor = .blue
     return cell
   }
 
-   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    getData()
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    rows -= 1
+    collectionView.deleteItems(at: [indexPath])
   }
 
 }

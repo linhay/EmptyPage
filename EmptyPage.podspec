@@ -10,6 +10,7 @@ s.author           = { 'linhey' => 'linheyhan.linhey@outlook.com' }
 s.source = { :git => 'https://github.com/bigl055/EmptyPage.git', :tag => s.version.to_s }
 
 s.ios.deployment_target = '8.0'
+ss.public_header_files = 'Sources/EmptyPage.h'
 
 s.subspec 'Core' do |ss|
   ss.source_files = 'Sources/*.{swift,h}'

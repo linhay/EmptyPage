@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "EmptyPage.h"
+#import "EmptyPage.h"
+
 FOUNDATION_EXPORT double EmptyPageVersionNumber;
 FOUNDATION_EXPORT const unsigned char EmptyPageVersionString[];
 
