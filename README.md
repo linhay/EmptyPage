@@ -1,10 +1,6 @@
 ![title](./readmeData/title.png)
 
-<img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4.0"/>
-<img src="https://img.shields.io/badge/platform-iOS-brightgreen.svg" alt="Platform: iOS"/>
-<img src="https://img.shields.io/badge/iOS-8%2B-brightgreen.svg" alt="iOS 8"/>
-[![Version](https://img.shields.io/cocoapods/v/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
-[![License](https://img.shields.io/cocoapods/l/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
+<img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4.0"/> <img src="https://img.shields.io/badge/platform-iOS-brightgreen.svg" alt="Platform: iOS"/> <img src="https://img.shields.io/badge/iOS-8%2B-brightgreen.svg" alt="iOS 8"/>
 
 # EmptyPage
 
@@ -20,7 +16,6 @@
 
 - [ ] 支持更多实用与设计感的样式
 
-      ​
 
 ![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)  
 
