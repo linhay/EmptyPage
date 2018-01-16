@@ -1,25 +1,36 @@
-# EmptyPage
-
 ![title](./readmeData/title.png)
 
-[![CI Status](http://img.shields.io/travis/158179948@qq.com/EmptyPage.svg?style=flat)](https://travis-ci.org/158179948@qq.com/EmptyPage) 
+<img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4.0"/>
+<img src="https://img.shields.io/badge/platform-iOS-brightgreen.svg" alt="Platform: iOS"/>
+<img src="https://img.shields.io/badge/iOS-8%2B-brightgreen.svg" alt="iOS 8"/>
 [![Version](https://img.shields.io/cocoapods/v/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
 [![License](https://img.shields.io/cocoapods/l/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
-[![Platform](https://img.shields.io/cocoapods/p/EmptyPage.svg?style=flat)](http://cocoapods.org/pods/EmptyPage)
 
-## 示例:
+# EmptyPage
+
+iOS 快速集成空白页视图.
+
+###Features
+
+- [x] 支持UICollectionView & UITableView
+
+- [ ] 支持WKWebview & UIWebview
+
+- [ ] 支持UIScrollView
+
+- [ ] 支持更多实用与设计感的样式
+
+      ​
 
 ![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)  
 
 ### 默认样式(纯文字/纯图片/标准)
 
 ![demo1](./readmeData/demo1.PNG)![demo2](./readmeData/demo2.PNG)![demo3](./readmeData/demo3.PNG)
-## Features
+## Requirements
 
-- [x] 支持UICollectionView & UITableView
-- [ ] 支持WKWebview & UIWebview
-- [ ] 支持UIScrollView
-- [ ] 支持更多实用与设计感的样式
+- Swift 4
+- iOS 8+
 
 ## 安装
 
