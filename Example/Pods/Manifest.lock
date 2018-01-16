@@ -1,9 +1,9 @@
 PODS:
-  - EmptyPage (1.2.0):
-    - EmptyPage/Core (= 1.2.0)
-    - EmptyPage/Standard (= 1.2.0)
-  - EmptyPage/Core (1.2.0)
-  - EmptyPage/Standard (1.2.0):
+  - EmptyPage (1.2.1):
+    - EmptyPage/Core (= 1.2.1)
+    - EmptyPage/Standard (= 1.2.1)
+  - EmptyPage/Core (1.2.1)
+  - EmptyPage/Standard (1.2.1):
     - EmptyPage/Core
 
 DEPENDENCIES:
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  EmptyPage: c44406ce99cc7da7df769bc7e3202de60b122920
+  EmptyPage: dd7e71742313251775fd2f5d3f1a601bcc5cc36c
 
 PODFILE CHECKSUM: be72b6ee90dc37d0a363ce1202462c02e0c2f770
 
