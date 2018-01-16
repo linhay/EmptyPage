@@ -42,6 +42,8 @@ class HomeViewController: UITableViewController {
   func buildDemos() {
     let table = CellItem(title: "tableView示例", subTitle: "tableView", emptyView: EmptyPageView())
     let collection = CellItem(title: "collectionView示例", subTitle: "collectionView", emptyView: EmptyPageView())
+    /// 还没找到判断subviews移除的判断依据.
+    // let scroll = CellItem(title: "scrollView示例", subTitle: "scrollView", emptyView: EmptyPageView())
     sections.append(Section(title: "完整示例", items: [table,collection]))
   }
 
@@ -312,6 +314,9 @@ class HomeViewController: UITableViewController {
       navigationController?.pushViewController(vc, animated: true)
     case "collectionView":
       let vc = DemoCollectionViewController()
+      navigationController?.pushViewController(vc, animated: true)
+    case "scrollView":
+      let vc = DemoScrollViewController()
       navigationController?.pushViewController(vc, animated: true)
     default:
       let vc = UITableViewController(style: .plain)

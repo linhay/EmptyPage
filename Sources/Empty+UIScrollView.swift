@@ -19,6 +19,8 @@ public extension UIScrollView {
       return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView
     }
     set {
+      // 防止多次设置emptyView
+      if oldEmptyView?.superview != nil { return }
       if let emptyView: AnyObject = newValue {
         objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       }

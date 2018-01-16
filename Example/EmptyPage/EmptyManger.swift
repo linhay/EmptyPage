@@ -30,7 +30,6 @@ struct EmptyStates {
     return .mix(view: view)
   }
   
-  
 }
 
 

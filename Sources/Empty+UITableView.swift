@@ -10,16 +10,50 @@ import UIKit
 
 public extension UITableView {
 
-  @objc func empty_layoutSubviews() {
-    empty_layoutSubviews()
+  @objc func table_emptyLayoutSubviews() {
+    table_emptyLayoutSubviews()
     guard let emptyView = emptyView, bounds != emptyView.frame else{ return }
     emptyView.frame = bounds
   }
 
-  @objc func table_emptyReloadData() {
+  @objc func table_emptyInsertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
+    setEmptyView {[weak self] in
+      guard let base = self else { return }
+      base.table_emptyInsertRows(at: indexPaths, with: animation)
+    }
+  }
 
+  @objc func table_emptyDeleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
+    setEmptyView {[weak self] in
+      guard let base = self else { return }
+      base.table_emptyDeleteRows(at: indexPaths, with: animation)
+    }
+  }
+
+  @objc func table_emptyInsertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
+    setEmptyView {[weak self] in
+      guard let base = self else { return }
+      base.table_emptyInsertSections(sections, with: animation)
+    }
+  }
+
+  @objc func table_emptyDeleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
+    setEmptyView {[weak self] in
+      guard let base = self else { return }
+      base.table_emptyDeleteSections(sections, with: animation)
+    }
+  }
+
+  @objc func table_emptyReloadData() {
+    setEmptyView {[weak self] in
+      guard let base = self else { return }
+      base.table_emptyReloadData()
+    }
+  }
+
+  func setEmptyView(event: () -> ()) {
     if frame.size.width == 0 || frame.size.height == 0 {
-      self.table_emptyReloadData()
+      event()
       return
     }
 
@@ -39,11 +73,11 @@ public extension UITableView {
 
     if isHasRows {
       emptyView?.removeFromSuperview()
-      table_emptyReloadData()
+      event()
       return
     }
 
-    table_emptyReloadData()
+    event()
     guard let view = emptyView else { return }
     view.frame = bounds
     addSubview(view)

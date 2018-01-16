@@ -9,13 +9,49 @@ import UIKit
 
 public extension UICollectionView {
   
-  @objc func empty_layoutSubviews() {
-    empty_layoutSubviews()
+  @objc func coll_emptyLayoutSubviews() {
+    coll_emptyLayoutSubviews()
     guard let emptyView = emptyView, bounds != emptyView.frame else{ return }
     emptyView.frame = bounds
   }
   
+  
+  @objc func coll_emptyInsertItems(at indexPaths: [IndexPath]){
+    setEmptyView { [weak self] in
+      guard let base = self else { return }
+      base.coll_emptyInsertItems(at: indexPaths)
+    }
+  }
+  
+  @objc func coll_emptyDeleteItems(at indexPaths: [IndexPath]){
+    setEmptyView { [weak self] in
+      guard let base = self else { return }
+      base.coll_emptyDeleteItems(at: indexPaths)
+    }
+  }
+  
+  @objc func coll_emptyInsertSections(_ sections: IndexSet){
+    setEmptyView { [weak self] in
+      guard let base = self else { return }
+      base.coll_emptyInsertSections(sections)
+    }
+  }
+  
+  @objc func coll_emptyDeleteSections(_ sections: IndexSet){
+    setEmptyView { [weak self] in
+      guard let base = self else { return }
+      base.coll_emptyDeleteSections(sections)
+    }
+  }
+  
   @objc func coll_emptyReloadData() {
+    setEmptyView { [weak self] in
+      guard let base = self else { return }
+      base.coll_emptyReloadData()
+    }
+  }
+  
+  func setEmptyView(event: () -> ()) {
     if frame.size.width == 0 || frame.size.height == 0 { return }
     guard let dataSource = dataSource else { return }
     guard let sectionCount = dataSource.numberOfSections?(in: self) else { return }
