@@ -59,7 +59,7 @@ EmptyPage.begin()
 let emptyView = EmptyView()
 // 直接给emptyView属性赋值,会在reloadData的时候判断是否需要显示
 collectionView.emptyView = emptyView
-// 调用reloadData才会判断是否需要显示
+// 调用reloadData/delete/insert等函数才会判断是否需要显示
 collectionView.reloadData()
 ```
 
