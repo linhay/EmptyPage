@@ -41,11 +41,11 @@ public struct EmptyPage {
 
     RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutSubviews),
                            replace: #selector(UICollectionView.coll_emptyLayoutSubviews),
-                           class: UITableView.self)
+                           class: UICollectionView.self)
 
     RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutIfNeeded),
                            replace: #selector(UICollectionView.coll_emptyLayoutIfNeeded),
-                           class: UITableView.self)
+                           class: UICollectionView.self)
 
     RunTime.exchangeMethod(selector: #selector(UICollectionView.reloadData),
                            replace: #selector(UICollectionView.coll_emptyReloadData),
