@@ -8,12 +8,12 @@
 import UIKit
 
 public extension UIScrollView {
-
+  
   private struct EmptyDataKey {
     static let emptyViewKey = UnsafeRawPointer(bitPattern:"scroll_emptyViewKey".hashValue)!
     static let oldEmptyViewKey = UnsafeRawPointer(bitPattern:"scroll_oldEmptyViewKey".hashValue)!
   }
-
+  
   var oldEmptyView: UIView? {
     get {
       return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView
@@ -26,7 +26,7 @@ public extension UIScrollView {
       }
     }
   }
-
+  
   public var emptyView: UIView? {
     get {
       return objc_getAssociatedObject(self,EmptyDataKey.emptyViewKey) as? UIView
@@ -38,5 +38,5 @@ public extension UIScrollView {
       }
     }
   }
-
+  
 }
