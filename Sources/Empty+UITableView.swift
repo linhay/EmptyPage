@@ -57,8 +57,11 @@ public extension UITableView {
       return
     }
 
-    guard let dataSource = dataSource else { return }
-    guard let sectionCount = dataSource.numberOfSections?(in: self) else { return }
+    guard let dataSource = dataSource,
+     let sectionCount = dataSource.numberOfSections?(in: self) else {
+      event()
+      return
+    }
 
     var isHasRows = false
     for index in 0 ..< sectionCount {

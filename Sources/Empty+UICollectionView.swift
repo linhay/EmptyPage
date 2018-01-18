@@ -53,8 +53,11 @@ public extension UICollectionView {
   
   func setEmptyView(event: () -> ()) {
     if frame.size.width == 0 || frame.size.height == 0 { return }
-    guard let dataSource = dataSource else { return }
-    guard let sectionCount = dataSource.numberOfSections?(in: self) else { return }
+    guard let dataSource = dataSource,
+      let sectionCount = dataSource.numberOfSections?(in: self) else {
+        event()
+        return
+    }
     
     var isHasRows = false
     for index in 0 ..< sectionCount {
@@ -69,11 +72,11 @@ public extension UICollectionView {
     
     if isHasRows {
       emptyView?.removeFromSuperview()
-      coll_emptyReloadData()
+      event()
       return
     }
     
-    coll_emptyReloadData()
+    event()
     guard let view = emptyView else { return }
     view.frame = bounds
     addSubview(view)
