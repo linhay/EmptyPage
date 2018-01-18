@@ -14,12 +14,13 @@ public struct EmptyPage {
   public static func begin() {
     if isRun { return }
     isRun = true
-    RunTime.exchangeMethod(selector: #selector(UITableView.reloadData),
-                           replace: #selector(UITableView.table_emptyReloadData),
-                           class: UITableView.self)
 
     RunTime.exchangeMethod(selector: #selector(UITableView.layoutSubviews),
                            replace: #selector(UITableView.table_emptyLayoutSubviews),
+                           class: UITableView.self)
+
+    RunTime.exchangeMethod(selector: #selector(UITableView.layoutIfNeeded),
+                           replace: #selector(UITableView.table_emptyLayoutIfNeeded),
                            class: UITableView.self)
 
     RunTime.exchangeMethod(selector: #selector(UITableView.insertRows(at:with:)),
@@ -38,13 +39,16 @@ public struct EmptyPage {
                            replace: #selector(UITableView.table_emptyDeleteSections(_:with:)),
                            class: UITableView.self)
 
+    RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutSubviews),
+                           replace: #selector(UICollectionView.coll_emptyLayoutSubviews),
+                           class: UITableView.self)
+
+    RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutIfNeeded),
+                           replace: #selector(UICollectionView.coll_emptyLayoutIfNeeded),
+                           class: UITableView.self)
 
     RunTime.exchangeMethod(selector: #selector(UICollectionView.reloadData),
                            replace: #selector(UICollectionView.coll_emptyReloadData),
-                           class: UICollectionView.self)
-
-    RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutSubviews),
-                           replace: #selector(UICollectionView.coll_emptyLayoutSubviews),
                            class: UICollectionView.self)
 
     RunTime.exchangeMethod(selector: #selector(UICollectionView.insertItems(at:)),
@@ -66,7 +70,7 @@ public struct EmptyPage {
 }
 
 
- extension NSLayoutConstraint {
+extension NSLayoutConstraint {
 
   /// 修改倍率
   ///
