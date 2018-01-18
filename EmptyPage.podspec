@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'EmptyPage'
-s.version          = '1.2.3'
+s.version          = '1.2.4'
 s.summary          = 'iOS - 轻量级空白页占位图框架...'
 
 
