@@ -52,7 +52,10 @@ public extension UICollectionView {
   }
   
   func setEmptyView(event: () -> ()) {
-    if frame.size.width == 0 || frame.size.height == 0 { return }
+    if frame.size.width == 0 || frame.size.height == 0 {
+      event()
+      return
+    }
     guard let dataSource = dataSource,
       let sectionCount = dataSource.numberOfSections?(in: self) else {
         event()
