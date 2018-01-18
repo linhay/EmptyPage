@@ -9,8 +9,8 @@
 import UIKit
 
 class DemoTableViewController: UITableViewController {
-  
-  var rows = 0
+
+  var items = [String]()
   var sections = 1
   
   override func viewDidLoad() {
@@ -24,7 +24,6 @@ class DemoTableViewController: UITableViewController {
   
   func getData() {
     tableView.setEmpty(view: EmptyStates.loading)
-    rows = 0
     tableView.reloadData()
     sleep(3) {[weak self] in
       guard let base = self else { return }
@@ -33,8 +32,8 @@ class DemoTableViewController: UITableViewController {
         base.getData()
       }) {[weak self] in
         guard let base = self else { return }
-        base.rows = 1
-        base.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        base.items = ["点击重新加载","点击添加行","点击删除行"]
+        base.tableView.reloadData()
       }
       base.tableView.reloadData()
     }
@@ -51,23 +50,41 @@ class DemoTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      rows -= 1
+      items.removeLast()
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return rows
+    return items.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-    cell.textLabel?.text = "点击重新加载"
+    cell.textLabel?.text = items[indexPath.item]
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    getData()
+    let item = items[indexPath.item]
+    switch item {
+    case "点击重新加载":
+      items.removeAll()
+      tableView.reloadData()
+      getData()
+    case "点击添加行":
+      tableView.beginUpdates()
+      items.append("new row")
+      tableView.insertRows(at: [IndexPath(row: tableView.numberOfRows(inSection: indexPath.section), section: indexPath.section)], with: .automatic)
+      tableView.endUpdates()
+    case "点击删除行":
+      tableView.beginUpdates()
+      items.removeLast()
+      let index = IndexPath(row: tableView.numberOfRows(inSection: indexPath.section) - 1, section: indexPath.section)
+      tableView.deleteRows(at: [index], with: .automatic)
+      tableView.endUpdates()
+    default: break
+    }
   }
   
 }

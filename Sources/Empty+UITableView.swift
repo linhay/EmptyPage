@@ -8,12 +8,16 @@
 
 import UIKit
 
-public extension UITableView {
+ extension UITableView {
 
   @objc func table_emptyLayoutSubviews() {
     table_emptyLayoutSubviews()
-    guard let emptyView = emptyView, bounds != emptyView.frame else{ return }
-    emptyView.frame = bounds
+    emptyView?.frame = bounds
+  }
+
+  @objc func table_emptyLayoutIfNeeded() {
+    table_emptyLayoutIfNeeded()
+    emptyView?.frame = bounds
   }
 
   @objc func table_emptyInsertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
@@ -52,36 +56,22 @@ public extension UITableView {
   }
 
   func setEmptyView(event: () -> ()) {
-    if frame.size.width == 0 || frame.size.height == 0 {
-      event()
-      return
-    }
-
-    guard let dataSource = dataSource,
-     let sectionCount = dataSource.numberOfSections?(in: self) else {
-      event()
-      return
-    }
-
+    oldEmptyView?.removeFromSuperview()
+    event()
+    guard bounds.width != 0, bounds.height != 0 else { return }
     var isHasRows = false
-    for index in 0 ..< sectionCount {
-      if dataSource.tableView(self, numberOfRowsInSection: index) != 0 {
+    let sectionCount = dataSource?.numberOfSections?(in: self) ?? numberOfSections
+    for index in 0..<sectionCount {
+      if numberOfRows(inSection: index) > 0 {
         isHasRows = true
         break
       }
     }
-
-    isScrollEnabled = isHasRows
-    oldEmptyView?.removeFromSuperview()
-
     if isHasRows {
       emptyView?.removeFromSuperview()
-      event()
       return
     }
-
-    event()
-    guard let view = emptyView else { return }
+    guard let view = emptyView else{ return }
     view.frame = bounds
     addSubview(view)
   }
