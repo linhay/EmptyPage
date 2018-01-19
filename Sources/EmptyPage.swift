@@ -39,6 +39,10 @@ public struct EmptyPage {
                            replace: #selector(UITableView.table_emptyDeleteSections(_:with:)),
                            class: UITableView.self)
 
+    RunTime.exchangeMethod(selector: #selector(UITableView.reloadData),
+                           replace: #selector(UITableView.table_emptyReloadData),
+                           class: UITableView.self)
+
     RunTime.exchangeMethod(selector: #selector(UICollectionView.layoutSubviews),
                            replace: #selector(UICollectionView.coll_emptyLayoutSubviews),
                            class: UICollectionView.self)
