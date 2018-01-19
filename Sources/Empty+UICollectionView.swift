@@ -66,6 +66,8 @@ extension UICollectionView {
         break
       }
     }
+
+    isScrollEnabled = isHasRows
     if isHasRows {
       emptyView?.removeFromSuperview()
       return
