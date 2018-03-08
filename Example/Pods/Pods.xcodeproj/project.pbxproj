@@ -24,7 +24,6 @@
 		C0129A12C62A5C518F8C830F505B0CBA /* EmptyPageForStandard.xib in Sources */ = {isa = PBXBuildFile; fileRef = 74379FADBBFEB3D49DB96DDD51A36184 /* EmptyPageForStandard.xib */; };
 		D7179F188812EA7CAFB8DC7F42259E63 /* EmptyPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DDA98713BDC832C2B7A84B47B11A6D /* EmptyPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5371EB86B346B8F2CD271845796F389 /* Pods-EmptyPage_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE5C58B469C8B72F6DFD34D14CCD21B /* Pods-EmptyPage_Example-dummy.m */; };
-		E55D9D3E3D461952096457BDBB95A404 /* RunTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F34EA671376139E54A5CD89D6405D88 /* RunTime.swift */; };
 		E67B5CF67B6B47EABF50B480BA0EDD50 /* EmptyView+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1DA39774761D77399FCB288E8E9FBD /* EmptyView+UIScrollView.swift */; };
 		FB5D0DF0EEF0EE459267A783D52E6BD3 /* Empty+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD62EDAAF50E01B39B075EF9EEF9E40 /* Empty+UITableView.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 		6C1DA39774761D77399FCB288E8E9FBD /* EmptyView+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EmptyView+UIScrollView.swift"; path = "Standard/EmptyView+UIScrollView.swift"; sourceTree = "<group>"; };
 		74379FADBBFEB3D49DB96DDD51A36184 /* EmptyPageForStandard.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageForStandard.xib; path = Standard/EmptyPageForStandard.xib; sourceTree = "<group>"; };
 		796B54F06BB5431F0EF62530DCAC79BA /* EmptyPage.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = EmptyPage.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		8F34EA671376139E54A5CD89D6405D88 /* RunTime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RunTime.swift; path = Sources/RunTime.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA05C287A15A0D05E7731118B90DC9C /* Empty+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UIScrollView.swift"; path = "Sources/Empty+UIScrollView.swift"; sourceTree = "<group>"; };
 		AB96A6256833DB6472418F420C0EC9A9 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +161,6 @@
 				2BD62EDAAF50E01B39B075EF9EEF9E40 /* Empty+UITableView.swift */,
 				18DDA98713BDC832C2B7A84B47B11A6D /* EmptyPage.h */,
 				6B5D5905CCF2AE8CC8E43D0A479E691C /* EmptyPage.swift */,
-				8F34EA671376139E54A5CD89D6405D88 /* RunTime.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				29F5A0E00E7ECCCD7861C4831A7FDDFA /* EmptyPageForText.xib in Sources */,
 				537326B8489BA73527443645CD788274 /* EmptyPageView.swift in Sources */,
 				E67B5CF67B6B47EABF50B480BA0EDD50 /* EmptyView+UIScrollView.swift in Sources */,
-				E55D9D3E3D461952096457BDBB95A404 /* RunTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
