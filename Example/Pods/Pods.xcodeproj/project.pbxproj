@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		00CDA7903FEB7D46CF4CC54BCD48C441 /* EmptyPageForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C2D5993272F423172BC5B412539F1 /* EmptyPageForImage.swift */; };
 		1D30D4DAF79F126FA895C3FE8FE5FC54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		29F5A0E00E7ECCCD7861C4831A7FDDFA /* EmptyPageForText.xib in Sources */ = {isa = PBXBuildFile; fileRef = C5730DFE0A3966B5DA3C6081EA7AE0EC /* EmptyPageForText.xib */; };
-		4172851BEB3CC64A6EFA7AC16EA63D79 /* EmptyPageForImage.xib in Sources */ = {isa = PBXBuildFile; fileRef = EA200978959F83402C62D9E26C38446C /* EmptyPageForImage.xib */; };
 		4A87B583317B2A5D8ED12BD15E85AFCE /* EmptyPageForText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F696BB5830CB53BD2BD86E031BDD40 /* EmptyPageForText.swift */; };
 		537326B8489BA73527443645CD788274 /* EmptyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC68A3F8FA1B382CBEAB3A15CB72B46 /* EmptyPageView.swift */; };
 		57CF5EA1CE17B3FDD8C5401A5DBD894C /* Empty+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA05C287A15A0D05E7731118B90DC9C /* Empty+UIScrollView.swift */; };
@@ -66,12 +64,10 @@
 		AD8C2D5993272F423172BC5B412539F1 /* EmptyPageForImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForImage.swift; path = Standard/EmptyPageForImage.swift; sourceTree = "<group>"; };
 		AF808ECEE80C013DC1662FEA22F5D94D /* Pods-EmptyPage_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EmptyPage_Example.modulemap"; sourceTree = "<group>"; };
 		B0F34985825EB6CFDA003B95089B5C1C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C5730DFE0A3966B5DA3C6081EA7AE0EC /* EmptyPageForText.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageForText.xib; path = Standard/EmptyPageForText.xib; sourceTree = "<group>"; };
 		CFFC4131514D162A94C5E0A5A87F5B8C /* EmptyPage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EmptyPage-umbrella.h"; sourceTree = "<group>"; };
 		DC661E6A9DD95E720D8ECA124AE4A10A /* Pods-EmptyPage_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EmptyPage_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		DD7A9031C29DBCC807610A9B4BD2A5C4 /* EmptyPageForStandard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForStandard.swift; path = Standard/EmptyPageForStandard.swift; sourceTree = "<group>"; };
 		E9A5FD41D5DA3B173D61446BFDB54538 /* EmptyPage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = EmptyPage.modulemap; sourceTree = "<group>"; };
-		EA200978959F83402C62D9E26C38446C /* EmptyPageForImage.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EmptyPageForImage.xib; path = Standard/EmptyPageForImage.xib; sourceTree = "<group>"; };
 		F3224074478305E07A4E4628BF707B42 /* EmptyPage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EmptyPage.xcconfig; sourceTree = "<group>"; };
 		FCE5C58B469C8B72F6DFD34D14CCD21B /* Pods-EmptyPage_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EmptyPage_Example-dummy.m"; sourceTree = "<group>"; };
 		FEB3028BA1ACFFCFECC017F3DEC28266 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,11 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				AD8C2D5993272F423172BC5B412539F1 /* EmptyPageForImage.swift */,
-				EA200978959F83402C62D9E26C38446C /* EmptyPageForImage.xib */,
 				DD7A9031C29DBCC807610A9B4BD2A5C4 /* EmptyPageForStandard.swift */,
 				74379FADBBFEB3D49DB96DDD51A36184 /* EmptyPageForStandard.xib */,
 				30F696BB5830CB53BD2BD86E031BDD40 /* EmptyPageForText.swift */,
-				C5730DFE0A3966B5DA3C6081EA7AE0EC /* EmptyPageForText.xib */,
 				5AC68A3F8FA1B382CBEAB3A15CB72B46 /* EmptyPageView.swift */,
 				6C1DA39774761D77399FCB288E8E9FBD /* EmptyView+UIScrollView.swift */,
 			);
@@ -326,11 +320,9 @@
 				8AE7409F1CBDB38F8B99D83A5B93B02C /* EmptyPage-dummy.m in Sources */,
 				7B1F82F741C0D4CF9996FB2E5178873E /* EmptyPage.swift in Sources */,
 				00CDA7903FEB7D46CF4CC54BCD48C441 /* EmptyPageForImage.swift in Sources */,
-				4172851BEB3CC64A6EFA7AC16EA63D79 /* EmptyPageForImage.xib in Sources */,
 				99ED68A6C90489A1445FFEF5CB03AA6F /* EmptyPageForStandard.swift in Sources */,
 				C0129A12C62A5C518F8C830F505B0CBA /* EmptyPageForStandard.xib in Sources */,
 				4A87B583317B2A5D8ED12BD15E85AFCE /* EmptyPageForText.swift in Sources */,
-				29F5A0E00E7ECCCD7861C4831A7FDDFA /* EmptyPageForText.xib in Sources */,
 				537326B8489BA73527443645CD788274 /* EmptyPageView.swift in Sources */,
 				E67B5CF67B6B47EABF50B480BA0EDD50 /* EmptyView+UIScrollView.swift in Sources */,
 			);

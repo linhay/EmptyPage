@@ -12,7 +12,6 @@ class BuyerEmptyPage { }
 protocol EmptyPageViewProtocol: class { }
 public typealias EmptyEvent = (()->())?
 
-
 extension EmptyPageViewProtocol {
   static public var initFromNib: Self {
     return Bundle(for: BuyerEmptyPage.self).loadNibNamed(String(describing: self),
@@ -50,9 +49,9 @@ open class EmptyPageView: UIView {
   
   public struct ContentView {
     /// 纯文本样式
-    public static var onlyText: EmptyPageForText { return EmptyPageForText.initFromNib }
+    public static var onlyText: EmptyPageForText { return EmptyPageForText() }
     /// 纯图片样式
-    public static var onlyImage: EmptyPageForImage { return EmptyPageForImage.initFromNib }
+    public static var onlyImage: EmptyPageForImage { return EmptyPageForImage() }
     /// 标准样式
     public static var standard: EmptyPageForStandard { return EmptyPageForStandard.initFromNib }
   }
@@ -66,7 +65,7 @@ open class EmptyPageView: UIView {
   ///   - font: 文本字体大小, default: 18
   /// - Returns: 空白页
   open class func onlyText(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) -> EmptyPageView {
-    let view = EmptyPageForText.initFromNib
+    let view = ContentView.onlyText
     view.config(text: text, color: color, font: font)
     return mix(view: view)
   }
@@ -76,7 +75,7 @@ open class EmptyPageView: UIView {
   /// - Parameter attributed: 富文本
   /// - Returns: 空白页
   open class func onlyText(attributed: NSAttributedString) -> EmptyPageView {
-    let view = EmptyPageForText.initFromNib
+    let view = ContentView.onlyText
     view.congfig(attributed: attributed)
     return mix(view: view)
   }
@@ -86,8 +85,7 @@ open class EmptyPageView: UIView {
   /// - Parameter image: 图片
   /// - Returns: 空白页
   open class func onlyImage(image: UIImage) -> EmptyPageView {
-    let view = EmptyPageForImage.initFromNib
-    view.config(image: image)
+    let view = ContentView.onlyImage.config(image: image)
     return mix(view: view)
   }
   
@@ -99,8 +97,7 @@ open class EmptyPageView: UIView {
   ///   - repeatCount: 图片组循环播放次数
   /// - Returns: 空白页
   open class func onlyImages(images: [UIImage], duration: TimeInterval = 0, repeatCount: Int = 0) -> EmptyPageView {
-    let view = EmptyPageForImage.initFromNib
-    view.config(images: images, duration: duration, repeatCount: repeatCount)
+    let view = ContentView.onlyImage.config(images: images, duration: duration, repeatCount: repeatCount)
     return mix(view: view)
   }
   
@@ -124,19 +121,19 @@ open class EmptyPageView: UIView {
   ///   - event: 按钮事件
   /// - Returns: 空白页
   open class func standard(images: [UIImage],
-                             duration: TimeInterval = 0,
-                             repeatCount: Int = 0,
-                             title: String,
-                             titleColor: UIColor = .black,
-                             titleFont: UIFont = .systemFont(ofSize: 18),
-                             text: String,
-                             textColor: UIColor = .lightGray,
-                             textFont: UIFont = .systemFont(ofSize: 18),
-                             btnTitle: String,
-                             btnTitleColor: UIColor = .white,
-                             btnTitleFont: UIFont = .systemFont(ofSize: 18),
-                             btnBackColor: UIColor = .blue,
-                             event: EmptyEvent) -> EmptyPageView {
+                           duration: TimeInterval = 0,
+                           repeatCount: Int = 0,
+                           title: String,
+                           titleColor: UIColor = .black,
+                           titleFont: UIFont = .systemFont(ofSize: 18),
+                           text: String,
+                           textColor: UIColor = .lightGray,
+                           textFont: UIFont = .systemFont(ofSize: 18),
+                           btnTitle: String,
+                           btnTitleColor: UIColor = .white,
+                           btnTitleFont: UIFont = .systemFont(ofSize: 18),
+                           btnBackColor: UIColor = .blue,
+                           event: EmptyEvent) -> EmptyPageView {
     let view = EmptyPageForStandard.initFromNib
     view.config(images: images,
                 duration: duration,
@@ -170,15 +167,15 @@ open class EmptyPageView: UIView {
   ///   - event: 按钮点击事件
   /// - Returns: 空白页
   open class func standard(images: [UIImage],
-                             duration: TimeInterval = 0,
-                             repeatCount: Int = 0,
-                             title: NSAttributedString,
-                             text: NSAttributedString,
-                             btnTitle: String,
-                             btnTitleColor: UIColor = .white,
-                             btnTitleFont: UIFont = .systemFont(ofSize: 18),
-                             btnBackColor: UIColor = .blue,
-                             event: EmptyEvent) -> EmptyPageView {
+                           duration: TimeInterval = 0,
+                           repeatCount: Int = 0,
+                           title: NSAttributedString,
+                           text: NSAttributedString,
+                           btnTitle: String,
+                           btnTitleColor: UIColor = .white,
+                           btnTitleFont: UIFont = .systemFont(ofSize: 18),
+                           btnBackColor: UIColor = .blue,
+                           event: EmptyEvent) -> EmptyPageView {
     let view = EmptyPageForStandard.initFromNib
     view.config(images: images,
                 duration: duration,
