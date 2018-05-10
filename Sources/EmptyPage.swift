@@ -9,13 +9,12 @@ import UIKit
 
 public struct EmptyPage {
   
-  private static var isRun = false
+  fileprivate static var tableViewLock = false
   
-  /// 起始函数
-  public static func begin() {
-    if isRun { return }
-    isRun = true
-    
+  /// 替换 tableView 相关函数
+  static func swizzingTableView() {
+    if tableViewLock { return }
+    tableViewLock = true
     exchangeMethod(selector: #selector(UITableView.layoutSubviews),
                    replace: #selector(UITableView.table_emptyLayoutSubviews),
                    class: UITableView.self)
@@ -43,7 +42,15 @@ public struct EmptyPage {
     exchangeMethod(selector: #selector(UITableView.reloadData),
                    replace: #selector(UITableView.table_emptyReloadData),
                    class: UITableView.self)
-    
+  }
+  
+  
+  fileprivate static var collectionViewLock = false
+  
+  /// 替换 CollectionView 相关函数
+  static func swizzingCollectionView() {
+    if collectionViewLock { return }
+    collectionViewLock = true
     exchangeMethod(selector: #selector(UICollectionView.layoutSubviews),
                    replace: #selector(UICollectionView.coll_emptyLayoutSubviews),
                    class: UICollectionView.self)
