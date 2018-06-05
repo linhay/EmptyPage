@@ -9,10 +9,10 @@ import UIKit
 
 class BuyerEmptyPage { }
 
-protocol EmptyPageViewProtocol: class { }
+public protocol EmptyPageViewProtocol: class { }
 public typealias EmptyEvent = (()->())?
 
-extension EmptyPageViewProtocol {
+public extension EmptyPageViewProtocol {
   static public var initFromNib: Self {
     return Bundle(for: BuyerEmptyPage.self).loadNibNamed(String(describing: self),
                                                          owner: nil,
