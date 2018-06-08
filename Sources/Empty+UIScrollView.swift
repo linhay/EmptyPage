@@ -40,6 +40,10 @@ public extension UIScrollView {
         default: break
         }
         objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+      }else{
+        emptyView?.removeFromSuperview()
+        self.oldEmptyView = nil
+        objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,nil,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       }
     }
   }
