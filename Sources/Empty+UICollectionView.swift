@@ -60,7 +60,7 @@ extension UICollectionView {
     guard bounds.width != 0, bounds.height != 0 else { return }
     var isHasRows = false
     let sectionCount = dataSource?.numberOfSections?(in: self) ?? numberOfSections
-    for index in 0..<sectionCount {
+    for  index in 0..<sectionCount {
       if numberOfItems(inSection: index) > 0 {
         isHasRows = true
         break
@@ -72,9 +72,11 @@ extension UICollectionView {
       emptyView?.removeFromSuperview()
       return
     }
+    
     guard let view = emptyView else{ return }
     view.frame = bounds
     addSubview(view)
+    sendSubview(toBack: view)
   }
   
 }
