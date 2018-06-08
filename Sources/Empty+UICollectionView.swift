@@ -11,12 +11,12 @@ extension UICollectionView {
   
   @objc func coll_emptyLayoutSubviews() {
     coll_emptyLayoutSubviews()
-    emptyView?.frame = bounds
+    setEmptyView {}
   }
   
   @objc func coll_emptyLayoutIfNeeded() {
     coll_emptyLayoutIfNeeded()
-    emptyView?.frame = bounds
+    setEmptyView {}
   }
   
   @objc func coll_emptyInsertItems(at indexPaths: [IndexPath]){
