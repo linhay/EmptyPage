@@ -8,53 +8,53 @@
 
 import UIKit
 
- extension UITableView {
-
+extension UITableView {
+  
   @objc func table_emptyLayoutSubviews() {
     table_emptyLayoutSubviews()
-    emptyView?.frame = bounds
+    setEmptyView { }
   }
-
+  
   @objc func table_emptyLayoutIfNeeded() {
     table_emptyLayoutIfNeeded()
-    emptyView?.frame = bounds
+    setEmptyView { }
   }
-
+  
   @objc func table_emptyInsertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.table_emptyInsertRows(at: indexPaths, with: animation)
     }
   }
-
+  
   @objc func table_emptyDeleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.table_emptyDeleteRows(at: indexPaths, with: animation)
     }
   }
-
+  
   @objc func table_emptyInsertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.table_emptyInsertSections(sections, with: animation)
     }
   }
-
+  
   @objc func table_emptyDeleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.table_emptyDeleteSections(sections, with: animation)
     }
   }
-
+  
   @objc func table_emptyReloadData() {
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.table_emptyReloadData()
     }
   }
-
+  
   func setEmptyView(event: () -> ()) {
     oldEmptyView?.removeFromSuperview()
     event()
