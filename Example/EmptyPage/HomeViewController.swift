@@ -2,12 +2,13 @@
 //  HomeViewController.swift
 //  EmptyPage_Example
 //
-//  Created by linhey on 2018/1/12.
+//  Created by linhay on 2018/1/12.
 //  Copyright © 2018年 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import EmptyPage
+import Hue
 
 class HomeViewController: UITableViewController {
   
@@ -35,10 +36,10 @@ class HomeViewController: UITableViewController {
     buildDemos()
     buildSectionForDefault()
     buildSectionForCustom()
-    // buildByDribbble() // 还没申请授权
+    buildByDribbble()
     buildByEmptystat()
   }
-
+  
   func buildDemos() {
     let table = CellItem(title: "tableView示例", subTitle: "tableView", emptyView: EmptyPageView())
     let collection = CellItem(title: "collectionView示例", subTitle: "collectionView", emptyView: EmptyPageView())
@@ -46,68 +47,50 @@ class HomeViewController: UITableViewController {
     // let scroll = CellItem(title: "scrollView示例", subTitle: "scrollView", emptyView: EmptyPageView())
     sections.append(Section(title: "完整示例", items: [table,collection]))
   }
-
-
+  
+  
   func buildByEmptystat() {
     var items = [CellItem]()
-
+    
     if true {
       // http://emptystat.es/image/167120251047
-      let view = EmptyPageView.ContentView.standard
-      view.configImageView(images: [UIImage(named: "empty-1001")!])
-      let emptyView: EmptyPageView = .mix(view: view)
-      emptyView.backgroundColor = .white
-      view.titleLabel.text = "Nobody is following"
-      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-      view.titleLabel.textColor = UIColor(red: 130 / 255,
-                                          green: 151 / 255,
-                                          blue: 172 / 255,
-                                          alpha: 1)
-      view.textLabel.text = "Following people helps you keep what they're saying and recommending."
-      view.textLabel.textColor = UIColor(red: 176 / 255,
-                                         green: 190 / 255,
-                                         blue: 203 / 255,
-                                         alpha: 1)
-
-      let buttonColor = UIColor(red: 50 / 255,
-                                green: 160 / 255,
-                                blue: 255 / 255,
-                                alpha: 1)
-
-      view.button.layer.borderColor = buttonColor.cgColor
-      view.button.layer.borderWidth = 1
-      view.button.layer.cornerRadius = 5
-      view.button.setTitle("Find interesting people to follow >>", for: .normal)
-      view.button.backgroundColor = .white
-      view.button.setTitleColor(buttonColor, for: .normal)
-      view.button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+      let emptyView = EmptyPageView.ContentView.standard
+        .set(image: UIImage(named: "empty-1001")!)
+        .set(title: "Nobody is following", color: UIColor(hex: "#536571"), font: UIFont.boldSystemFont(ofSize: 18))
+        .set(text: "Following people helps you keep what they're saying and recommending.", color: UIColor(hex: "#c3ccd1"))
+        .config(button: { (item) in
+          item.layer.borderColor = UIColor(hex: "#2ca3fa").cgColor
+          item.layer.borderWidth = 1
+          item.layer.cornerRadius = 5
+          item.setTitle("Find interesting people to follow >>", for: .normal)
+          item.backgroundColor = .white
+          item.setTitleColor(UIColor(hex: "#2ca3fa"), for: .normal)
+          item.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        })
+        .mix()
+        .set(backgroundColor: UIColor.white)
       let item = CellItem(title: "emptystat.es",
                           subTitle: "http://emptystat.es/image/167120251047",
                           emptyView: emptyView)
       items.append(item)
     }
-
+    
     if true {
       // http://emptystat.es/image/162198623343
-      let view = EmptyPageView.ContentView.standard
-      view.configImageView(images: [UIImage(named: "empty-1002")!])
-      let emptyView: EmptyPageView = .mix(view: view)
-      view.titleLabel.text = "Connection failure"
-      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-      view.titleLabel.textColor = UIColor(red: 130 / 255,
-                                          green: 151 / 255,
-                                          blue: 172 / 255,
-                                          alpha: 1)
-      view.textLabel.text = "Something has gone wrong with the internet connection. Let's give it another shot."
-
-      view.button.setTitle("TRY AGAIN", for: .normal)
-      view.button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+      let emptyView = EmptyPageView.ContentView.standard
+        .set(image: UIImage(named: "empty-1002")!)
+        .set(title: "Connection failure", color: UIColor(hex: "#f1f1f1"), font: UIFont.boldSystemFont(ofSize: 18))
+        .set(text: "Something has gone wrong with the internet connection. Let's give it another shot.",color: UIColor(hex: "#f1f1f1"))
+        .config(button: { (item) in
+          item.setTitle("TRY AGAIN", for: .normal)
+          item.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        }).mix()
       let item = CellItem(title: "emptystat.es",
                           subTitle: "http://emptystat.es/image/162198623343",
                           emptyView: emptyView)
       items.append(item)
     }
-
+    
     sections.append(Section(title: "emptystat.es",items: items))
   }
   
@@ -115,71 +98,25 @@ class HomeViewController: UITableViewController {
     var items = [CellItem]()
     if true {
       // https://dribbble.com/shots/2586577-404-page-Illustration
-      let view = EmptyPageView.ContentView.standard
-      view.imageAspect = 457 / 285
-      view.imageView.image = UIImage(named: "404")
-      let emptyView: EmptyPageView = .mix(view: view)
-      emptyView.backgroundColor = UIColor(red: 244 / 255,
-                                          green: 247 / 255,
-                                          blue: 249 / 255,
-                                          alpha: 1)
-
-      view.titleLabel.text = "FILE NOT FOUND"
-      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-      view.titleLabel.textColor = UIColor(red: 130 / 255,
-                                          green: 151 / 255,
-                                          blue: 172 / 255,
-                                          alpha: 1)
-      view.titleWithTextSpace = 0
-      view.textLabel.text = """
+      let emptyView = EmptyPageView.ContentView.standard
+        .set(image: UIImage(named: "404")!)
+        .change(vspace: .titleWithText, value: 0)
+        .set(title: "FILE NOT FOUND", color: UIColor(hex: "#849aac"), font: UIFont.boldSystemFont(ofSize: 18))
+        .set(text: """
       Lorem ipsum dolor sit amet.
       conectetur adipscing elit sed do eiusmod
-      """
-
-      view.textLabel.textColor = UIColor(red: 176 / 255,
-                                         green: 190 / 255,
-                                         blue: 203 / 255,
-                                         alpha: 1)
-      view.button.isHidden = true
+      """, color: UIColor(hex: "#c5cfd7"))
+        .config(button: { (item) in
+          item.isHidden = true
+        })
+        .mix()
+        .set(backgroundColor: UIColor(hex: "#f5f7f9"))
       let item = CellItem(title: "404 page - Illustration",
                           subTitle: "https://dribbble.com/iftikharshaikh",
                           emptyView: emptyView)
       items.append(item)
     }
-
-    if true {
-      // http://emptystat.es/image/162198623343
-      let view = EmptyPageView.ContentView.standard
-      view.configImageView(images: [UIImage(named: "404")!])
-      let emptyView: EmptyPageView = .mix(view: view)
-      emptyView.backgroundColor = UIColor(red: 244 / 255,
-                                          green: 247 / 255,
-                                          blue: 249 / 255,
-                                          alpha: 1)
-
-      view.titleLabel.text = "FILE NOT FOUND"
-      view.titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-      view.titleLabel.textColor = UIColor(red: 130 / 255,
-                                          green: 151 / 255,
-                                          blue: 172 / 255,
-                                          alpha: 1)
-      view.titleWithTextSpace = 0
-      view.textLabel.text = """
-      Lorem ipsum dolor sit amet.
-      conectetur adipscing elit sed do eiusmod
-      """
-
-      view.textLabel.textColor = UIColor(red: 176 / 255,
-                                         green: 190 / 255,
-                                         blue: 203 / 255,
-                                         alpha: 1)
-      view.button.isHidden = true
-      let item = CellItem(title: "404 page - Illustration",
-                          subTitle: "https://dribbble.com/iftikharshaikh",
-                          emptyView: emptyView)
-      items.append(item)
-    }
-
+    
     sections.append(Section(title: "dribbble",items: items))
   }
   
@@ -212,64 +149,63 @@ class HomeViewController: UITableViewController {
     attributed.append(attributed2)
     
     if true {
-      let item = CellItem(title: "纯文字",
-                          subTitle: "默认样式",
-                          emptyView: .onlyText(text: "Connection failure"))
+      let emptyView = EmptyPageView.ContentView.onlyText.set(text: "Connection failure").mix()
+      let item = CellItem(title: "纯文字", subTitle: "默认样式", emptyView: emptyView)
       items.append(item)
     }
     
     if true {
-      let item = CellItem(title: "纯文字",
-                          subTitle: "富文本样式",
-                          emptyView: .onlyText(attributed: attributed))
+      let emptyView = EmptyPageView.ContentView.onlyText.set(attributed: attributed).mix()
+      let item = CellItem(title: "纯文字", subTitle: "富文本样式", emptyView: emptyView)
       items.append(item)
     }
     
     if true {
-      let item = CellItem(title: "纯图片",
-                          subTitle: "默认样式",
-                          emptyView: .onlyImage(image: UIImage(named: "empty")!))
+      let emptyView = EmptyPageView.ContentView.onlyImage.set(image: UIImage(named: "empty")!).mix()
+      let item = CellItem(title: "纯图片", subTitle: "默认样式", emptyView: emptyView)
       items.append(item)
     }
     
     if true {
-      let item = CellItem(title: "纯图片",
-                          subTitle: "图片组样式",
-                          emptyView: .onlyImages(images: images,
-                                                 duration: 1.5,
-                                                 repeatCount: 0))
+      let emptyView = EmptyPageView.ContentView.onlyImage.set(images: images, duration: 1.5, repeatCount: 0).mix()
+      let item = CellItem(title: "纯图片", subTitle: "图片组样式", emptyView: emptyView)
       items.append(item)
     }
     
     
     if true {
-      let item = CellItem(title: "标准",
-                          subTitle: "默认样式",
-                          emptyView: .standard(images: [UIImage(named: "empty")!],
-                                               title: "Connection failure",
-                                               text: "wait for a minture",
-                                               btnTitle: "Try Again",
-                                               event: {
-                                                self.alertEvent()
-                          }))
+      let emptyView = EmptyPageView.ContentView.standard
+        .set(image: UIImage(named: "empty")!)
+        .set(title: "Connection failure")
+        .set(text: "wait for a minture")
+        .set(buttonTitle: "Try Again")
+        .set(tap: {
+          self.alertEvent()
+        })
+        .mix()
+      
+      let item = CellItem(title: "标准", subTitle: "默认样式", emptyView: emptyView)
       items.append(item)
     }
     
     if true {
-      let item = CellItem(title: "标准",
-                          subTitle: "富文本样式",
-                          emptyView: .standard(images: images,
-                                               duration: 1.5,
-                                               repeatCount: 0,
-                                               title: attributed,
-                                               text: attributed,
-                                               btnTitle: "按钮文本",
-                                               btnTitleColor: .white,
-                                               btnTitleFont: .boldSystemFont(ofSize: 18),
-                                               btnBackColor: .darkGray,
-                                               event: {
-                                                self.alertEvent()
-                          }))
+      let emptyView = EmptyPageView.ContentView.standard
+        .config(button: { (item) in
+          item.setTitleColor(.white, for: .normal)
+          item.titleLabel?.font = .boldSystemFont(ofSize: 18)
+          item.backgroundColor = .darkGray
+        })
+        .set(images: images, duration: 1.5, repeatCount: 0)
+        .set(titleAttributed: attributed)
+        .set(textAttributed: attributed)
+        .set(text: "wait for a minture")
+        .set(buttonTitle: "按钮文本")
+        .set(tap: {
+          self.alertEvent()
+        })
+        .mix()
+      
+      let item = CellItem(title: "标准", subTitle: "默认样式", emptyView: emptyView)
       items.append(item)
     }
     sections.append(Section(title: "标准样式",items: items))
@@ -324,7 +260,7 @@ class HomeViewController: UITableViewController {
       vc.tableView.setEmpty(view: item.emptyView)
       navigationController?.pushViewController(vc, animated: true)
     }
-
+    
   }
   
   

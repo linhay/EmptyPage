@@ -2,7 +2,7 @@
 //  DemoScrollViewController.swift
 //  EmptyPage_Example
 //
-//  Created by linhey on 2018/1/16.
+//  Created by linhay on 2018/1/16.
 //  Copyright © 2018年 CocoaPods. All rights reserved.
 //
 

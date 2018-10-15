@@ -1,21 +1,28 @@
 PODS:
-  - EmptyPage (1.2.1):
-    - EmptyPage/Core (= 1.2.1)
-    - EmptyPage/Standard (= 1.2.1)
-  - EmptyPage/Core (1.2.1)
-  - EmptyPage/Standard (1.2.1):
+  - EmptyPage (1.3.0):
+    - EmptyPage/Core (= 1.3.0)
+    - EmptyPage/Standard (= 1.3.0)
+  - EmptyPage/Core (1.3.0)
+  - EmptyPage/Standard (1.3.0):
     - EmptyPage/Core
+  - Hue (2.0.1)
 
 DEPENDENCIES:
   - EmptyPage (from `../`)
+  - Hue
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Hue
 
 EXTERNAL SOURCES:
   EmptyPage:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  EmptyPage: b81ba1575193fce621b1b60df59015c25b1ab494
+  EmptyPage: 1d2af76050b28aa75cea81b66956f2c07970222a
+  Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
 
-PODFILE CHECKSUM: be72b6ee90dc37d0a363ce1202462c02e0c2f770
+PODFILE CHECKSUM: 1244defb5bf9b5d3bd4002d5017d6bcbe85f7f2e
 
-COCOAPODS: 1.4.0.rc.1
+COCOAPODS: 1.6.0.beta.1

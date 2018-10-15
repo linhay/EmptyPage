@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  EmptyPage
 //
-//  Created by linhan.linhey@outlook.com on 01/09/2018.
-//  Copyright (c) 2018 linhan.linhey@outlook.com. All rights reserved.
+//  Created by is.linhay@outlook.com on 01/09/2018.
+//  Copyright (c) 2018 is.linhay@outlook.com. All rights reserved.
 //
 
 import UIKit
