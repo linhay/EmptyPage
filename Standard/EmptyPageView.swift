@@ -36,7 +36,7 @@ public extension EmptyPageContentViewProtocol {
 open class EmptyPageView: UIView {
   
   /// 预设默认背景色
-  public static var backColor: UIColor = UIColor(red: 244 / 255, green: 244 / 255, blue: 244 / 255, alpha: 1)
+  public static var backColor: UIColor = UIColor.white
   
   /// 获取一个空白页背景View
   open class var backgroundView: EmptyPageView {
@@ -74,8 +74,6 @@ open class EmptyPageView: UIView {
     public static var standard: EmptyPageForStandard { return EmptyPageForStandard() }
   }
   
-  
- 
 }
 
 
