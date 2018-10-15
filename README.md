@@ -108,7 +108,7 @@ collectionView.reloadData()
 
 ## Author
 
-linhey:  linhan.linhey@outlook.com
+linhay: is.linhay@outlook.com
 
 ## License
 

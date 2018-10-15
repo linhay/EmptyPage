@@ -2,7 +2,7 @@
 //  EmptyPageForCustom.swift
 //  EmptyPage_Example
 //
-//  Created by linhey on 2018/1/12.
+//  Created by linhay on 2018/1/12.
 //  Copyright © 2018年 CocoaPods. All rights reserved.
 //
 

@@ -1,222 +1,139 @@
 //
-//  EmptyPageForStandard.swift
 //  EmptyPage
 //
-//  Created by linhey on 2018/1/10.
-//  Copyright © 2018年 linhey <linhan.linhey@outlook.com>. All rights reserved.
+//  Copyright (c) 2018 linhay - https://github.com/linhay
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
 import UIKit
 
-open class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
+open class EmptyPageForStandard: UIView,EmptyPageContentViewProtocol {
   
   /// imageView
-  @IBOutlet open weak var imageView: UIImageView!
+  public let imageView: UIImageView = {
+    let item = UIImageView()
+    return item
+  }()
+  
   /// 标题 Label
-  @IBOutlet open weak var titleLabel: UILabel!
+  public let titleLabel: UILabel = {
+    let item = UILabel()
+    item.textAlignment = .center
+    item.textColor = UIColor.black
+    return item
+  }()
+  
   /// 描述 Label
-  @IBOutlet open weak var textLabel: UILabel!
+  public let textLabel: UILabel = {
+    let item = UILabel()
+    item.numberOfLines = 0
+    item.textAlignment = .center
+    item.textColor = UIColor.gray
+    return item
+  }()
+  
   /// 底部 button
-  @IBOutlet open weak var button: UIButton!{
-    didSet{
-      button.layer.cornerRadius = 2
-      button.addTarget(self, action: #selector(tapEvent(_:)), for: .touchUpInside)
+  public let button: UIButton = {
+    let item = UIButton()
+    item.layer.cornerRadius = 2
+    item.backgroundColor = UIColor.blue
+    item.addTarget(self, action: #selector(event), for: UIControlEvents.touchUpInside)
+    return item
+  }()
+  
+  /// 点击事件
+  public var eventStore: (() -> ())?
+  
+  public init() {
+    super.init(frame: CGRect.zero)
+    buildUI()
+  }
+  
+  public required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    buildUI()
+  }
+  
+  open override func willMove(toWindow newWindow: UIWindow?) {
+    super.willMove(toWindow: newWindow)
+    guard !(imageView.animationImages?.isEmpty ?? true) else { return }
+    if newWindow == nil {
+      imageView.stopAnimating()
+    }else {
+      imageView.startAnimating()
     }
   }
   
-  /// 响应事件
-  open var event: (()->())?
-  
-  /// 图片距离顶部约束距离, default: 20
-  open var imageTopSpace: CGFloat {
-    set{ imageTopSpaceConstraint.constant = newValue }
-    get{ return imageTopSpaceConstraint.constant }
-  }
-  
-  /// 图片与标题间距, default: 10
-  open var imageWithTitleSpace: CGFloat {
-    set{ imageWithTitleSpaceConstraint.constant = newValue }
-    get{ return imageWithTitleSpaceConstraint.constant }
-  }
-  
-  /// 标题与详情文本间距, default: 5
-  open var titleWithTextSpace: CGFloat {
-    set{ titleWithTextSpaceConstraint.constant = newValue }
-    get{ return titleWithTextSpaceConstraint.constant }
-  }
-  
-  /// 详情文本与按钮间距, default: 10
-  open var textWithButtonSpace: CGFloat {
-    set{ textWithButtonSpaceConstraint.constant = newValue }
-    get{ return textWithButtonSpaceConstraint.constant }
-  }
-  
-  /// 按钮距离底部间距, default: 20
-  open var butttonWithBottomSpace: CGFloat {
-    set{ butttonWithBottomSpaceConstraint.constant = newValue }
-    get{ return butttonWithBottomSpaceConstraint.constant }
-  }
-  
-  /// 图片宽高比, default: 1
-  open var imageAspect: CGFloat {
-    set{ imageAspectConstraint = imageAspectConstraint.change(multiplier: newValue) }
-    get{ return imageAspectConstraint.multiplier }
-  }
-  
-  /// 按钮最小宽度比例, default: 0.618
-  open var buttonWidthMinAspect: CGFloat {
-    set{ buttonWidthMinAspectConstraint = buttonWidthMinAspectConstraint.change(multiplier: newValue) }
-    get{ return buttonWidthMinAspectConstraint.multiplier }
-  }
-  
-  /// 标题左边距, default: 10
-  open var titleLeftSpace: CGFloat {
-    set{ titleLeftSpaceConstraint.constant = newValue }
-    get{ return titleLeftSpaceConstraint.constant }
-  }
-  
-  /// 标题右边距, default: 10
-  open var titleRightSpace: CGFloat {
-    set{ titleRightSpaceConstraint.constant = newValue }
-    get{ return titleRightSpaceConstraint.constant }
-  }
-  
-  /// 详情文本左边距, default: 10
-  open var textLeftSpace: CGFloat {
-    set{ textLeftSpaceConstraint.constant = newValue }
-    get{ return textLeftSpaceConstraint.constant }
-  }
-  
-  /// 详情文本右边距, default: 10
-  open var textRightSpace: CGFloat {
-    set{ textRightSpaceConstraint.constant = newValue }
-    get{ return textRightSpaceConstraint.constant }
-  }
-  
-  /// imageView: top -> superView: top = 20
-  @IBOutlet private weak var imageTopSpaceConstraint: NSLayoutConstraint!
-  /// imageView: bottom -> titleLabel: top = 10
-  @IBOutlet private weak var imageWithTitleSpaceConstraint: NSLayoutConstraint!
-  /// titleLabel: bottom -> textLabel: top = 10
-  @IBOutlet private weak var titleWithTextSpaceConstraint: NSLayoutConstraint!
-  /// textLabel: bottom -> button: top = 20
-  @IBOutlet private weak var textWithButtonSpaceConstraint: NSLayoutConstraint!
-  /// button: bottom -> superView: bottom = 20
-  @IBOutlet private weak var butttonWithBottomSpaceConstraint: NSLayoutConstraint!
-  /// imageView: width -> imageView: height = 1
-  @IBOutlet private weak var imageAspectConstraint: NSLayoutConstraint!
-  /// button: width -> superView: width >= 0.618
-  @IBOutlet private weak var buttonWidthMinAspectConstraint: NSLayoutConstraint!
-  /// titleLabel: left -> superView: left = 10
-  @IBOutlet private weak var titleLeftSpaceConstraint: NSLayoutConstraint!
-  /// titleLabel: right -> superView: right = -10
-  @IBOutlet private weak var titleRightSpaceConstraint: NSLayoutConstraint!
-  /// textLabel: left -> superView: left = 10
-  @IBOutlet private weak var textLeftSpaceConstraint: NSLayoutConstraint!
-  /// textLabel: right -> superView: right = -10
-  @IBOutlet private weak var textRightSpaceConstraint: NSLayoutConstraint!
-  
-  
-  @objc func tapEvent(_ sender: UIButton) {
-    event?()
-  }
+}
 
-  /// 默认样式
-  ///
-  /// - Parameters:
-  ///   - images: 图片组
-  ///   - duration: 图片组时长
-  ///   - repeatCount: 图片组循环次数
-  ///   - title: 标题文本
-  ///   - text: 描述文本
-  ///   - btnTitle: 按钮文本
-  ///   - btnTitleColor: 按钮文本颜色
-  ///   - btnTitleFont: 按钮标题字体
-  ///   - btnBackColor: 按钮本背景颜色
-  ///   - event: 按钮点击事件
-  /// - Returns: 空白页
-  open func config(images: [UIImage],
-                   duration: TimeInterval = 0,
-                   repeatCount: Int = 0,
-                   title: NSAttributedString,
-                   text: NSAttributedString,
-                   btnTitle: String,
-                   btnTitleColor: UIColor = .white,
-                   btnTitleFont: UIFont = .systemFont(ofSize: 18),
-                   btnBackColor: UIColor = .blue,
-                   event: EmptyEvent) {
 
-    configImageView(images: images,
-                    duration: duration,
-                    repeatCount: repeatCount)
-    
-    configTitle(attributed: title)
-    
-    configText(attributed: text)
-    
-    configBtn(title: btnTitle,
-              titleColor: btnTitleColor,
-              font: btnTitleFont,
-              backColor: btnBackColor,
-              event: event)
-  }
-
-  /// 默认样式
+// MARK: - config for views
+extension EmptyPageForStandard {
+  
+  /// 配置图片控件
   ///
-  /// - Parameters:
-  ///   - images: 图片组
-  ///   - duration: 图片组循环播放时长
-  ///   - repeatCount: 图片组循环播放次数
-  ///   - title: 标题文本
-  ///   - titleColor: 标题颜色, default: UIColor.black
-  ///   - titleFont: 标题字体, default: 18
-  ///   - text: 详情文本
-  ///   - textColor: 详情文本颜色, default: UIColor.lightGray
-  ///   - textFont: 详情字体, default: 18
-  ///   - btnTitle: 按钮标题文本
-  ///   - btnTitleColor: 按钮标题文本颜色 default: UIColor.white
-  ///   - btnTitleFont: 按钮标题文本字体 default: 18
-  ///   - btnBackColor: 按钮背景颜色
-  ///   - event: 按钮事件
-  /// - Returns: 空白页
-  open func config(images: [UIImage],
-                   duration: TimeInterval = 0,
-                   repeatCount: Int = 0,
-                   title: String,
-                   titleColor: UIColor = .black,
-                   titleFont: UIFont = .systemFont(ofSize: 18),
-                   text: String,
-                   textColor: UIColor = .lightGray,
-                   textFont: UIFont = .systemFont(ofSize: 18),
-                   btnTitle: String,
-                   btnTitleColor: UIColor = .white,
-                   btnTitleFont: UIFont = .systemFont(ofSize: 18),
-                   btnBackColor: UIColor = .blue,
-                   event: EmptyEvent) {
-    
-    configImageView(images: images,
-                    duration: duration,
-                    repeatCount: repeatCount)
-    
-    configTitle(text: title,
-                color: titleColor,
-                font: titleFont)
-    
-    configText(text: text,
-               color: textColor,
-               font: textFont)
-    
-    configBtn(title: btnTitle,
-              titleColor: btnTitleColor,
-              font: btnTitleFont,
-              backColor: btnBackColor,
-              event: event)
+  /// - Parameter call: 视图回调
+  /// - Returns: 链式调用
+ public func config(imageView call: (_: UIImageView) -> ()) -> Self {
+    call(imageView)
+    return self
   }
   
-  /// 设置图片
+  /// 配置标题控件
   ///
-  /// - Parameter image: 图片
-  open func configImageView(image: UIImage) {
-    configImageView(images: [image], duration: 0, repeatCount: 0)
+  /// - Parameter call: 视图回调
+  /// - Returns: 链式调用
+ public func config(titleLabel call: (_: UILabel) -> ()) -> Self {
+    call(titleLabel)
+    return self
+  }
+  
+  /// 配置文本控件
+  ///
+  /// - Parameter call: 视图回调
+  /// - Returns: 链式调用
+ public func config(textLabel call: (_: UILabel) -> ()) -> Self {
+    call(textLabel)
+    return self
+  }
+  
+  /// 配置按钮控件
+  ///
+  /// - Parameter call: 视图回调
+  /// - Returns: 链式调用
+ public func config(button call: (_: UIButton) -> ()) -> Self {
+    call(button)
+    return self
+  }
+  
+}
+
+// MARK: - set base info
+extension EmptyPageForStandard {
+  
+  /// 设置主图片
+  ///
+  /// - Parameter value: image
+  /// - Returns: 链式调用
+  public func set(image value: UIImage) -> Self{
+    imageView.image = value
+    setImageAspect(firstImage: value)
+    return self
   }
   
   /// 设置图片组
@@ -225,80 +142,284 @@ open class EmptyPageForStandard: UIView,EmptyPageViewProtocol {
   ///   - images: 图片组
   ///   - duration: 播放时长
   ///   - repeatCount: 循环次数
-  open func configImageView(images: [UIImage],duration: TimeInterval = 0, repeatCount: Int = 0) {
-    if let firstImage = images.first,
-      firstImage.size.width != 0,
-      firstImage.size.height != 0 {
-      imageAspect = firstImage.size.width / firstImage.size.height
-      if images.count == 1 {
-        imageView.image = firstImage
-      }
-      else{
-        imageView.animationDuration = duration
-        imageView.animationRepeatCount = repeatCount
-        imageView.animationImages = images
-        imageView.startAnimating()
-      }
-    }
+  public func set(images: [UIImage],duration: TimeInterval, repeatCount: Int = 0) -> Self {
+    imageView.image = nil
+    setImageAspect(firstImage: images.first)
+    imageView.animationDuration = duration
+    imageView.animationRepeatCount = repeatCount
+    imageView.animationImages = images
+    return self
   }
-
-  /// 设置标题
+  
+  /// 设置主标题
   ///
-  /// - Parameters:
-  ///   - text: 文本
-  ///   - color: 文本颜色
-  ///   - font: 字体大小
-  open func configTitle(text: String, color: UIColor = .black, font: UIFont = .systemFont(ofSize: 18)) {
-    titleLabel.text = text
+  /// - Parameter value: string
+  /// - Returns: 链式调用
+  public func set(title: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
+    titleLabel.text = title
     titleLabel.textColor = color
     titleLabel.font = font
+    return self
   }
   
-  /// 设置标题
+  /// 设置文本富文本
   ///
   /// - Parameter attributed: 富文本
-  open func configTitle(attributed: NSAttributedString) {
-    titleLabel.attributedText = attributed
+  public func set(titleAttributed value: NSAttributedString) -> Self {
+    titleLabel.attributedText = value
+    return self
   }
   
-  /// 设置描述文本
+  /// 设置文本
   ///
-  /// - Parameters:
-  ///   - text: 文本
-  ///   - color: 文本颜色
-  ///   - font: 字体大小
-  open func configText(text: String, color: UIColor = .lightGray, font: UIFont = .systemFont(ofSize: 18)) {
+  /// - Parameter value: string
+  /// - Returns: 链式调用
+  public func set(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
     textLabel.text = text
     textLabel.textColor = color
     textLabel.font = font
+    return self
   }
   
-  /// 设置描述文本
+  /// 设置文本富文本
   ///
   /// - Parameter attributed: 富文本
-  open func configText(attributed: NSAttributedString) {
-    textLabel.attributedText = attributed
+  public func set(textAttributed value: NSAttributedString) -> Self {
+    textLabel.attributedText = value
+    return self
   }
   
-  /// 设置按钮
+  /// 设置按钮主标题
+  ///
+  /// - Parameter value: string
+  /// - Returns: 链式调用
+  public func set(buttonTitle value: String) -> Self {
+    button.setTitle(value, for: .normal)
+    return self
+  }
+  
+  /// 设置点击事件
   ///
   /// - Parameters:
-  ///   - title: 文本
-  ///   - titleColor: 文本颜色
-  ///   - font: 文本字体
-  ///   - backColor: 按钮背景颜色
-  ///   - event: 按钮事件
-  open func configBtn(title: String,
-                      titleColor: UIColor = .white,
-                      font: UIFont = .systemFont(ofSize: 18),
-                      backColor: UIColor = .blue,
-                      event: EmptyEvent) {
-    button.isHidden = title.isEmpty || event == nil
-    button.setTitle(title, for: .normal)
-    button.setTitleColor(titleColor, for: .normal)
-    button.titleLabel?.font = font
-    button.backgroundColor = backColor
-    self.event = event
+  ///   - target: target
+  ///   - action: 点击事件
+  /// - Returns: 链式调用
+  public func set(tap target: Any?, action: Selector) -> Self {
+    button.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
+    return self
   }
+  
+  /// 设置点击事件
+  ///
+  /// - Parameters:
+  ///   - tap: 点击事件
+  /// - Returns: 链式调用
+  public func set(tap event: (() -> ())?) -> Self {
+   eventStore = event
+    return self
+  }
+  
+}
+
+// MARK: - changed layouts
+extension EmptyPageForStandard {
+  
+  /// 视图高度调整
+  ///
+  /// - button: 按钮
+  public enum HeightType {
+    case button
+  }
+  
+  /// 修改视图高度
+  ///
+  /// - Parameters:
+  ///   - space: 指定视图间距
+  ///   - value: 修改值
+  public func change(height type: HeightType,value: CGFloat) -> Self {
+    var targetItem: NSObject
+    switch type {
+    case .button:
+      targetItem = button
+    }
+    let constraint = constraints.first { (item) -> Bool in
+      guard item.firstAttribute == .height, let firstItem = item.firstItem as? NSObject else { return false }
+      return firstItem == targetItem
+    }
+    if let constraint = constraint {
+      constraint.constant = value
+    }else{
+      let constraint = NSLayoutConstraint(item: targetItem, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: value)
+      addConstraint(constraint)
+    }
+    updateConstraintsIfNeeded()
+    return self
+  }
+  
+  /// 垂直方向间距类型
+  ///
+  /// - imageWithTitle: 图片与标题间距
+  /// - titleWithText:  标题与文本间距
+  /// - textWithButton: 文本与按钮间距
+  public enum VSpaceType {
+    case imageTop
+    case imageWithTitle
+    case titleWithText
+    case textWithButton
+  }
+  
+  /// 修改视图垂直方向上的间距
+  ///
+  /// - Parameters:
+  ///   - space: 指定视图间距
+  ///   - value: 修改值
+  public func change(vspace type: VSpaceType,value: CGFloat) -> Self {
+    var item0: NSObject
+    var item1: NSObject
+    switch type {
+    case .imageTop:
+      item0 = imageView
+      item1 = self
+    case .imageWithTitle:
+      item0 = titleLabel
+      item1 = imageView
+    case .titleWithText:
+      item0 = textLabel
+      item1 = titleLabel
+    case .textWithButton:
+      item0 = button
+      item1 = textLabel
+    }
+    
+    let item = constraints.first { (item) -> Bool in
+      guard item.firstAttribute == .top,
+        item.secondAttribute == .bottom,
+        let firstItem = item.firstItem as? NSObject,
+        let secondItem = item.secondItem as? NSObject
+        else { return false }
+      return firstItem == item0 && secondItem == item1
+    }
+    item?.constant = value
+    updateConstraintsIfNeeded()
+    return self
+  }
+  
+  /// 修改视图水平方向上的间距
+  ///
+  /// - title:  标题左右间距
+  /// - text:   文本左右间距
+  /// - button: 按钮左右间距
+  public enum HSpaceType {
+    case imageMax
+    case title
+    case text
+    case button
+  }
+  
+  /// 修改视图水平方向上的间距
+  ///
+  /// - Parameters:
+  ///   - space: 指定视图间距
+  ///   - value: 修改值
+  public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
+    var item0: NSObject
+    var item1: NSObject
+    switch type {
+    case .imageMax:
+      item0 = imageView
+      item1 = self
+    case .title:
+      item0 = titleLabel
+      item1 = self
+    case .text:
+      item0 = textLabel
+      item1 = self
+    case .button:
+      item0 = button
+      item1 = self
+    }
+    
+    constraints.forEach { (item) in
+      if let firstItem = item.firstItem as? NSObject,
+        let secondItem = item.secondItem as? NSObject,
+        firstItem == item0 && secondItem == item1 {
+        if item.firstAttribute == .left,
+          item.secondAttribute == .left {
+          item.constant = value
+        }else if item.firstAttribute == .right,
+          item.secondAttribute == .right {
+          item.constant = -value
+        }
+      }
+    }
+    
+    updateConstraintsIfNeeded()
+    return self
+  }
+  
+}
+
+// MARK: - build ui
+extension EmptyPageForStandard {
+  
+  @objc func event() {
+    eventStore?()
+  }
+  
+  func setImageAspect(firstImage: UIImage?) {
+    guard let firstImage = firstImage, firstImage.size.width == 0, firstImage.size.height == 0 else { return }
+    let float = firstImage.size.width / firstImage.size.height
+    let item = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: float, constant: 0)
+    if let constraint = constraints.first(where: { (element) -> Bool in
+      return element.firstItem as? NSObject == imageView
+        && element.secondItem as? NSObject == imageView
+    }) {
+      removeConstraint(constraint)
+    }
+    addConstraint(item)
+    updateConstraintsIfNeeded()
+  }
+  
+  func buildUI() {
+    addSubview(imageView)
+    addSubview(titleLabel)
+    addSubview(textLabel)
+    addSubview(button)
+    buildLayouts()
+  }
+  
+  func buildLayouts() {
+    var constraints = [NSLayoutConstraint]()
+    
+    do {
+      constraints.append(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+      constraints.append(NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 20))
+    }
+    
+    do {
+      constraints.append(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 10))
+      constraints.append(NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 15))
+      constraints.append(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -15))
+    }
+    
+    do {
+      constraints.append(NSLayoutConstraint(item: textLabel, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 5))
+      constraints.append(NSLayoutConstraint(item: textLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 15))
+      constraints.append(NSLayoutConstraint(item: textLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -15))
+    }
+    
+    do {
+      constraints.append(NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: textLabel, attribute: .bottom, multiplier: 1, constant: 10))
+      constraints.append(NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 15))
+      constraints.append(NSLayoutConstraint(item: button, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -15))
+      constraints.append(NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -20))
+    }
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    textLabel.translatesAutoresizingMaskIntoConstraints = false
+    button.translatesAutoresizingMaskIntoConstraints = false
+    addConstraints(constraints)
+  }
+  
   
 }
