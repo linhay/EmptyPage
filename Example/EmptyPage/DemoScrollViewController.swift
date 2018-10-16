@@ -42,7 +42,7 @@ extension DemoScrollViewController {
   }
 
   private func buildSubView() {
-    scrollView.emptyView = EmptyStates.loading
+    scrollView.emptyView = EmptyStore.loading
     scrollView.contentSize = view.bounds.size
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false
