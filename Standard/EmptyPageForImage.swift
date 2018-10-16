@@ -40,6 +40,15 @@ open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
     buildUI()
   }
   
+  open override func willMove(toWindow newWindow: UIWindow?) {
+    super.willMove(toWindow: newWindow)
+    guard imageView.isAnimating, !(imageView.animationImages?.isEmpty ?? true) else { return }
+    if newWindow == nil {
+      imageView.stopAnimating()
+    }else {
+      imageView.startAnimating()
+    }
+  }
 }
 
 // MARK: - config for views
@@ -49,7 +58,7 @@ extension EmptyPageForImage {
   ///
   /// - Parameter call: 视图回调
   /// - Returns: 链式调用
-  func config(imageView call: (_: UIImageView) -> ()) -> Self {
+  public func config(imageView call: (_: UIImageView) -> ()) -> Self {
     call(imageView)
     return self
   }
@@ -63,7 +72,7 @@ extension EmptyPageForImage {
   ///
   /// - Parameter value: image
   /// - Returns: 链式调用
-  public func set(image value: UIImage) -> Self{
+  public func set(image value: UIImage?) -> Self{
     setImageAspect(firstImage: value)
     imageView.image = value
     return self
