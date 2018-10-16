@@ -71,7 +71,7 @@ open class EmptyPageForStandard: UIView,EmptyPageContentViewProtocol {
   
   open override func willMove(toWindow newWindow: UIWindow?) {
     super.willMove(toWindow: newWindow)
-    guard !(imageView.animationImages?.isEmpty ?? true) else { return }
+    guard imageView.isAnimating, !(imageView.animationImages?.isEmpty ?? true) else { return }
     if newWindow == nil {
       imageView.stopAnimating()
     }else {
@@ -130,7 +130,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter value: image
   /// - Returns: 链式调用
-  public func set(image value: UIImage) -> Self{
+  public func set(image value: UIImage?) -> Self{
     imageView.image = value
     setImageAspect(firstImage: value)
     return self
