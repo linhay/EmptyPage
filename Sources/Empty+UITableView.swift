@@ -23,6 +23,7 @@
 
 import UIKit
 
+@objc
 extension UITableView {
   
   @objc func table_emptyLayoutSubviews() {

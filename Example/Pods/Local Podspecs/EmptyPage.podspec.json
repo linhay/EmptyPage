@@ -19,7 +19,6 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "static_framework": true,
   "subspecs": [
     {
       "name": "Core",
