@@ -44,6 +44,56 @@ open class EmptyPageForText: UIView, EmptyPageContentViewProtocol {
   
 }
 
+
+// MARK: - changed layouts
+extension EmptyPageForText {
+  
+  /// 修改视图水平方向上的间距
+  ///
+  /// - text:   文本左右间距
+  public enum HSpaceType {
+    case text
+  }
+  
+  /// 修改视图水平方向上的间距
+  ///
+  /// - Parameters:
+  ///   - space: 指定视图间距
+  ///   - value: 修改值
+  @discardableResult public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
+    
+    let fromItem: NSObject = label
+    let toItem: NSObject = self
+    let relation = NSLayoutConstraint.Relation.equal
+    let priority = UILayoutPriority(999)
+    
+    let findItems = constraints.filter { (constraint) -> Bool in
+      guard constraint.priority == priority,
+        let firstItem = constraint.firstItem as? NSObject,
+        let secondItem = constraint.secondItem as? NSObject,
+        firstItem == fromItem,
+        secondItem == toItem
+        else { return false }
+      return true
+    }
+    
+    if findItems.isEmpty {
+      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left, relatedBy: relation, toItem: toItem, attribute: .left, multiplier: 1, constant: value)
+      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right, relatedBy: relation, toItem: toItem, attribute: .right, multiplier: 1, constant: -value)
+      rightItem.priority = priority
+      leftItem.priority = priority
+      addConstraints([rightItem, leftItem])
+    }else{
+      findItems.forEach { (item) in
+        item.constant = item.firstAttribute == .left ? value : -value
+      }
+    }
+    
+    updateConstraintsIfNeeded()
+    return self
+  }
+}
+
 // MARK: - config for views
 extension EmptyPageForText {
   
@@ -51,7 +101,7 @@ extension EmptyPageForText {
   ///
   /// - Parameter call: 视图回调
   /// - Returns: 链式调用
- public func config(label call: (_: UILabel) -> ()) -> Self {
+  public func config(label call: (_: UILabel) -> ()) -> Self {
     call(label)
     return self
   }
@@ -88,16 +138,13 @@ extension EmptyPageForText {
   
   func buildUI() {
     addSubview(label)
+    label.translatesAutoresizingMaskIntoConstraints = false
     let layout0 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[label]-|",
                                                  options: NSLayoutFormatOptions(rawValue: 0),
                                                  metrics: nil,
                                                  views: ["label" : label])
-    let layout1 = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-|",
-                                                 options: NSLayoutFormatOptions(rawValue: 0),
-                                                 metrics: nil,
-                                                 views: ["label" : label])
-    label.translatesAutoresizingMaskIntoConstraints = false
-    addConstraints(layout0 + layout1)
+    change(hspace: .text, value: 15)
+    addConstraints(layout0)
   }
   
 }
