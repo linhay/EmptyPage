@@ -11,7 +11,6 @@ s.source = { :git => 'https://github.com/linhay/EmptyPage.git', :tag => s.versio
 s.swift_version = '4.0'
 s.ios.deployment_target = '8.0'
 s.requires_arc = true
-s.static_framework = true
 
 s.subspec 'Core' do |ss|
   ss.source_files = 'Sources/*.{swift,h}'

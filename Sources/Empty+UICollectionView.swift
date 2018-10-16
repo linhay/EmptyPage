@@ -22,6 +22,7 @@
 
 import UIKit
 
+@objc
 extension UICollectionView {
   
   @objc func coll_emptyLayoutSubviews() {
