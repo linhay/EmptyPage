@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import EmptyPage
 
-class EmptyPageForCustom: UIView {
+class EmptyPageForCustom: UIView,EmptyPageContentViewProtocol {
 
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var label: UILabel!
@@ -18,7 +19,6 @@ class EmptyPageForCustom: UIView {
   var block1: (()->())?
   var block2: (()->())?
 
-
   @IBAction func btn1TapEvent(_ sender: UIButton) {
     block1?()
   }
@@ -26,7 +26,6 @@ class EmptyPageForCustom: UIView {
   @IBAction func btn2TapEvent(_ sender: UIButton) {
     block2?()
   }
-  
 
   class var initFromNib: EmptyPageForCustom {
     return Bundle.main.loadNibNamed(String(describing: self),

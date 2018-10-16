@@ -60,8 +60,13 @@ open class EmptyPageView: UIView {
     return backView
   }
   
- public func set(backgroundColor color: UIColor) -> EmptyPageView {
+  public func set(backgroundColor color: UIColor) -> Self {
     self.backgroundColor = color
+    return self
+  }
+  
+  func config(view call: (_: EmptyPageView) -> ()) -> Self {
+    call(self)
     return self
   }
   

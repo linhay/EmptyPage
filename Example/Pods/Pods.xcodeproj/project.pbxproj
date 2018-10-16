@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		02E76C84A0C6C419EA93A2026E008315 /* UIColor+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A462FF50296DDF57AA922E95215295B4 /* UIColor+Hue.swift */; };
 		035ED139B56EFDBFA49B53969A212F3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		1A4AA61A98727DEC09227B6837450BA8 /* Pods-EmptyPage_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 703AA4137028CDD3A8BCC438B26AFB50 /* Pods-EmptyPage_Example-dummy.m */; };
+		1A4AA61A98727DEC09227B6837450BA8 /* Pods-EmptyPage_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F05491936F7995938024547177AFC737 /* Pods-EmptyPage_Example-dummy.m */; };
 		3186A2A6D557A3F42FB8F4F5955DBD81 /* EmptyPage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D20D2F2E0038AE8B6B1AA9BC7C2637B /* EmptyPage-dummy.m */; };
 		4F4FDC62EE7FFFE22A749F5002ADC687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
 		5DFF1A96344CAE267E8C76A3C83C8922 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
 		5E0DB6AC45958952B621B32E29FA740F /* EmptyPageForStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6BC43C4C419B5DB73FF8E4A72DD587 /* EmptyPageForStandard.swift */; };
 		605BFB2637661542D5892DACBDB0A51C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		764F87016624620A74F10C2F1C82D26A /* Pods-EmptyPage_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BDAC31AB8083CE29CA9602195CB887 /* Pods-EmptyPage_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		764F87016624620A74F10C2F1C82D26A /* Pods-EmptyPage_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A30FBD629B01AD86877FDA4F71F1F633 /* Pods-EmptyPage_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A725C3487B9E1754435B6FD1D6C9041 /* Empty+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A9E7FE69B83BCE44076F6B2EF61B6 /* Empty+UITableView.swift */; };
 		8B4E7E01CF461B49F76ED8DEA36EAAFF /* EmptyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A520B6AC09E0ACD23FB96FC0E30DFD5B /* EmptyPageView.swift */; };
 		B651E3C6E9C78222C97FB5296A07CA2F /* EmptyPage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DFF8D1AB7BD6B1263B0E4AED9CB85BF /* EmptyPage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,11 +24,11 @@
 		C8160C44E5DA428A77B00CE87426CE25 /* UIImage+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904C5C286F7827D05D6F8593CFDE437A /* UIImage+Hue.swift */; };
 		D9C7B7BB0BEE9F2F85ADA2F08F33AF11 /* EmptyPageForText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D3134EB6E2BE640EBE200158588CE /* EmptyPageForText.swift */; };
 		DB7F840ED9C8BE4C789CF92C6CF2B686 /* EmptyView+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBD1229C88523F7510D85A32DBD18 /* EmptyView+UIScrollView.swift */; };
-		E7E31C0683199F6742566A090B828F4A /* Hue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7123B0501BB5A8147B9FE1CAD02F9 /* Hue-dummy.m */; };
+		E7E31C0683199F6742566A090B828F4A /* Hue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86A0E109B5A1C83209AA78990B5BA7 /* Hue-dummy.m */; };
 		EB16B7BD0A13B1996B37CB813EAE0BD9 /* Empty+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5E9F5106386879B6F79CD7B36D5E8 /* Empty+UICollectionView.swift */; };
 		EFB9CCFC50BAC3D6C18A51B31A4C194B /* EmptyPageForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157ABC381C0B7D76FDB6726BF4CEDB7 /* EmptyPageForImage.swift */; };
 		F642628239BAC46D324D496C6376A9CA /* EmptyPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 71F96257D2F60B20E77EA6942B002262 /* EmptyPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F791AAC57019379FE4EE60A87F2911E2 /* Hue-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D50330E0894A59FC497D212BF4691A9B /* Hue-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F791AAC57019379FE4EE60A87F2911E2 /* Hue-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 828B79416987B3E97AB5A652C1334A47 /* Hue-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,47 +49,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07069F3700C49FC42EBFA16784F66523 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B5A1363D514C031DB9EC75CBFC1AAC4 /* Pods-EmptyPage_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EmptyPage_Example-resources.sh"; sourceTree = "<group>"; };
+		118A9F056049B7E8B32586EAA7A0B8B2 /* Pods-EmptyPage_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EmptyPage_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1A102CB9A14CBB6C00A1EB9EAA778B5E /* EmptyPage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPage.swift; path = Sources/EmptyPage.swift; sourceTree = "<group>"; };
-		275B41FA6611FFF11B6B5A43FAFEE5A0 /* Hue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hue.modulemap; sourceTree = "<group>"; };
 		2DFC178F903053FFF00E7DAA7D054D98 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		36B96731CBA0829D264C2DD2F0F65EAC /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		34178FDB777A7BFDBD18F18615B471B4 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3D20D2F2E0038AE8B6B1AA9BC7C2637B /* EmptyPage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EmptyPage-dummy.m"; sourceTree = "<group>"; };
 		3E429C0F2BF30C0D2113C18B29E23E24 /* EmptyPage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EmptyPage.framework; path = EmptyPage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		412E56A992A190D7EC5C8D6FBB3BB4D6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		665A7264649E7E017AACA6DE1B33D0D7 /* Hue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hue.framework; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66D469E90792D6899EBF8335AE16244B /* Hue-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Hue-Info.plist"; sourceTree = "<group>"; };
 		6DFF8D1AB7BD6B1263B0E4AED9CB85BF /* EmptyPage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EmptyPage-umbrella.h"; sourceTree = "<group>"; };
-		703AA4137028CDD3A8BCC438B26AFB50 /* Pods-EmptyPage_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EmptyPage_Example-dummy.m"; sourceTree = "<group>"; };
 		71F96257D2F60B20E77EA6942B002262 /* EmptyPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EmptyPage.h; path = Sources/EmptyPage.h; sourceTree = "<group>"; };
-		7F2D441C7766013BBBF619EBF2465518 /* Hue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hue.xcconfig; sourceTree = "<group>"; };
+		74DB04169E6EF556BF0DA9DFA0994A6D /* Pods-EmptyPage_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EmptyPage_Example.modulemap"; sourceTree = "<group>"; };
+		828B79416987B3E97AB5A652C1334A47 /* Hue-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-umbrella.h"; sourceTree = "<group>"; };
 		8B53DEF3D8773F755D1119E0DD20872A /* Empty+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UIScrollView.swift"; path = "Sources/Empty+UIScrollView.swift"; sourceTree = "<group>"; };
+		8EAFFB17474AC239E8C129E50EFB9C90 /* Pods-EmptyPage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EmptyPage_Example.release.xcconfig"; sourceTree = "<group>"; };
 		904C5C286F7827D05D6F8593CFDE437A /* UIImage+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Hue.swift"; path = "Source/iOS/UIImage+Hue.swift"; sourceTree = "<group>"; };
 		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		92D1581C36A8A3FECAEA2FDD4E81E991 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9A7CCC6D015FD86A11DA069D23226980 /* Pods-EmptyPage_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EmptyPage_Example.modulemap"; sourceTree = "<group>"; };
+		9E38602C80623C9D13C4605101FBD414 /* Pods-EmptyPage_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EmptyPage_Example-frameworks.sh"; sourceTree = "<group>"; };
 		9FC5E9F5106386879B6F79CD7B36D5E8 /* Empty+UICollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UICollectionView.swift"; path = "Sources/Empty+UICollectionView.swift"; sourceTree = "<group>"; };
-		A09A08884D0C972CF5D402DFAC897046 /* Pods-EmptyPage_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EmptyPage_Example-Info.plist"; sourceTree = "<group>"; };
+		A30FBD629B01AD86877FDA4F71F1F633 /* Pods-EmptyPage_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EmptyPage_Example-umbrella.h"; sourceTree = "<group>"; };
 		A462FF50296DDF57AA922E95215295B4 /* UIColor+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Hue.swift"; path = "Source/iOS/UIColor+Hue.swift"; sourceTree = "<group>"; };
 		A520B6AC09E0ACD23FB96FC0E30DFD5B /* EmptyPageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageView.swift; path = Standard/EmptyPageView.swift; sourceTree = "<group>"; };
-		A69AE979EF51F90BDF793C46573BA23E /* Pods-EmptyPage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EmptyPage_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A74D3134EB6E2BE640EBE200158588CE /* EmptyPageForText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForText.swift; path = Standard/EmptyPageForText.swift; sourceTree = "<group>"; };
-		B1AFFAE5B47F4C291F2D0C2709D7672F /* Pods-EmptyPage_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EmptyPage_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B87A3575F88680DF9533F63CEBC1C8B0 /* EmptyPage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EmptyPage.modulemap; sourceTree = "<group>"; };
 		B8DC2DA44E6685FECE985B1C3DE5B449 /* EmptyPage.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = EmptyPage.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BAC7123B0501BB5A8147B9FE1CAD02F9 /* Hue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hue-dummy.m"; sourceTree = "<group>"; };
 		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		BCA4492EBB689C06C686ADE5055DAA0F /* Pods-EmptyPage_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EmptyPage_Example-frameworks.sh"; sourceTree = "<group>"; };
 		BF4D4719791C4CF675CC5D53144F3CFE /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EmptyPage_Example.framework; path = "Pods-EmptyPage_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69A9E7FE69B83BCE44076F6B2EF61B6 /* Empty+UITableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Empty+UITableView.swift"; path = "Sources/Empty+UITableView.swift"; sourceTree = "<group>"; };
+		CC86A0E109B5A1C83209AA78990B5BA7 /* Hue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hue-dummy.m"; sourceTree = "<group>"; };
+		CE6E5A1392B5A87875193F9535A959AE /* Hue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-prefix.pch"; sourceTree = "<group>"; };
 		CE7FBD1229C88523F7510D85A32DBD18 /* EmptyView+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EmptyView+UIScrollView.swift"; path = "Standard/EmptyView+UIScrollView.swift"; sourceTree = "<group>"; };
 		D157ABC381C0B7D76FDB6726BF4CEDB7 /* EmptyPageForImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForImage.swift; path = Standard/EmptyPageForImage.swift; sourceTree = "<group>"; };
-		D1C5955E6789F2661F030852134FDA35 /* Pods-EmptyPage_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EmptyPage_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		D50330E0894A59FC497D212BF4691A9B /* Hue-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-umbrella.h"; sourceTree = "<group>"; };
 		D5932D7237BC4B46C851EF2CC8EAA2C0 /* EmptyPage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EmptyPage.xcconfig; sourceTree = "<group>"; };
+		E7B9A5AC476239B7D6D04B8ACF3DD40F /* Pods-EmptyPage_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EmptyPage_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EA6BC43C4C419B5DB73FF8E4A72DD587 /* EmptyPageForStandard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmptyPageForStandard.swift; path = Standard/EmptyPageForStandard.swift; sourceTree = "<group>"; };
-		F4F83A3FCF0ABC48B04B24D69794BEA8 /* Hue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-prefix.pch"; sourceTree = "<group>"; };
-		F8BDAC31AB8083CE29CA9602195CB887 /* Pods-EmptyPage_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EmptyPage_Example-umbrella.h"; sourceTree = "<group>"; };
+		F05491936F7995938024547177AFC737 /* Pods-EmptyPage_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EmptyPage_Example-dummy.m"; sourceTree = "<group>"; };
+		F7452C2FA4EEB097A553DF663B6A38B3 /* Hue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hue.modulemap; sourceTree = "<group>"; };
 		FAC4C5A2B18F38EA6A75C6A5AD7FCCAC /* EmptyPage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EmptyPage-prefix.pch"; sourceTree = "<group>"; };
+		FBCC573FB1130F06706EBA4D4A34499E /* Hue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hue.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +129,14 @@
 				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		32808EA1C67170B5166D6DBE5AEE66D0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				92419A5413C010447AA911E77BB04E4C /* Pods-EmptyPage_Example */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		4280AE27238F7ED15119610898DB833D /* EmptyPage */ = {
@@ -175,20 +184,6 @@
 			path = "Example/Pods/Target Support Files/EmptyPage";
 			sourceTree = "<group>";
 		};
-		63B5E0424E37D516A54758B3A4302CB5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				275B41FA6611FFF11B6B5A43FAFEE5A0 /* Hue.modulemap */,
-				7F2D441C7766013BBBF619EBF2465518 /* Hue.xcconfig */,
-				BAC7123B0501BB5A8147B9FE1CAD02F9 /* Hue-dummy.m */,
-				66D469E90792D6899EBF8335AE16244B /* Hue-Info.plist */,
-				F4F83A3FCF0ABC48B04B24D69794BEA8 /* Hue-prefix.pch */,
-				D50330E0894A59FC497D212BF4691A9B /* Hue-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Hue";
-			sourceTree = "<group>";
-		};
 		67F101459BD555986A0F180BF8B37DD3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,23 +194,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		778B543F6BE5DE3BB716493311B8627A /* Pods-EmptyPage_Example */ = {
-			isa = PBXGroup;
-			children = (
-				9A7CCC6D015FD86A11DA069D23226980 /* Pods-EmptyPage_Example.modulemap */,
-				B1AFFAE5B47F4C291F2D0C2709D7672F /* Pods-EmptyPage_Example-acknowledgements.markdown */,
-				D1C5955E6789F2661F030852134FDA35 /* Pods-EmptyPage_Example-acknowledgements.plist */,
-				703AA4137028CDD3A8BCC438B26AFB50 /* Pods-EmptyPage_Example-dummy.m */,
-				BCA4492EBB689C06C686ADE5055DAA0F /* Pods-EmptyPage_Example-frameworks.sh */,
-				A09A08884D0C972CF5D402DFAC897046 /* Pods-EmptyPage_Example-Info.plist */,
-				F8BDAC31AB8083CE29CA9602195CB887 /* Pods-EmptyPage_Example-umbrella.h */,
-				36B96731CBA0829D264C2DD2F0F65EAC /* Pods-EmptyPage_Example.debug.xcconfig */,
-				A69AE979EF51F90BDF793C46573BA23E /* Pods-EmptyPage_Example.release.xcconfig */,
-			);
-			name = "Pods-EmptyPage_Example";
-			path = "Target Support Files/Pods-EmptyPage_Example";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -224,8 +202,26 @@
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				B3BFD46E7DC9057F91B7F6F99F290FA4 /* Pods */,
 				67F101459BD555986A0F180BF8B37DD3 /* Products */,
-				AE1C30599D05FDA23976A92C46218D61 /* Targets Support Files */,
+				32808EA1C67170B5166D6DBE5AEE66D0 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		92419A5413C010447AA911E77BB04E4C /* Pods-EmptyPage_Example */ = {
+			isa = PBXGroup;
+			children = (
+				07069F3700C49FC42EBFA16784F66523 /* Info.plist */,
+				74DB04169E6EF556BF0DA9DFA0994A6D /* Pods-EmptyPage_Example.modulemap */,
+				E7B9A5AC476239B7D6D04B8ACF3DD40F /* Pods-EmptyPage_Example-acknowledgements.markdown */,
+				118A9F056049B7E8B32586EAA7A0B8B2 /* Pods-EmptyPage_Example-acknowledgements.plist */,
+				F05491936F7995938024547177AFC737 /* Pods-EmptyPage_Example-dummy.m */,
+				9E38602C80623C9D13C4605101FBD414 /* Pods-EmptyPage_Example-frameworks.sh */,
+				0B5A1363D514C031DB9EC75CBFC1AAC4 /* Pods-EmptyPage_Example-resources.sh */,
+				A30FBD629B01AD86877FDA4F71F1F633 /* Pods-EmptyPage_Example-umbrella.h */,
+				34178FDB777A7BFDBD18F18615B471B4 /* Pods-EmptyPage_Example.debug.xcconfig */,
+				8EAFFB17474AC239E8C129E50EFB9C90 /* Pods-EmptyPage_Example.release.xcconfig */,
+			);
+			name = "Pods-EmptyPage_Example";
+			path = "Target Support Files/Pods-EmptyPage_Example";
 			sourceTree = "<group>";
 		};
 		93223EA9990E87B4EF2777C7DFA4A7C8 /* Core */ = {
@@ -250,20 +246,26 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
+		A0E004CD202F0CEDE62D18B49B96216B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7452C2FA4EEB097A553DF663B6A38B3 /* Hue.modulemap */,
+				FBCC573FB1130F06706EBA4D4A34499E /* Hue.xcconfig */,
+				CC86A0E109B5A1C83209AA78990B5BA7 /* Hue-dummy.m */,
+				CE6E5A1392B5A87875193F9535A959AE /* Hue-prefix.pch */,
+				828B79416987B3E97AB5A652C1334A47 /* Hue-umbrella.h */,
+				92D1581C36A8A3FECAEA2FDD4E81E991 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Hue";
+			sourceTree = "<group>";
+		};
 		A6ABB1A84FB9E199421666ADD9809A03 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
 				4280AE27238F7ED15119610898DB833D /* EmptyPage */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		AE1C30599D05FDA23976A92C46218D61 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				778B543F6BE5DE3BB716493311B8627A /* Pods-EmptyPage_Example */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		B3BFD46E7DC9057F91B7F6F99F290FA4 /* Pods */ = {
@@ -279,7 +281,7 @@
 			children = (
 				A462FF50296DDF57AA922E95215295B4 /* UIColor+Hue.swift */,
 				904C5C286F7827D05D6F8593CFDE437A /* UIImage+Hue.swift */,
-				63B5E0424E37D516A54758B3A4302CB5 /* Support Files */,
+				A0E004CD202F0CEDE62D18B49B96216B /* Support Files */,
 			);
 			name = Hue;
 			path = Hue;
@@ -478,9 +480,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		081DD46DEB35A5398E0DDC90F8B62B2B /* Release */ = {
+		32B18FC4F108F1069DFCE0F47D731953 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F2D441C7766013BBBF619EBF2465518 /* Hue.xcconfig */;
+			baseConfigurationReference = FBCC573FB1130F06706EBA4D4A34499E /* Hue.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -492,41 +494,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Hue/Hue-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Hue/Hue.modulemap";
-				PRODUCT_MODULE_NAME = Hue;
-				PRODUCT_NAME = Hue;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		1679C842D66A92DE37A26DA5D3E39DCD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F2D441C7766013BBBF619EBF2465518 /* Hue.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Hue/Hue-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Hue/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -538,6 +506,41 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6E6D74A83E983EF07718499768681F6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34178FDB777A7BFDBD18F18615B471B4 /* Pods-EmptyPage_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EmptyPage_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -669,6 +672,40 @@
 			};
 			name = Release;
 		};
+		C8165B73F83D9BD6791B5B44732324C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBCC573FB1130F06706EBA4D4A34499E /* Hue.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Hue/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Hue/Hue.modulemap";
+				PRODUCT_MODULE_NAME = Hue;
+				PRODUCT_NAME = Hue;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D11C82AF2204B41B80412B8DC9C1D652 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -733,9 +770,9 @@
 			};
 			name = Debug;
 		};
-		E52F98CF058FA8D1939493A60C638BC4 /* Debug */ = {
+		D70977122043C2030A8202B99934383D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36B96731CBA0829D264C2DD2F0F65EAC /* Pods-EmptyPage_Example.debug.xcconfig */;
+			baseConfigurationReference = 8EAFFB17474AC239E8C129E50EFB9C90 /* Pods-EmptyPage_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -747,42 +784,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F0B8DEF7E43C4230E972F6364C5E3CD5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A69AE979EF51F90BDF793C46573BA23E /* Pods-EmptyPage_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-EmptyPage_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -810,8 +812,8 @@
 		02F13FC8E5274803CE647623218C811E /* Build configuration list for PBXNativeTarget "Hue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1679C842D66A92DE37A26DA5D3E39DCD /* Debug */,
-				081DD46DEB35A5398E0DDC90F8B62B2B /* Release */,
+				32B18FC4F108F1069DFCE0F47D731953 /* Debug */,
+				C8165B73F83D9BD6791B5B44732324C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -819,8 +821,8 @@
 		13C1AB180DE84A4A1F591C8C76C1973A /* Build configuration list for PBXNativeTarget "Pods-EmptyPage_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E52F98CF058FA8D1939493A60C638BC4 /* Debug */,
-				F0B8DEF7E43C4230E972F6364C5E3CD5 /* Release */,
+				6E6D74A83E983EF07718499768681F6E /* Debug */,
+				D70977122043C2030A8202B99934383D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

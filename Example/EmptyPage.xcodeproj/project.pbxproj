@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		9D7F63542005ED050028F898 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 9D7F63532005ED050028F898 /* .swift-version */; };
 		9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB38C200866C7002264E7 /* HomeViewController.swift */; };
 		9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */; };
 		9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */; };
 		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
+		CD11E2162175C9FF00838D84 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD11E2152175C9FF00838D84 /* document.sh */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D592009E4CB003C0E7E /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */; };
 		CDA25D5B2009E4DB003C0E7E /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5A2009E4DB003C0E7E /* DemoCollectionViewController.swift */; };
@@ -33,13 +33,13 @@
 		72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EmptyPage.podspec; path = ../EmptyPage.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7A0D4B6758498EB40AB7A721 /* Pods_EmptyPage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2DDCFE4E0A31B1EDF137CB /* Pods-EmptyPage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9D7F63532005ED050028F898 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
 		9D9EB38C200866C7002264E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPageForCustom.swift; sourceTree = "<group>"; };
 		9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPageForCustom.xib; sourceTree = "<group>"; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B9825AB205A0A5E1168F3C90 /* Pods-EmptyPage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD11E2152175C9FF00838D84 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = document.sh; path = ../document.sh; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		CDA25D5A2009E4DB003C0E7E /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				9D7F63532005ED050028F898 /* .swift-version */,
+				CD11E2152175C9FF00838D84 /* document.sh */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
 				279651C94AB31F26C93245C4 /* LICENSE */,
@@ -203,8 +203,8 @@
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
+				CD11E2162175C9FF00838D84 /* document.sh in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
-				9D7F63542005ED050028F898 /* .swift-version in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +219,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -230,7 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7CD4D0AEEEE555DC7F08EB2C /* [CP] Check Pods Manifest.lock */ = {
@@ -334,6 +334,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -381,6 +382,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
