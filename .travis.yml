@@ -8,7 +8,7 @@ env:
   global:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
-    - XCODE_WORKSPACE=Example/Routable.xcworkspace
+    - XCODE_WORKSPACE=Example/EmptyPage.xcworkspace
   matrix:
     - SCHEME="EmptyPage"
 
