@@ -66,7 +66,6 @@ extension EmptyPageForImage {
     
     let fromItem: NSObject = imageView
     let toItem: NSObject = self
-    let relation = NSLayoutConstraint.Relation.equal
     let priority = UILayoutPriority(999)
 
     let findItems = constraints.filter { (constraint) -> Bool in
@@ -80,8 +79,14 @@ extension EmptyPageForImage {
     }
     
     if findItems.isEmpty {
-      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left, relatedBy: relation, toItem: toItem, attribute: .left, multiplier: 1, constant: value)
-      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right, relatedBy: relation, toItem: toItem, attribute: .right, multiplier: 1, constant: -value)
+      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
+                                         relatedBy: .equal,
+                                         toItem: toItem, attribute: .left,
+                                         multiplier: 1, constant: value)
+      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
+                                        relatedBy: .equal,
+                                        toItem: toItem, attribute: .right,
+                                        multiplier: 1, constant: -value)
       rightItem.priority = priority
       leftItem.priority = priority
       addConstraints([rightItem, leftItem])
