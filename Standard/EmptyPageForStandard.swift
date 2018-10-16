@@ -302,6 +302,7 @@ extension EmptyPageForStandard {
   
   /// 修改视图水平方向上的间距
   ///
+  /// - image:  主图左右间距
   /// - title:  标题左右间距
   /// - text:   文本左右间距
   /// - button: 按钮左右间距
