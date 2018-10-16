@@ -16,18 +16,18 @@ class DemoTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.separatorStyle = .none
-    tableView.setEmpty(view: EmptyStates.loading)
+    tableView.setEmpty(view: EmptyStore.loading)
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
     getData()
   }
   
   
   func getData() {
-    tableView.setEmpty(view: EmptyStates.loading)
+    tableView.setEmpty(view: EmptyStore.loading)
     tableView.reloadData()
     sleep(3) {[weak self] in
       guard let base = self else { return }
-      base.tableView.emptyView = EmptyStates.custom(block1: {[weak self] in
+      base.tableView.emptyView = EmptyStore.custom(block1: {[weak self] in
         guard let base = self else { return }
         base.getData()
       }) {[weak self] in

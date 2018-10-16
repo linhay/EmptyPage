@@ -8,12 +8,22 @@
 
 import UIKit
 import EmptyPage
-struct EmptyStates {
+struct EmptyStore {
   
   static var loading: EmptyPageView{
-    let view = EmptyPageForAnimation.initFromNib
-    view.imageView.image = UIImage(named: "load-0")
-    return .mix(view: view)
+    return EmptyPageView.ContentView.onlyImage
+      .set(image: UIImage(named: "load-0"))
+      .config { (item) in
+        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation.fromValue = CGFloat.pi * 2
+        animation.toValue = 0
+        animation.duration = 2
+        animation.autoreverses = false
+        animation.fillMode = kCAFillModeForwards
+        animation.repeatCount = Float.infinity
+        item.layer.add(animation, forKey: nil)
+      }
+      .mix()
   }
   
   static func custom(block1: @escaping (()->()),
