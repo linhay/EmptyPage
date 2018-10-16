@@ -42,12 +42,8 @@ open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
   
   open override func willMove(toWindow newWindow: UIWindow?) {
     super.willMove(toWindow: newWindow)
-    guard imageView.isAnimating, !(imageView.animationImages?.isEmpty ?? true) else { return }
-    if newWindow == nil {
-      imageView.stopAnimating()
-    }else {
-      imageView.startAnimating()
-    }
+    guard imageView.image == nil else { return }
+    newWindow == nil ? imageView.stopAnimating() : imageView.startAnimating()
   }
 }
 
@@ -112,7 +108,7 @@ extension EmptyPageForImage {
   }
   
   func setImageAspect(firstImage: UIImage?) {
-    guard let firstImage = firstImage, firstImage.size.width == 0, firstImage.size.height == 0 else { return }
+    guard let firstImage = firstImage, firstImage.size.width != 0, firstImage.size.height != 0 else { return }
     let float = firstImage.size.width / firstImage.size.height
     let item = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: float, constant: 0)
     if let constraint = constraints.first(where: { (element) -> Bool in
