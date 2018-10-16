@@ -321,12 +321,11 @@ extension EmptyPageForStandard {
     
     var fromItem: NSObject
     let toItem: NSObject = self
-    var relation = NSLayoutConstraint.Relation.equal
-    
+    let relation = NSLayoutConstraint.Relation.equal
+    let priority = UILayoutPriority(999)
     switch type {
     case .image:
       fromItem = imageView
-      relation = .greaterThanOrEqual
     case .title:
       fromItem = titleLabel
     case .text:
@@ -336,7 +335,7 @@ extension EmptyPageForStandard {
     }
     
     let findItems = constraints.filter { (constraint) -> Bool in
-      guard constraint.priority.rawValue == 900,
+      guard constraint.priority == priority,
         let firstItem = constraint.firstItem as? NSObject,
         let secondItem = constraint.secondItem as? NSObject,
         firstItem == fromItem,
@@ -348,8 +347,8 @@ extension EmptyPageForStandard {
     if findItems.isEmpty {
       let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left, relatedBy: relation, toItem: toItem, attribute: .left, multiplier: 1, constant: value)
       let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right, relatedBy: relation, toItem: toItem, attribute: .right, multiplier: 1, constant: -value)
-      rightItem.priority = UILayoutPriority(rawValue: 900)
-      leftItem.priority = UILayoutPriority(rawValue: 900)
+      rightItem.priority = priority
+      leftItem.priority = priority
       addConstraints([rightItem, leftItem])
     }else{
       findItems.forEach { (item) in
@@ -372,16 +371,26 @@ extension EmptyPageForStandard {
   
   func setImageAspect(firstImage: UIImage?) {
     guard let firstImage = firstImage, firstImage.size.width != 0, firstImage.size.height != 0 else { return }
-    let float = firstImage.size.width / firstImage.size.height
-    let item = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: float, constant: 0)
-    if let constraint = constraints.first(where: { (element) -> Bool in
+    let constraint = constraints.first(where: { (element) -> Bool in
       return element.firstItem as? NSObject == imageView
         && element.secondItem as? NSObject == imageView
-    }) {
+        && element.firstAttribute == .width
+        && element.secondAttribute == .width
+    })
+    
+    if let constraint = constraint {
       removeConstraint(constraint)
+      addConstraint(constraint)
+      updateConstraintsIfNeeded()
+    } else {
+      let float = firstImage.size.width / firstImage.size.height
+      let constraint = NSLayoutConstraint(item: imageView, attribute: .width,
+                                          relatedBy: .equal,
+                                          toItem: imageView, attribute: .height,
+                                          multiplier: float, constant: 0)
+      addConstraint(constraint)
+      updateConstraintsIfNeeded()
     }
-    addConstraint(item)
-    updateConstraintsIfNeeded()
   }
   
   func buildUI() {
@@ -403,7 +412,6 @@ extension EmptyPageForStandard {
     do {
       constraints.append(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
       constraints.append(NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 20))
-      change(hspace: .image, value: 15)
     }
     
     do {
@@ -422,7 +430,7 @@ extension EmptyPageForStandard {
       change(hspace: .button, value: 15)
     }
     
-
+    
     addConstraints(constraints)
   }
   

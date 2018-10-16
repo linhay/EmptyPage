@@ -86,6 +86,7 @@ class HomeViewController: UITableViewController {
       let emptyView = EmptyPageView.ContentView.standard
         .change(hspace: .button, value: 80)
         .change(height: .button, value: 60)
+        .change(hspace: .image, value: 15)
         .config(button: { (item) in
           item.backgroundColor = UIColor(hex: "#0180bf")
           item.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
@@ -177,7 +178,10 @@ class HomeViewController: UITableViewController {
     }
     
     if true {
-      let emptyView = EmptyPageView.ContentView.onlyImage.set(image: UIImage(named: "empty")!).mix()
+      let emptyView = EmptyPageView.ContentView.onlyImage
+        .set(image: UIImage(named: "empty-1002")!)
+        .change(hspace: .image, value: 15)
+        .mix()
       let item = CellItem(title: "纯图片", subTitle: "默认样式", emptyView: emptyView)
       items.append(item)
     }
