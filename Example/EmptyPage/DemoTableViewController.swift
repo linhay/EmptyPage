@@ -22,19 +22,23 @@ class DemoTableViewController: UITableViewController {
   }
   
   
+ func event1() -> (() -> ()) {
+  return { self.getData() }
+  }
+  
+  func event2() -> (() -> ()) {
+    return {
+      self.items = ["点击重新加载","点击添加行","点击删除行"]
+      self.tableView.reloadData()
+    }
+  }
+  
   func getData() {
     tableView.setEmpty(view: EmptyStore.loading)
     tableView.reloadData()
     sleep(3) {[weak self] in
       guard let base = self else { return }
-      base.tableView.emptyView = EmptyStore.custom(block1: {[weak self] in
-        guard let base = self else { return }
-        base.getData()
-      }) {[weak self] in
-        guard let base = self else { return }
-        base.items = ["点击重新加载","点击添加行","点击删除行"]
-        base.tableView.reloadData()
-      }
+      base.tableView.emptyView = EmptyStore.custom(block1: base.event1(), block2: base.event2())
       base.tableView.reloadData()
     }
   }

@@ -33,22 +33,24 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
     getData()
   }
 
-
+  func event1() -> (() -> ()) {
+    return { self.getData() }
+  }
+  
+  func event2() -> (() -> ()) {
+    return {
+      self.rows = 2
+      self.collectionView.insertItems(at: [IndexPath(row: 0, section: 0),IndexPath(row: 1, section: 0)])
+    }
+  }
+  
   func getData() {
     collectionView.setEmpty(view: EmptyStore.loading)
     collectionView.reloadData()
     rows = 0
     sleep(3) {[weak self] in
       guard let base = self else { return }
-      base.collectionView.emptyView = EmptyStore.custom(block1: {[weak self] in
-        guard let base = self else { return }
-        base.getData()
-      }) {[weak self] in
-        guard let base = self else { return }
-        base.rows = 2
-        base.collectionView.insertItems(at: [IndexPath(row: 0, section: 0),
-                                             IndexPath(row: 1, section: 0)])
-      }
+      base.collectionView.emptyView = EmptyStore.custom(block1: base.event1(), block2: base.event2())
       base.collectionView.reloadData()
     }
   }
