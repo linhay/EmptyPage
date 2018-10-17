@@ -10,13 +10,24 @@
 
 # EmptyPage
 
-一个UITableView / UICollectionView扩展，用于在视图没有内容显示的时候显示空白页.
+应用于swift项目的空白页工具.
+
+可利用预置的模板快速构建空白页视图.
+
+亦可自定义视图搭建炫酷的交互.
+
+
+
+### 简介
+
+app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/网络请求失败)等, 添加一个空白指示页将有效缓解用户可能造成的焦虑或混乱. 并可以帮助用户处理问题.
 
 ### Features
 
-- [x] 支持UICollectionView & UITableView
-- [x] 支持链式配置预置模板视图
-- [ ] 支持更多实用与设计感的模板
+- [x] 支持UICollectionView & UITableView.
+- [x] 支持链式配置预置模板视图.
+- [x] 支持完全自定义视图.
+- [ ] 支持更多实用与设计感的模板.
 
 ![demo](./imgs/empty1.gif) ![demo](./imgs/empty2.gif)  
 
@@ -33,13 +44,17 @@
 
 - 使用cocoapods安装
 
-```ruby
-# 如果采用自定义样式,只需要引入 Core
-pod 'EmptyPage/Core'
-# 如果预设样式能够满足需求, 可以使用一下形式引入
-pod 'EmptyPage'
-pod 'EmptyPage/Standard'
-```
+  ##### 完全安装
+
+  ```ruby
+  pod 'EmptyPage'
+  ```
+
+  ##### 不需要预置模板安装
+
+  ```ruby
+  pod 'EmptyPage/Core'
+  ```
 
 ## 使用
 
@@ -75,7 +90,21 @@ pod 'EmptyPage/Standard'
   collectionView.setEmpty(view: emptyView)
   ```
 
+- 空白页显示与切换
 
+  如果需要切换已显示的空白页可主动触发刷新.
+
+  ```swift
+  tableView.setEmpty(view: emptyView)
+  tableView.reloadData()
+  ```
+
+
+### API
+
+##### 由于jazzy bug, 仍在施工中...
+
+##### 
 
 ## Author
 
