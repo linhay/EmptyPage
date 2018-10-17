@@ -10,13 +10,9 @@
 
 # EmptyPage
 
-应用于swift项目的空白页工具.
+##### 一套应用于swift项目的空白页.可利用预置的模板快速构建空白页视图.亦可高度自定义视图搭建炫酷的交互.
 
-可利用预置的模板快速构建空白页视图.
-
-亦可自定义视图搭建炫酷的交互.
-
-
+##### ps: oc项目可以使用[**DZNEmptyDataSet**](https://github.com/dzenbot/DZNEmptyDataSet)替代.
 
 ### 简介
 
@@ -25,9 +21,13 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 ### Features
 
 - [x] 支持UICollectionView & UITableView.
+
 - [x] 支持链式配置预置模板视图.
+
 - [x] 支持完全自定义视图.
+
 - [ ] 支持更多实用与设计感的模板.
+
 
 ![demo](./imgs/empty1.gif) ![demo](./imgs/empty2.gif)  
 
@@ -99,12 +99,9 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
   tableView.reloadData()
   ```
 
-
 ### API
 
 ##### 由于jazzy bug, 仍在施工中...
-
-##### 
 
 ## Author
 
