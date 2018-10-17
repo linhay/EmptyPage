@@ -1,4 +1,4 @@
-![title](./readmeData/title.png)
+![title](./imgs/title.png)
 
 [![build](https://travis-ci.org/linhay/EmptyPage.svg?branch=master)](https://travis-ci.org/BLFoundation/EmptyPage)
 ![Swift4](https://img.shields.io/badge/swift-4.0-green.svg?style=flat)
@@ -12,16 +12,16 @@
 
 一个UITableView / UICollectionView扩展，用于在视图没有内容显示的时候显示空白页.
 
-###Features
+### Features
 
 - [x] 支持UICollectionView & UITableView
 - [x] 支持链式配置预置模板视图
 - [ ] 支持更多实用与设计感的模板
 
-![demo](./readmeData/empty1.gif) ![demo](./readmeData/empty2.gif)  
+![demo](./imgs/empty1.gif) ![demo](./imgs/empty2.gif)  
 
 ### 预置模板视图(纯文字/纯图片/标准)
-![demo1](./readmeData/demo0.png)![demo2](./readmeData/demo1.png)![demo3](./readmeData/demo2.png)
+![only text](./imgs/demo0.png)![only image](./imgs/demo1.png)![standard](./imgs/demo2.png)
 
 ## Requirements
 
