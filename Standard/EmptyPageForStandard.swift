@@ -222,7 +222,7 @@ extension EmptyPageForStandard {
   
   /// 视图高度调整
   ///
-  /// - button: 按钮
+  /// - button: 按钮 default: 自适应
   public enum HeightType {
     case button
   }
@@ -254,9 +254,9 @@ extension EmptyPageForStandard {
   
   /// 垂直方向间距类型
   ///
-  /// - imageWithTitle: 图片与标题间距
-  /// - titleWithText:  标题与文本间距
-  /// - textWithButton: 文本与按钮间距
+  /// - imageWithTitle: 图片与标题间距 default: 10
+  /// - titleWithText:  标题与文本间距 default: 5
+  /// - textWithButton: 文本与按钮间距 default: 10
   public enum VSpaceType {
     case imageTop
     case imageWithTitle
@@ -270,42 +270,54 @@ extension EmptyPageForStandard {
   ///   - space: 指定视图间距
   ///   - value: 修改值
   @discardableResult public func change(vspace type: VSpaceType,value: CGFloat) -> Self {
-    var item0: NSObject
-    var item1: NSObject
+    var fromItem: NSObject
+    var toItem: NSObject
+    var secondAttribute: NSLayoutConstraint.Attribute = .bottom
     switch type {
     case .imageTop:
-      item0 = imageView
-      item1 = self
+      fromItem = imageView
+      toItem = self
+      secondAttribute = .top
     case .imageWithTitle:
-      item0 = titleLabel
-      item1 = imageView
+      fromItem = titleLabel
+      toItem = imageView
     case .titleWithText:
-      item0 = textLabel
-      item1 = titleLabel
+      fromItem = textLabel
+      toItem = titleLabel
     case .textWithButton:
-      item0 = button
-      item1 = textLabel
+      fromItem = button
+      toItem = textLabel
     }
     
-    let item = constraints.first { (item) -> Bool in
+    let findItem = constraints.first { (item) -> Bool in
       guard item.firstAttribute == .top,
-        item.secondAttribute == .bottom,
+        item.secondAttribute == secondAttribute,
         let firstItem = item.firstItem as? NSObject,
         let secondItem = item.secondItem as? NSObject
         else { return false }
-      return firstItem == item0 && secondItem == item1
+      return firstItem == fromItem && secondItem == toItem
     }
-    item?.constant = value
+    
+    if let findItem = findItem {
+      findItem.constant = value
+    }else{
+      let item = NSLayoutConstraint(item: fromItem, attribute: .top,
+                                    relatedBy: .equal,
+                                    toItem: toItem, attribute: secondAttribute,
+                                    multiplier: 1, constant: value)
+      addConstraint(item)
+    }
+    
     updateConstraintsIfNeeded()
     return self
   }
   
   /// 修改视图水平方向上的间距
   ///
-  /// - image:  主图左右间距
-  /// - title:  标题左右间距
-  /// - text:   文本左右间距
-  /// - button: 按钮左右间距
+  /// - image:  主图左右间距 default: 无约束
+  /// - title:  标题左右间距 default: 15
+  /// - text:   文本左右间距 default: 15
+  /// - button: 按钮左右间距 default: 15
   public enum HSpaceType {
     case image
     case title
@@ -416,26 +428,25 @@ extension EmptyPageForStandard {
     var constraints = [NSLayoutConstraint]()
     
     do {
+      change(vspace: .imageTop, value: 20)
       constraints.append(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-      constraints.append(NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 20))
     }
     
     do {
-      constraints.append(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 10))
+      change(vspace: .imageWithTitle, value: 10)
       change(hspace: .title, value: 15)
     }
     
     do {
-      constraints.append(NSLayoutConstraint(item: textLabel, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 5))
+      change(vspace: .titleWithText, value: 5)
       change(hspace: .text, value: 15)
     }
     
     do {
-      constraints.append(NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: textLabel, attribute: .bottom, multiplier: 1, constant: 10))
-      constraints.append(NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -20))
+      change(vspace: .textWithButton, value: 10)
       change(hspace: .button, value: 15)
+      constraints.append(NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -20))
     }
-    
     
     addConstraints(constraints)
   }
