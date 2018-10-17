@@ -26,6 +26,9 @@ public protocol EmptyPageContentViewProtocol: NSObjectProtocol { }
 
 public extension EmptyPageContentViewProtocol {
   
+  /// 将不同空白页内容样式约束至背景View上
+  ///
+  /// - Returns: EmptyPageView
   public func mix() -> EmptyPageView {
     guard let view = self as? UIView else { return EmptyPageView() }
     return EmptyPageView.mix(view: view)
@@ -60,12 +63,20 @@ open class EmptyPageView: UIView {
     return backView
   }
   
+  /// 设置背景颜色
+  ///
+  /// - Parameter color: color
+  /// - Returns: 链式调用
   public func set(backgroundColor color: UIColor) -> Self {
     self.backgroundColor = color
     return self
   }
   
-  func config(view call: (_: EmptyPageView) -> ()) -> Self {
+  /// 配置视图
+  ///
+  /// - Parameter call: 视图回调
+  /// - Returns: 链式调用
+  public func config(view call: (_: EmptyPageView) -> ()) -> Self {
     call(self)
     return self
   }
