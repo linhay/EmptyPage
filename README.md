@@ -6,7 +6,6 @@
 ![Version](https://img.shields.io/cocoapods/v/EmptyPage.svg?style=flat)
 ![CocoaPods](https://img.shields.io/badge/dep-CocoaPods-orange.svg)
 ![MIT](https://img.shields.io/badge/license-MIT-lightgray.svg)
-![Carthage](https://img.shields.io/badge/dep-Carthage-orange.svg)
 
 # EmptyPage
 
