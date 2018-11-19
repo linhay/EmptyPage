@@ -27,11 +27,16 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 
 - [ ] 支持更多实用与设计感的模板.
 
-
-![demo](./imgs/empty1.gif) ![demo](./imgs/empty2.gif)  
+|      |      |
+| ---- | ---- |
+|   ![demo](./imgs/empty1.gif)   |   ![demo](./imgs/empty2.gif)   |
 
 ### 预置模板视图(纯文字/纯图片/标准)
-![only text](./imgs/demo0.png)![only image](./imgs/demo1.png)![standard](./imgs/demo2.png)
+
+|      |      |      |
+| ---- | ---- | ---- |
+|   ![only text](./imgs/demo0.png)   |   ![only image](./imgs/demo1.png)   |   ![standard](./imgs/demo2.png)   |
+
 
 ## Requirements
 
@@ -97,6 +102,10 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
   tableView.setEmpty(view: emptyView)
   tableView.reloadData()
   ```
+
+##### 原理与介绍:
+
+[EmptyPage(空白页组件)介绍与使用](https://www.linhey.com/2018/01/28/[iOS]EmptyPage(%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%BB%84%E4%BB%B6)%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/)
 
 ### API
 
