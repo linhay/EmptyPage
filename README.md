@@ -1,4 +1,4 @@
-![title](./imgs/title.png)
+![title](https://s.linhey.com/emptyPage-title.png)
 
 [![build](https://travis-ci.org/linhay/EmptyPage.svg?branch=master)](https://travis-ci.org/BLFoundation/EmptyPage)
 ![Swift4](https://img.shields.io/badge/swift-4.0-green.svg?style=flat)
@@ -27,22 +27,21 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 
 - [ ] 支持更多实用与设计感的模板.
 
-- [ ] 支持Objc 或提供独立的 Objc 组件库.
+- [ ] 支持 Objective-C  或提供独立的 Objective-C 组件库.
 
-|      |      |
-| ---- | ---- |
-|   ![demo](./imgs/empty1.gif)   |   ![demo](./imgs/empty2.gif)   |
+| ![](https://s.linhey.com/emptyPage-08.gif) | ![](https://s.linhey.com/emptyPage-07.gif) |
+| :----------------------------------------: | :----------------------------------------: |
+| | |
 
 ### 预置模板视图(纯文字/纯图片/标准)
 
-|      |      |      |
-| ---- | ---- | ---- |
-|   ![only text](./imgs/demo0.png)   |   ![only image](./imgs/demo1.png)   |   ![standard](./imgs/demo2.png)   |
+|                                                    |      |      |
+| -------------------------------------------------- | ---- | ---- |
+| ![文字模板](https://s.linhey.com/emptyPage-03.png) | ![图片模板](https://s.linhey.com/emptyPage-04.png) | ![混合模板](https://s.linhey.com/emptyPage-02.png) |
 
+## 要求
 
-## Requirements
-
-- Swift 4
+- Swift 4.x
 - iOS 8+
 - Xcode 10+
 
@@ -105,15 +104,12 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
   tableView.reloadData()
   ```
 
-##### 原理与介绍:
+## 其他
 
-[EmptyPage(空白页组件)介绍与使用](https://www.linhey.com/2018/01/28/[iOS]EmptyPage(%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%BB%84%E4%BB%B6)%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/)
+- [API参考](http://onevcat.github.io/Kingfisher/) - 最后，请记得在需要更详细的参考时阅读完整内容。
+- [EmptyPage(空白页组件)介绍与使用](https://www.linhey.com/2018/01/28/[iOS]EmptyPage(%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%BB%84%E4%BB%B6)%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/) - 详细的介绍本项目使用与原理.
 
-### API
-
-##### 由于jazzy bug, 仍在施工中...
-
-## Author
+### 联系
 
 linhay: is.linhay@outlook.com
 
