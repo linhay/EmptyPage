@@ -123,7 +123,7 @@ extension EmptyPageForImage {
 }
 
 // MARK: functions for modify element configuration
-// MARK: 配置元素 相关函数
+// MARK: 轻度配置元素 相关函数
 extension EmptyPageForImage {
   
   /// 设置 `EmptyPageForImage.imageView` 图片
