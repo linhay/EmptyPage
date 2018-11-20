@@ -22,14 +22,16 @@
 
 import UIKit
 
+/// `EmptyPageForImage` 图片视图模板
 open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
   
-  /// imageView
+  // MARK: - Public property
   public let imageView: UIImageView = {
     let item = UIImageView()
     return item
   }()
   
+  // MARK: - Override
   public init() {
     super.init(frame: CGRect.zero)
     buildUI()
@@ -47,7 +49,8 @@ open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
   }
 }
 
-// MARK: - changed layouts
+// MARK: functions/enums for change element layouts
+// MARK: 调整 layout 相关枚举与函数
 extension EmptyPageForImage {
   
   /// 修改视图水平方向上的间距
@@ -57,11 +60,13 @@ extension EmptyPageForImage {
     case image
   }
   
+
   /// 修改视图水平方向上的间距
   ///
   /// - Parameters:
-  ///   - space: 指定视图间距
-  ///   - value: 修改值
+  ///   - type: 调整类型,可查阅: `EmptyPageForImage.HSpaceType`
+  ///   - value: 调整值
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   @discardableResult public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
     
     let fromItem: NSObject = imageView
@@ -102,13 +107,14 @@ extension EmptyPageForImage {
 
 }
 
-// MARK: - config for views
+// MARK: functions for deep modify element configuration
+// MARK: 深度配置元素 相关函数
 extension EmptyPageForImage {
   
-  /// 配置图片控件
+  /// 配置 imageView
   ///
-  /// - Parameter call: 视图回调
-  /// - Returns: 链式调用
+  /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   public func config(imageView call: (_: UIImageView) -> ()) -> Self {
     call(imageView)
     return self
@@ -116,25 +122,27 @@ extension EmptyPageForImage {
   
 }
 
-// MARK: - set base info
+// MARK: functions for modify element configuration
+// MARK: 配置元素 相关函数
 extension EmptyPageForImage {
   
-  /// 设置主图片
+  /// 设置 `EmptyPageForImage.imageView` 图片
   ///
-  /// - Parameter value: image
-  /// - Returns: 链式调用
+  /// - Parameter value: 图片
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   public func set(image value: UIImage?) -> Self{
     setImageAspect(firstImage: value)
     imageView.image = value
     return self
   }
   
-  /// 设置图片组
+  /// 设置 `EmptyPageForImage.imageView` 图片组
   ///
   /// - Parameters:
   ///   - images: 图片组
   ///   - duration: 播放时长
   ///   - repeatCount: 循环次数
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   public func set(images: [UIImage],duration: TimeInterval, repeatCount: Int = 0) -> Self {
     setImageAspect(firstImage: images.first)
     imageView.animationDuration = duration
