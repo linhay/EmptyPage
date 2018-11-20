@@ -22,8 +22,10 @@
 
 import UIKit
 
+/// `EmptyPageForText` 文字样式模板
 open class EmptyPageForText: UIView, EmptyPageContentViewProtocol {
   
+  // MARK: - Public property
   public let label: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
@@ -32,6 +34,7 @@ open class EmptyPageForText: UIView, EmptyPageContentViewProtocol {
     return label
   }()
   
+  // MARK: - Override
   public init() {
     super.init(frame: CGRect.zero)
     buildUI()
@@ -45,22 +48,24 @@ open class EmptyPageForText: UIView, EmptyPageContentViewProtocol {
 }
 
 
-// MARK: - changed layouts
+// MARK: 调整 layout 相关枚举与函数
 extension EmptyPageForText {
+  
   
   /// 修改视图水平方向上的间距
   ///
-  /// - text:   文本左右间距
+  /// - text: 文本左右间距
   public enum HSpaceType {
     case text
   }
+  
   
   /// 修改视图水平方向上的间距
   ///
   /// - Parameters:
   ///   - space: 指定视图间距
   ///   - value: 修改值
-  @discardableResult public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
+  public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
     
     let fromItem: NSObject = label
     let toItem: NSObject = self
@@ -97,31 +102,37 @@ extension EmptyPageForText {
     updateConstraintsIfNeeded()
     return self
   }
+  
+  
 }
 
-// MARK: - config for views
+// MARK: 深度配置元素 相关函数
 extension EmptyPageForText {
   
-  /// 配置图片控件
+
+  /// 配置 `EmptyPageForText.label`
   ///
-  /// - Parameter call: 视图回调
-  /// - Returns: 链式调用
+  /// - Parameter call: 元素回调, 回调 `EmptyPageForText.label`
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
   public func config(label call: (_: UILabel) -> ()) -> Self {
     call(label)
     return self
   }
   
+  
 }
 
-// MARK: - set base info
+// MARK: 轻度配置元素 相关函数
 extension EmptyPageForText {
   
-  /// 设置文本
+  
+  /// 设置 `EmptyPageForText.label`
   ///
   /// - Parameters:
-  ///   - text: 文本
-  ///   - color: 文本颜色
-  ///   - font: 文本字体
+  ///   - title: 文本
+  ///   - color: 文本颜色 default: UIColor.black
+  ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
   public func set(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
     label.text = text
     label.textColor = color
@@ -129,13 +140,16 @@ extension EmptyPageForText {
     return self
   }
   
-  /// 设置富文本
+  
+  /// 设置 `EmptyPageForText.label`
   ///
   /// - Parameter attributed: 富文本
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
   public func set(attributed: NSAttributedString) -> Self {
     label.attributedText = attributed
     return self
   }
+  
   
 }
 
@@ -148,7 +162,7 @@ extension EmptyPageForText {
                                                  options: NSLayoutFormatOptions(rawValue: 0),
                                                  metrics: nil,
                                                  views: ["label" : label])
-    change(hspace: .text, value: 15)
+    _ = change(hspace: .text, value: 15)
     addConstraints(layout0)
   }
   
