@@ -29,7 +29,7 @@ public extension UIScrollView {
     static let oldEmptyViewKey = UnsafeRawPointer(bitPattern:"scroll_oldEmptyViewKey".hashValue)!
   }
   
-  weak private var oldEmptyView: UIView? {
+  weak var oldEmptyView: UIView? {
     get {
       return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView
     }

@@ -22,6 +22,7 @@
 
 import UIKit
 
+/// `EmptyPageContentViewProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageContentViewProtocol.mix()` 函数
 public protocol EmptyPageContentViewProtocol: NSObjectProtocol { }
 
 public extension EmptyPageContentViewProtocol {
@@ -36,22 +37,23 @@ public extension EmptyPageContentViewProtocol {
   
 }
 
+/// 自定义视图的容器视图
 open class EmptyPageView: UIView {
   
+  // MARK: - Public property
   /// 预设默认背景色
   public static var backColor: UIColor = UIColor.white
-  
-  /// 获取一个空白页背景View
+  /// backgroundView
   open class var backgroundView: EmptyPageView {
     let view = EmptyPageView(frame: UIScreen.main.bounds)
     view.backgroundColor = EmptyPageView.backColor
     return view
   }
   
-  /// 将不同空白页内容样式约束至背景View上
+  /// 将 自定义视图 约束至 `EmptyPageView` 上
   ///
   /// - Parameter view: 空白页内容样式
-  /// - Returns: 空白页
+  /// - Returns: 为支持链式调用,返回 `EmptyPageView`
   open class func mix(view: UIView) -> EmptyPageView {
     let backView = backgroundView
     backView.addSubview(view)
@@ -63,30 +65,32 @@ open class EmptyPageView: UIView {
     return backView
   }
   
-  /// 设置背景颜色
+  /// 配置 `EmptyPageView`
   ///
-  /// - Parameter color: color
-  /// - Returns: 链式调用
+  /// - Parameter color: 背景颜色
+  /// - Returns: 为支持链式调用,返回 `EmptyPageView`
   public func set(backgroundColor color: UIColor) -> Self {
     self.backgroundColor = color
     return self
   }
   
-  /// 配置视图
+  /// 配置 `EmptyPageView`
   ///
   /// - Parameter call: 视图回调
-  /// - Returns: 链式调用
+  /// - Returns: 为支持链式调用,返回 `EmptyPageView`
   public func config(view call: (_: EmptyPageView) -> ()) -> Self {
     call(self)
     return self
   }
   
+  
+  /// 自定义视图模板
   public struct ContentView {
-    /// 纯文本样式
+    /// 文本样式模板 `EmptyPageForText`
     public static var onlyText: EmptyPageForText { return EmptyPageForText() }
-    /// 纯图片样式
+    /// 图片样式模板 `EmptyPageForImage`
     public static var onlyImage: EmptyPageForImage { return EmptyPageForImage() }
-    /// 标准样式
+    /// 混合样式模板 `EmptyPageForStandard`
     public static var standard: EmptyPageForStandard { return EmptyPageForStandard() }
   }
   

@@ -22,7 +22,7 @@
 
 import UIKit
 
-/// `EmptyPageForImage` 图片视图模板
+/// `EmptyPageForImage` 图片样式模板
 open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
   
   // MARK: - Public property
@@ -49,7 +49,6 @@ open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
   }
 }
 
-// MARK: functions/enums for change element layouts
 // MARK: 调整 layout 相关枚举与函数
 extension EmptyPageForImage {
   
@@ -67,51 +66,50 @@ extension EmptyPageForImage {
   ///   - type: 调整类型,可查阅: `EmptyPageForImage.HSpaceType`
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
-  @discardableResult public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
-    
-    let fromItem: NSObject = imageView
-    let toItem: NSObject = self
-    let priority = UILayoutPriority(999)
+  public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
+  
+  let fromItem: NSObject = imageView
+  let toItem: NSObject = self
+  let priority = UILayoutPriority(999)
 
-    let findItems = constraints.filter { (constraint) -> Bool in
-      guard constraint.priority == priority,
-        let firstItem = constraint.firstItem as? NSObject,
-        let secondItem = constraint.secondItem as? NSObject,
-        firstItem == fromItem,
-        secondItem == toItem
-        else { return false }
-      return true
-    }
-    
-    if findItems.isEmpty {
-      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
-                                         relatedBy: .equal,
-                                         toItem: toItem, attribute: .left,
-                                         multiplier: 1, constant: value)
-      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
-                                        relatedBy: .equal,
-                                        toItem: toItem, attribute: .right,
-                                        multiplier: 1, constant: -value)
-      rightItem.priority = priority
-      leftItem.priority = priority
-      addConstraints([rightItem, leftItem])
-    }else{
-      findItems.forEach { (item) in
-        item.constant = item.firstAttribute == .left ? value : -value
-      }
-    }
-    
-    updateConstraintsIfNeeded()
-    return self
+  let findItems = constraints.filter { (constraint) -> Bool in
+    guard constraint.priority == priority,
+      let firstItem = constraint.firstItem as? NSObject,
+      let secondItem = constraint.secondItem as? NSObject,
+      firstItem == fromItem,
+      secondItem == toItem
+      else { return false }
+    return true
   }
+  
+  if findItems.isEmpty {
+    let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
+                                        relatedBy: .equal,
+                                        toItem: toItem, attribute: .left,
+                                        multiplier: 1, constant: value)
+    let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
+                                      relatedBy: .equal,
+                                      toItem: toItem, attribute: .right,
+                                      multiplier: 1, constant: -value)
+    rightItem.priority = priority
+    leftItem.priority = priority
+    addConstraints([rightItem, leftItem])
+  }else{
+    findItems.forEach { (item) in
+      item.constant = item.firstAttribute == .left ? value : -value
+    }
+  }
+  
+  updateConstraintsIfNeeded()
+  return self
+}
 
 }
 
-// MARK: functions for deep modify element configuration
 // MARK: 深度配置元素 相关函数
 extension EmptyPageForImage {
   
-  /// 配置 imageView
+  /// 配置 `EmptyPageForImage.imageView`
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
@@ -122,11 +120,10 @@ extension EmptyPageForImage {
   
 }
 
-// MARK: functions for modify element configuration
 // MARK: 轻度配置元素 相关函数
 extension EmptyPageForImage {
   
-  /// 设置 `EmptyPageForImage.imageView` 图片
+  /// 设置 `EmptyPageForImage.imageView`
   ///
   /// - Parameter value: 图片
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
@@ -136,7 +133,7 @@ extension EmptyPageForImage {
     return self
   }
   
-  /// 设置 `EmptyPageForImage.imageView` 图片组
+  /// 设置 `EmptyPageForImage.imageView`
   ///
   /// - Parameters:
   ///   - images: 图片组

@@ -25,6 +25,9 @@ import UIKit
 
 public extension UIScrollView {
 
+  /// 添加空白页视图
+  /// 主要作用: 约束视图类型
+  /// - Parameter view: EmptyPageView
   public func setEmpty(view: EmptyPageView?) {
     emptyView = view
   }
