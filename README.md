@@ -106,7 +106,7 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 
 ## 其他
 
-- [API参考](http://onevcat.github.io/Kingfisher/) - 最后，请记得在需要更详细的参考时阅读完整内容。
+- [API参考](https://linhay.github.io/EmptyPage/) - 最后，请记得在需要更详细的参考时阅读完整内容。
 - [EmptyPage(空白页组件)介绍与使用](https://www.linhey.com/2018/01/28/[iOS]EmptyPage(%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%BB%84%E4%BB%B6)%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/) - 详细的介绍本项目使用与原理.
 
 ### 联系
