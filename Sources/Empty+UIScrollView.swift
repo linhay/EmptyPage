@@ -29,6 +29,7 @@ public extension UIScrollView {
     static let oldEmptyViewKey = UnsafeRawPointer(bitPattern:"scroll_oldEmptyViewKey".hashValue)!
   }
   
+  // 私有属性 (防止多次设置emptyView)
   weak var oldEmptyView: UIView? {
     get {
       return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView
@@ -42,6 +43,7 @@ public extension UIScrollView {
     }
   }
   
+  // 空白页视图
   public var emptyView: UIView? {
     get {
       return objc_getAssociatedObject(self,EmptyDataKey.emptyViewKey) as? UIView
