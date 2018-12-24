@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k2T-vf-CPF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auto Layout View Controller-->
+        <scene sceneID="37H-9A-BIH">
+            <objects>
+                <viewController id="k2T-vf-CPF" customClass="AutoLayoutViewController" customModule="EmptyPage_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Hb-ve-gtc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dMz-Zv-Wil">
+                                <rect key="frame" x="0.0" y="20" width="375" height="497"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-PB-NSr">
+                                <rect key="frame" x="0.0" y="527" width="375" height="140"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sbm-sS-R2S">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv6-AL-uGf">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="35"/>
+                                                <state key="normal" title="纯文字"/>
+                                                <connections>
+                                                    <action selector="setTextStyleEvent:" destination="k2T-vf-CPF" eventType="touchUpInside" id="sOE-gK-hZg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xa-7z-0ey">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="35"/>
+                                                <state key="normal" title="纯图片"/>
+                                                <connections>
+                                                    <action selector="setImageStyleEvent:" destination="k2T-vf-CPF" eventType="touchUpInside" id="K3C-0q-CPk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBT-3x-tfR">
+                                                <rect key="frame" x="250" y="0.0" width="125" height="35"/>
+                                                <state key="normal" title="标准"/>
+                                                <connections>
+                                                    <action selector="setStandardEvent:" destination="k2T-vf-CPF" eventType="touchUpInside" id="PtM-S6-udo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mNt-4S-rp2">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水平:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-CS-5jY">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUr-Wi-5V1">
+                                                <rect key="frame" x="75" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="文字间距"/>
+                                                <connections>
+                                                    <action selector="textSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="omP-ZO-ajA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-oY-0Pp">
+                                                <rect key="frame" x="150" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="图片间距"/>
+                                                <connections>
+                                                    <action selector="imageSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="UQ2-yg-Hka"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-US-PMm">
+                                                <rect key="frame" x="225" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="标题间距"/>
+                                                <connections>
+                                                    <action selector="titleSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="LG7-Li-2XG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehD-vV-mJ1">
+                                                <rect key="frame" x="300" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="按钮间距"/>
+                                                <connections>
+                                                    <action selector="buttonSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="YZB-Ua-OwR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xJz-Fa-BNa">
+                                        <rect key="frame" x="0.0" y="70" width="375" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="垂直:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbt-1C-mcn">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEb-cv-Y5q">
+                                                <rect key="frame" x="75" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="图片顶部"/>
+                                                <connections>
+                                                    <action selector="imageTop:" destination="k2T-vf-CPF" eventType="touchUpInside" id="BVQ-hN-CIm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kd-0B-t6m">
+                                                <rect key="frame" x="150" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="图片标题"/>
+                                                <connections>
+                                                    <action selector="imageWithTitle:" destination="k2T-vf-CPF" eventType="touchUpInside" id="EI9-bq-Imq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwN-R1-6Nl">
+                                                <rect key="frame" x="225" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="标题文字"/>
+                                                <connections>
+                                                    <action selector="titleWithText:" destination="k2T-vf-CPF" eventType="touchUpInside" id="feL-Si-oUr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sr-Am-tTT">
+                                                <rect key="frame" x="300" y="0.0" width="75" height="35"/>
+                                                <state key="normal" title="文字按钮"/>
+                                                <connections>
+                                                    <action selector="textWithButton:" destination="k2T-vf-CPF" eventType="touchUpInside" id="eMe-4p-hAS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-VY-Aza">
+                                        <rect key="frame" x="0.0" y="105" width="375" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高度:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-yy-svx">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyg-Ex-Nlp">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="35"/>
+                                                <state key="normal" title="按钮高度"/>
+                                                <connections>
+                                                    <action selector="buttonHeight:" destination="k2T-vf-CPF" eventType="touchUpInside" id="UQH-84-KeH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="Xpo-kr-rAY"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xWW-yG-Bia" firstAttribute="trailing" secondItem="dMz-Zv-Wil" secondAttribute="trailing" id="6TB-Ij-p9y"/>
+                            <constraint firstItem="6Df-PB-NSr" firstAttribute="top" secondItem="dMz-Zv-Wil" secondAttribute="bottom" constant="10" id="J8t-MB-zFS"/>
+                            <constraint firstItem="6Df-PB-NSr" firstAttribute="leading" secondItem="xWW-yG-Bia" secondAttribute="leading" id="Wwo-qT-QTB"/>
+                            <constraint firstItem="dMz-Zv-Wil" firstAttribute="leading" secondItem="xWW-yG-Bia" secondAttribute="leading" id="eRx-gl-2aj"/>
+                            <constraint firstItem="dMz-Zv-Wil" firstAttribute="top" secondItem="xWW-yG-Bia" secondAttribute="top" id="kLd-a5-PIk"/>
+                            <constraint firstItem="xWW-yG-Bia" firstAttribute="bottom" secondItem="6Df-PB-NSr" secondAttribute="bottom" id="n3l-L8-2g8"/>
+                            <constraint firstItem="xWW-yG-Bia" firstAttribute="trailing" secondItem="6Df-PB-NSr" secondAttribute="trailing" id="w3V-Em-6MH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xWW-yG-Bia"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dMz-Zv-Wil" id="qcf-EP-R8D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EF8-Fp-0v1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="289" y="-309"/>
+        </scene>
+    </scenes>
+</document>

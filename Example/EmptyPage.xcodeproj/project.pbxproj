@@ -13,6 +13,8 @@
 		9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */; };
 		9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */; };
 		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
+		CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */; };
+		CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */; };
 		CD11E2162175C9FF00838D84 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD11E2152175C9FF00838D84 /* document.sh */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D592009E4CB003C0E7E /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */; };
@@ -39,6 +41,8 @@
 		9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPageForCustom.xib; sourceTree = "<group>"; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B9825AB205A0A5E1168F3C90 /* Pods-EmptyPage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Tests/Pods-EmptyPage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
+		CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayoutViewController.storyboard; sourceTree = "<group>"; };
 		CD11E2152175C9FF00838D84 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = document.sh; path = ../document.sh; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D582009E4CB003C0E7E /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				9D9EB38C200866C7002264E7 /* HomeViewController.swift */,
+				CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */,
+				CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */,
 				9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */,
 				9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */,
 				9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */,
@@ -204,6 +210,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD11E2162175C9FF00838D84 /* document.sh in Resources */,
+				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +274,7 @@
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */,
+				CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -413,7 +421,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
