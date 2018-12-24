@@ -30,6 +30,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv6-AL-uGf">
                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="纯文字"/>
                                                 <connections>
                                                     <action selector="setTextStyleEvent:" destination="k2T-vf-CPF" eventType="touchUpInside" id="sOE-gK-hZg"/>
@@ -37,6 +38,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xa-7z-0ey">
                                                 <rect key="frame" x="125" y="0.0" width="125" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="纯图片"/>
                                                 <connections>
                                                     <action selector="setImageStyleEvent:" destination="k2T-vf-CPF" eventType="touchUpInside" id="K3C-0q-CPk"/>
@@ -44,6 +46,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBT-3x-tfR">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="标准"/>
                                                 <connections>
                                                     <action selector="setStandardEvent:" destination="k2T-vf-CPF" eventType="touchUpInside" id="PtM-S6-udo"/>
@@ -62,6 +65,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUr-Wi-5V1">
                                                 <rect key="frame" x="75" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="文字间距"/>
                                                 <connections>
                                                     <action selector="textSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="omP-ZO-ajA"/>
@@ -69,6 +73,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-oY-0Pp">
                                                 <rect key="frame" x="150" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="图片间距"/>
                                                 <connections>
                                                     <action selector="imageSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="UQ2-yg-Hka"/>
@@ -76,6 +81,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-US-PMm">
                                                 <rect key="frame" x="225" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="标题间距"/>
                                                 <connections>
                                                     <action selector="titleSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="LG7-Li-2XG"/>
@@ -83,6 +89,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehD-vV-mJ1">
                                                 <rect key="frame" x="300" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="按钮间距"/>
                                                 <connections>
                                                     <action selector="buttonSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="YZB-Ua-OwR"/>
@@ -101,6 +108,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEb-cv-Y5q">
                                                 <rect key="frame" x="75" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="图片顶部"/>
                                                 <connections>
                                                     <action selector="imageTop:" destination="k2T-vf-CPF" eventType="touchUpInside" id="BVQ-hN-CIm"/>
@@ -108,6 +116,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kd-0B-t6m">
                                                 <rect key="frame" x="150" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="图片标题"/>
                                                 <connections>
                                                     <action selector="imageWithTitle:" destination="k2T-vf-CPF" eventType="touchUpInside" id="EI9-bq-Imq"/>
@@ -115,6 +124,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwN-R1-6Nl">
                                                 <rect key="frame" x="225" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="标题文字"/>
                                                 <connections>
                                                     <action selector="titleWithText:" destination="k2T-vf-CPF" eventType="touchUpInside" id="feL-Si-oUr"/>
@@ -122,6 +132,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sr-Am-tTT">
                                                 <rect key="frame" x="300" y="0.0" width="75" height="35"/>
+                                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="文字按钮"/>
                                                 <connections>
                                                     <action selector="textWithButton:" destination="k2T-vf-CPF" eventType="touchUpInside" id="eMe-4p-hAS"/>
@@ -140,6 +151,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyg-Ex-Nlp">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="35"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="按钮高度"/>
                                                 <connections>
                                                     <action selector="buttonHeight:" destination="k2T-vf-CPF" eventType="touchUpInside" id="UQH-84-KeH"/>

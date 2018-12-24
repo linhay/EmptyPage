@@ -20,14 +20,18 @@ class AutoLayoutViewController: UIViewController {
     .set(image: UIImage(named: "404"))
   
   
-  let onlyStandardView = EmptyPageView.ContentView.standard
+  let standardView = EmptyPageView.ContentView.standard
     .set(image: UIImage(named: "404"))
     .set(title: "标题|标题|标题|标题|标题|标题|标题|标题")
     .set(text:  "A测试B测试C测试D测试E测试F测试G测试E测试F测试G测试")
     .set(buttonTitle: "按钮")
-  
-  
-  
+    .config(titleLabel: { (item) in
+    item.backgroundColor = UIColor.yellow
+    }).config(textLabel: { (item) in
+      item.backgroundColor = UIColor.yellow
+    }).config(imageView: { (item) in
+      item.backgroundColor = UIColor.yellow
+    })
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,15 +41,15 @@ class AutoLayoutViewController: UIViewController {
   @IBAction func setStandardEvent(_ sender: UIButton) {
     onlyTextView.removeFromSuperview()
     onlyImageView.removeFromSuperview()
-    onlyStandardView.removeFromSuperview()
-    tableView.setEmpty(view: onlyStandardView.mix())
+    standardView.removeFromSuperview()
+    tableView.setEmpty(view: standardView.mix())
     tableView.reloadData()
   }
   
   @IBAction func setImageStyleEvent(_ sender: UIButton) {
     onlyTextView.removeFromSuperview()
     onlyImageView.removeFromSuperview()
-    onlyStandardView.removeFromSuperview()
+    standardView.removeFromSuperview()
     tableView.setEmpty(view: onlyImageView.mix())
     tableView.reloadData()
   }
@@ -53,7 +57,7 @@ class AutoLayoutViewController: UIViewController {
   @IBAction func setTextStyleEvent(_ sender: UIButton) {
     onlyTextView.removeFromSuperview()
     onlyImageView.removeFromSuperview()
-    onlyStandardView.removeFromSuperview()
+    standardView.removeFromSuperview()
     tableView.setEmpty(view: onlyTextView.mix())
     tableView.reloadData()
   }
@@ -66,8 +70,8 @@ class AutoLayoutViewController: UIViewController {
       onlyImageView.change(hspace: EmptyPageForImage.HSpaceType.image, value: imageSpaceValue)
     }
     
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(hspace: EmptyPageForStandard.HSpaceType.image, value: imageSpaceValue)
+    if standardView.superview != nil {
+      standardView.change(hspace: EmptyPageForStandard.HSpaceType.image, value: imageSpaceValue)
     }
   }
   
@@ -78,16 +82,16 @@ class AutoLayoutViewController: UIViewController {
       onlyTextView.change(hspace: EmptyPageForText.HSpaceType.text, value: textSpaceValue)
     }
     
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(hspace: EmptyPageForStandard.HSpaceType.text, value: textSpaceValue)
+    if standardView.superview != nil {
+      standardView.change(hspace: EmptyPageForStandard.HSpaceType.text, value: textSpaceValue)
     }
   }
   
   var titleSpaceValue: CGFloat = 0
   @IBAction func titleSpace(_ sender: UIButton) {
     titleSpaceValue += (titleSpaceValue > 100) ? -90 : 10
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(hspace: EmptyPageForStandard.HSpaceType.title, value: titleSpaceValue)
+    if standardView.superview != nil {
+      standardView.change(hspace: EmptyPageForStandard.HSpaceType.title, value: titleSpaceValue)
     }
   }
   
@@ -95,8 +99,8 @@ class AutoLayoutViewController: UIViewController {
   @IBAction func buttonSpace(_ sender: UIButton) {
     buttonSpaceValue += (buttonSpaceValue > 100) ? -90 : 10
     
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(hspace: EmptyPageForStandard.HSpaceType.button, value: buttonSpaceValue)
+    if standardView.superview != nil {
+      standardView.change(hspace: EmptyPageForStandard.HSpaceType.button, value: buttonSpaceValue)
     }
   }
   
@@ -104,32 +108,32 @@ class AutoLayoutViewController: UIViewController {
   var imageTopValue: CGFloat = 0
   @IBAction func imageTop(_ sender: UIButton) {
     imageTopValue += (imageTopValue  > 50) ? -50 : 5
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(vspace: EmptyPageForStandard.VSpaceType.imageTop, value: imageTopValue)
+    if standardView.superview != nil {
+      standardView.change(vspace: EmptyPageForStandard.VSpaceType.imageTop, value: imageTopValue)
     }
   }
   
   var imageWithTitleValue: CGFloat = 0
   @IBAction func imageWithTitle(_ sender: UIButton) {
     imageWithTitleValue += (imageWithTitleValue  > 50) ? -35 : 5
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(vspace: EmptyPageForStandard.VSpaceType.imageWithTitle, value: imageWithTitleValue)
+    if standardView.superview != nil {
+      standardView.change(vspace: EmptyPageForStandard.VSpaceType.imageWithTitle, value: imageWithTitleValue)
     }
   }
   
   var titleWithTextValue: CGFloat = 0
   @IBAction func titleWithText(_ sender: UIButton) {
     titleWithTextValue += (titleWithTextValue  > 50) ? -35 : 5
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(vspace: EmptyPageForStandard.VSpaceType.titleWithText, value: titleWithTextValue)
+    if standardView.superview != nil {
+      standardView.change(vspace: EmptyPageForStandard.VSpaceType.titleWithText, value: titleWithTextValue)
     }
   }
   
   var textWithButtonValue: CGFloat = 0
   @IBAction func textWithButton(_ sender: UIButton) {
     textWithButtonValue += (textWithButtonValue > 50) ? -35 : 5
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(vspace: EmptyPageForStandard.VSpaceType.textWithButton, value: textWithButtonValue)
+    if standardView.superview != nil {
+      standardView.change(vspace: EmptyPageForStandard.VSpaceType.textWithButton, value: textWithButtonValue)
     }
   }
   
@@ -139,8 +143,8 @@ class AutoLayoutViewController: UIViewController {
   @IBAction func buttonHeight(_ sender: UIButton) {
     buttonHeightValue += (buttonHeightValue > 80) ? -60 : 10
     
-    if onlyStandardView.superview != nil {
-      onlyStandardView.change(height: EmptyPageForStandard.HeightType.button, value: buttonHeightValue)
+    if standardView.superview != nil {
+      standardView.change(height: EmptyPageForStandard.HeightType.button, value: buttonHeightValue)
     }
   }
   
