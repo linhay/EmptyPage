@@ -152,6 +152,7 @@ class HomeViewController: UITableViewController {
   }
   
   func buildSectionForDefault() {
+
     var items = [CellItem]()
     let images = (0...3).map { (item) -> UIImage in
       return UIImage(named: "load-\(item)")!

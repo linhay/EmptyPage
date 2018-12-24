@@ -8,9 +8,9 @@
 
 import UIKit
 import EmptyPage
-struct EmptyStore {
+class EmptyStore {
   
-  static var loading: EmptyPageView{
+  class var loading: EmptyPageView{
     return EmptyPageView.ContentView.onlyImage
       .set(image: UIImage(named: "load-0"))
       .config { (item) in
@@ -26,7 +26,7 @@ struct EmptyStore {
       .mix()
   }
   
-  static func custom(block1: @escaping (()->()),
+  class func custom(block1: @escaping (()->()),
                      block2: @escaping (()->())) -> EmptyPageView {
     let view = EmptyPageForCustom.initFromNib
     view.imageView.image = UIImage(named: "empty")

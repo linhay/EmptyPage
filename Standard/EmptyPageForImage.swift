@@ -59,7 +59,7 @@ extension EmptyPageForImage {
     case image
   }
   
-
+  
   /// 修改视图水平方向上的间距
   ///
   /// - Parameters:
@@ -67,43 +67,43 @@ extension EmptyPageForImage {
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
-  
-  let fromItem: NSObject = imageView
-  let toItem: NSObject = self
-  let priority = UILayoutPriority(999)
-
-  let findItems = constraints.filter { (constraint) -> Bool in
-    guard constraint.priority == priority,
-      let firstItem = constraint.firstItem as? NSObject,
-      let secondItem = constraint.secondItem as? NSObject,
-      firstItem == fromItem,
-      secondItem == toItem
-      else { return false }
-    return true
-  }
-  
-  if findItems.isEmpty {
-    let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
-                                        relatedBy: .equal,
-                                        toItem: toItem, attribute: .left,
-                                        multiplier: 1, constant: value)
-    let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
-                                      relatedBy: .equal,
-                                      toItem: toItem, attribute: .right,
-                                      multiplier: 1, constant: -value)
-    rightItem.priority = priority
-    leftItem.priority = priority
-    addConstraints([rightItem, leftItem])
-  }else{
-    findItems.forEach { (item) in
-      item.constant = item.firstAttribute == .left ? value : -value
+    
+    let fromItem: NSObject = imageView
+    let toItem: NSObject = self
+    let priority = UILayoutPriority(999)
+    
+    let findItems = constraints.filter { (constraint) -> Bool in
+      guard constraint.priority == priority,
+        let firstItem = constraint.firstItem as? NSObject,
+        let secondItem = constraint.secondItem as? NSObject,
+        firstItem == fromItem,
+        secondItem == toItem
+        else { return false }
+      return true
     }
+    
+    if findItems.isEmpty {
+      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
+                                         relatedBy: .equal,
+                                         toItem: toItem, attribute: .left,
+                                         multiplier: 1, constant: value)
+      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
+                                        relatedBy: .equal,
+                                        toItem: toItem, attribute: .right,
+                                        multiplier: 1, constant: -value)
+      rightItem.priority = priority
+      leftItem.priority = priority
+      addConstraints([rightItem, leftItem])
+    }else{
+      findItems.forEach { (item) in
+        item.constant = item.firstAttribute == .left ? value : -value
+      }
+    }
+    
+    updateConstraintsIfNeeded()
+    return self
   }
   
-  updateConstraintsIfNeeded()
-  return self
-}
-
 }
 
 // MARK: 深度配置元素 相关函数
@@ -170,25 +170,20 @@ extension EmptyPageForImage {
   func setImageAspect(firstImage: UIImage?) {
     guard let firstImage = firstImage, firstImage.size.width != 0, firstImage.size.height != 0 else { return }
     let constraint = constraints.first(where: { (element) -> Bool in
-      return element.firstItem as? NSObject == imageView
-        && element.secondItem as? NSObject == imageView
+      return element.firstItem === imageView
+        && element.secondItem === imageView
         && element.firstAttribute == .width
-        && element.secondAttribute == .width
+        && element.secondAttribute == .height
     })
     
-    if let constraint = constraint {
-      removeConstraint(constraint)
-      addConstraint(constraint)
-      updateConstraintsIfNeeded()
-    } else {
-      let float = firstImage.size.width / firstImage.size.height
-      let constraint = NSLayoutConstraint(item: imageView, attribute: .width,
-                                          relatedBy: .equal,
-                                          toItem: imageView, attribute: .height,
-                                          multiplier: float, constant: 0)
-      addConstraint(constraint)
-      updateConstraintsIfNeeded()
-    }
+    if let constraint = constraint { removeConstraint(constraint) }
+    let float = firstImage.size.width / firstImage.size.height
+    let newConstraint = NSLayoutConstraint(item: imageView, attribute: .width,
+                                           relatedBy: .equal,
+                                           toItem: imageView, attribute: .height,
+                                           multiplier: float, constant: 0)
+    addConstraint(newConstraint)
+    updateConstraintsIfNeeded()
   }
   
 }
