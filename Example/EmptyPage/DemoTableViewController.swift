@@ -17,28 +17,9 @@ class DemoTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.separatorStyle = .none
-    //    tableView.setEmpty(view: EmptyStore.loading)
+        tableView.setEmpty(view: EmptyStore.loading)
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
-    //    getData()
-    
-    let view = EmptyPageView.ContentView.onlyImage.set(image: UIImage(named: "load-0"))
-    sleep(1) {
-      self.tableView.setEmpty(view: view.mix())
-      self.tableView.reloadData()
-    }
-    
-    sleep(3) {
-      // 更换图片
-      view.set(image: UIImage(named: "404"))
-      view.change(hspace: EmptyPageForImage.HSpaceType.image, value: 80)
-      self.tableView.reloadData()
-    }
-    
-    sleep(6) {
-      // 更换图片
-      view.change(hspace: EmptyPageForImage.HSpaceType.image, value: 20)
-      self.tableView.reloadData()
-    }
+        getData()
   }
   
   
