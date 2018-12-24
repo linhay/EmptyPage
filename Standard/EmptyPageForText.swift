@@ -65,6 +65,7 @@ extension EmptyPageForText {
   /// - Parameters:
   ///   - space: 指定视图间距
   ///   - value: 修改值
+  @discardableResult
   public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
     
     let fromItem: NSObject = label
@@ -73,10 +74,8 @@ extension EmptyPageForText {
     
     let findItems = constraints.filter { (constraint) -> Bool in
       guard constraint.priority == priority,
-        let firstItem = constraint.firstItem as? NSObject,
-        let secondItem = constraint.secondItem as? NSObject,
-        firstItem == fromItem,
-        secondItem == toItem
+        constraint.firstItem === fromItem,
+        constraint.secondItem === toItem
         else { return false }
       return true
     }
@@ -114,6 +113,7 @@ extension EmptyPageForText {
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForText.label`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
+  @discardableResult
   public func config(label call: (_: UILabel) -> ()) -> Self {
     call(label)
     return self
@@ -133,6 +133,7 @@ extension EmptyPageForText {
   ///   - color: 文本颜色 default: UIColor.black
   ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
   /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
+  @discardableResult
   public func set(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
     label.text = text
     label.textColor = color
@@ -145,6 +146,7 @@ extension EmptyPageForText {
   ///
   /// - Parameter attributed: 富文本
   /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
+  @discardableResult
   public func set(attributed: NSAttributedString) -> Self {
     label.attributedText = attributed
     return self

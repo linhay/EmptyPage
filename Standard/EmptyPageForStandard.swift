@@ -96,6 +96,7 @@ extension EmptyPageForStandard {
   ///   - type: 调整类型,可查阅: `EmptyPageForStandard.HeightType`
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func change(height type: HeightType,value: CGFloat) -> Self {
     var targetItem: NSObject
     switch type {
@@ -103,13 +104,17 @@ extension EmptyPageForStandard {
       targetItem = button
     }
     let constraint = constraints.first { (item) -> Bool in
-      guard item.firstAttribute == .height, let firstItem = item.firstItem as? NSObject else { return false }
-      return firstItem == targetItem
+      return item.firstAttribute == .height && item.firstItem === targetItem
     }
+    
     if let constraint = constraint {
       constraint.constant = value
     }else{
-      let constraint = NSLayoutConstraint(item: targetItem, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: value)
+      let constraint = NSLayoutConstraint(item: targetItem, attribute: .height,
+                                          relatedBy: .equal,
+                                          toItem: nil, attribute: .notAnAttribute,
+                                          multiplier: 1,
+                                          constant: value)
       addConstraint(constraint)
     }
     updateConstraintsIfNeeded()
@@ -134,6 +139,7 @@ extension EmptyPageForStandard {
   ///   - type: 调整类型,可查阅: `EmptyPageForStandard.VSpaceType`
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func change(vspace type: VSpaceType,value: CGFloat) -> Self {
     var fromItem: NSObject
     var toItem: NSObject
@@ -155,12 +161,10 @@ extension EmptyPageForStandard {
     }
     
     let findItem = constraints.first { (item) -> Bool in
-      guard item.firstAttribute == .top,
-        item.secondAttribute == secondAttribute,
-        let firstItem = item.firstItem as? NSObject,
-        let secondItem = item.secondItem as? NSObject
-        else { return false }
-      return firstItem == fromItem && secondItem == toItem
+      return item.firstAttribute == .top
+        && item.secondAttribute == secondAttribute
+        && item.firstItem === fromItem
+        && item.secondItem === toItem
     }
     
     if let findItem = findItem {
@@ -169,7 +173,8 @@ extension EmptyPageForStandard {
       let item = NSLayoutConstraint(item: fromItem, attribute: .top,
                                     relatedBy: .equal,
                                     toItem: toItem, attribute: secondAttribute,
-                                    multiplier: 1, constant: value)
+                                    multiplier: 1,
+                                    constant: value)
       addConstraint(item)
     }
     
@@ -196,6 +201,7 @@ extension EmptyPageForStandard {
   ///   - type: 调整类型,可查阅: `EmptyPageForStandard.HSpaceType`
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
     
     var fromItem: NSObject
@@ -253,6 +259,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.imageView`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func config(imageView call: (_: UIImageView) -> ()) -> Self {
     call(imageView)
     return self
@@ -262,6 +269,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.titleLabel`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func config(titleLabel call: (_: UILabel) -> ()) -> Self {
     call(titleLabel)
     return self
@@ -271,6 +279,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.textLabel`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func config(textLabel call: (_: UILabel) -> ()) -> Self {
     call(textLabel)
     return self
@@ -280,6 +289,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.button`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func config(button call: (_: UIButton) -> ()) -> Self {
     call(button)
     return self
@@ -294,6 +304,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter value: 图片
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(image value: UIImage?) -> Self{
     imageView.image = value
     setImageAspect(firstImage: value)
@@ -307,6 +318,7 @@ extension EmptyPageForStandard {
   ///   - duration: 播放时长
   ///   - repeatCount: 循环次数
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(images: [UIImage],duration: TimeInterval, repeatCount: Int = 0) -> Self {
     imageView.image = nil
     setImageAspect(firstImage: images.first)
@@ -324,6 +336,7 @@ extension EmptyPageForStandard {
   ///   - color: 文本颜色 default: UIColor.black
   ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(title: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
     titleLabel.text = title
     titleLabel.textColor = color
@@ -336,6 +349,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter value: 富文本
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(titleAttributed value: NSAttributedString) -> Self {
     titleLabel.attributedText = value
     return self
@@ -349,6 +363,7 @@ extension EmptyPageForStandard {
   ///   - color: 文本颜色 default: UIColor.black
   ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
     textLabel.text = text
     textLabel.textColor = color
@@ -361,6 +376,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter value: 富文本
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(textAttributed value: NSAttributedString) -> Self {
     textLabel.attributedText = value
     return self
@@ -371,6 +387,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter value: 标题
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(buttonTitle value: String) -> Self {
     button.setTitle(value, for: .normal)
     return self
@@ -383,6 +400,7 @@ extension EmptyPageForStandard {
   ///   - target: target
   ///   - action: 点击事件
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(tap target: Any?, action: Selector) -> Self {
     button.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
     return self
@@ -393,6 +411,7 @@ extension EmptyPageForStandard {
   ///
   /// - Parameter event: 点击事件
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
   public func set(tap event: (() -> ())?) -> Self {
     eventStore = event
     return self
@@ -408,6 +427,7 @@ extension EmptyPageForStandard {
   @objc func event() {
     eventStore?()
   }
+  
   
   func setImageAspect(firstImage: UIImage?) {
     guard let firstImage = firstImage, firstImage.size.width != 0, firstImage.size.height != 0 else { return }
