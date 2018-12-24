@@ -20,7 +20,23 @@ class HomeViewController: UITableViewController {
   struct CellItem {
     let title: String
     let subTitle: String
-    let emptyView: EmptyPageView
+    let event: (() -> ())?
+    let emptyView: EmptyPageView?
+    
+    init(title: String, subTitle: String, emptyView: EmptyPageView) {
+      self.title = title
+      self.subTitle = subTitle
+      self.event = nil
+      self.emptyView = emptyView
+    }
+    
+    init(title: String, subTitle: String, event: @escaping (() -> ())) {
+      self.title = title
+      self.subTitle = subTitle
+      self.event = event
+      self.emptyView = nil
+    }
+    
   }
   
   
@@ -34,10 +50,20 @@ class HomeViewController: UITableViewController {
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     tableView.sectionHeaderHeight = 40
     buildDemos()
+    buildAutoLayout()
     buildSectionForDefault()
     buildSectionForCustom()
     buildByDribbble()
     buildByEmptystat()
+  }
+  
+  func buildAutoLayout() {
+    let demo = CellItem(title: "AutoLayout 调整示例", subTitle: "", event: {
+      let vc = UIStoryboard(name: String(describing: AutoLayoutViewController.self),
+                            bundle: nil).instantiateInitialViewController()!
+      self.navigationController?.pushViewController(vc, animated: true)
+    })
+    sections.append(Section(title: "AutoLayout 调整示例", items: [demo]))
   }
   
   func buildDemos() {
@@ -267,6 +293,10 @@ class HomeViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = sections[indexPath.section].items[indexPath.item]
+    if item.event != nil {
+      item.event?()
+      return
+    }
     switch item.subTitle {
     case "tableView":
       let vc = DemoTableViewController(style: .plain)
