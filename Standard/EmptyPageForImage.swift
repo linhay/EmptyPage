@@ -66,6 +66,7 @@ extension EmptyPageForImage {
   ///   - type: 调整类型,可查阅: `EmptyPageForImage.HSpaceType`
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
+  @discardableResult
   public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
     
     let fromItem: NSObject = imageView
@@ -74,10 +75,8 @@ extension EmptyPageForImage {
     
     let findItems = constraints.filter { (constraint) -> Bool in
       guard constraint.priority == priority,
-        let firstItem = constraint.firstItem as? NSObject,
-        let secondItem = constraint.secondItem as? NSObject,
-        firstItem == fromItem,
-        secondItem == toItem
+        constraint.firstItem === fromItem,
+        constraint.secondItem === toItem
         else { return false }
       return true
     }
@@ -113,6 +112,7 @@ extension EmptyPageForImage {
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
+  @discardableResult
   public func config(imageView call: (_: UIImageView) -> ()) -> Self {
     call(imageView)
     return self
@@ -127,6 +127,7 @@ extension EmptyPageForImage {
   ///
   /// - Parameter value: 图片
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
+  @discardableResult
   public func set(image value: UIImage?) -> Self{
     setImageAspect(firstImage: value)
     imageView.image = value
@@ -140,6 +141,7 @@ extension EmptyPageForImage {
   ///   - duration: 播放时长
   ///   - repeatCount: 循环次数
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
+  @discardableResult
   public func set(images: [UIImage],duration: TimeInterval, repeatCount: Int = 0) -> Self {
     setImageAspect(firstImage: images.first)
     imageView.animationDuration = duration
