@@ -1,4 +1,4 @@
-![title](https://s.linhey.com/emptyPage-title.png)
+![title](https://s.linhey.com/emptypage-17.png)
 
 [![build](https://travis-ci.org/linhay/EmptyPage.svg?branch=master)](https://travis-ci.org/BLFoundation/EmptyPage)
 ![Swift4](https://img.shields.io/badge/swift-4.0-green.svg?style=flat)
