@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EmptyPage
 
 private let reuseIdentifier = "Cell"
 

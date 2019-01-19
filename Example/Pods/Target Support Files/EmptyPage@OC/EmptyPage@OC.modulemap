@@ -1,0 +1,6 @@
+framework module EmptyPage_OC {
+  umbrella header "EmptyPage@OC-umbrella.h"
+
+  export *
+  module * { export * }
+}

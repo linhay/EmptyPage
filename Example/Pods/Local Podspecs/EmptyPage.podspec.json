@@ -22,11 +22,11 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Sources/*.{swift,h}"
+      "source_files": "Sources/Core/*.{swift,h}"
     },
     {
       "name": "Standard",
-      "source_files": "Standard/*.{swift,xib}",
+      "source_files": "Sources/Standard/*.{swift}",
       "dependencies": {
         "EmptyPage/Core": [
 
