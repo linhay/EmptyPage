@@ -2,7 +2,12 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'EmptyPage_Example' do
-  pod 'EmptyPage', :path => '../'
+  pod 'EmptyPage', :path => '../EmptyPage.podspec'
+  pod 'SnapKit'
   pod 'Hue'
+end
 
+target 'EmptyPage@Objective-C' do
+  pod 'EmptyPage', :path => '../EmptyPage.podspec'
+  pod 'Masonry'
 end

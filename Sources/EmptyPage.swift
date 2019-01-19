@@ -31,31 +31,31 @@ public struct EmptyPage {
     if tableViewLock { return }
     tableViewLock = true
     replaceMethod(selector: #selector(UITableView.layoutSubviews),
-                  with: #selector(UITableView.table_emptyLayoutSubviews),
+                  with: #selector(UITableView.emptyPage_emptyLayoutSubviews),
                   class: UITableView.self)
     
     replaceMethod(selector: #selector(UITableView.layoutIfNeeded),
-                  with: #selector(UITableView.table_emptyLayoutIfNeeded),
+                  with: #selector(UITableView.emptyPage_emptyLayoutIfNeeded),
                   class: UITableView.self)
     
     replaceMethod(selector: #selector(UITableView.insertRows(at:with:)),
-                  with: #selector(UITableView.table_emptyInsertRows(at:with:)),
+                  with: #selector(UITableView.emptyPage_emptyInsertRows(at:with:)),
                   class: UITableView.self)
     
     replaceMethod(selector: #selector(UITableView.deleteRows(at:with:)),
-                  with: #selector(UITableView.table_emptyDeleteRows(at:with:)),
+                  with: #selector(UITableView.emptyPage_emptyDeleteRows(at:with:)),
                   class: UITableView.self)
     
     replaceMethod(selector: #selector(UITableView.insertSections(_:with:)),
-                  with: #selector(UITableView.table_emptyInsertSections(_:with:)),
+                  with: #selector(UITableView.emptyPage_emptyInsertSections(_:with:)),
                   class: UITableView.self)
     
     replaceMethod(selector: #selector(UITableView.deleteSections(_:with:)),
-                  with: #selector(UITableView.table_emptyDeleteSections(_:with:)),
+                  with: #selector(UITableView.emptyPage_emptyDeleteSections(_:with:)),
                   class: UITableView.self)
     
     replaceMethod(selector: #selector(UITableView.reloadData),
-                  with: #selector(UITableView.table_emptyReloadData),
+                  with: #selector(UITableView.emptyPage_emptyReloadData),
                   class: UITableView.self)
   }
   
@@ -67,31 +67,31 @@ public struct EmptyPage {
     if collectionViewLock { return }
     collectionViewLock = true
     replaceMethod(selector: #selector(UICollectionView.layoutSubviews),
-                  with: #selector(UICollectionView.coll_emptyLayoutSubviews),
+                  with: #selector(UICollectionView.emptyPage_emptyLayoutSubviews),
                   class: UICollectionView.self)
     
     replaceMethod(selector: #selector(UICollectionView.layoutIfNeeded),
-                  with: #selector(UICollectionView.coll_emptyLayoutIfNeeded),
+                  with: #selector(UICollectionView.emptyPage_emptyLayoutIfNeeded),
                   class: UICollectionView.self)
     
     replaceMethod(selector: #selector(UICollectionView.reloadData),
-                  with: #selector(UICollectionView.coll_emptyReloadData),
+                  with: #selector(UICollectionView.emptyPage_emptyReloadData),
                   class: UICollectionView.self)
     
     replaceMethod(selector: #selector(UICollectionView.insertItems(at:)),
-                  with: #selector(UICollectionView.coll_emptyInsertItems(at:)),
+                  with: #selector(UICollectionView.emptyPage_emptyInsertItems(at:)),
                   class: UICollectionView.self)
     
     replaceMethod(selector: #selector(UICollectionView.deleteItems(at:)),
-                  with: #selector(UICollectionView.coll_emptyDeleteItems(at:)),
+                  with: #selector(UICollectionView.emptyPage_emptyDeleteItems(at:)),
                   class: UICollectionView.self)
     
     replaceMethod(selector: #selector(UICollectionView.insertSections(_:)),
-                  with: #selector(UICollectionView.coll_emptyInsertSections(_:)),
+                  with: #selector(UICollectionView.emptyPage_emptyInsertSections(_:)),
                   class: UICollectionView.self)
     
     replaceMethod(selector: #selector(UICollectionView.deleteSections(_:)),
-                  with: #selector(UICollectionView.coll_emptyDeleteSections(_:)),
+                  with: #selector(UICollectionView.emptyPage_emptyDeleteSections(_:)),
                   class: UICollectionView.self)
   }
   
