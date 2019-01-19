@@ -13,13 +13,14 @@ s.ios.deployment_target = '8.0'
 s.requires_arc = true
 
 s.subspec 'Core' do |ss|
-  ss.source_files = 'Sources/*.{swift,h}'
+  ss.source_files = 'Sources/Core/*.{swift,h}'
 end
 
 s.subspec 'Standard' do |ss|
-  ss.source_files = 'Standard/*.{swift,xib}'
+  ss.source_files = 'Sources/Standard/*.{swift}'
   ss.dependency 'EmptyPage/Core'
 end
+
 
 end
 

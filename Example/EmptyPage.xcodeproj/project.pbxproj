@@ -28,6 +28,7 @@
 		CDDCCA1E21F3618400F3E280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDCCA1D21F3618400F3E280 /* Assets.xcassets */; };
 		CDDCCA2121F3618400F3E280 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDCCA1F21F3618400F3E280 /* LaunchScreen.storyboard */; };
 		CDDCCA2421F3618400F3E280 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDCCA2321F3618400F3E280 /* main.m */; };
+		CDDCCA3121F39C1400F3E280 /* EmptyPage@OC.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CDDCCA3021F39C1400F3E280 /* EmptyPage@OC.podspec */; };
 		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		CDDCCA2021F3618400F3E280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDDCCA2221F3618400F3E280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDDCCA2321F3618400F3E280 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CDDCCA3021F39C1400F3E280 /* EmptyPage@OC.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "EmptyPage@OC.podspec"; path = "../EmptyPage@OC.podspec"; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				CD11E2152175C9FF00838D84 /* document.sh */,
+				CDDCCA3021F39C1400F3E280 /* EmptyPage@OC.podspec */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
 				279651C94AB31F26C93245C4 /* LICENSE */,
@@ -282,6 +285,7 @@
 			files = (
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				CDDCCA3121F39C1400F3E280 /* EmptyPage@OC.podspec in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD11E2162175C9FF00838D84 /* document.sh in Resources */,
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
@@ -311,7 +315,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmptyPage@Objective-C/Pods-EmptyPage@Objective-C-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EmptyPage/EmptyPage.framework",
+				"${BUILT_PRODUCTS_DIR}/EmptyPage-Core/EmptyPage.framework",
+				"${BUILT_PRODUCTS_DIR}/EmptyPage@OC/EmptyPage_OC.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -319,6 +324,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyPage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyPage_OC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
