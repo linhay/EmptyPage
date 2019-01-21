@@ -153,13 +153,11 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/EmptyPage-Core/EmptyPage.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/EmptyPage@OC/EmptyPage_OC.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LHEmptyPage/LHEmptyPage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/EmptyPage-Core/EmptyPage.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/EmptyPage@OC/EmptyPage_OC.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LHEmptyPage/LHEmptyPage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

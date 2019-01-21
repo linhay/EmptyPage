@@ -12,8 +12,8 @@
 
 #import "EmptyPage.h"
 #import "UIScrollView+EmptyPage.h"
-#import "EmptyPage.h"
+#import "UITableView+EmptyPage.h"
 
-FOUNDATION_EXPORT double EmptyPage_OCVersionNumber;
-FOUNDATION_EXPORT const unsigned char EmptyPage_OCVersionString[];
+FOUNDATION_EXPORT double LHEmptyPageVersionNumber;
+FOUNDATION_EXPORT const unsigned char LHEmptyPageVersionString[];
 

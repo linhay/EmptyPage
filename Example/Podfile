@@ -8,6 +8,6 @@ target 'EmptyPage_Example' do
 end
 
 target 'EmptyPage@Objective-C' do
-  pod 'EmptyPage@OC', :path => '../EmptyPage@OC.podspec'
+  pod 'LHEmptyPage', :path => '../LHEmptyPage.podspec'
   pod 'Masonry'
 end

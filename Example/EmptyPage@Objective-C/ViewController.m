@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <EmptyPage/EmptyPage.h>
+#import <LHEmptyPage/EmptyPage.h>
 #import <Masonry/Masonry.h>
 
 @interface ViewController ()
@@ -26,8 +26,7 @@
     make.right.left.equalTo(self.view);
     make.top.bottom.equalTo(self.view);
   }];
-  
-  
+
 }
 
 

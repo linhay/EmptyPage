@@ -5,20 +5,20 @@ PODS:
   - EmptyPage/Core (2.0.1)
   - EmptyPage/Standard (2.0.1):
     - EmptyPage/Core
-  - "EmptyPage@OC (2.1.0)":
-    - "EmptyPage@OC/Core (= 2.1.0)"
-    - "EmptyPage@OC/Standard (= 2.1.0)"
-  - "EmptyPage@OC/Core (2.1.0)"
-  - "EmptyPage@OC/Standard (2.1.0)":
-    - EmptyPage/Core
   - Hue (2.0.1)
+  - LHEmptyPage (2.1.0):
+    - LHEmptyPage/Core (= 2.1.0)
+    - LHEmptyPage/Standard (= 2.1.0)
+  - LHEmptyPage/Core (2.1.0)
+  - LHEmptyPage/Standard (2.1.0):
+    - LHEmptyPage/Core
   - Masonry (1.1.0)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
-  - "EmptyPage@OC (from `../EmptyPage@OC.podspec`)"
   - Hue
+  - LHEmptyPage (from `../LHEmptyPage.podspec`)
   - Masonry
   - SnapKit
 
@@ -31,16 +31,16 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
-  "EmptyPage@OC":
-    :path: "../EmptyPage@OC.podspec"
+  LHEmptyPage:
+    :path: "../LHEmptyPage.podspec"
 
 SPEC CHECKSUMS:
   EmptyPage: fde915314ddf9bc57d36fb2f24b0a952814f4383
-  "EmptyPage@OC": 79d9bf18a376872b551bb37368d63eed0c00d079
   Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
+  LHEmptyPage: 7d32ac7e5f84bba8b0989bf3c24a08d857fff76c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: dedb00ec93b52d37f7f6448a4ff5bcc8e8ea984d
+PODFILE CHECKSUM: 80408eed76a0156ad535742646ccb4341a0bfa2c
 
 COCOAPODS: 1.6.0.beta.2

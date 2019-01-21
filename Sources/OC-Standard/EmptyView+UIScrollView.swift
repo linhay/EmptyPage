@@ -20,10 +20,16 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
-#ifndef EmptyPage_h
-#define EmptyPage_h
+import UIKit
 
-FOUNDATION_EXPORT double EmptyPageVersionNumber;
-FOUNDATION_EXPORT const unsigned char EmptyPageVersionString[];
 
-#endif /* EmptyPage_h */
+public extension UIScrollView {
+
+  /// 添加空白页视图
+  /// 主要作用: 约束视图类型
+  /// - Parameter view: EmptyPageView
+  public func setEmpty(view: EmptyPageView?) {
+    emptyView = view
+  }
+
+}

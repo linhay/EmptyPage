@@ -1,5 +1,5 @@
 {
-  "name": "EmptyPage@OC",
+  "name": "LHEmptyPage",
   "version": "2.1.0",
   "summary": "iOS - 轻量级空白页占位图框架...",
   "homepage": "https://github.com/linhay/EmptyPage",
@@ -28,7 +28,7 @@
       "name": "Standard",
       "source_files": "Sources/OC-Standard/*.{h,m}",
       "dependencies": {
-        "EmptyPage@OC/Core": [
+        "LHEmptyPage/Core": [
 
         ]
       }

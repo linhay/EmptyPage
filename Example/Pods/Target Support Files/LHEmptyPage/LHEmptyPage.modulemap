@@ -1,0 +1,6 @@
+framework module LHEmptyPage {
+  umbrella header "LHEmptyPage-umbrella.h"
+
+  export *
+  module * { export * }
+}
