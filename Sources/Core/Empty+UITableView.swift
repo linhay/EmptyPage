@@ -23,51 +23,51 @@
 
 import UIKit
 
-@objc
+
 extension UITableView {
   
-  @objc func emptyPage_emptyLayoutSubviews() {
-    emptyPage_emptyLayoutSubviews()
+@objc func emptyPage_layoutSubviews() {
+    emptyPage_layoutSubviews()
     setEmptyView { }
   }
   
-  @objc func emptyPage_emptyLayoutIfNeeded() {
-    emptyPage_emptyLayoutIfNeeded()
+ @objc func emptyPage_layoutIfNeeded() {
+    emptyPage_layoutIfNeeded()
     setEmptyView { }
   }
   
-  @objc func emptyPage_emptyInsertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
+  @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyInsertRows(at: indexPaths, with: animation)
+      base.emptyPage_insertRows(at: indexPaths, with: animation)
     }
   }
   
-  @objc func emptyPage_emptyDeleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
+  @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyDeleteRows(at: indexPaths, with: animation)
+      base.emptyPage_deleteRows(at: indexPaths, with: animation)
     }
   }
   
-  @objc func emptyPage_emptyInsertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
+  @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyInsertSections(sections, with: animation)
+      base.emptyPage_insertSections(sections, with: animation)
     }
   }
   
-  @objc func emptyPage_emptyDeleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
+  @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyDeleteSections(sections, with: animation)
+      base.emptyPage_deleteSections(sections, with: animation)
     }
   }
   
-  @objc func emptyPage_emptyReloadData() {
+  @objc func emptyPage_reloadData() {
     setEmptyView {[weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyReloadData()
+      base.emptyPage_reloadData()
     }
   }
   

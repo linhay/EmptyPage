@@ -12,6 +12,26 @@ import EmptyPage
 class AutoLayoutViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var rightContraint: NSLayoutConstraint!
+  @IBOutlet weak var leftContraint: NSLayoutConstraint!
+  @IBOutlet weak var topContraint: NSLayoutConstraint!
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  @IBAction func tableViewLeft(_ sender: UIButton) {
+    leftContraint.constant += 10
+  }
+  
+  @IBAction func tableViewRight(_ sender: UIButton) {
+    rightContraint.constant += 10
+  }
+  
+  @IBAction func tableViewTop(_ sender: Any) {
+    topContraint.constant += 10
+  }
+  
+  @IBAction func tableViewBottom(_ sender: Any) {
+    bottomConstraint.constant += 10
+  }
   
   let onlyTextView = EmptyPageView.ContentView.onlyText
     .set(text: "A测试B测试C测试D测试E测试F测试G测试E测试F测试G测试")

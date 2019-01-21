@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-s.name             = 'EmptyPage@OC'
+s.name             = 'LHEmptyPage'
 s.version          = '2.1.0'
 s.summary          = 'iOS - 轻量级空白页占位图框架...'
 
@@ -18,7 +18,7 @@ end
 
 s.subspec 'Standard' do |ss|
   ss.source_files = 'Sources/OC-Standard/*.{h,m}'
-  ss.dependency 'EmptyPage/Core'
+  ss.dependency 'LHEmptyPage/Core'
 end
 
 end

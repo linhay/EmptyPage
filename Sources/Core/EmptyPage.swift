@@ -24,76 +24,67 @@ import UIKit
 
 public struct EmptyPage {
   
-  fileprivate static var tableViewLock = false
-  
   /// 替换 tableView 相关函数
-  static func swizzingTableView() {
-    if tableViewLock { return }
-    tableViewLock = true
-    replaceMethod(selector: #selector(UITableView.layoutSubviews),
-                  with: #selector(UITableView.emptyPage_emptyLayoutSubviews),
-                  class: UITableView.self)
+  static let swizzingTableView: Void = {
+    swizzing(sel: #selector(UITableView.layoutSubviews),
+             of: #selector(UITableView.emptyPage_layoutSubviews),
+             in: UITableView.self)
     
-    replaceMethod(selector: #selector(UITableView.layoutIfNeeded),
-                  with: #selector(UITableView.emptyPage_emptyLayoutIfNeeded),
-                  class: UITableView.self)
+    swizzing(sel: #selector(UITableView.layoutIfNeeded),
+             of: #selector(UITableView.emptyPage_layoutIfNeeded),
+             in: UITableView.self)
     
-    replaceMethod(selector: #selector(UITableView.insertRows(at:with:)),
-                  with: #selector(UITableView.emptyPage_emptyInsertRows(at:with:)),
-                  class: UITableView.self)
+    swizzing(sel: #selector(UITableView.insertRows(at:with:)),
+             of: #selector(UITableView.emptyPage_insertRows(at:with:)),
+             in: UITableView.self)
     
-    replaceMethod(selector: #selector(UITableView.deleteRows(at:with:)),
-                  with: #selector(UITableView.emptyPage_emptyDeleteRows(at:with:)),
-                  class: UITableView.self)
+    swizzing(sel: #selector(UITableView.deleteRows(at:with:)),
+             of: #selector(UITableView.emptyPage_deleteRows(at:with:)),
+             in: UITableView.self)
     
-    replaceMethod(selector: #selector(UITableView.insertSections(_:with:)),
-                  with: #selector(UITableView.emptyPage_emptyInsertSections(_:with:)),
-                  class: UITableView.self)
+    swizzing(sel: #selector(UITableView.insertSections(_:with:)),
+             of: #selector(UITableView.emptyPage_insertSections(_:with:)),
+             in: UITableView.self)
     
-    replaceMethod(selector: #selector(UITableView.deleteSections(_:with:)),
-                  with: #selector(UITableView.emptyPage_emptyDeleteSections(_:with:)),
-                  class: UITableView.self)
+    swizzing(sel: #selector(UITableView.deleteSections(_:with:)),
+             of: #selector(UITableView.emptyPage_deleteSections(_:with:)),
+             in: UITableView.self)
     
-    replaceMethod(selector: #selector(UITableView.reloadData),
-                  with: #selector(UITableView.emptyPage_emptyReloadData),
-                  class: UITableView.self)
-  }
-  
-  
-  fileprivate static var collectionViewLock = false
+    swizzing(sel: #selector(UITableView.reloadData),
+             of: #selector(UITableView.emptyPage_reloadData),
+             in: UITableView.self)
+  }()
   
   /// 替换 CollectionView 相关函数
-  static func swizzingCollectionView() {
-    if collectionViewLock { return }
-    collectionViewLock = true
-    replaceMethod(selector: #selector(UICollectionView.layoutSubviews),
-                  with: #selector(UICollectionView.emptyPage_emptyLayoutSubviews),
-                  class: UICollectionView.self)
+  static let swizzingCollectionView: Void = {
+    swizzing(sel: #selector(UICollectionView.layoutSubviews),
+             of: #selector(UICollectionView.emptyPage_layoutSubviews),
+             in: UICollectionView.self)
     
-    replaceMethod(selector: #selector(UICollectionView.layoutIfNeeded),
-                  with: #selector(UICollectionView.emptyPage_emptyLayoutIfNeeded),
-                  class: UICollectionView.self)
+    swizzing(sel: #selector(UICollectionView.layoutIfNeeded),
+             of: #selector(UICollectionView.emptyPage_layoutIfNeeded),
+             in: UICollectionView.self)
     
-    replaceMethod(selector: #selector(UICollectionView.reloadData),
-                  with: #selector(UICollectionView.emptyPage_emptyReloadData),
-                  class: UICollectionView.self)
+    swizzing(sel: #selector(UICollectionView.reloadData),
+             of: #selector(UICollectionView.emptyPage_reloadData),
+             in: UICollectionView.self)
     
-    replaceMethod(selector: #selector(UICollectionView.insertItems(at:)),
-                  with: #selector(UICollectionView.emptyPage_emptyInsertItems(at:)),
-                  class: UICollectionView.self)
+    swizzing(sel: #selector(UICollectionView.insertItems(at:)),
+             of: #selector(UICollectionView.emptyPage_insertItems(at:)),
+             in: UICollectionView.self)
     
-    replaceMethod(selector: #selector(UICollectionView.deleteItems(at:)),
-                  with: #selector(UICollectionView.emptyPage_emptyDeleteItems(at:)),
-                  class: UICollectionView.self)
+    swizzing(sel: #selector(UICollectionView.deleteItems(at:)),
+             of: #selector(UICollectionView.emptyPage_deleteItems(at:)),
+             in: UICollectionView.self)
     
-    replaceMethod(selector: #selector(UICollectionView.insertSections(_:)),
-                  with: #selector(UICollectionView.emptyPage_emptyInsertSections(_:)),
-                  class: UICollectionView.self)
+    swizzing(sel: #selector(UICollectionView.insertSections(_:)),
+             of: #selector(UICollectionView.emptyPage_insertSections(_:)),
+             in: UICollectionView.self)
     
-    replaceMethod(selector: #selector(UICollectionView.deleteSections(_:)),
-                  with: #selector(UICollectionView.emptyPage_emptyDeleteSections(_:)),
-                  class: UICollectionView.self)
-  }
+    swizzing(sel: #selector(UICollectionView.deleteSections(_:)),
+             of: #selector(UICollectionView.emptyPage_deleteSections(_:)),
+             in: UICollectionView.self)
+  }()
   
   /// 交换方法
   ///
@@ -101,9 +92,9 @@ public struct EmptyPage {
   ///   - selector: 被交换的方法
   ///   - replace: 用于交换的方法
   ///   - classType: 所属类型
-  static func replaceMethod(selector: Selector,with: Selector,class classType: AnyClass) {
-    let select1 = selector
-    let select2 = with
+  static func swizzing(sel: Selector,of: Selector,in classType: AnyClass) {
+    let select1 = sel
+    let select2 = of
     
     guard let select1Method = class_getInstanceMethod(classType, select1) else {
       assertionFailure("can't find method: " + select1.description)
@@ -115,10 +106,10 @@ public struct EmptyPage {
       return
     }
     
-    let didAddMethod  = class_addMethod(classType,
-                                        select1,
-                                        method_getImplementation(select2Method),
-                                        method_getTypeEncoding(select2Method))
+    let didAddMethod = class_addMethod(classType,
+                                       select1,
+                                       method_getImplementation(select2Method),
+                                       method_getTypeEncoding(select2Method))
     if didAddMethod {
       class_replaceMethod(classType,
                           select2,

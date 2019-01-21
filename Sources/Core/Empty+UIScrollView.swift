@@ -52,8 +52,8 @@ public extension UIScrollView {
       if let emptyView: AnyObject = newValue {
         self.oldEmptyView = self.emptyView
         switch self {
-        case _ as UITableView: EmptyPage.swizzingTableView()
-        case _ as UICollectionView: EmptyPage.swizzingCollectionView()
+        case _ as UITableView: EmptyPage.swizzingTableView
+        case _ as UICollectionView: EmptyPage.swizzingCollectionView
         default: break
         }
         objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)

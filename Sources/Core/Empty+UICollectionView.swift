@@ -25,48 +25,48 @@ import UIKit
 @objc
 extension UICollectionView {
   
-  @objc func emptyPage_emptyLayoutSubviews() {
-    emptyPage_emptyLayoutSubviews()
+  @objc func emptyPage_layoutSubviews() {
+    emptyPage_layoutSubviews()
     setEmptyView {}
   }
   
-  @objc func emptyPage_emptyLayoutIfNeeded() {
-    emptyPage_emptyLayoutIfNeeded()
+  @objc func emptyPage_layoutIfNeeded() {
+    emptyPage_layoutIfNeeded()
     setEmptyView {}
   }
   
-  @objc func emptyPage_emptyInsertItems(at indexPaths: [IndexPath]){
+  @objc func emptyPage_insertItems(at indexPaths: [IndexPath]){
     setEmptyView { [weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyInsertItems(at: indexPaths)
+      base.emptyPage_insertItems(at: indexPaths)
     }
   }
   
-  @objc func emptyPage_emptyDeleteItems(at indexPaths: [IndexPath]){
+  @objc func emptyPage_deleteItems(at indexPaths: [IndexPath]){
     setEmptyView { [weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyDeleteItems(at: indexPaths)
+      base.emptyPage_deleteItems(at: indexPaths)
     }
   }
   
-  @objc func emptyPage_emptyInsertSections(_ sections: IndexSet){
+  @objc func emptyPage_insertSections(_ sections: IndexSet){
     setEmptyView { [weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyInsertSections(sections)
+      base.emptyPage_insertSections(sections)
     }
   }
   
-  @objc func emptyPage_emptyDeleteSections(_ sections: IndexSet){
+  @objc func emptyPage_deleteSections(_ sections: IndexSet){
     setEmptyView { [weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyDeleteSections(sections)
+      base.emptyPage_deleteSections(sections)
     }
   }
   
-  @objc func emptyPage_emptyReloadData() {
+  @objc func emptyPage_reloadData() {
     setEmptyView { [weak self] in
       guard let base = self else { return }
-      base.emptyPage_emptyReloadData()
+      base.emptyPage_reloadData()
     }
   }
   

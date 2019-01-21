@@ -26,10 +26,10 @@
                                 <rect key="frame" x="0.0" y="527" width="375" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Sbm-sS-R2S">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv6-AL-uGf">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="纯文字"/>
                                                 <connections>
@@ -37,7 +37,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xa-7z-0ey">
-                                                <rect key="frame" x="125" y="0.0" width="125" height="35"/>
+                                                <rect key="frame" x="125" y="0.0" width="125" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="纯图片"/>
                                                 <connections>
@@ -45,7 +45,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBT-3x-tfR">
-                                                <rect key="frame" x="250" y="0.0" width="125" height="35"/>
+                                                <rect key="frame" x="250" y="0.0" width="125" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="标准"/>
                                                 <connections>
@@ -55,59 +55,102 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mNt-4S-rp2">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="28"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水平:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-CS-5jY">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tableView:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-CS-5jY">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUr-Wi-5V1">
-                                                <rect key="frame" x="75" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="75" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="文字间距"/>
+                                                <state key="normal" title="左 + 10"/>
                                                 <connections>
-                                                    <action selector="textSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="omP-ZO-ajA"/>
+                                                    <action selector="tableViewLeft:" destination="k2T-vf-CPF" eventType="touchUpInside" id="g92-48-e53"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No6-oY-0Pp">
-                                                <rect key="frame" x="150" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="150" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="图片间距"/>
+                                                <state key="normal" title="右 + 10"/>
                                                 <connections>
-                                                    <action selector="imageSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="UQ2-yg-Hka"/>
+                                                    <action selector="tableViewRight:" destination="k2T-vf-CPF" eventType="touchUpInside" id="6ap-oF-3wy"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-US-PMm">
-                                                <rect key="frame" x="225" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="225" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="标题间距"/>
+                                                <state key="normal" title="上 + 10"/>
                                                 <connections>
-                                                    <action selector="titleSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="LG7-Li-2XG"/>
+                                                    <action selector="tableViewTop:" destination="k2T-vf-CPF" eventType="touchUpInside" id="U8J-Su-gks"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehD-vV-mJ1">
-                                                <rect key="frame" x="300" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="300" y="0.0" width="75" height="28"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="下 + 10"/>
+                                                <connections>
+                                                    <action selector="tableViewBottom:" destination="k2T-vf-CPF" eventType="touchUpInside" id="ebe-Un-iO7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cTC-wG-hpv">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水平:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPh-V4-wfo">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSP-7a-DXd">
+                                                <rect key="frame" x="75" y="0.0" width="75" height="28"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="文字间距"/>
+                                                <connections>
+                                                    <action selector="textSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="a2P-Zf-biD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-za-DhB">
+                                                <rect key="frame" x="150" y="0.0" width="75" height="28"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="图片间距"/>
+                                                <connections>
+                                                    <action selector="imageSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="gwL-aB-flN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ5-Mm-hbk">
+                                                <rect key="frame" x="225" y="0.0" width="75" height="28"/>
+                                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="标题间距"/>
+                                                <connections>
+                                                    <action selector="titleSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="R8t-a4-KCl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjU-nK-6eF">
+                                                <rect key="frame" x="300" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="按钮间距"/>
                                                 <connections>
-                                                    <action selector="buttonSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="YZB-Ua-OwR"/>
+                                                    <action selector="buttonSpace:" destination="k2T-vf-CPF" eventType="touchUpInside" id="hE7-w3-2Ad"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xJz-Fa-BNa">
-                                        <rect key="frame" x="0.0" y="70" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="垂直:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbt-1C-mcn">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEb-cv-Y5q">
-                                                <rect key="frame" x="75" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="75" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="图片顶部"/>
                                                 <connections>
@@ -115,7 +158,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kd-0B-t6m">
-                                                <rect key="frame" x="150" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="150" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="图片标题"/>
                                                 <connections>
@@ -123,7 +166,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwN-R1-6Nl">
-                                                <rect key="frame" x="225" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="225" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="标题文字"/>
                                                 <connections>
@@ -131,7 +174,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sr-Am-tTT">
-                                                <rect key="frame" x="300" y="0.0" width="75" height="35"/>
+                                                <rect key="frame" x="300" y="0.0" width="75" height="28"/>
                                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="文字按钮"/>
                                                 <connections>
@@ -141,16 +184,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-VY-Aza">
-                                        <rect key="frame" x="0.0" y="105" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="112" width="375" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高度:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-yy-svx">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyg-Ex-Nlp">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="35"/>
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="28"/>
                                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="按钮高度"/>
                                                 <connections>
@@ -165,7 +208,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xWW-yG-Bia" firstAttribute="trailing" secondItem="dMz-Zv-Wil" secondAttribute="trailing" id="6TB-Ij-p9y"/>
                             <constraint firstItem="6Df-PB-NSr" firstAttribute="top" secondItem="dMz-Zv-Wil" secondAttribute="bottom" constant="10" id="J8t-MB-zFS"/>
@@ -178,7 +221,11 @@
                         <viewLayoutGuide key="safeArea" id="xWW-yG-Bia"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="J8t-MB-zFS" id="EAw-uD-Tg9"/>
+                        <outlet property="leftContraint" destination="eRx-gl-2aj" id="LYb-iq-8Ow"/>
+                        <outlet property="rightContraint" destination="6TB-Ij-p9y" id="DZf-0K-foI"/>
                         <outlet property="tableView" destination="dMz-Zv-Wil" id="qcf-EP-R8D"/>
+                        <outlet property="topContraint" destination="kLd-a5-PIk" id="akT-vf-g8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EF8-Fp-0v1" userLabel="First Responder" sceneMemberID="firstResponder"/>
