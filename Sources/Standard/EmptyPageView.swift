@@ -23,9 +23,13 @@
 import UIKit
 
 /// `EmptyPageContentViewProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageContentViewProtocol.mix()` 函数
-public protocol EmptyPageContentViewProtocol: NSObjectProtocol { }
+@available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "EmptyPageTemplateProtocol")
+public protocol EmptyPageContentViewProtocol: EmptyPageTemplateProtocol { }
 
-public extension EmptyPageContentViewProtocol {
+/// `EmptyPageTemplateProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageTemplateProtocol.mix()` 函数
+public protocol EmptyPageTemplateProtocol: NSObjectProtocol { }
+
+public extension EmptyPageTemplateProtocol {
   
   /// 将不同空白页内容样式约束至背景View上
   ///
@@ -103,17 +107,31 @@ extension EmptyPageView {
   
 }
 
-// MARK: - for ContentView
+// MARK: - for Template
 extension EmptyPageView {
   /// 自定义视图模板
+  @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "Template")
   public struct ContentView {
     /// 文本样式模板 `EmptyPageForText`
+    @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "text")
     public static var onlyText: EmptyPageForText { return EmptyPageForText() }
     /// 图片样式模板 `EmptyPageForImage`
+    @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "image")
     public static var onlyImage: EmptyPageForImage {  return EmptyPageForImage() }
     /// 混合样式模板 `EmptyPageForStandard`
     public static var standard: EmptyPageForStandard {  return EmptyPageForStandard() }
   }
+  
+  /// 自定义视图模板
+  public struct Template {
+    /// 文本样式模板 `EmptyPageForText`
+    public static var text: EmptyPageForText { return EmptyPageForText() }
+    /// 图片样式模板 `EmptyPageForImage`
+    public static var image: EmptyPageForImage {  return EmptyPageForImage() }
+    /// 混合样式模板 `EmptyPageForStandard`
+    public static var standard: EmptyPageForStandard {  return EmptyPageForStandard() }
+  }
+
 }
 
 // MARK: - class method
@@ -129,6 +147,10 @@ extension EmptyPageView {
     return view
   }
   
+}
+
+// MARK: - mix methods
+extension EmptyPageView {
   /// 将 自定义视图 约束至 `EmptyPageView` 上
   ///
   /// - Parameter view: 空白页内容样式
@@ -151,7 +173,6 @@ extension EmptyPageView {
     }
   }
   
-  
   /// 将 自定义视图 约束至 `EmptyPageView` 上
   ///
   /// - Parameters:
@@ -166,7 +187,6 @@ extension EmptyPageView {
     config(view)
     return backView
   }
-  
 }
 
 

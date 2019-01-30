@@ -23,7 +23,7 @@
 import UIKit
 
 /// `EmptyPageForText` 文字样式模板
-open class EmptyPageForText: UIView, EmptyPageContentViewProtocol {
+open class EmptyPageForText: UIView, EmptyPageTemplateProtocol {
   
   // MARK: - Public property
   public let label: UILabel = {
@@ -160,8 +160,15 @@ extension EmptyPageForText {
   func buildUI() {
     addSubview(label)
     label.translatesAutoresizingMaskIntoConstraints = false
+    
+    #if swift(>=4.2)
+    let options = NSLayoutConstraint.FormatOptions(rawValue: 0)
+    #else
+    let options = NSLayoutFormatOptions(rawValue: 0)
+    #endif
+    
     let layout0 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[label]-|",
-                                                 options: NSLayoutFormatOptions(rawValue: 0),
+                                                 options: options,
                                                  metrics: nil,
                                                  views: ["label" : label])
     _ = change(hspace: .text, value: 15)

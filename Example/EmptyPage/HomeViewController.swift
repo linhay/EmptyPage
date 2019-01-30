@@ -86,7 +86,7 @@ class HomeViewController: UITableViewController {
     
     if true {
       // http://emptystat.es/image/167120251047
-      let emptyView = EmptyPageView.ContentView.standard
+      let emptyView = EmptyPageView.Template.standard
         .change(hspace: .button, value: 30)
         .change(vspace: .textWithButton, value: 10)
         .change(vspace: .titleWithText, value: 10)
@@ -117,7 +117,7 @@ class HomeViewController: UITableViewController {
     
     if true {
       // http://emptystat.es/image/162198623343
-      let emptyView = EmptyPageView.ContentView.standard
+      let emptyView = EmptyPageView.Template.standard
         .change(hspace: .button, value: 80)
         .change(height: .button, value: 60)
         .change(hspace: .image, value: 15)
@@ -148,7 +148,7 @@ class HomeViewController: UITableViewController {
     var items = [CellItem]()
     if true {
       // https://dribbble.com/shots/2586577-404-page-Illustration
-      let emptyView = EmptyPageView.ContentView.standard
+      let emptyView = EmptyPageView.Template.standard
         .set(image: UIImage(named: "404")!)
         .change(vspace: .titleWithText, value: 0)
         .set(title: "FILE NOT FOUND",
@@ -201,19 +201,19 @@ class HomeViewController: UITableViewController {
     attributed.append(attributed2)
     
     if true {
-      let emptyView = EmptyPageView.ContentView.onlyText.set(text: "Connection failure").mix()
+      let emptyView = EmptyPageView.Template.text.set(text: "Connection failure").mix()
       let item = CellItem(title: "纯文字", subTitle: "默认样式", emptyView: emptyView)
       items.append(item)
     }
     
     if true {
-      let emptyView = EmptyPageView.ContentView.onlyText.set(attributed: attributed).mix()
+      let emptyView = EmptyPageView.Template.text.set(attributed: attributed).mix()
       let item = CellItem(title: "纯文字", subTitle: "富文本样式", emptyView: emptyView)
       items.append(item)
     }
     
     if true {
-      let emptyView = EmptyPageView.ContentView.onlyImage
+      let emptyView = EmptyPageView.Template.image
         .set(image: UIImage(named: "empty-1002")!)
         .change(hspace: .image, value: 10)
         .mix()
@@ -222,7 +222,7 @@ class HomeViewController: UITableViewController {
     }
     
     if true {
-      let emptyView = EmptyPageView.ContentView.onlyImage
+      let emptyView = EmptyPageView.Template.image
         .set(images: images, duration: 1.5, repeatCount: 0)
         .mix()
       let item = CellItem(title: "纯图片", subTitle: "图片组样式", emptyView: emptyView)
@@ -231,7 +231,7 @@ class HomeViewController: UITableViewController {
     
     
     if true {
-      let emptyView = EmptyPageView.ContentView.standard
+      let emptyView = EmptyPageView.Template.standard
         .set(image: UIImage(named: "empty")!)
         .set(title: "Connection failure")
         .set(text: "wait for a minture")
@@ -246,7 +246,7 @@ class HomeViewController: UITableViewController {
     }
     
     if true {
-      let emptyView = EmptyPageView.ContentView.standard
+      let emptyView = EmptyPageView.Template.standard
         .config(button: { (item) in
           item.setTitleColor(.white, for: .normal)
           item.titleLabel?.font = .boldSystemFont(ofSize: 18)

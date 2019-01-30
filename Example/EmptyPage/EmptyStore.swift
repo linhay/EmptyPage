@@ -11,7 +11,7 @@ import EmptyPage
 class EmptyStore {
   
   class var loading: EmptyPageView{
-    return EmptyPageView.ContentView.onlyImage
+    return EmptyPageView.Template.image
       .set(image: UIImage(named: "load-0"))
       .config { (item) in
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -19,7 +19,7 @@ class EmptyStore {
         animation.toValue = 0
         animation.duration = 2
         animation.autoreverses = false
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.repeatCount = Float.infinity
         item.layer.add(animation, forKey: nil)
       }
