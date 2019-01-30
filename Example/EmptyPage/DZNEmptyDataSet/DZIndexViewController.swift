@@ -40,7 +40,27 @@ class DZIndexViewController: UITableViewController {
     case skype
     case slack
     case tumblr
-
+    
+    func tapEvent() -> ((EmptyPageForStandard) -> Void)? {
+      return { (item) in
+        let oldImage = item.imageView.image
+        item.set(image: UIImage(named: "load"))
+        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation.fromValue = CGFloat.pi * 2
+        animation.toValue = 0
+        animation.duration = 2
+        animation.autoreverses = false
+        animation.fillMode = kCAFillModeForwards
+        animation.repeatCount = Float.infinity
+        item.imageView.layer.add(animation, forKey: nil)
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .milliseconds(Int(5 * 1000)), execute: {
+          DispatchQueue.main.async {
+            item.imageView.layer.removeAllAnimations()
+            item.set(image: oldImage)
+          }
+        })
+      }
+    }
     
     var emptyPage: EmptyPageView {
       switch self {
@@ -77,6 +97,7 @@ class DZIndexViewController: UITableViewController {
             item.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             item.backgroundColor = UIColor.white
           })
+          .set(tap: tapEvent())
           .change(vspace: .imageWithTitle, value: 24)
           .change(vspace: .textWithButton, value: 24)
           .change(vspace: .titleWithText, value: 24)
@@ -90,7 +111,7 @@ class DZIndexViewController: UITableViewController {
           .change(vspace: .imageWithTitle, value: 34)
           .mix()
       case .camera:
-        let view = EmptyPageView.ContentView.standard
+        return EmptyPageView.ContentView.standard
           .set(title: "Please Allow Photo Access",
                color: UIColor(hex: "#5f6978"),
                font: UIFont.boldSystemFont(ofSize: 18))
@@ -98,12 +119,10 @@ class DZIndexViewController: UITableViewController {
                color: UIColor(hex: "#5f6978"),
                font: UIFont.systemFont(ofSize: 14))
           .set(buttonTitle: "Continue")
-        view.set {
-          //          view.set(images: [], duration: <#T##TimeInterval#>)
-        }
-        return view.mix()
+          .set(tap: tapEvent())
+          .mix()
       case .dropbox:
-        let view = EmptyPageView.ContentView.standard
+        return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_dropbox"))
           .set(title: "Star Your Favorite Files",
                color: UIColor(hex: "#25282b"),
@@ -111,14 +130,10 @@ class DZIndexViewController: UITableViewController {
           .set(text: "Favorites are saved for offline access.",
                color: UIColor(hex: "#7b8994"),
                font: UIFont.systemFont(ofSize: 14.5))
-          .set(buttonTitle: "Learn more")
-          .config(button: {
-            $0.setTitleColor(UIColor(hex: "48a1ea"), for: UIControlState.normal)
-          })
-        view.set {
-          //           view.set(images: [], duration: <#T##TimeInterval#>)
-        }
-        return view.mix().set(backgroundColor: UIColor(hex: "#f0f3f5"))
+          .set(buttonTitle: "Learn more", color: UIColor(hex: "48a1ea"),for: UIControlState.normal)
+          .set(tap: tapEvent())
+          .mix()
+          .set(backgroundColor: UIColor(hex: "#f0f3f5"))
       case .fackbook:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_facebook"))
@@ -157,6 +172,7 @@ class DZIndexViewController: UITableViewController {
             item.layer.borderWidth = 1
             item.layer.masksToBounds = true
           })
+          .set(tap: tapEvent())
           .mix()
           .set(backgroundColor: UIColor(hex: "#fcfcfa"))
       case .icloud:
@@ -180,6 +196,7 @@ class DZIndexViewController: UITableViewController {
             item.layer.borderWidth = 1
             item.layer.masksToBounds = true
           })
+          .set(tap: tapEvent())
           .mix()
       case .instagram:
         return EmptyPageView.ContentView.standard
@@ -226,6 +243,7 @@ class DZIndexViewController: UITableViewController {
             item.layer.cornerRadius = 2
             item.layer.masksToBounds = true
           })
+          .set(tap: tapEvent())
           .change(vspace: .imageWithTitle, value: 15)
           .change(vspace: .titleWithText, value: 15)
           .change(hspace: .text, value: 40)
@@ -247,7 +265,6 @@ class DZIndexViewController: UITableViewController {
           .change(vspace: .titleWithText, value: 1)
           .mix()
           .set(backgroundColor: UIColor(hex: "#726d67"))
-      //      case .pinterest:     return Item(title: "Pinterest", subtitle: "Pinterest, Inc.", image: UIImage(named: "icon_photos")!)
       case .photo:
         return EmptyPageView.ContentView.standard
           .set(title: "No Photos or Videos",
@@ -256,7 +273,6 @@ class DZIndexViewController: UITableViewController {
           .set(text: "You can sync photos and videos onto your iPhone using iTunes.",
                color: UIColor(hex: "#999999"),
                font: UIFont.systemFont(ofSize: 18))
-          .change(hspace: .button, value: 100)
           .change(hspace: .text, value: 40)
           .change(vspace: .titleWithText, value: 15)
           .mix()
@@ -354,6 +370,8 @@ class DZIndexViewController: UITableViewController {
     }
   }
   
+
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.rowHeight = 60
@@ -365,7 +383,7 @@ class DZIndexViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-    if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: "cell") }
+    if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
     let style = Style.allCases[indexPath.item]
     cell?.textLabel?.text = style.item.title
     cell?.detailTextLabel?.text = style.item.subtitle
