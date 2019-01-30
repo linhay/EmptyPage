@@ -11,7 +11,7 @@
 
 ##### 一套应用于swift项目的空白页.可利用预置的模板快速构建空白页视图.亦可高度自定义视图搭建炫酷的交互.
 
-##### ps: oc项目可以使用[**DZNEmptyDataSet**](https://github.com/dzenbot/DZNEmptyDataSet)替代.
+> ##### oc项目可以使用[**DZNEmptyDataSet**](https://github.com/dzenbot/DZNEmptyDataSet)替代.
 
 ### 简介
 
@@ -27,7 +27,6 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 
 - [ ] 支持更多实用与设计感的模板.
 
-- [ ] 支持 Objective-C  或提供独立的 Objective-C 组件库.
 
 | ![](https://s.linhey.com/emptypage-10.gif) | ![](https://s.linhey.com/emptypage-12.gif) | ![](https://s.linhey.com/emptypage-11.gif) |
 | :----------------------------------------: | :----------------------------------------: | ------------------------------------------ |

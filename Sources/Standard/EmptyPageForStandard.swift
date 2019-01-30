@@ -51,9 +51,14 @@ open class EmptyPageForStandard: UIView,EmptyPageContentViewProtocol {
   
   /// 底部按钮 button
   public let button: UIButton = {
-    let item = UIButton()
+    let item = UIButton(type: .custom)
+    item.isHidden = true
     item.layer.cornerRadius = 2
-    item.backgroundColor = UIColor.blue
+    item.setTitleColor(UIColor.blue, for: .normal)
+    item.contentVerticalAlignment = .center
+    item.contentHorizontalAlignment = .center
+    item.accessibilityIdentifier = "empty set button"
+    item.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     item.addTarget(self, action: #selector(event), for: UIControlEvents.touchUpInside)
     return item
   }()
@@ -222,8 +227,8 @@ extension EmptyPageForStandard {
       guard constraint.priority == priority,
         let firstItem = constraint.firstItem as? NSObject,
         let secondItem = constraint.secondItem as? NSObject,
-        firstItem == fromItem,
-        secondItem == toItem
+        firstItem === fromItem,
+        secondItem === toItem
         else { return false }
       return true
     }
@@ -244,6 +249,67 @@ extension EmptyPageForStandard {
       findItems.forEach { (item) in
         item.constant = item.firstAttribute == .left ? value : -value
       }
+    }
+    
+    updateConstraintsIfNeeded()
+    return self
+  }
+  
+  /// 取消视图水平方向上的间距约束
+  ///
+  /// - Parameter type: 调整类型,可查阅: `EmptyPageForStandard.HSpaceType`
+  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
+  @discardableResult
+  public func change(cancel type: HSpaceType) -> Self {
+    
+    var fromItem: NSObject
+    let toItem: NSObject = self
+    let priority = UILayoutPriority(999)
+    switch type {
+    case .image:
+      fromItem = imageView
+    case .title:
+      fromItem = titleLabel
+    case .text:
+      fromItem = textLabel
+    case .button:
+      fromItem = button
+    }
+    
+    let findItems = constraints.filter { (constraint) -> Bool in
+      guard constraint.priority == priority,
+        let firstItem = constraint.firstItem as? NSObject,
+        let secondItem = constraint.secondItem as? NSObject,
+        firstItem == fromItem,
+        secondItem == toItem
+        else { return false }
+      return true
+    }
+    
+    if findItems.isEmpty { return self }
+    removeConstraints(findItems)
+    
+    let centerItems = constraints.filter { (constraint) -> Bool in
+      guard
+        constraint.firstAttribute == .centerX,
+        constraint.secondAttribute == .centerX,
+        constraint.priority == priority,
+        let firstItem = constraint.firstItem as? NSObject,
+        let secondItem = constraint.secondItem as? NSObject,
+        firstItem === fromItem,
+        secondItem === toItem
+        else { return false }
+      return true
+    }
+    
+    
+    if centerItems.isEmpty {
+      let centerItem = NSLayoutConstraint(item: fromItem, attribute: .centerX,
+                                          relatedBy: .equal,
+                                          toItem: toItem, attribute: .centerX,
+                                          multiplier: 1, constant: 0)
+      centerItem.priority = priority
+      addConstraint(centerItem)
     }
     
     updateConstraintsIfNeeded()
@@ -291,6 +357,7 @@ extension EmptyPageForStandard {
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
   @discardableResult
   public func config(button call: (_: UIButton) -> ()) -> Self {
+    button.isHidden = false
     call(button)
     return self
   }
@@ -388,8 +455,12 @@ extension EmptyPageForStandard {
   /// - Parameter value: 标题
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
   @discardableResult
-  public func set(buttonTitle value: String) -> Self {
-    button.setTitle(value, for: .normal)
+  public func set(buttonTitle value: String,
+                  color: UIColor? = nil,
+                  for state: UIControl.State = .normal) -> Self {
+    button.isHidden = false
+    button.setTitle(value, for: state)
+    if let color = color { button.setTitleColor(color, for: state) }
     return self
   }
   

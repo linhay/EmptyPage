@@ -35,6 +35,15 @@ public extension EmptyPageContentViewProtocol {
     return EmptyPageView.mix(view: view)
   }
   
+  /// 将不同空白页内容样式约束至背景View上
+  ///
+  /// - Parameter config: 自定义约束
+  /// - Returns: EmptyPageView
+  public func mix(_ config: ((_: UIView) -> Void)) -> EmptyPageView {
+    guard let view = self as? UIView else { return EmptyPageView() }
+    return EmptyPageView.mix(view: view, config)
+  }
+  
 }
 
 /// 自定义视图的容器视图
@@ -65,6 +74,22 @@ open class EmptyPageView: UIView {
     return backView
   }
   
+  
+  /// 将 自定义视图 约束至 `EmptyPageView` 上
+  ///
+  /// - Parameters:
+  ///   - view: 空白页内容样式
+  ///   - config: 自定义约束
+  /// - Returns: 为支持链式调用,返回 `EmptyPageView`
+  open class func mix(view: UIView, _ config: ((_: UIView) -> Void)) -> EmptyPageView {
+    let backView = backgroundView
+    backView.addSubview(view)
+    view.translatesAutoresizingMaskIntoConstraints = false
+    config(view)
+    return backView
+  }
+  
+    
   /// 配置 `EmptyPageView`
   ///
   /// - Parameter color: 背景颜色
@@ -73,6 +98,7 @@ open class EmptyPageView: UIView {
     self.backgroundColor = color
     return self
   }
+  
   
   /// 配置 `EmptyPageView`
   ///

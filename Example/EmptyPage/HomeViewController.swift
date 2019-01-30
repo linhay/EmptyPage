@@ -53,6 +53,7 @@ class HomeViewController: UITableViewController {
     buildAutoLayout()
     buildSectionForDefault()
     buildSectionForCustom()
+    buildDZNEmptyDataSet()
     buildByDribbble()
     buildByEmptystat()
   }
@@ -66,12 +67,19 @@ class HomeViewController: UITableViewController {
     sections.append(Section(title: "AutoLayout 调整示例", items: [demo]))
   }
   
+  func buildDZNEmptyDataSet() {
+    let demo = CellItem(title: "DZNEmptyDataSet 示例", subTitle: "https://github.com/dzenbot/DZNEmptyDataSet") {
+      let vc = DZIndexViewController()
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
+    sections.append(Section(title: "DZNEmptyDataSet", items: [demo]))
+  }
+  
   func buildDemos() {
     let table = CellItem(title: "tableView示例", subTitle: "tableView", emptyView: EmptyPageView())
     let collection = CellItem(title: "collectionView示例", subTitle: "collectionView", emptyView: EmptyPageView())
     sections.append(Section(title: "完整示例", items: [table,collection]))
   }
-  
   
   func buildByEmptystat() {
     var items = [CellItem]()
@@ -267,7 +275,6 @@ class HomeViewController: UITableViewController {
     }
   }
   
-  
   override func numberOfSections(in tableView: UITableView) -> Int {
     return sections.count
   }
@@ -288,8 +295,6 @@ class HomeViewController: UITableViewController {
     cell.detailTextLabel?.text = sections[indexPath.section].items[indexPath.item].subTitle
     return cell
   }
-  
-  
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = sections[indexPath.section].items[indexPath.item]
@@ -315,6 +320,5 @@ class HomeViewController: UITableViewController {
     }
     
   }
-  
   
 }

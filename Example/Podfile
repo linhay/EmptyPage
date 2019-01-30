@@ -6,8 +6,3 @@ target 'EmptyPage_Example' do
   pod 'SnapKit'
   pod 'Hue'
 end
-
-target 'EmptyPage@Objective-C' do
-  pod 'LHEmptyPage', :path => '../LHEmptyPage.podspec'
-  pod 'Masonry'
-end
