@@ -61,7 +61,7 @@ class AutoLayoutViewController: UIViewController {
     onlyTextView.removeFromSuperview()
     onlyImageView.removeFromSuperview()
     standardView.removeFromSuperview()
-    tableView.setEmpty(view: standardView.mix())
+    tableView.setEmpty(standardView)
     tableView.reloadData()
   }
   
@@ -69,7 +69,7 @@ class AutoLayoutViewController: UIViewController {
     onlyTextView.removeFromSuperview()
     onlyImageView.removeFromSuperview()
     standardView.removeFromSuperview()
-    tableView.setEmpty(view: onlyImageView.mix())
+    tableView.setEmpty(onlyImageView)
     tableView.reloadData()
   }
   
@@ -77,7 +77,7 @@ class AutoLayoutViewController: UIViewController {
     onlyTextView.removeFromSuperview()
     onlyImageView.removeFromSuperview()
     standardView.removeFromSuperview()
-    tableView.setEmpty(view: onlyTextView.mix())
+    tableView.setEmpty(onlyTextView)
     tableView.reloadData()
   }
   

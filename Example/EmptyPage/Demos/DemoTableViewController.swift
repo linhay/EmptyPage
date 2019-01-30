@@ -17,7 +17,7 @@ class DemoTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.separatorStyle = .none
-        tableView.setEmpty(view: EmptyStore.loading)
+    tableView.setEmpty(EmptyStore.loading)
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         getData()
   }
@@ -35,7 +35,7 @@ class DemoTableViewController: UITableViewController {
   }
   
   func getData() {
-    tableView.setEmpty(view: EmptyStore.loading)
+    tableView.setEmpty(EmptyStore.loading)
     tableView.reloadData()
     sleep(3) {[weak self] in
       guard let base = self else { return }

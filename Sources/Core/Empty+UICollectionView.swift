@@ -22,52 +22,44 @@
 
 import UIKit
 
-@objc
 extension UICollectionView {
   
   @objc func emptyPage_layoutSubviews() {
     emptyPage_layoutSubviews()
-    setEmptyView {}
+    guard let emptyView = emptyView else {
+      setEmptyView { }
+      return
+    }
+    emptyView.frame = bounds
   }
   
   @objc func emptyPage_layoutIfNeeded() {
     emptyPage_layoutIfNeeded()
-    setEmptyView {}
+    guard let emptyView = emptyView else {
+      setEmptyView { }
+      return
+    }
+    emptyView.frame = bounds
   }
   
   @objc func emptyPage_insertItems(at indexPaths: [IndexPath]){
-    setEmptyView { [weak self] in
-      guard let base = self else { return }
-      base.emptyPage_insertItems(at: indexPaths)
-    }
+    setEmptyView { self.emptyPage_insertItems(at: indexPaths) }
   }
   
   @objc func emptyPage_deleteItems(at indexPaths: [IndexPath]){
-    setEmptyView { [weak self] in
-      guard let base = self else { return }
-      base.emptyPage_deleteItems(at: indexPaths)
-    }
+    setEmptyView { self.emptyPage_deleteItems(at: indexPaths) }
   }
   
   @objc func emptyPage_insertSections(_ sections: IndexSet){
-    setEmptyView { [weak self] in
-      guard let base = self else { return }
-      base.emptyPage_insertSections(sections)
-    }
+    setEmptyView { self.emptyPage_insertSections(sections) }
   }
   
   @objc func emptyPage_deleteSections(_ sections: IndexSet){
-    setEmptyView { [weak self] in
-      guard let base = self else { return }
-      base.emptyPage_deleteSections(sections)
-    }
+    setEmptyView { self.emptyPage_deleteSections(sections) }
   }
   
   @objc func emptyPage_reloadData() {
-    setEmptyView { [weak self] in
-      guard let base = self else { return }
-      base.emptyPage_reloadData()
-    }
+    setEmptyView { self.emptyPage_reloadData() }
   }
   
   func setEmptyView(event: () -> ()) {
@@ -82,7 +74,7 @@ extension UICollectionView {
         break
       }
     }
-
+    
     isScrollEnabled = isHasRows
     if isHasRows {
       emptyView?.removeFromSuperview()
@@ -92,7 +84,12 @@ extension UICollectionView {
     guard let view = emptyView else{ return }
     view.frame = bounds
     addSubview(view)
+    
+    #if swift(>=4.2)
     sendSubviewToBack(view)
+    #else
+    sendSubview(toBack: view)
+    #endif
   }
   
 }
