@@ -10,6 +10,27 @@ import UIKit
 import EmptyPage
 import SnapKit
 
+// MARK: - 初始化
+public extension UIImage{
+  /// 获取指定颜色的图片
+  ///
+  /// - Parameters:
+  ///   - color: UIColor
+  ///   - size: 图片大小
+  public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+    if size.width <= 0 || size.height <= 0 { return nil }
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+    guard let context = UIGraphicsGetCurrentContext() else { return nil }
+    context.setFillColor(color.cgColor)
+    context.fill(rect)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    guard let cgImg = image?.cgImage else { return nil }
+    self.init(cgImage: cgImg)
+  }
+}
+
 /// from: https://github.com/dzenbot/DZNEmptyDataSet
 class DZIndexViewController: UITableViewController {
   
@@ -19,7 +40,7 @@ class DZIndexViewController: UITableViewController {
     let image: UIImage
   }
   
-  enum Style: CaseIterable {
+  enum Style: String, CaseIterable {
     case px500
     case airbnb
     case appStore
@@ -53,12 +74,20 @@ class DZIndexViewController: UITableViewController {
         animation.fillMode = kCAFillModeForwards
         animation.repeatCount = Float.infinity
         item.imageView.layer.add(animation, forKey: nil)
-        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .milliseconds(Int(5 * 1000)), execute: {
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .milliseconds(Int(3 * 1000)), execute: {
           DispatchQueue.main.async {
             item.imageView.layer.removeAllAnimations()
             item.set(image: oldImage)
           }
         })
+      }
+    }
+    
+    func backgroundTapEvent() -> ((EmptyPageView) -> Void)? {
+      return { (item) in
+        if let item = item.contentView as? EmptyPageForStandard {
+          self.tapEvent()?(item)
+        }
       }
     }
     
@@ -81,6 +110,7 @@ class DZIndexViewController: UITableViewController {
               make.centerY.equalToSuperview().offset(15)
             })
           })
+          .set(tap: backgroundTapEvent())
           .set(backgroundColor: UIColor.black)
       case .airbnb:
         return EmptyPageView.ContentView.standard
@@ -102,6 +132,7 @@ class DZIndexViewController: UITableViewController {
           .change(vspace: .textWithButton, value: 24)
           .change(vspace: .titleWithText, value: 24)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .appStore:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_appstore"))
@@ -110,6 +141,7 @@ class DZIndexViewController: UITableViewController {
                font: UIFont.boldSystemFont(ofSize: 14))
           .change(vspace: .imageWithTitle, value: 34)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .camera:
         return EmptyPageView.ContentView.standard
           .set(title: "Please Allow Photo Access",
@@ -121,6 +153,7 @@ class DZIndexViewController: UITableViewController {
           .set(buttonTitle: "Continue")
           .set(tap: tapEvent())
           .mix()
+          .set(tap: backgroundTapEvent())
       case .dropbox:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_dropbox"))
@@ -134,6 +167,7 @@ class DZIndexViewController: UITableViewController {
           .set(tap: tapEvent())
           .mix()
           .set(backgroundColor: UIColor(hex: "#f0f3f5"))
+          .set(tap: backgroundTapEvent())
       case .fackbook:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_facebook"))
@@ -143,6 +177,7 @@ class DZIndexViewController: UITableViewController {
           .change(vspace: .imageWithTitle, value: 30)
           .mix()
           .set(backgroundColor: UIColor(hex: "#eceef7"))
+          .set(tap: backgroundTapEvent())
       case .fancy:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_fancy"))
@@ -154,6 +189,7 @@ class DZIndexViewController: UITableViewController {
                font: UIFont.boldSystemFont(ofSize: 13))
           .mix()
           .set(backgroundColor: UIColor(hex: "#f0f0f0"))
+          .set(tap: backgroundTapEvent())
       case .foursquare:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_foursquare"))
@@ -175,6 +211,7 @@ class DZIndexViewController: UITableViewController {
           .set(tap: tapEvent())
           .mix()
           .set(backgroundColor: UIColor(hex: "#fcfcfa"))
+          .set(tap: backgroundTapEvent())
       case .icloud:
         return EmptyPageView.ContentView.standard
           .set(title: "iCloud Photo Sharing",
@@ -198,6 +235,7 @@ class DZIndexViewController: UITableViewController {
           })
           .set(tap: tapEvent())
           .mix()
+          .set(tap: backgroundTapEvent())
       case .instagram:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_instagram"))
@@ -212,6 +250,7 @@ class DZIndexViewController: UITableViewController {
           .change(hspace: .text, value: 20)
           .change(hspace: .title, value: 20)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .itunesConnect:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_itunes_connect"))
@@ -226,6 +265,7 @@ class DZIndexViewController: UITableViewController {
           .change(hspace: .text, value: 40)
           .change(hspace: .title, value: 40)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .kickstarter:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_kickstarter"))
@@ -252,6 +292,7 @@ class DZIndexViewController: UITableViewController {
           .change(height: .button, value: 45)
           .mix()
           .set(backgroundColor: UIColor(hex: "#f7fafa"))
+          .set(tap: backgroundTapEvent())
       case .path:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_path"))
@@ -265,6 +306,7 @@ class DZIndexViewController: UITableViewController {
           .change(vspace: .titleWithText, value: 1)
           .mix()
           .set(backgroundColor: UIColor(hex: "#726d67"))
+          .set(tap: backgroundTapEvent())
       case .photo:
         return EmptyPageView.ContentView.standard
           .set(title: "No Photos or Videos",
@@ -276,6 +318,7 @@ class DZIndexViewController: UITableViewController {
           .change(hspace: .text, value: 40)
           .change(vspace: .titleWithText, value: 15)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .podcasts:
         return EmptyPageView.ContentView.standard
           .set(title: "No Podcasts",
@@ -287,7 +330,7 @@ class DZIndexViewController: UITableViewController {
           .change(hspace: .text, value: 35)
           .change(vspace: .titleWithText, value: 35)
           .mix()
-        
+          .set(tap: backgroundTapEvent())
       case .remote:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_remote"))
@@ -299,6 +342,7 @@ class DZIndexViewController: UITableViewController {
                font: UIFont(name: "HelveticaNeue-Medium", size: 11.75)!)
           .change(hspace: .text, value: 20)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .safari:
         return EmptyPageView.ContentView.onlyText
           .set(text: "Safari cannot open the page because your iPhone is not connected to the Internet.",
@@ -306,6 +350,7 @@ class DZIndexViewController: UITableViewController {
                font: UIFont.systemFont(ofSize: 18))
           .change(hspace: .text, value: 20)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .skype:
         let attr = NSMutableAttributedString(string: "Keep all your favorite people together",
                                              attributes: [.font : UIFont(name: "HelveticaNeue-Light", size: 17.75)!,
@@ -318,6 +363,7 @@ class DZIndexViewController: UITableViewController {
           .set(attributed: attr)
           .change(hspace: .text, value: 20)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .slack:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_slack"))
@@ -326,6 +372,7 @@ class DZIndexViewController: UITableViewController {
                font: UIFont.systemFont(ofSize: 19))
           .change(hspace: .text, value: 20)
           .mix()
+          .set(tap: backgroundTapEvent())
       case .tumblr:
         return EmptyPageView.ContentView.standard
           .set(image: UIImage(named: "placeholder_tumblr"))
@@ -340,6 +387,7 @@ class DZIndexViewController: UITableViewController {
           .change(vspace: .titleWithText, value: 10)
           .mix()
           .set(backgroundColor: UIColor(hex: "#34465c"))
+          .set(tap: backgroundTapEvent())
       }
       
     }
@@ -370,11 +418,17 @@ class DZIndexViewController: UITableViewController {
     }
   }
   
-
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.rowHeight = 60
+    self.navigationController?.navigationBar.isTranslucent = false
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: UIBarMetrics.default)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -394,8 +448,22 @@ class DZIndexViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let style = Style.allCases[indexPath.item]
+    let emptyPage = style.emptyPage
     let vc = DZDetailViewController()
-    vc.config(emptyPage: style.emptyPage)
+    vc.title = style.rawValue
+    
+    if let color = emptyPage.backgroundColor, color != UIColor.white {
+      self.navigationController?.navigationBar.tintColor = UIColor.red
+      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.red,
+                                                                      NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20) ]
+      self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: color), for: UIBarMetrics.default)
+    }else{
+      self.navigationController?.navigationBar.tintColor = UIColor.black
+      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
+                                                                      NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20) ]
+    }
+    
+    vc.config(emptyPage: emptyPage)
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
