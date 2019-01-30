@@ -26,10 +26,25 @@ import UIKit
 public extension UIScrollView {
 
   /// 添加空白页视图
-  /// 主要作用: 约束视图类型
-  /// - Parameter view: EmptyPageView
+  ///
+  /// - Parameter view: `EmptyPageView`
+  @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "setEmpty(_:)")
   public func setEmpty(view: EmptyPageView?) {
+    self.setEmpty(view)
+  }
+
+  /// 添加空白页视图
+  ///
+  /// - Parameter view: `EmptyPageView`
+  public func setEmpty(_ view: EmptyPageView?) {
     emptyView = view
+  }
+  
+  /// 添加空白页视图
+  ///
+  /// - Parameter view: 模板视图
+  public func setEmpty(_ template: EmptyPageTemplateProtocol?) {
+    self.setEmpty(template?.mix())
   }
 
 }

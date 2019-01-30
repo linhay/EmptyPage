@@ -13,17 +13,24 @@ class DemoScrollViewController: UIViewController {
 
   private let scrollView = UIScrollView()
 
-  var itemView: UILabel {
+  lazy var itemView: UILabel = {
     let label = UILabel()
     label.backgroundColor = .cyan
     label.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 60)
     label.text = "点击重新加载"
     return label
-  }
+  }()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     buildUI()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    sleep(5) {
+      self.itemView.removeFromSuperview()
+    }
   }
 
 }

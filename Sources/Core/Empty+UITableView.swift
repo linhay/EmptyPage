@@ -24,57 +24,9 @@
 import UIKit
 
 
-extension UITableView {
+extension UITableView: EmptyPageProtocol {
   
-@objc func emptyPage_layoutSubviews() {
-    emptyPage_layoutSubviews()
-    setEmptyView { }
-  }
-  
- @objc func emptyPage_layoutIfNeeded() {
-    emptyPage_layoutIfNeeded()
-    setEmptyView { }
-  }
-  
-  @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
-    setEmptyView {[weak self] in
-      guard let base = self else { return }
-      base.emptyPage_insertRows(at: indexPaths, with: animation)
-    }
-  }
-  
-  @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
-    setEmptyView {[weak self] in
-      guard let base = self else { return }
-      base.emptyPage_deleteRows(at: indexPaths, with: animation)
-    }
-  }
-  
-  @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
-    setEmptyView {[weak self] in
-      guard let base = self else { return }
-      base.emptyPage_insertSections(sections, with: animation)
-    }
-  }
-  
-  @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
-    setEmptyView {[weak self] in
-      guard let base = self else { return }
-      base.emptyPage_deleteSections(sections, with: animation)
-    }
-  }
-  
-  @objc func emptyPage_reloadData() {
-    setEmptyView {[weak self] in
-      guard let base = self else { return }
-      base.emptyPage_reloadData()
-    }
-  }
-  
-  func setEmptyView(event: () -> ()) {
-    oldEmptyView?.removeFromSuperview()
-    event()
-    guard bounds.width != 0, bounds.height != 0 else { return }
+  var isEmpty: Bool {
     var isHasRows = false
     let sectionCount = dataSource?.numberOfSections?(in: self) ?? numberOfSections
     for index in 0..<sectionCount {
@@ -83,14 +35,69 @@ extension UITableView {
         break
       }
     }
-    isScrollEnabled = isHasRows
-    if isHasRows {
+    return !isHasRows
+  }
+  
+  
+  @objc func emptyPage_layoutSubviews() {
+    emptyPage_layoutSubviews()
+    setEmptyView { }
+    guard let emptyView = emptyView else {
+      setEmptyView { }
+      return
+    }
+    emptyView.frame = bounds
+  }
+  
+  @objc func emptyPage_layoutIfNeeded() {
+    emptyPage_layoutIfNeeded()
+    guard let emptyView = emptyView else {
+      setEmptyView { }
+      return
+    }
+    emptyView.frame = bounds
+  }
+  
+  @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
+    setEmptyView { self.emptyPage_insertRows(at: indexPaths, with: animation) }
+  }
+  
+  @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
+    setEmptyView { self.emptyPage_deleteRows(at: indexPaths, with: animation) }
+  }
+  
+  @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
+    setEmptyView { self.emptyPage_insertSections(sections, with: animation) }
+  }
+  
+  @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
+    setEmptyView { self.emptyPage_deleteSections(sections, with: animation) }
+  }
+  
+  @objc func emptyPage_reloadData() {
+    setEmptyView { self.emptyPage_reloadData() }
+  }
+  
+  func setEmptyView(event: () -> ()) {
+    oldEmptyView?.removeFromSuperview()
+    event()
+    guard bounds.width != 0, bounds.height != 0 else { return }
+    
+    isScrollEnabled = isEmpty
+    
+    guard isEmpty else {
       emptyView?.removeFromSuperview()
       return
     }
+
     guard let view = emptyView else{ return }
     view.frame = bounds
     addSubview(view)
+    
+    #if swift(>=4.2)
     sendSubviewToBack(view)
+    #else
+    sendSubview(toBack: view)
+    #endif
   }
 }

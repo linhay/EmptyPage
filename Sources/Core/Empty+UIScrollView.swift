@@ -43,6 +43,7 @@ public extension UIScrollView {
     }
   }
   
+  
   // 空白页视图
   public var emptyView: UIView? {
     get {
@@ -51,11 +52,17 @@ public extension UIScrollView {
     set {
       if let emptyView: AnyObject = newValue {
         self.oldEmptyView = self.emptyView
-        switch self {
-        case _ as UITableView: EmptyPage.swizzingTableView
-        case _ as UICollectionView: EmptyPage.swizzingCollectionView
-        default: break
+        
+        if self.isMember(of: UIScrollView.self) {
+          EmptyPage.swizzingScrollView
+        } else if self.isMember(of: UITableView.self) {
+          EmptyPage.swizzingTableView
+        } else if self.isMember(of: UICollectionView.self) {
+          EmptyPage.swizzingCollectionView
+        }else {
+          
         }
+        
         objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       }else{
         emptyView?.removeFromSuperview()
@@ -63,6 +70,40 @@ public extension UIScrollView {
         objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,nil,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       }
     }
+  }
+  
+  
+  @objc func emptyPage_addSubview(_ view: UIView) {
+    emptyPage_addSubview(view)
+    if !self.isMember(of: UIScrollView.self) || view === emptyView { return }
+    emptyView?.removeFromSuperview()
+    oldEmptyView?.removeFromSuperview()
+  }
+  
+  @objc func emptyPage_willRemoveSubview(_ view: UIView) {
+    emptyPage_willRemoveSubview(view)
+    if !self.isMember(of: UIScrollView.self) || view === emptyView { return }
+    oldEmptyView?.removeFromSuperview()
+    guard bounds.width != 0, bounds.height != 0 else { return }
+    let isEmpty = subviews.filter { $0 !== view }.count == 0
+
+    isScrollEnabled = isEmpty
+    
+    guard isEmpty else {
+      emptyView?.removeFromSuperview()
+      return
+    }
+    
+    guard let view = emptyView else{ return }
+    view.frame = bounds
+    addSubview(view)
+    
+    #if swift(>=4.2)
+    sendSubviewToBack(view)
+    #else
+    sendSubview(toBack: view)
+    #endif
+    
   }
   
 }

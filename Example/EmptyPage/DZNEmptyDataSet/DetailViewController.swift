@@ -32,7 +32,7 @@ class DZDetailViewController: UITableViewController {
   }
   
   func config(emptyPage: EmptyPageView) {
-    tableView.setEmpty(view: emptyPage)
+    tableView.setEmpty(emptyPage)
   }
   
 }

@@ -78,7 +78,11 @@ class HomeViewController: UITableViewController {
   func buildDemos() {
     let table = CellItem(title: "tableView示例", subTitle: "tableView", emptyView: EmptyPageView())
     let collection = CellItem(title: "collectionView示例", subTitle: "collectionView", emptyView: EmptyPageView())
-    sections.append(Section(title: "完整示例", items: [table,collection]))
+    let scrollView = CellItem(title: "scrollView示例", subTitle: "scrollView", event: {
+     let vc = DemoScrollViewController()
+      self.navigationController?.pushViewController(vc, animated: true)
+    })
+    sections.append(Section(title: "完整示例", items: [table,collection, scrollView]))
   }
   
   func buildByEmptystat() {
@@ -316,7 +320,7 @@ class HomeViewController: UITableViewController {
     default:
       let vc = UITableViewController(style: .plain)
       vc.tableView.separatorStyle = .none
-      vc.tableView.setEmpty(view: item.emptyView)
+      vc.tableView.setEmpty(item.emptyView)
       navigationController?.pushViewController(vc, animated: true)
     }
     

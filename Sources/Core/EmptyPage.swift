@@ -22,7 +22,22 @@
 
 import UIKit
 
+protocol EmptyPageProtocol {
+  var isEmpty: Bool { get }
+}
+
+
 public struct EmptyPage {
+  
+  
+  static let swizzingScrollView: Void = {
+    swizzing(sel: #selector(UIScrollView.addSubview(_:)),
+             of: #selector(UIScrollView.emptyPage_addSubview(_:)),
+             in: UIScrollView.self)
+    swizzing(sel: #selector(UIScrollView.willRemoveSubview(_:)),
+             of: #selector(UIScrollView.emptyPage_willRemoveSubview(_:)),
+             in: UIScrollView.self)
+  }()
   
   /// 替换 tableView 相关函数
   static let swizzingTableView: Void = {
