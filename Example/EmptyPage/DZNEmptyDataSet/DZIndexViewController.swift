@@ -71,7 +71,7 @@ class DZIndexViewController: UITableViewController {
         animation.toValue = 0
         animation.duration = 2
         animation.autoreverses = false
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.repeatCount = Float.infinity
         item.imageView.layer.add(animation, forKey: nil)
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .milliseconds(Int(3 * 1000)), execute: {
@@ -94,7 +94,7 @@ class DZIndexViewController: UITableViewController {
     var emptyPage: EmptyPageView {
       switch self {
       case .px500:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_500px"))
           .set(title: "No Photos",
                color: UIColor(hex: "#545454"),
@@ -113,7 +113,7 @@ class DZIndexViewController: UITableViewController {
           .set(tap: backgroundTapEvent())
           .set(backgroundColor: UIColor.black)
       case .airbnb:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_airbnb"))
           .set(title: "No Messages",
                color: UIColor(hex: "#c9c9c9"),
@@ -134,7 +134,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .appStore:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_appstore"))
           .set(text: "There are no results for “wwdc2014”.",
                color: UIColor(hex: "#333333"),
@@ -143,7 +143,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .camera:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(title: "Please Allow Photo Access",
                color: UIColor(hex: "#5f6978"),
                font: UIFont.boldSystemFont(ofSize: 18))
@@ -155,7 +155,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .dropbox:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_dropbox"))
           .set(title: "Star Your Favorite Files",
                color: UIColor(hex: "#25282b"),
@@ -163,13 +163,13 @@ class DZIndexViewController: UITableViewController {
           .set(text: "Favorites are saved for offline access.",
                color: UIColor(hex: "#7b8994"),
                font: UIFont.systemFont(ofSize: 14.5))
-          .set(buttonTitle: "Learn more", color: UIColor(hex: "48a1ea"),for: UIControlState.normal)
+          .set(buttonTitle: "Learn more", color: UIColor(hex: "48a1ea"),for: UIControl.State.normal)
           .set(tap: tapEvent())
           .mix()
           .set(backgroundColor: UIColor(hex: "#f0f3f5"))
           .set(tap: backgroundTapEvent())
       case .fackbook:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_facebook"))
           .set(title: "No friends to show.",
                color: UIColor(hex: "#acafbd"),
@@ -179,7 +179,7 @@ class DZIndexViewController: UITableViewController {
           .set(backgroundColor: UIColor(hex: "#eceef7"))
           .set(tap: backgroundTapEvent())
       case .fancy:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_fancy"))
           .set(title: "No Owns yet",
                color: UIColor(hex: "#494c53"),
@@ -191,7 +191,7 @@ class DZIndexViewController: UITableViewController {
           .set(backgroundColor: UIColor(hex: "#f0f0f0"))
           .set(tap: backgroundTapEvent())
       case .foursquare:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_foursquare"))
           .set(text: "Nobody has liked or commented on your check-ins yet.",
                color: UIColor(hex: "#cecbc6"),
@@ -213,7 +213,7 @@ class DZIndexViewController: UITableViewController {
           .set(backgroundColor: UIColor(hex: "#fcfcfa"))
           .set(tap: backgroundTapEvent())
       case .icloud:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(title: "iCloud Photo Sharing",
                color: UIColor(hex: "#999999"),
                font: UIFont.systemFont(ofSize: 30))
@@ -237,7 +237,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .instagram:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_instagram"))
           .set(title: "Instagram Direct",
                color: UIColor(hex: "#444444"),
@@ -252,7 +252,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .itunesConnect:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_itunes_connect"))
           .set(title: "No Favorites",
                color: UIColor.lightGray,
@@ -267,7 +267,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .kickstarter:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_kickstarter"))
           .set(title: "Activity empty",
                color: UIColor(hex: "#828587"),
@@ -294,7 +294,7 @@ class DZIndexViewController: UITableViewController {
           .set(backgroundColor: UIColor(hex: "#f7fafa"))
           .set(tap: backgroundTapEvent())
       case .path:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_path"))
           .set(title: "Message Your Friends",
                color: UIColor.white,
@@ -308,7 +308,7 @@ class DZIndexViewController: UITableViewController {
           .set(backgroundColor: UIColor(hex: "#726d67"))
           .set(tap: backgroundTapEvent())
       case .photo:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(title: "No Photos or Videos",
                color: UIColor(hex: "#999999"),
                font: UIFont.systemFont(ofSize: 30))
@@ -320,7 +320,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .podcasts:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(title: "No Podcasts",
                color: UIColor(hex: "#999999"),
                font: UIFont.systemFont(ofSize: 30))
@@ -332,7 +332,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .remote:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_remote"))
           .set(title: "Cannot Connect to a Local Network",
                color: UIColor(hex: "#555555"),
@@ -344,7 +344,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .safari:
-        return EmptyPageView.ContentView.onlyText
+        return EmptyPageView.Template.text
           .set(text: "Safari cannot open the page because your iPhone is not connected to the Internet.",
                color: UIColor(hex: "#7d7f7f"),
                font: UIFont.systemFont(ofSize: 18))
@@ -359,13 +359,13 @@ class DZIndexViewController: UITableViewController {
                                        attributes: [.font : UIFont(name: "HelveticaNeue-Light", size: 17.75)!,
                                                     .foregroundColor : UIColor(hex: "00adf1")])
         attr.append(attr2)
-        return EmptyPageView.ContentView.onlyText
+        return EmptyPageView.Template.text
           .set(attributed: attr)
           .change(hspace: .text, value: 20)
           .mix()
           .set(tap: backgroundTapEvent())
       case .slack:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_slack"))
           .set(title: "You don't have any recent mentions",
                color: UIColor(hex: "#d7d7d7"),
@@ -374,7 +374,7 @@ class DZIndexViewController: UITableViewController {
           .mix()
           .set(tap: backgroundTapEvent())
       case .tumblr:
-        return EmptyPageView.ContentView.standard
+        return EmptyPageView.Template.standard
           .set(image: UIImage(named: "placeholder_tumblr"))
           .set(title: "This is your Dashboard.",
                color: UIColor(hex: "#aab6c4"),
@@ -454,13 +454,13 @@ class DZIndexViewController: UITableViewController {
     
     if let color = emptyPage.backgroundColor, color != UIColor.white {
       self.navigationController?.navigationBar.tintColor = UIColor.red
-      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.red,
-                                                                      NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20) ]
+      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red,
+                                                                      NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20) ]
       self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: color), for: UIBarMetrics.default)
     }else{
       self.navigationController?.navigationBar.tintColor = UIColor.black
-      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                                                                      NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20) ]
+      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                                                      NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20) ]
     }
     
     vc.config(emptyPage: emptyPage)

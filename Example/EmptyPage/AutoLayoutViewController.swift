@@ -33,14 +33,13 @@ class AutoLayoutViewController: UIViewController {
     bottomConstraint.constant += 10
   }
   
-  let onlyTextView = EmptyPageView.ContentView.onlyText
+  let onlyTextView = EmptyPageView.Template.text
     .set(text: "A测试B测试C测试D测试E测试F测试G测试E测试F测试G测试")
   
-  let onlyImageView = EmptyPageView.ContentView.onlyImage
+  let onlyImageView = EmptyPageView.Template.image
     .set(image: UIImage(named: "404"))
   
-  
-  let standardView = EmptyPageView.ContentView.standard
+  let standardView = EmptyPageView.Template.standard
     .set(image: UIImage(named: "404"))
     .set(title: "标题|标题|标题|标题|标题|标题|标题|标题")
     .set(text:  "A测试B测试C测试D测试E测试F测试G测试E测试F测试G测试")

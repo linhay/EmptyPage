@@ -36,28 +36,28 @@ extension UITableView {
     setEmptyView { }
   }
   
-  @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
+  @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.emptyPage_insertRows(at: indexPaths, with: animation)
     }
   }
   
-  @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation){
+  @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.emptyPage_deleteRows(at: indexPaths, with: animation)
     }
   }
   
-  @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
+  @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.emptyPage_insertSections(sections, with: animation)
     }
   }
   
-  @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableViewRowAnimation){
+  @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
     setEmptyView {[weak self] in
       guard let base = self else { return }
       base.emptyPage_deleteSections(sections, with: animation)
@@ -91,6 +91,6 @@ extension UITableView {
     guard let view = emptyView else{ return }
     view.frame = bounds
     addSubview(view)
-    sendSubview(toBack: view)
+    sendSubviewToBack(view)
   }
 }

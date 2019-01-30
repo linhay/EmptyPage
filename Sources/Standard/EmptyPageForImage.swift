@@ -23,7 +23,7 @@
 import UIKit
 
 /// `EmptyPageForImage` 图片样式模板
-open class EmptyPageForImage: UIView,EmptyPageContentViewProtocol {
+open class EmptyPageForImage: UIView,EmptyPageTemplateProtocol {
   
   // MARK: - Public property
   public let imageView: UIImageView = {
@@ -158,10 +158,19 @@ extension EmptyPageForImage {
   
   func buildUI() {
     addSubview(imageView)
-    let item0 = NSLayoutConstraint(item: imageView,attribute: .centerX,relatedBy: .equal,toItem: self,attribute: .centerX,multiplier: 1,constant: 0)
+    let item0 = NSLayoutConstraint(item: imageView,attribute: .centerX,
+                                   relatedBy: .equal,
+                                   toItem: self,attribute: .centerX,
+                                   multiplier: 1,constant: 0)
+    
+    #if swift(>=4.2)
+    let options = NSLayoutConstraint.FormatOptions(rawValue: 0)
+    #else
+    let options = NSLayoutFormatOptions(rawValue: 0)
+    #endif
     
     let item2 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageView]-|",
-                                               options: NSLayoutFormatOptions(rawValue: 0),
+                                               options: options,
                                                metrics: nil,
                                                views: ["imageView": imageView])
     

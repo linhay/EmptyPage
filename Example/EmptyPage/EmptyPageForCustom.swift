@@ -9,7 +9,7 @@
 import UIKit
 import EmptyPage
 
-class EmptyPageForCustom: UIView,EmptyPageContentViewProtocol {
+class EmptyPageForCustom: UIView,EmptyPageTemplateProtocol {
 
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var label: UILabel!

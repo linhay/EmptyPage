@@ -23,7 +23,7 @@
 import UIKit
 
 /// `EmptyPageForStandard` 混合样式模板
-open class EmptyPageForStandard: UIView,EmptyPageContentViewProtocol {
+open class EmptyPageForStandard: UIView,EmptyPageTemplateProtocol {
   
   // MARK: - Public property
   /// 图片 imageView
@@ -59,7 +59,7 @@ open class EmptyPageForStandard: UIView,EmptyPageContentViewProtocol {
     item.contentHorizontalAlignment = .center
     item.accessibilityIdentifier = "empty set button"
     item.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-    item.addTarget(self, action: #selector(event), for: UIControlEvents.touchUpInside)
+    item.addTarget(self, action: #selector(event), for: UIControl.Event.touchUpInside)
     return item
   }()
   
@@ -473,7 +473,7 @@ extension EmptyPageForStandard {
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
   @discardableResult
   public func set(tap target: Any?, action: Selector) -> Self {
-    button.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
+    button.addTarget(target, action: action, for: UIControl.Event.touchUpInside)
     return self
   }
   
