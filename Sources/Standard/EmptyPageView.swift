@@ -134,15 +134,21 @@ extension EmptyPageView {
   /// - Parameter view: 空白页内容样式
   /// - Returns: 为支持链式调用,返回 `EmptyPageView`
   public class func mix(view: UIView) -> EmptyPageView {
-    let backView = backgroundView
-    backView.addSubview(view)
-    backView.contentView = view
-    view.translatesAutoresizingMaskIntoConstraints = false
-    let lay1 = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: view.superview, attribute: .centerX, multiplier: 1, constant: 0)
-    let lay2 = NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: view.superview, attribute: .centerY, multiplier: 1, constant: 0)
-    let lay3 = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: view.superview, attribute: .width, multiplier: 1, constant: 0)
-    backView.addConstraints([lay1,lay2,lay3])
-    return backView
+    return self.mix(view: view) { (item) in
+      let lay1 = NSLayoutConstraint(item: view, attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: view.superview, attribute: .centerX,
+                                    multiplier: 1, constant: 0)
+      let lay2 = NSLayoutConstraint(item: view, attribute: .centerY,
+                                    relatedBy: .equal,
+                                    toItem: view.superview, attribute: .centerY,
+                                    multiplier: 1, constant: 0)
+      let lay3 = NSLayoutConstraint(item: view, attribute: .width,
+                                    relatedBy: .equal,
+                                    toItem: view.superview, attribute: .width,
+                                    multiplier: 1, constant: 0)
+      view.superview?.addConstraints([lay1,lay2,lay3])
+    }
   }
   
   
