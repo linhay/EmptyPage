@@ -266,8 +266,8 @@ class HomeViewController: UITableViewController {
     sections.append(Section(title: "标准样式",items: items))
   }
   
-  func alertEvent() -> (() -> ()) {
-    return {
+  func alertEvent() -> ((EmptyPageForStandard) -> ()) {
+    return { _ in
       let alert = UIAlertController(title: "点击事件",message: nil,preferredStyle: .alert)
       let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
       alert.addAction(action)
@@ -296,6 +296,7 @@ class HomeViewController: UITableViewController {
     return cell
   }
   
+
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = sections[indexPath.section].items[indexPath.item]
     if item.event != nil {
@@ -320,5 +321,6 @@ class HomeViewController: UITableViewController {
     }
     
   }
+  
   
 }

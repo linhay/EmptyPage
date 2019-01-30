@@ -109,21 +109,17 @@ open class EmptyPageView: UIView {
     return self
   }
   
-  
   /// 自定义视图模板
   public struct ContentView {
     /// 文本样式模板 `EmptyPageForText`
     public static var onlyText: EmptyPageForText { return EmptyPageForText() }
     /// 图片样式模板 `EmptyPageForImage`
-    public static var onlyImage: EmptyPageForImage { return EmptyPageForImage() }
+    public static var onlyImage: EmptyPageForImage {  return EmptyPageForImage() }
     /// 混合样式模板 `EmptyPageForStandard`
-    public static var standard: EmptyPageForStandard { return EmptyPageForStandard() }
+    public static var standard: EmptyPageForStandard {  return EmptyPageForStandard() }
   }
   
 }
-
-
-
 
 
 

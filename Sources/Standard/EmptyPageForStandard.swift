@@ -64,8 +64,8 @@ open class EmptyPageForStandard: UIView,EmptyPageContentViewProtocol {
   }()
   
   /// 点击事件
-  public var eventStore: (() -> ())?
-  
+  public var eventStore: ((_: EmptyPageForStandard) -> Void)?
+
   // MARK: - Override
   public init() {
     super.init(frame: CGRect.zero)
@@ -483,11 +483,11 @@ extension EmptyPageForStandard {
   /// - Parameter event: 点击事件
   /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
   @discardableResult
-  public func set(tap event: (() -> ())?) -> Self {
+  public func set(tap event: ((_: EmptyPageForStandard) -> Void)?) -> Self {
     eventStore = event
     return self
   }
-  
+
 }
 
 
@@ -496,7 +496,7 @@ extension EmptyPageForStandard {
 extension EmptyPageForStandard {
   
   @objc func event() {
-    eventStore?()
+    eventStore?(self)
   }
   
   
