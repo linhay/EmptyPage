@@ -24,31 +24,45 @@ import UIKit
 
 protocol EmptyPageProtocol {
   var isEmpty: Bool { get }
+  
+  func setEmptyView()
 }
 
 
-public struct EmptyPage {
+public struct EmptyPage<Base> {
+  public let base: Base
+  public init(_ base: Base) {
+    self.base = base
+  }
+}
+
+public protocol EmptyPageCompatible {
+  associatedtype CompatibleType
+  var ep: CompatibleType { get }
+}
+
+public extension EmptyPageCompatible {
+  public var ep: EmptyPage<Self> { return EmptyPage(self) }
+}
+
+
+extension UIScrollView: EmptyPageCompatible { }
+
+public struct EmptyPageRuntime {
   
-  
-  static let swizzingScrollView: Void = {
-    swizzing(sel: #selector(UIScrollView.addSubview(_:)),
-             of: #selector(UIScrollView.emptyPage_addSubview(_:)),
-             in: UIScrollView.self)
-    swizzing(sel: #selector(UIScrollView.willRemoveSubview(_:)),
-             of: #selector(UIScrollView.emptyPage_willRemoveSubview(_:)),
+  static let swizzingLayout: Void = {
+    
+    swizzing(sel: #selector(UIScrollView.layoutSubviews),
+             of: #selector(UIScrollView.emptyPage_layoutSubviews),
+             in: UITableView.self)
+    
+    swizzing(sel: #selector(UIScrollView.layoutIfNeeded),
+             of: #selector(UIScrollView.emptyPage_layoutIfNeeded),
              in: UIScrollView.self)
   }()
   
   /// 替换 tableView 相关函数
   static let swizzingTableView: Void = {
-    swizzing(sel: #selector(UITableView.layoutSubviews),
-             of: #selector(UITableView.emptyPage_layoutSubviews),
-             in: UITableView.self)
-    
-    swizzing(sel: #selector(UITableView.layoutIfNeeded),
-             of: #selector(UITableView.emptyPage_layoutIfNeeded),
-             in: UITableView.self)
-    
     swizzing(sel: #selector(UITableView.insertRows(at:with:)),
              of: #selector(UITableView.emptyPage_insertRows(at:with:)),
              in: UITableView.self)
@@ -64,7 +78,6 @@ public struct EmptyPage {
     swizzing(sel: #selector(UITableView.deleteSections(_:with:)),
              of: #selector(UITableView.emptyPage_deleteSections(_:with:)),
              in: UITableView.self)
-    
     swizzing(sel: #selector(UITableView.reloadData),
              of: #selector(UITableView.emptyPage_reloadData),
              in: UITableView.self)
@@ -72,14 +85,6 @@ public struct EmptyPage {
   
   /// 替换 CollectionView 相关函数
   static let swizzingCollectionView: Void = {
-    swizzing(sel: #selector(UICollectionView.layoutSubviews),
-             of: #selector(UICollectionView.emptyPage_layoutSubviews),
-             in: UICollectionView.self)
-    
-    swizzing(sel: #selector(UICollectionView.layoutIfNeeded),
-             of: #selector(UICollectionView.emptyPage_layoutIfNeeded),
-             in: UICollectionView.self)
-    
     swizzing(sel: #selector(UICollectionView.reloadData),
              of: #selector(UICollectionView.emptyPage_reloadData),
              in: UICollectionView.self)

@@ -47,6 +47,7 @@ open class EmptyPageForImage: UIView,EmptyPageTemplateProtocol {
     guard imageView.image == nil else { return }
     newWindow == nil ? imageView.stopAnimating() : imageView.startAnimating()
   }
+  
 }
 
 // MARK: 调整 layout 相关枚举与函数

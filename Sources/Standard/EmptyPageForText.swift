@@ -44,7 +44,7 @@ open class EmptyPageForText: UIView, EmptyPageTemplateProtocol {
     super.init(coder: aDecoder)
     buildUI()
   }
-  
+
 }
 
 
@@ -151,7 +151,6 @@ extension EmptyPageForText {
     label.attributedText = attributed
     return self
   }
-  
   
 }
 

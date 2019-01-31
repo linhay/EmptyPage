@@ -28,8 +28,15 @@ class DemoScrollViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    sleep(5) {
+    sleep(3) {
       self.itemView.removeFromSuperview()
+      sleep(3, mainCall: {
+        self.scrollView.setEmpty(EmptyStore.custom(block1: {
+          
+          }, block2: {
+            
+        }))
+      })
     }
   }
 
@@ -45,11 +52,14 @@ extension DemoScrollViewController {
   }
 
   private func buildLayout() {
-    scrollView.frame = view.bounds
+    scrollView.snp.makeConstraints { (make) in
+      make.left.right.bottom.equalToSuperview()
+      make.top.equalTo(self.topLayoutGuide.snp.bottom)
+    }
   }
 
   private func buildSubView() {
-    scrollView.emptyView = EmptyStore.loading
+    scrollView.setEmpty(EmptyStore.loading)
     scrollView.contentSize = view.bounds.size
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false

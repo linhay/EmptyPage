@@ -51,7 +51,7 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
     rows = 0
     sleep(3) {[weak self] in
       guard let base = self else { return }
-      base.collectionView.emptyView = EmptyStore.custom(block1: base.event1(), block2: base.event2())
+      base.collectionView.setEmpty(EmptyStore.custom(block1: base.event1(), block2: base.event2()))
       base.collectionView.reloadData()
     }
   }

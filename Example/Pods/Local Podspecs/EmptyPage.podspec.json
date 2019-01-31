@@ -1,6 +1,6 @@
 {
   "name": "EmptyPage",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "summary": "iOS - 轻量级空白页占位图框架...",
   "homepage": "https://github.com/linhay/EmptyPage",
   "license": {
@@ -12,9 +12,9 @@
   },
   "source": {
     "git": "https://github.com/linhay/EmptyPage.git",
-    "tag": "2.0.1"
+    "tag": "3.0.0"
   },
-  "swift_version": "4.0",
+  "swift_version": "4.2",
   "platforms": {
     "ios": "8.0"
   },

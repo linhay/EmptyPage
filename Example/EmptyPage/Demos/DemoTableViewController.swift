@@ -39,7 +39,7 @@ class DemoTableViewController: UITableViewController {
     tableView.reloadData()
     sleep(3) {[weak self] in
       guard let base = self else { return }
-      base.tableView.emptyView = EmptyStore.custom(block1: base.event1(), block2: base.event2())
+      base.tableView.setEmpty(EmptyStore.custom(block1: base.event1(), block2: base.event2()))
       base.tableView.reloadData()
     }
   }

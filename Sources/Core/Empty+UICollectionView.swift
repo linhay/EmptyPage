@@ -24,72 +24,34 @@ import UIKit
 
 extension UICollectionView {
   
-  @objc func emptyPage_layoutSubviews() {
-    emptyPage_layoutSubviews()
-    guard let emptyView = emptyView else {
-      setEmptyView { }
-      return
-    }
-    emptyView.frame = bounds
-  }
-  
-  @objc func emptyPage_layoutIfNeeded() {
-    emptyPage_layoutIfNeeded()
-    guard let emptyView = emptyView else {
-      setEmptyView { }
-      return
-    }
-    emptyView.frame = bounds
+  fileprivate var isEmpty: Bool {
+    let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
+    return (0..<count).first(where: { self.numberOfItems(inSection: $0) > 0 }) == nil
   }
   
   @objc func emptyPage_insertItems(at indexPaths: [IndexPath]){
-    setEmptyView { self.emptyPage_insertItems(at: indexPaths) }
+    self.emptyPage_insertItems(at: indexPaths)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_deleteItems(at indexPaths: [IndexPath]){
-    setEmptyView { self.emptyPage_deleteItems(at: indexPaths) }
+    self.emptyPage_deleteItems(at: indexPaths)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_insertSections(_ sections: IndexSet){
-    setEmptyView { self.emptyPage_insertSections(sections) }
+    self.emptyPage_insertSections(sections)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_deleteSections(_ sections: IndexSet){
-    setEmptyView { self.emptyPage_deleteSections(sections) }
+    self.emptyPage_deleteSections(sections)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_reloadData() {
-    setEmptyView { self.emptyPage_reloadData() }
-  }
-  
-  func setEmptyView(event: () -> ()) {
-    oldEmptyView?.removeFromSuperview()
-    event()
-    guard bounds.width != 0, bounds.height != 0 else { return }
-    var isHasRows = false
-    let sectionCount = dataSource?.numberOfSections?(in: self) ?? numberOfSections
-    for  index in 0..<sectionCount {
-      if numberOfItems(inSection: index) > 0 {
-        isHasRows = true
-        break
-      }
-    }
-    
-    isScrollEnabled = isHasRows
-    if isHasRows {
-      emptyView?.removeFromSuperview()
-      return
-    }
-    
-    guard let view = emptyView else{ return }
-    view.frame = bounds
-    addSubview(view)
-    
-    #if swift(>=4.2)
-    sendSubviewToBack(view)
-    #else
-    sendSubview(toBack: view)
-    #endif
+    self.emptyPage_reloadData()
+    setEmptyView(isEmpty)
   }
   
 }
