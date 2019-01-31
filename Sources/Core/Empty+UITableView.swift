@@ -23,81 +23,37 @@
 
 import UIKit
 
-
-extension UITableView: EmptyPageProtocol {
+extension UITableView {
   
-  var isEmpty: Bool {
-    var isHasRows = false
-    let sectionCount = dataSource?.numberOfSections?(in: self) ?? numberOfSections
-    for index in 0..<sectionCount {
-      if numberOfRows(inSection: index) > 0 {
-        isHasRows = true
-        break
-      }
-    }
-    return !isHasRows
-  }
-  
-  
-  @objc func emptyPage_layoutSubviews() {
-    emptyPage_layoutSubviews()
-    setEmptyView { }
-    guard let emptyView = emptyView else {
-      setEmptyView { }
-      return
-    }
-    emptyView.frame = bounds
-  }
-  
-  @objc func emptyPage_layoutIfNeeded() {
-    emptyPage_layoutIfNeeded()
-    guard let emptyView = emptyView else {
-      setEmptyView { }
-      return
-    }
-    emptyView.frame = bounds
+  fileprivate var isEmpty: Bool {
+    let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
+    return (0..<count).first(where: { self.numberOfRows(inSection: $0) > 0 }) == nil
   }
   
   @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
-    setEmptyView { self.emptyPage_insertRows(at: indexPaths, with: animation) }
+    self.emptyPage_insertRows(at: indexPaths, with: animation)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation){
-    setEmptyView { self.emptyPage_deleteRows(at: indexPaths, with: animation) }
+    self.emptyPage_deleteRows(at: indexPaths, with: animation)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
-    setEmptyView { self.emptyPage_insertSections(sections, with: animation) }
+    self.emptyPage_insertSections(sections, with: animation)
+    setEmptyView(isEmpty)
+    
   }
   
   @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation){
-    setEmptyView { self.emptyPage_deleteSections(sections, with: animation) }
+    self.emptyPage_deleteSections(sections, with: animation)
+    setEmptyView(isEmpty)
   }
   
   @objc func emptyPage_reloadData() {
-    setEmptyView { self.emptyPage_reloadData() }
+    self.emptyPage_reloadData()
+    setEmptyView(isEmpty)
   }
   
-  func setEmptyView(event: () -> ()) {
-    oldEmptyView?.removeFromSuperview()
-    event()
-    guard bounds.width != 0, bounds.height != 0 else { return }
-    
-    isScrollEnabled = isEmpty
-    
-    guard isEmpty else {
-      emptyView?.removeFromSuperview()
-      return
-    }
-
-    guard let view = emptyView else{ return }
-    view.frame = bounds
-    addSubview(view)
-    
-    #if swift(>=4.2)
-    sendSubviewToBack(view)
-    #else
-    sendSubview(toBack: view)
-    #endif
-  }
 }

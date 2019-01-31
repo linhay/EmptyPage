@@ -37,14 +37,14 @@ public extension UIScrollView {
   ///
   /// - Parameter view: `EmptyPageView`
   public func setEmpty(_ view: EmptyPageView?) {
-    emptyView = view
+    self.ep.setEmpty(view)
   }
   
   /// 添加空白页视图
   ///
   /// - Parameter view: 模板视图
   public func setEmpty(_ template: EmptyPageTemplateProtocol?) {
-    self.setEmpty(template?.mix())
+    self.ep.setEmpty(template?.mix())
   }
 
 }
