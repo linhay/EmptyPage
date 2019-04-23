@@ -1,7 +1,7 @@
 ![title](https://s.linhey.com/emptypage-17.png)
 
 [![build](https://travis-ci.org/linhay/EmptyPage.svg?branch=master)](https://travis-ci.org/BLFoundation/EmptyPage)
-![Swift4](https://img.shields.io/badge/swift-4.0-green.svg?style=flat)
+![Swift4](https://img.shields.io/badge/swift-5.0-red.svg?style=flat)
 ![Platform](https://img.shields.io/cocoapods/p/EmptyPage.svg?style=flat)
 ![Version](https://img.shields.io/cocoapods/v/EmptyPage.svg?style=flat)
 ![CocoaPods](https://img.shields.io/badge/dep-CocoaPods-orange.svg)
