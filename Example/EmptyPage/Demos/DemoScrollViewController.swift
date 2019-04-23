@@ -31,7 +31,7 @@ class DemoScrollViewController: UIViewController {
     sleep(3) {
       self.itemView.removeFromSuperview()
       sleep(3, mainCall: {
-        self.scrollView.setEmpty(EmptyStore.custom(block1: {
+        self.scrollView.ep.setEmpty(EmptyStore.custom(block1: {
           
           }, block2: {
             
@@ -59,7 +59,7 @@ extension DemoScrollViewController {
   }
 
   private func buildSubView() {
-    scrollView.setEmpty(EmptyStore.loading)
+    scrollView.ep.setEmpty(EmptyStore.loading)
     scrollView.contentSize = view.bounds.size
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false

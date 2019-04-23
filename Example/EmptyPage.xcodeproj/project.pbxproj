@@ -16,6 +16,7 @@
 		CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */; };
 		CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */; };
 		CD11E2162175C9FF00838D84 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD11E2152175C9FF00838D84 /* document.sh */; };
+		CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECAD5226EE63D0075CBD5 /* .travis.yml */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
 		CDC946FE22017D6A0037F305 /* DZIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC946FC22017D6A0037F305 /* DZIndexViewController.swift */; };
@@ -45,6 +46,7 @@
 		CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
 		CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayoutViewController.storyboard; sourceTree = "<group>"; };
 		CD11E2152175C9FF00838D84 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = document.sh; path = ../document.sh; sourceTree = "<group>"; };
+		CD5ECAD5226EE63D0075CBD5 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
 		CDC946FC22017D6A0037F305 /* DZIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZIndexViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				CD5ECAD5226EE63D0075CBD5 /* .travis.yml */,
 				CD11E2152175C9FF00838D84 /* document.sh */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
@@ -231,6 +234,7 @@
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD11E2162175C9FF00838D84 /* document.sh in Resources */,
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
+				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
