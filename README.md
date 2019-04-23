@@ -90,8 +90,8 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 - 设置空白页
 
   ```swift
-  tableView.setEmpty(view: emptyView)
-  collectionView.setEmpty(view: emptyView)
+  tableView.ep.setEmpty(view: emptyView)
+  collectionView.ep.setEmpty(view: emptyView)
   ```
 
 - 空白页显示与切换
@@ -99,7 +99,7 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
   如果需要切换已显示的空白页可主动触发刷新.
 
   ```swift
-  tableView.setEmpty(view: emptyView)
+  tableView.ep.setEmpty(view: emptyView)
   tableView.reloadData()
   ```
 

@@ -22,13 +22,6 @@
 
 import UIKit
 
-protocol EmptyPageProtocol {
-  var isEmpty: Bool { get }
-  
-  func setEmptyView()
-}
-
-
 public struct EmptyPage<Base> {
   public let base: Base
   public init(_ base: Base) {
