@@ -8,7 +8,7 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'linhay' => 'is.linhay@outlook.com' }
 s.source = { :git => 'https://github.com/linhay/EmptyPage.git', :tag => s.version.to_s }
 
-s.swift_version = '4.2'
+s.swift_version = '5.0'
 s.ios.deployment_target = '8.0'
 s.requires_arc = true
 

@@ -34,7 +34,7 @@ public extension EmptyPageTemplateProtocol {
   /// 将不同空白页内容样式约束至背景View上
   ///
   /// - Returns: EmptyPageView
-  public func mix() -> EmptyPageView {
+    func mix() -> EmptyPageView {
     guard let view = self as? UIView else { return EmptyPageView() }
     return EmptyPageView.mix(view: view)
   }
@@ -43,7 +43,7 @@ public extension EmptyPageTemplateProtocol {
   ///
   /// - Parameter config: 自定义约束
   /// - Returns: EmptyPageView
-  public func mix(_ config: ((_: UIView) -> Void)) -> EmptyPageView {
+    func mix(_ config: ((_: UIView) -> Void)) -> EmptyPageView {
     guard let view = self as? UIView else { return EmptyPageView() }
     return EmptyPageView.mix(view: view, config)
   }
