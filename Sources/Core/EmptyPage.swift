@@ -42,7 +42,7 @@ public protocol EmptyPageCompatible {
 }
 
 public extension EmptyPageCompatible {
-  public var ep: EmptyPage<Self> { return EmptyPage(self) }
+    var ep: EmptyPage<Self> { return EmptyPage(self) }
 }
 
 
