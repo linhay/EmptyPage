@@ -46,7 +46,7 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
   }
   
   func getData() {
-    collectionView.ep.setEmpty(EmptyStore.loading)
+    collectionView.ep.emptyView = EmptyStore.loading
     collectionView.reloadData()
     rows = 0
     sleep(3) {[weak self] in

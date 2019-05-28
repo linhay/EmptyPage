@@ -23,115 +23,119 @@
 import UIKit
 
 fileprivate struct EmptyDataKey {
-  static let emptyViewKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.emptyView".hashValue)!
-  static let oldEmptyViewKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldEmptyView".hashValue)!
-  static let oldIsScrollEnabledKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldIsScrollEnabledKey".hashValue)!
+    static let emptyViewKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.emptyView".hashValue)!
+    static let oldEmptyViewKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldEmptyView".hashValue)!
+    static let oldIsScrollEnabledKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldIsScrollEnabledKey".hashValue)!
 }
 
 
 extension UIScrollView {
-  
-  var oldIsScrollEnabled: Bool {
-    get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? Bool ?? self.isScrollEnabled }
-    set { objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-  }
-  
-  // 私有属性 (多次赋值emptyView时,防止多个emptyView同时出现)
-  weak var oldEmptyView: UIView? {
-    get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView }
-    set {
-      // 防止多次设置emptyView
-      if oldEmptyView?.superview != nil { return }
-      if let emptyView: AnyObject = newValue {
-        objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-      }
+    
+    var oldIsScrollEnabled: Bool {
+        get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? Bool ?? self.isScrollEnabled }
+        set { objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
-  }
-  
-  // 空白页视图
-  var emptyView: UIView? {
-    get {
-      return objc_getAssociatedObject(self,EmptyDataKey.emptyViewKey) as? UIView
-    }
-    set {
-      self.oldEmptyView = self.emptyView
-      
-      if newValue != nil {
-        EmptyPageRuntime.swizzingLayout
-        /// 兼容子类化情况
-        if self.isKind(of: UITableView.self) {
-          EmptyPageRuntime.swizzingTableView
-        } else if self.isKind(of: UICollectionView.self) {
-          EmptyPageRuntime.swizzingCollectionView
-        }else {
-
+    
+    // 私有属性 (多次赋值emptyView时,防止多个emptyView同时出现)
+    weak var oldEmptyView: UIView? {
+        get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView }
+        set {
+            // 防止多次设置emptyView
+            if oldEmptyView?.superview != nil { return }
+            if let emptyView: AnyObject = newValue {
+                objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
         }
-      }else{
-        emptyView?.removeFromSuperview()
-        self.oldEmptyView = nil
-      }
-      
-      objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
-  }
-  
+    
+    // 空白页视图
+    var emptyView: UIView? {
+        get {
+            return objc_getAssociatedObject(self,EmptyDataKey.emptyViewKey) as? UIView
+        }
+        set {
+            self.oldEmptyView = self.emptyView
+            
+            if newValue != nil {
+                EmptyPageRuntime.swizzingLayout
+                /// 兼容子类化情况
+                if self.isKind(of: UITableView.self) {
+                    EmptyPageRuntime.swizzingTableView
+                } else if self.isKind(of: UICollectionView.self) {
+                    EmptyPageRuntime.swizzingCollectionView
+                }else {
+                    
+                }
+            }else{
+                emptyView?.removeFromSuperview()
+                self.oldEmptyView = nil
+            }
+            
+            objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
 }
 
 extension UIScrollView {
-  
- fileprivate var isEmpty: Bool {
-    return subviews.filter({ $0 !== self.emptyView && $0 !== oldEmptyView }).count == 0
-  }
-  
-  
-  func setEmptyView(_ isEmpty: Bool) {
-    self.oldEmptyView?.removeFromSuperview()
     
-    guard isEmpty else {
-      isScrollEnabled = oldIsScrollEnabled
-      emptyView?.removeFromSuperview()
-      return
+    fileprivate var isEmpty: Bool {
+        return subviews.filter({ $0 !== self.emptyView && $0 !== oldEmptyView }).count == 0
     }
     
-    oldIsScrollEnabled = isScrollEnabled
-    isScrollEnabled = isEmpty
     
-    guard let view = emptyView else{ return }
-    view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
-    view.removeFromSuperview()
-    addSubview(view)
+    func setEmptyView(_ isEmpty: Bool) {
+        self.oldEmptyView?.removeFromSuperview()
+        
+        guard isEmpty else {
+            isScrollEnabled = oldIsScrollEnabled
+            emptyView?.removeFromSuperview()
+            return
+        }
+        
+        oldIsScrollEnabled = isScrollEnabled
+        isScrollEnabled = isEmpty
+        
+        guard let view = emptyView else{ return }
+        view.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        view.removeFromSuperview()
+        addSubview(view)
+        
+        #if swift(>=4.2)
+        sendSubviewToBack(view)
+        #else
+        sendSubview(toBack: view)
+        #endif
+    }
     
-    #if swift(>=4.2)
-    sendSubviewToBack(view)
-    #else
-    sendSubview(toBack: view)
-    #endif
-  }
-  
 }
 
-extension EmptyPage where Base: UIScrollView {
-  
-  public func setEmpty(_ view: UIView?) {
-    base.emptyView = view
-  }
-  
-  var emptyView: UIView? { return base.emptyView }
-  
+public extension EmptyPage where Base: UIScrollView {
+    
+    func setEmpty(_ view: UIView?) {
+        base.emptyView = view
+    }
+    
+    /// 空白页视图
+    var emptyView: UIView? {
+        set { base.emptyView = newValue }
+        get { return base.emptyView }
+    }
+    
 }
 
 extension UIScrollView {
-  
-  @objc func emptyPage_layoutSubviews() {
-    emptyPage_layoutSubviews()
-    guard let emptyView = self.ep.emptyView else { return }
-    emptyView.frame = bounds
-  }
-  
-  @objc func emptyPage_layoutIfNeeded() {
-    emptyPage_layoutIfNeeded()
-    guard let emptyView = self.ep.emptyView else { return }
-    emptyView.frame = bounds
-  }
-  
+    
+    @objc func emptyPage_layoutSubviews() {
+        emptyPage_layoutSubviews()
+        guard let emptyView = self.ep.emptyView else { return }
+        emptyView.frame = bounds
+    }
+    
+    @objc func emptyPage_layoutIfNeeded() {
+        emptyPage_layoutIfNeeded()
+        guard let emptyView = self.ep.emptyView else { return }
+        emptyView.frame = bounds
+    }
+    
 }
