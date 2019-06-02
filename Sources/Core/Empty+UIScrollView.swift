@@ -22,31 +22,30 @@
 
 import UIKit
 
-fileprivate struct EmptyDataKey {
-    static let emptyViewKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.emptyView".hashValue)!
-    static let oldEmptyViewKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldEmptyView".hashValue)!
-    static let oldIsScrollEnabledKey = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldIsScrollEnabledKey".hashValue)!
-    static let isFirstLoading = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.isFirstLoading".hashValue)!
-    static let firstLoadingView = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.firstLoadingView".hashValue)!
-
-}
-
-
 extension UIScrollView {
+
+    fileprivate struct EmptyDataKey {
+        static let emptyView = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.emptyView".hashValue)!
+        static let oldEmptyView = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldEmptyView".hashValue)!
+        static let oldIsScrollEnabled = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.oldIsScrollEnabled".hashValue)!
+        static let isFirstLoading = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.isFirstLoading".hashValue)!
+        static let firstLoadingView = UnsafeRawPointer(bitPattern:"EmptyPage.UIScrollView.firstLoadingView".hashValue)!
+
+    }
     
     var oldIsScrollEnabled: Bool {
-        get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? Bool ?? self.isScrollEnabled }
-        set { objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+        get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyView) as? Bool ?? self.isScrollEnabled }
+        set { objc_setAssociatedObject(self,EmptyDataKey.oldEmptyView,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
     // 私有属性 (多次赋值emptyView时,防止多个emptyView同时出现)
     weak var oldEmptyView: UIView? {
-        get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyViewKey) as? UIView }
+        get { return objc_getAssociatedObject(self,EmptyDataKey.oldEmptyView) as? UIView }
         set {
             // 防止多次设置emptyView
             if oldEmptyView?.superview != nil { return }
             if let emptyView: AnyObject = newValue {
-                objc_setAssociatedObject(self,EmptyDataKey.oldEmptyViewKey,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self,EmptyDataKey.oldEmptyView,emptyView,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
@@ -54,7 +53,7 @@ extension UIScrollView {
     // 空白页视图
     var emptyView: UIView? {
         get {
-            return objc_getAssociatedObject(self,EmptyDataKey.emptyViewKey) as? UIView
+            return objc_getAssociatedObject(self,EmptyDataKey.emptyView) as? UIView
         }
         set {
             self.oldEmptyView = self.emptyView
@@ -74,7 +73,7 @@ extension UIScrollView {
                 self.oldEmptyView = nil
             }
             
-            objc_setAssociatedObject(self,EmptyDataKey.emptyViewKey,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self,EmptyDataKey.emptyView,newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 
