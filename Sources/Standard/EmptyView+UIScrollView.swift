@@ -29,6 +29,13 @@ public extension EmptyPage where Base: UIScrollView {
     func setEmpty(_ template: EmptyPageTemplateProtocol?) {
         base.ep.setEmpty(template?.mix())
     }
+
+    /// 添加 loading 空白页视图
+    ///
+    /// - Parameter view: 模板视图
+    func setFirstLoading(_ template: EmptyPageTemplateProtocol?) {
+        base.ep.setFirstLoading(template?.mix())
+    }
 }
 
 

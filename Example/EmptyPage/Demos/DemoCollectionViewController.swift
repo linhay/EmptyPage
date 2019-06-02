@@ -30,6 +30,8 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.collectionViewLayout = layout
+    collectionView.ep.setLoading(EmptyStore.loading)
+    collectionView.ep.setEmpty(EmptyStore.custom(block1: event1(), block2: event2()))
     self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     getData()
   }
@@ -46,12 +48,9 @@ class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UI
   }
   
   func getData() {
-    collectionView.ep.emptyView = EmptyStore.loading
-    collectionView.reloadData()
     rows = 0
     sleep(3) {[weak self] in
       guard let base = self else { return }
-        base.collectionView.ep.setEmpty(EmptyStore.custom(block1: base.event1(), block2: base.event2()))
       base.collectionView.reloadData()
     }
   }
