@@ -1,32 +1,36 @@
 PODS:
-  - EmptyPage (3.0.0):
-    - EmptyPage/Core (= 3.0.0)
-    - EmptyPage/Standard (= 3.0.0)
-  - EmptyPage/Core (3.0.0)
-  - EmptyPage/Standard (3.0.0):
+  - EmptyPage (3.1.1):
+    - EmptyPage/Core (= 3.1.1)
+    - EmptyPage/Standard (= 3.1.1)
+  - EmptyPage/Core (3.1.1)
+  - EmptyPage/Standard (3.1.1):
     - EmptyPage/Core
   - Hue (4.0.0)
   - SnapKit (4.2.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
   - Hue
   - SnapKit
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Hue
     - SnapKit
+    - SVProgressHUD
 
 EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: 69f46a5d393914703a9a4b725290391e254b17f8
+  EmptyPage: 469d2e62896c6043079c897dc487cf08ab841d6a
   Hue: afe18b4e819e2848e7d2d5b4b33f4d3f88dd921b
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c4b5444b0606de40ac306d0130ddd92ff38a7381
+PODFILE CHECKSUM: 26d109bc984988e0a5a63b88eb7fa67e12b7339d
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0

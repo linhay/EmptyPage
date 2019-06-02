@@ -5,4 +5,5 @@ target 'EmptyPage_Example' do
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit'
   pod 'Hue'
+  pod 'SVProgressHUD'
 end
