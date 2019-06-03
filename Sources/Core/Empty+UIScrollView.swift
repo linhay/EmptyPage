@@ -100,7 +100,7 @@ extension UIScrollView {
 extension UIScrollView {
     
     fileprivate var isEmpty: Bool {
-        return subviews.first(where: { $0 === self.emptyView || $0 === oldEmptyView || $0 === firstLoadingView }) == nil
+        return subviews.first(where: { $0 !== self.emptyView && $0 !== oldEmptyView && $0 !== firstLoadingView }) == nil
     }
     
     func setEmptyView(_ isEmpty: Bool) {
@@ -108,6 +108,7 @@ extension UIScrollView {
         
         guard isEmpty else {
             isScrollEnabled = oldIsScrollEnabled
+            firstLoadingView?.removeFromSuperview()
             emptyView?.removeFromSuperview()
             return
         }
