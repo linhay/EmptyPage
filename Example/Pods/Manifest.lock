@@ -1,18 +1,18 @@
 PODS:
-  - EmptyPage (3.1.1):
-    - EmptyPage/Core (= 3.1.1)
-    - EmptyPage/Standard (= 3.1.1)
-  - EmptyPage/Core (3.1.1)
-  - EmptyPage/Standard (3.1.1):
+  - EmptyPage (3.2.0):
+    - EmptyPage/Core (= 3.2.0)
+    - EmptyPage/Standard (= 3.2.0)
+  - EmptyPage/Core (3.2.0)
+  - EmptyPage/Standard (3.2.0):
     - EmptyPage/Core
-  - Hue (4.0.0)
-  - SnapKit (4.2.0)
+  - Hue (5.0.0)
+  - SnapKit (5.0.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
   - Hue
-  - SnapKit
+  - SnapKit (= 5.0.0)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -26,11 +26,11 @@ EXTERNAL SOURCES:
     :path: "../EmptyPage.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: 469d2e62896c6043079c897dc487cf08ab841d6a
-  Hue: afe18b4e819e2848e7d2d5b4b33f4d3f88dd921b
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  EmptyPage: 1001bd3f2e47d36a446df9baf1a0880b60723655
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 26d109bc984988e0a5a63b88eb7fa67e12b7339d
+PODFILE CHECKSUM: 1f2535c76bb89cb96e49fef2767e4cb431b98c8e
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.7.5
