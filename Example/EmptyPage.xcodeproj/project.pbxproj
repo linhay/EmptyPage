@@ -16,6 +16,15 @@
 		CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */; };
 		CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */; };
 		CD11E2162175C9FF00838D84 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD11E2152175C9FF00838D84 /* document.sh */; };
+		CD22C7BF2334BFC3003192F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7B82334BFC3003192F1 /* MainViewController.swift */; };
+		CD22C7C02334BFC3003192F1 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BA2334BFC3003192F1 /* MainHeaderView.swift */; };
+		CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */; };
+		CD22C7C22334BFC3003192F1 /* EmptyViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */; };
+		CD22C7C32334BFC3003192F1 /* EmptyViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */; };
+		CD50BC6E2333CEAE00FBA091 /* GlobalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD50BC6D2333CEAE00FBA091 /* GlobalViewController.swift */; };
+		CD50BC712333CF8600FBA091 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD50BC702333CF8600FBA091 /* SectionTableViewController.swift */; };
+		CD50BC732333D10700FBA091 /* SectionTableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD50BC722333D10700FBA091 /* SectionTableType.swift */; };
+		CD50BC7D2333D64800FBA091 /* SectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD50BC7C2333D64800FBA091 /* SectionTableCell.swift */; };
 		CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECAD5226EE63D0075CBD5 /* .travis.yml */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
@@ -24,6 +33,9 @@
 		CDC947032201B4650037F305 /* DemoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC947012201B4650037F305 /* DemoScrollViewController.swift */; };
 		CDC947042201B4650037F305 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC947022201B4650037F305 /* DemoTableViewController.swift */; };
 		CDC947062201B47C0037F305 /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC947052201B47C0037F305 /* DemoCollectionViewController.swift */; };
+		CDCA14462338D7FD00D1425E /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA14442338D7FD00D1425E /* ActionCell.swift */; };
+		CDCA14472338D7FD00D1425E /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCA14452338D7FD00D1425E /* ActionCell.xib */; };
+		CDCA14492338D8A600D1425E /* ActionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA14482338D8A600D1425E /* ActionSection.swift */; };
 		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +58,15 @@
 		CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
 		CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayoutViewController.storyboard; sourceTree = "<group>"; };
 		CD11E2152175C9FF00838D84 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = document.sh; path = ../document.sh; sourceTree = "<group>"; };
+		CD22C7B82334BFC3003192F1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CD22C7BA2334BFC3003192F1 /* MainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyViewSectionCell.xib; sourceTree = "<group>"; };
+		CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewSection.swift; sourceTree = "<group>"; };
+		CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewSectionCell.swift; sourceTree = "<group>"; };
+		CD50BC6D2333CEAE00FBA091 /* GlobalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewController.swift; sourceTree = "<group>"; };
+		CD50BC702333CF8600FBA091 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
+		CD50BC722333D10700FBA091 /* SectionTableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableType.swift; sourceTree = "<group>"; };
+		CD50BC7C2333D64800FBA091 /* SectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableCell.swift; sourceTree = "<group>"; };
 		CD5ECAD5226EE63D0075CBD5 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
@@ -54,6 +75,9 @@
 		CDC947012201B4650037F305 /* DemoScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoScrollViewController.swift; sourceTree = "<group>"; };
 		CDC947022201B4650037F305 /* DemoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		CDC947052201B47C0037F305 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
+		CDCA14442338D7FD00D1425E /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		CDCA14452338D7FD00D1425E /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		CDCA14482338D8A600D1425E /* ActionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSection.swift; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +115,8 @@
 		607FACD21AFB9204008FA782 /* Example for EmptyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CD22C7B62334BFC3003192F1 /* Main */,
+				CD50BC6F2333CF7700FBA091 /* SectionTable */,
 				CDC947002201B4650037F305 /* Demos */,
 				CDC946FB22017D6A0037F305 /* DZNEmptyDataSet */,
 				CDA25D562009A7BD003C0E7E /* Images.xcassets */,
@@ -148,6 +174,53 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD22C7B62334BFC3003192F1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CD22C7B72334BFC3003192F1 /* viewControllers */,
+				CD22C7B92334BFC3003192F1 /* views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CD22C7B72334BFC3003192F1 /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD22C7B82334BFC3003192F1 /* MainViewController.swift */,
+			);
+			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		CD22C7B92334BFC3003192F1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CD22C7BA2334BFC3003192F1 /* MainHeaderView.swift */,
+				CDCA14432338D7CF00D1425E /* ActionView */,
+				CD22C7BB2334BFC3003192F1 /* EmptyView */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CD22C7BB2334BFC3003192F1 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */,
+				CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */,
+				CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		CD50BC6F2333CF7700FBA091 /* SectionTable */ = {
+			isa = PBXGroup;
+			children = (
+				CD50BC702333CF8600FBA091 /* SectionTableViewController.swift */,
+				CD50BC722333D10700FBA091 /* SectionTableType.swift */,
+				CD50BC7C2333D64800FBA091 /* SectionTableCell.swift */,
+			);
+			path = SectionTable;
+			sourceTree = "<group>";
+		};
 		CDC946FB22017D6A0037F305 /* DZNEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,8 +236,19 @@
 				CDC947052201B47C0037F305 /* DemoCollectionViewController.swift */,
 				CDC947012201B4650037F305 /* DemoScrollViewController.swift */,
 				CDC947022201B4650037F305 /* DemoTableViewController.swift */,
+				CD50BC6D2333CEAE00FBA091 /* GlobalViewController.swift */,
 			);
 			path = Demos;
+			sourceTree = "<group>";
+		};
+		CDCA14432338D7CF00D1425E /* ActionView */ = {
+			isa = PBXGroup;
+			children = (
+				CDCA14442338D7FD00D1425E /* ActionCell.swift */,
+				CDCA14452338D7FD00D1425E /* ActionCell.xib */,
+				CDCA14482338D8A600D1425E /* ActionSection.swift */,
+			);
+			path = ActionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
@@ -236,6 +321,7 @@
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
 				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
+				CDCA14472338D7FD00D1425E /* ActionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +339,7 @@
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Stem/Stem.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -260,6 +347,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stem.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -291,15 +379,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD22C7C02334BFC3003192F1 /* MainHeaderView.swift in Sources */,
 				9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */,
 				CDC946FF22017D6A0037F305 /* DetailViewController.swift in Sources */,
+				CD22C7C22334BFC3003192F1 /* EmptyViewSection.swift in Sources */,
 				CDC947032201B4650037F305 /* DemoScrollViewController.swift in Sources */,
+				CD22C7BF2334BFC3003192F1 /* MainViewController.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
+				CD50BC7D2333D64800FBA091 /* SectionTableCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				CDC947042201B4650037F305 /* DemoTableViewController.swift in Sources */,
 				CDC947062201B47C0037F305 /* DemoCollectionViewController.swift in Sources */,
+				CD50BC6E2333CEAE00FBA091 /* GlobalViewController.swift in Sources */,
+				CD22C7C32334BFC3003192F1 /* EmptyViewSectionCell.swift in Sources */,
+				CDCA14492338D8A600D1425E /* ActionSection.swift in Sources */,
 				9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */,
 				CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */,
+				CD50BC732333D10700FBA091 /* SectionTableType.swift in Sources */,
+				CDCA14462338D7FD00D1425E /* ActionCell.swift in Sources */,
+				CD50BC712333CF8600FBA091 /* SectionTableViewController.swift in Sources */,
 				CDC946FE22017D6A0037F305 /* DZIndexViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
