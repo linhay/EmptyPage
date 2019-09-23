@@ -27,7 +27,7 @@ class EmptyStore {
   }
   
   class func custom(block1: @escaping (()->()),
-                     block2: @escaping (()->())) -> EmptyPageView {
+                    block2: @escaping (()->())) -> EmptyPageView {
     let view = EmptyPageForCustom.initFromNib
     view.imageView.image = UIImage(named: "empty")
     view.label.text = "点击下方按钮重试"
