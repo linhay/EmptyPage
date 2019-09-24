@@ -8,6 +8,8 @@
 
 import UIKit
 import Stem
+import EmptyPage
+import SVProgressHUD
 
 class ActionSection: SectionTableType {
 
@@ -32,13 +34,16 @@ class ActionSection: SectionTableType {
         case 0:
             let cell = tableView.st.dequeueCell(indexPath) as ActionCell
             cell.configLeft(title: "执行: 全局添加 EmptyView") { (_) in
-
+                SVProgressHUD.showSuccess(withStatus: "设置成功")
+                EmptyPageConfig.shared.setGlobalEmpty { () -> UIView? in
+                    return EmptyViewStore.loading.emptyView
+                }
             }
 
             cell.configRight(title: "取消: 全局添加 EmptyView") { (_) in
-                
+                SVProgressHUD.showSuccess(withStatus: "已取消")
+                EmptyPageConfig.shared.setGlobalEmpty(nil)
             }
-            
             return cell
         default:
             return UITableViewCell()

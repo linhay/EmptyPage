@@ -13,7 +13,8 @@ class MainViewController: SectionTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.update(sections: [ActionSection(self),
-                               EmptyViewSection(self)])
+                               EmptyViewSection(self),
+                               TemplateSection(self)])
     }
 
 }
