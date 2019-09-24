@@ -15,7 +15,6 @@
 		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
 		CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */; };
 		CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */; };
-		CD11E2162175C9FF00838D84 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD11E2152175C9FF00838D84 /* document.sh */; };
 		CD22C7BF2334BFC3003192F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7B82334BFC3003192F1 /* MainViewController.swift */; };
 		CD22C7C02334BFC3003192F1 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BA2334BFC3003192F1 /* MainHeaderView.swift */; };
 		CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */; };
@@ -61,7 +60,6 @@
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
 		CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayoutViewController.storyboard; sourceTree = "<group>"; };
-		CD11E2152175C9FF00838D84 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = document.sh; path = ../document.sh; sourceTree = "<group>"; };
 		CD22C7B82334BFC3003192F1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD22C7BA2334BFC3003192F1 /* MainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyViewSectionCell.xib; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				CD5ECAD5226EE63D0075CBD5 /* .travis.yml */,
-				CD11E2152175C9FF00838D84 /* document.sh */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
 				279651C94AB31F26C93245C4 /* LICENSE */,
@@ -338,7 +335,6 @@
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
-				CD11E2162175C9FF00838D84 /* document.sh in Resources */,
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
 				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
