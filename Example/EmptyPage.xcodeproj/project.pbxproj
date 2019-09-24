@@ -200,8 +200,8 @@
 		CD22C7B92334BFC3003192F1 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				CD41A01F233A156A00C78381 /* TemplateView */,
 				CD22C7BA2334BFC3003192F1 /* MainHeaderView.swift */,
+				CD41A01F233A156A00C78381 /* TemplateView */,
 				CDCA14432338D7CF00D1425E /* ActionView */,
 				CD22C7BB2334BFC3003192F1 /* EmptyView */,
 			);

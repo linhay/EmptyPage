@@ -16,8 +16,24 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsa-vn-Rze">
+                        <rect key="frame" x="36" y="52" width="303" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zsa-vn-Rze" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6yB-FV-6wU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zsa-vn-Rze" secondAttribute="trailing" constant="16" id="g4F-25-5H1"/>
+                    <constraint firstItem="zsa-vn-Rze" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="w2d-Gh-deh"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="titleLabel" destination="zsa-vn-Rze" id="pWp-xM-pvb"/>
+            </connections>
             <point key="canvasLocation" x="73.913043478260875" y="180.46875"/>
         </tableViewCell>
     </objects>
