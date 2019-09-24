@@ -9,6 +9,15 @@
 import UIKit
 import Stem
 
-class TemplateCell: UITableViewCell, STCellProtocol {
+class TemplateCell: UITableViewCell, STNibProtocol {
     
+    @IBOutlet private weak var titleLabel: UILabel!
+}
+
+extension TemplateCell {
+
+    func config(title: String?) {
+        titleLabel.text = title
+    }
+
 }

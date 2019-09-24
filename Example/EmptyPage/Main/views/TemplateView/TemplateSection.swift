@@ -19,6 +19,12 @@ class TemplateSection: SectionTableType {
 
     func cell(tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.st.dequeueCell(indexPath) as TemplateCell
+        switch indexPath.item {
+        case 0: cell.config(title: "纯文字")
+        case 1: cell.config(title: "纯图片")
+        case 2: cell.config(title: "标准")
+        default: break
+        }
         return cell
     }
 
@@ -35,6 +41,17 @@ class TemplateSection: SectionTableType {
             self.refresh()
         }
         return view
+    }
+
+    func didSelectItem(at index: Int) {
+        let vc = UITableViewController()
+        switch index {
+        case 0: vc.tableView.ep.setEmpty(EmptyViewStore.template.text)
+        case 1: vc.tableView.ep.setEmpty(EmptyViewStore.template.text)
+        case 2: vc.tableView.ep.setEmpty(EmptyViewStore.template.text)
+        default: break
+        }
+        sectionController.st.push(vc: vc)
     }
     
 }
