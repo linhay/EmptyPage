@@ -10,6 +10,7 @@ import UIKit
 import Stem
 import EmptyPage
 import SVProgressHUD
+import Stone
 
 class ActionSection: SectionTableType {
 
@@ -17,32 +18,69 @@ class ActionSection: SectionTableType {
 
     unowned var sectionController: SectionTableViewController
 
-    var itemCount: Int = 1
+    var itemCount: Int = 3
 
     var headerView: UITableViewHeaderFooterView? {
         let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
         view.config(title: "Action 示例") { [weak self] in
             guard let self = self else { return }
-            self.itemCount = self.itemCount > 0 ? 0 : 1
+            self.itemCount = self.itemCount > 0 ? 0 : 3
             self.refresh()
         }
         return view
     }
 
     func cell(tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.st.dequeueCell(indexPath) as ActionCell
         switch indexPath.item {
         case 0:
-            let cell = tableView.st.dequeueCell(indexPath) as ActionCell
-            cell.configLeft(title: "执行: 全局添加 EmptyView") { (_) in
+            cell.configLeft(title: "全局添加 EmptyView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "设置成功")
                 EmptyPageConfig.shared.setGlobalEmpty { () -> UIView? in
+                    return EmptyViewStore.dz.airbnb.emptyView
+                }
+            }
+
+            cell.configRight(title: "移除全局 EmptyView") { (_) in
+                SVProgressHUD.showSuccess(withStatus: "已取消")
+                EmptyPageConfig.shared.setGlobalEmpty(nil)
+            }
+            return cell
+        case 1:
+            cell.configLeft(title: "全局添加 FirstLoadingView") { (_) in
+                SVProgressHUD.showSuccess(withStatus: "设置成功")
+                EmptyPageConfig.shared.setGlobalFirstLoading { () -> UIView? in
                     return EmptyViewStore.loading.emptyView
                 }
             }
 
-            cell.configRight(title: "取消: 全局添加 EmptyView") { (_) in
+            cell.configRight(title: "移除全局 FirstLoadingView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "已取消")
-                EmptyPageConfig.shared.setGlobalEmpty(nil)
+                EmptyPageConfig.shared.setGlobalFirstLoading(nil)
+            }
+            return cell
+        case 2:
+            cell.configLeft(title: "无配置的 TableView") {[weak self] (_) in
+                let vc = UITableViewController()
+                vc.tableView.separatorStyle = .none
+                self?.sectionController.st.push(vc: vc)
+                SVProgressHUD.showInfo(withStatus: "5s 后执行 reloadData()")
+                Gcd.delay(2) { SVProgressHUD.dismiss() }
+                Gcd.delay(5) {
+                    vc.tableView.reloadData()
+                    SVProgressHUD.showSuccess(withStatus: "已执行")
+                }
+            }
+
+            cell.configRight(title: "无配置的 CollectionView") {[weak self] (_) in
+                let vc = UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+                self?.sectionController.st.push(vc: vc)
+                SVProgressHUD.showInfo(withStatus: "5s 后执行 reloadData()")
+                Gcd.delay(2) { SVProgressHUD.dismiss() }
+                Gcd.delay(5) {
+                    vc.collectionView.reloadData()
+                    SVProgressHUD.showSuccess(withStatus: "已执行")
+                }
             }
             return cell
         default:

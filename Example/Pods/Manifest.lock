@@ -69,6 +69,7 @@ PODS:
     - Stem/Core
   - Stem/ViewController (0.0.27):
     - Stem/Core
+  - Stone (0.0.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -76,10 +77,13 @@ DEPENDENCIES:
   - Hue
   - SnapKit (= 5.0.0)
   - Stem (= 0.0.27)
+  - Stone
   - SVProgressHUD
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://cdn.cocoapods.org/:
+    - Stone
+  https://github.com/CocoaPods/Specs.git:
     - Hue
     - SnapKit
     - Stem
@@ -94,8 +98,9 @@ SPEC CHECKSUMS:
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: 1b48be402f890568bfce61afd3e25c504e92a706
+  Stone: ce22394d2644c843bfc93413454df098c8c630d6
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 98e25f10915e1352bcedc3f1bf66be5f0b33bbae
+PODFILE CHECKSUM: 4166b999f7c02109a0edc190f96c6f72b59996af
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.0

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'EmptyPage'
-s.version          = '3.2.0'
+s.version          = '3.3.0'
 s.summary          = 'iOS - 轻量级空白页占位图框架...'
 
 s.homepage         = 'https://github.com/linhay/EmptyPage'
@@ -20,7 +20,6 @@ s.subspec 'Standard' do |ss|
   ss.source_files = 'Sources/Standard/*.{swift}'
   ss.dependency 'EmptyPage/Core'
 end
-
 
 end
 

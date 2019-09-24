@@ -1,3 +1,5 @@
+source 'https://cdn.cocoapods.org/'
+
 platform :ios, '10.0'
 use_frameworks!
 install! 'cocoapods', :generate_multiple_pod_projects => true
@@ -6,6 +8,7 @@ target 'EmptyPage_Example' do
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit', '5.0.0'
   pod 'Hue'
+  pod 'Stone'
   pod 'Stem', '0.0.27'
   pod 'SVProgressHUD'
 end

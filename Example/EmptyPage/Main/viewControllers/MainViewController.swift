@@ -9,12 +9,13 @@
 import UIKit
 
 class MainViewController: SectionTableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.update(sections: [ActionSection(self),
                                EmptyViewSection(self),
-                               TemplateSection(self)])
+                               TemplateSection(self),
+                               DZNEmptySection(self)])
     }
-
+    
 }
