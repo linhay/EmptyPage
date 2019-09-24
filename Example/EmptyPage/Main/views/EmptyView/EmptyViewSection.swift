@@ -9,9 +9,9 @@ import Stem
 
 class EmptyViewSection: SectionTableType {
 
-    var index: Int = 0
     unowned var sectionController: SectionTableViewController
-    var itemCount: Int = 2
+    var index: Int = 0
+    var itemCount: Int = 3
 
     init(_ sectionController: SectionTableViewController) {
         self.sectionController = sectionController
@@ -24,6 +24,7 @@ class EmptyViewSection: SectionTableType {
         switch indexPath.item {
         case 0: cell.config(title: "TableView 示例")
         case 1: cell.config(title: "CollectionView 示例")
+        case 2: cell.config(title: "旧版示例入口")
         default: break
         }
         return cell
@@ -33,14 +34,20 @@ class EmptyViewSection: SectionTableType {
         let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
         view.config(title: "EmptyPage 示例") { [weak self] in
             guard let self = self else { return }
-            self.itemCount = self.itemCount > 0 ? 0 : 2
+            self.itemCount = self.itemCount > 0 ? 0 : 3
             self.refresh()
         }
         return view
     }
 
     func didSelectItem(at index: Int) {
-        let vc = HomeViewController()
+        let vc: UIViewController
+        switch index {
+        case 0: vc = UITableViewController()
+        case 1: vc = UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        case 2: vc = HomeViewController()
+        default: vc = UIViewController()
+        }
         sectionController.st.push(vc: vc)
     }
 
