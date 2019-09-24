@@ -66,8 +66,7 @@ extension UIScrollView {
     // 空白页视图
     var emptyView: UIView? {
         get {
-
-            if !isSetedEmptyView, let view = EmptyPageConfig.shared.emptyView?() {
+            if !isSetedEmptyView, let view = EmptyPageConfig.shared.emptyView?(self) {
                 self.emptyView = view
                 return view
             }
@@ -76,8 +75,11 @@ extension UIScrollView {
         }
         set {
             self.isSetedEmptyView = true
-            self.oldEmptyView = self.emptyView
-            
+
+            if self.emptyView !== newValue {
+                self.oldEmptyView = self.emptyView
+            }
+
             if newValue != nil {
                 EmptyPageRuntime.swizzingLayout
                 /// 兼容子类化情况
@@ -109,8 +111,7 @@ extension UIScrollView {
     /// 第一次 reload 采用的空白页(可用于加载loading)
     var firstLoadingView: UIView? {
         get {
-
-            if !isSetedFirstLoadingView, let view = EmptyPageConfig.shared.firstLoadingView?() {
+            if !isSetedFirstLoadingView, let view = EmptyPageConfig.shared.firstLoadingView?(self) {
                 self.firstLoadingView = view
                 return view
             }
@@ -127,7 +128,7 @@ extension UIScrollView {
 
 extension UIScrollView {
     
-    fileprivate var isEmpty: Bool {
+    @objc var isEmpty: Bool {
         return subviews.first(where: { $0 !== self.emptyView && $0 !== oldEmptyView && $0 !== firstLoadingView }) == nil
     }
     
@@ -170,13 +171,24 @@ extension UIScrollView {
 }
 
 public extension EmptyPage where Base: UIScrollView {
-    
+
+    /// 设置 空白页视图
+    /// - Parameter view: 空白页视图
     func setEmpty(_ view: UIView?) {
         base.emptyView = view
     }
 
+    /// 设置 第一次 reload 采用的空白页(可用于加载loading)
+    /// - Parameter view: 空白页视图
     func setFirstLoading(_ view: UIView?) {
         base.firstLoadingView = view
+    }
+
+    /// 替换空白页视图
+    /// - Parameter view: 空白页视图
+    func replace(by view: UIView?) {
+        base.emptyView = view
+        base.setEmptyView(base.isEmpty)
     }
 
     /// 空白页视图
@@ -184,6 +196,7 @@ public extension EmptyPage where Base: UIScrollView {
         set { base.emptyView = newValue }
         get { return base.emptyView }
     }
+
     /// 第一次 reload 采用的空白页(可用于加载loading)
     var firstLoadingView: UIView? {
         set { base.firstLoadingView = newValue }
