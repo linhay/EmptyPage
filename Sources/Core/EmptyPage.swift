@@ -22,22 +22,22 @@
 
 import UIKit
 
-public class EmptyPage<Base> {
-  public let base: Base
-  public init(_ base: Base) {
-    self.base = base
-  }
+public struct EmptyPage<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
 }
 
 public protocol EmptyPageCompatible {
-  associatedtype CompatibleType
-  var ep: CompatibleType { get }
+    associatedtype CompatibleType
+    var ep: CompatibleType { get }
 }
 
 public extension EmptyPageCompatible {
     var ep: EmptyPage<Self> { return EmptyPage(self) }
+    static var ep: EmptyPage<Self>.Type { return EmptyPage<Self>.self }
 }
-
 
 extension UIScrollView: EmptyPageCompatible { }
 

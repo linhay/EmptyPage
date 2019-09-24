@@ -22,31 +22,34 @@
 
 import UIKit
 
-public class EmptyPageConfig {
-
-    public static let shared = EmptyPageConfig()
-
-    internal var firstLoadingView: (() -> UIView?)?
-    internal var emptyView: (() -> UIView?)?
+public extension EmptyPage where Base: UIScrollView {
 
     /// 全局设置[加载]空白页
     ///
     /// - Parameter clourse: clourse description
-    public func setGlobalFirstLoading(_ clourse: (() -> UIView?)?) {
+    static func setGlobalFirstLoading(_ clourse: ((UIScrollView) -> UIView?)?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
         EmptyPageRuntime.swizzingCollectionView
-        self.firstLoadingView = clourse
+        EmptyPageConfig.shared.firstLoadingView = clourse
     }
 
     /// 全局设置空白页
     ///
     /// - Parameter clourse: clourse description
-    public func setGlobalEmpty(_ clourse: (() -> UIView?)?) {
+    static func setGlobalEmpty(_ clourse: ((UIScrollView) -> UIView?)?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
         EmptyPageRuntime.swizzingCollectionView
-        self.emptyView = clourse
+        EmptyPageConfig.shared.emptyView = clourse
     }
+
+}
+
+class EmptyPageConfig {
+
+    static let shared = EmptyPageConfig()
+    var firstLoadingView: ((UIScrollView) -> UIView?)?
+    var emptyView: ((UIScrollView) -> UIView?)?
 
 }

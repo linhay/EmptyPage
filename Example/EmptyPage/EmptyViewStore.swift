@@ -20,7 +20,13 @@ extension EmptyPage where Base: UIScrollView {
     ///
     /// - Parameter view: 模板视图
     func setEmpty(_ template: EmptyViewStoreProtocol?) {
-        base.ep.setEmpty(template?.emptyView)
+        self.setEmpty(template?.emptyView)
+    }
+
+    /// 替换空白页视图
+    /// - Parameter view: 模板视图
+    func replace(by template: EmptyViewStoreProtocol?) {
+        self.replace(by: template?.emptyView)
     }
     
 }

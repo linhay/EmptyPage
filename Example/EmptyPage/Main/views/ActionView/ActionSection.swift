@@ -36,27 +36,27 @@ class ActionSection: SectionTableType {
         case 0:
             cell.configLeft(title: "全局添加 EmptyView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "设置成功")
-                EmptyPageConfig.shared.setGlobalEmpty { () -> UIView? in
+                UIScrollView.ep.setGlobalEmpty { (_) -> UIView? in
                     return EmptyViewStore.dz.airbnb.emptyView
                 }
             }
 
             cell.configRight(title: "移除全局 EmptyView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "已取消")
-                EmptyPageConfig.shared.setGlobalEmpty(nil)
+                UIScrollView.ep.setGlobalEmpty(nil)
             }
             return cell
         case 1:
             cell.configLeft(title: "全局添加 FirstLoadingView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "设置成功")
-                EmptyPageConfig.shared.setGlobalFirstLoading { () -> UIView? in
+                UIScrollView.ep.setGlobalFirstLoading { (_) -> UIView? in
                     return EmptyViewStore.loading.emptyView
                 }
             }
 
             cell.configRight(title: "移除全局 FirstLoadingView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "已取消")
-                EmptyPageConfig.shared.setGlobalFirstLoading(nil)
+                UIScrollView.ep.setGlobalFirstLoading(nil)
             }
             return cell
         case 2:
@@ -64,10 +64,10 @@ class ActionSection: SectionTableType {
                 let vc = UITableViewController()
                 vc.tableView.separatorStyle = .none
                 self?.sectionController.st.push(vc: vc)
-                SVProgressHUD.showInfo(withStatus: "5s 后执行 reloadData()")
+                SVProgressHUD.showInfo(withStatus: "5s 后执行 replace(by:)")
                 Gcd.delay(2) { SVProgressHUD.dismiss() }
                 Gcd.delay(5) {
-                    vc.tableView.reloadData()
+                    vc.tableView.ep.replace(by: EmptyViewStore.dz.airbnb)
                     SVProgressHUD.showSuccess(withStatus: "已执行")
                 }
             }
@@ -75,10 +75,10 @@ class ActionSection: SectionTableType {
             cell.configRight(title: "无配置的 CollectionView") {[weak self] (_) in
                 let vc = UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
                 self?.sectionController.st.push(vc: vc)
-                SVProgressHUD.showInfo(withStatus: "5s 后执行 reloadData()")
+                SVProgressHUD.showInfo(withStatus: "5s 后执行 replace(by:)")
                 Gcd.delay(2) { SVProgressHUD.dismiss() }
                 Gcd.delay(5) {
-                    vc.collectionView.reloadData()
+                    vc.collectionView.ep.replace(by: EmptyViewStore.dz.airbnb)
                     SVProgressHUD.showSuccess(withStatus: "已执行")
                 }
             }
