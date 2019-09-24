@@ -45,10 +45,11 @@ class TemplateSection: SectionTableType {
 
     func didSelectItem(at index: Int) {
         let vc = UITableViewController()
+        vc.tableView.separatorStyle = .none
         switch index {
         case 0: vc.tableView.ep.setEmpty(EmptyViewStore.template.text)
-        case 1: vc.tableView.ep.setEmpty(EmptyViewStore.template.text)
-        case 2: vc.tableView.ep.setEmpty(EmptyViewStore.template.text)
+        case 1: vc.tableView.ep.setEmpty(EmptyViewStore.template.image)
+        case 2: vc.tableView.ep.setEmpty(EmptyViewStore.template.standard)
         default: break
         }
         sectionController.st.push(vc: vc)

@@ -90,15 +90,15 @@ extension SectionTableViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return sections[indexPath.section].itemHeights[indexPath.item]
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return sections[section].footerView == nil ? 0 : UITableView.automaticDimension
+        return sections[section].footerHeight
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return sections[section].headerView == nil ? 0 : UITableView.automaticDimension
+        return sections[section].headerHeight
     }
     
 }

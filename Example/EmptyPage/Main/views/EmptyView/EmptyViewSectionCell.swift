@@ -11,20 +11,13 @@ import Stem
 
 class EmptyViewSectionCell: UITableViewCell, STNibProtocol {
 
-    @IBOutlet private weak var sourceBtn: UIButton!{
-        didSet{
-            sourceBtn.layer.cornerRadius =  sourceBtn.bounds.width * 0.5
-            sourceBtn.layer.masksToBounds = true
-        }
-    }
     @IBOutlet private weak var titleLabel: UILabel!
     
 }
 
 extension EmptyViewSectionCell {
 
-    func config(title: String, url: String? = nil) {
+    func config(title: String) {
         titleLabel.text = title
-        sourceBtn.isHidden = url == nil
     }
 }

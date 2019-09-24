@@ -67,8 +67,7 @@ extension UIScrollView {
     var emptyView: UIView? {
         get {
 
-            if !isSetedEmptyView {
-                let view = EmptyPageConfig.shared.emptyView?()
+            if !isSetedEmptyView, let view = EmptyPageConfig.shared.emptyView?() {
                 self.emptyView = view
                 return view
             }
@@ -111,8 +110,7 @@ extension UIScrollView {
     var firstLoadingView: UIView? {
         get {
 
-            if !isSetedFirstLoadingView {
-                let view = EmptyPageConfig.shared.emptyView?()
+            if !isSetedFirstLoadingView, let view = EmptyPageConfig.shared.firstLoadingView?() {
                 self.firstLoadingView = view
                 return view
             }
