@@ -23,7 +23,7 @@
 import UIKit
 
 public extension EmptyPage where Base: UIScrollView {
-
+    
     /// 全局设置[加载]空白页
     ///
     /// - Parameter clourse: clourse description
@@ -33,7 +33,7 @@ public extension EmptyPage where Base: UIScrollView {
         EmptyPageRuntime.swizzingCollectionView
         EmptyPageConfig.shared.firstLoadingView = clourse
     }
-
+    
     /// 全局设置空白页
     ///
     /// - Parameter clourse: clourse description
@@ -43,13 +43,13 @@ public extension EmptyPage where Base: UIScrollView {
         EmptyPageRuntime.swizzingCollectionView
         EmptyPageConfig.shared.emptyView = clourse
     }
-
+    
 }
 
 class EmptyPageConfig {
-
+    
     static let shared = EmptyPageConfig()
     var firstLoadingView: ((UIScrollView) -> UIView?)?
     var emptyView: ((UIScrollView) -> UIView?)?
-
+    
 }

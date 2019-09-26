@@ -113,7 +113,7 @@ struct EmptyPageRuntime {
                                 select2,
                                 method_getImplementation(select1Method),
                                 method_getTypeEncoding(select1Method))
-        }else {
+        } else {
             method_exchangeImplementations(select1Method, select2Method)
         }
     }

@@ -23,7 +23,7 @@
 import UIKit
 
 /// `EmptyPageContentViewProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageContentViewProtocol.mix()` 函数
-@available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "EmptyPageTemplateProtocol")
+@available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "EmptyPageTemplateProtocol", message: "[4.0.0]移除")
 public protocol EmptyPageContentViewProtocol: EmptyPageTemplateProtocol { }
 
 /// `EmptyPageTemplateProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageTemplateProtocol.mix()` 函数
@@ -75,7 +75,7 @@ extension EmptyPageView {
     ///
     /// - Parameter call: 视图回调
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
-    public func config(view call: (_: EmptyPageView) -> ()) -> Self {
+    public func config(view call: (_: EmptyPageView) -> Void) -> Self {
         call(self)
         return self
     }
@@ -110,13 +110,13 @@ extension EmptyPageView {
 // MARK: - for Template
 extension EmptyPageView {
     /// 自定义视图模板
-    @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "Template")
+    @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "Template", message: "[4.0.0]移除")
     public struct ContentView {
         /// 文本样式模板 `EmptyPageForText`
-        @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "text")
+        @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "text", message: "[4.0.0]移除")
         public static var onlyText: EmptyPageForText { return EmptyPageForText() }
         /// 图片样式模板 `EmptyPageForImage`
-        @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "image")
+        @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "image", message: "[4.0.0]移除")
         public static var onlyImage: EmptyPageForImage {  return EmptyPageForImage() }
         /// 混合样式模板 `EmptyPageForStandard`
         public static var standard: EmptyPageForStandard {  return EmptyPageForStandard() }
@@ -152,15 +152,6 @@ extension EmptyPageView {
 // MARK: - mix methods
 public extension EmptyPageView {
 
-    /// 替换内容视图
-    /// - Parameter contentView: 内容视图
-    /// - Returns: 为支持链式调用,返回 `EmptyPageView`
-    @discardableResult
-    func replace(by contentView: UIView) -> EmptyPageView {
-        self.subviews.forEach({ $0.removeFromSuperview() })
-        return EmptyPageView.mix(backView: self, view: contentView)
-    }
-
     /// 将 自定义视图 约束至 `EmptyPageView` 上
     ///
     /// - Parameter view: 空白页内容样式
@@ -180,7 +171,7 @@ public extension EmptyPageView {
                                           relatedBy: .equal,
                                           toItem: view.superview, attribute: .width,
                                           multiplier: 1, constant: 0)
-            view.superview?.addConstraints([lay1,lay2,lay3])
+            view.superview?.addConstraints([lay1, lay2, lay3])
         }
     }
 
@@ -200,7 +191,6 @@ public extension EmptyPageView {
         return backView
     }
 }
-
 
 // MARK: - private method
 extension EmptyPageView {

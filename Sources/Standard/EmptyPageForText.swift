@@ -47,26 +47,23 @@ open class EmptyPageForText: UIView, EmptyPageTemplateProtocol {
 
 }
 
-
 // MARK: 调整 layout 相关枚举与函数
 extension EmptyPageForText {
-  
-  
+
   /// 修改视图水平方向上的间距
   ///
   /// - text: 文本左右间距
   public enum HSpaceType {
     case text
   }
-  
-  
+
   /// 修改视图水平方向上的间距
   ///
   /// - Parameters:
   ///   - space: 指定视图间距
   ///   - value: 修改值
   @discardableResult
-  public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
+  public func change(hspace type: HSpaceType, value: CGFloat) -> Self {
     
     let fromItem: NSObject = label
     let toItem: NSObject = self
@@ -92,7 +89,7 @@ extension EmptyPageForText {
       rightItem.priority = priority
       leftItem.priority = priority
       addConstraints([rightItem, leftItem])
-    }else{
+    } else {
       findItems.forEach { (item) in
         item.constant = item.firstAttribute == .left ? value : -value
       }
@@ -102,30 +99,26 @@ extension EmptyPageForText {
     return self
   }
   
-  
 }
 
 // MARK: 深度配置元素 相关函数
 extension EmptyPageForText {
-  
 
   /// 配置 `EmptyPageForText.label`
   ///
   /// - Parameter call: 元素回调, 回调 `EmptyPageForText.label`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
   @discardableResult
-  public func config(label call: (_: UILabel) -> ()) -> Self {
+  public func config(label call: (_: UILabel) -> Void) -> Self {
     call(label)
     return self
   }
-  
-  
+
 }
 
 // MARK: 轻度配置元素 相关函数
 extension EmptyPageForText {
-  
-  
+
   /// 设置 `EmptyPageForText.label`
   ///
   /// - Parameters:
@@ -140,8 +133,7 @@ extension EmptyPageForText {
     label.font = font
     return self
   }
-  
-  
+
   /// 设置 `EmptyPageForText.label`
   ///
   /// - Parameter attributed: 富文本
@@ -169,7 +161,7 @@ extension EmptyPageForText {
     let layout0 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[label]-|",
                                                  options: options,
                                                  metrics: nil,
-                                                 views: ["label" : label])
+                                                 views: ["label": label])
     _ = change(hspace: .text, value: 15)
     addConstraints(layout0)
   }
