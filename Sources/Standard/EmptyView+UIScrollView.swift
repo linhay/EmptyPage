@@ -37,20 +37,14 @@ public extension EmptyPage where Base: UIScrollView {
         self.setFirstLoading(template?.mix())
     }
 
-    /// 替换空白页视图
-    /// - Parameter view: 模板视图
-    func replace(by view: EmptyPageTemplateProtocol?) {
-        self.replace(by: view?.mix())
-    }
 }
-
 
 public extension UIScrollView {
 
     /// 添加空白页视图
     ///
     /// - Parameter view: `EmptyPageView`
-    @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "ep.setEmpty(_:)")
+    @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "ep.setEmpty(_:)", message: "[4.0.0]移除")
     func setEmpty(view: EmptyPageView?) {
         self.setEmpty(view)
     }
@@ -58,11 +52,9 @@ public extension UIScrollView {
     /// 添加空白页视图
     ///
     /// - Parameter view: `EmptyPageView`
-    @available(iOS,introduced: 8.0, deprecated: 8.0, renamed: "ep.setEmpty(_:)")
+    @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "ep.setEmpty(_:)", message: "[4.0.0]移除")
     func setEmpty(_ view: EmptyPageView?) {
         self.ep.setEmpty(view)
     }
 
 }
-
-

@@ -11,4 +11,5 @@ target 'EmptyPage_Example' do
   pod 'Stone'
   pod 'Stem', '0.0.27'
   pod 'SVProgressHUD'
+  pod 'SwiftLint'
 end

@@ -40,7 +40,3 @@ public extension EmptyPageCompatible {
 }
 
 extension UIScrollView: EmptyPageCompatible { }
-
-
-
-

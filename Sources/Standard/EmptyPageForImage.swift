@@ -23,7 +23,7 @@
 import UIKit
 
 /// `EmptyPageForImage` 图片样式模板
-open class EmptyPageForImage: UIView,EmptyPageTemplateProtocol {
+open class EmptyPageForImage: UIView, EmptyPageTemplateProtocol {
   
   // MARK: - Public property
   public let imageView: UIImageView = {
@@ -59,8 +59,7 @@ extension EmptyPageForImage {
   public enum HSpaceType {
     case image
   }
-  
-  
+
   /// 修改视图水平方向上的间距
   ///
   /// - Parameters:
@@ -68,7 +67,7 @@ extension EmptyPageForImage {
   ///   - value: 调整值
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   @discardableResult
-  public func change(hspace type: HSpaceType,value: CGFloat) -> Self {
+  public func change(hspace type: HSpaceType, value: CGFloat) -> Self {
     
     let fromItem: NSObject = imageView
     let toItem: NSObject = self
@@ -94,7 +93,7 @@ extension EmptyPageForImage {
       rightItem.priority = priority
       leftItem.priority = priority
       addConstraints([rightItem, leftItem])
-    }else{
+    } else {
       findItems.forEach { (item) in
         item.constant = item.firstAttribute == .left ? value : -value
       }
@@ -114,7 +113,7 @@ extension EmptyPageForImage {
   /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   @discardableResult
-  public func config(imageView call: (_: UIImageView) -> ()) -> Self {
+  public func config(imageView call: (_: UIImageView) -> Void) -> Self {
     call(imageView)
     return self
   }
@@ -129,7 +128,7 @@ extension EmptyPageForImage {
   /// - Parameter value: 图片
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   @discardableResult
-  public func set(image value: UIImage?) -> Self{
+  public func set(image value: UIImage?) -> Self {
     setImageAspect(firstImage: value)
     imageView.image = value
     return self
@@ -143,7 +142,7 @@ extension EmptyPageForImage {
   ///   - repeatCount: 循环次数
   /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
   @discardableResult
-  public func set(images: [UIImage],duration: TimeInterval, repeatCount: Int = 0) -> Self {
+  public func set(images: [UIImage], duration: TimeInterval, repeatCount: Int = 0) -> Self {
     setImageAspect(firstImage: images.first)
     imageView.animationDuration = duration
     imageView.animationRepeatCount = repeatCount
@@ -154,15 +153,17 @@ extension EmptyPageForImage {
   
 }
 
-
 extension EmptyPageForImage {
   
   func buildUI() {
     addSubview(imageView)
-    let item0 = NSLayoutConstraint(item: imageView,attribute: .centerX,
+    let item0 = NSLayoutConstraint(item: imageView,
+                                   attribute: .centerX,
                                    relatedBy: .equal,
-                                   toItem: self,attribute: .centerX,
-                                   multiplier: 1,constant: 0)
+                                   toItem: self,
+                                   attribute: .centerX,
+                                   multiplier: 1,
+                                   constant: 0)
     
     #if swift(>=4.2)
     let options = NSLayoutConstraint.FormatOptions(rawValue: 0)

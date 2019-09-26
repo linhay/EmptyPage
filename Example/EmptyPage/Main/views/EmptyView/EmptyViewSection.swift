@@ -11,7 +11,7 @@ class EmptyViewSection: SectionTableType {
 
     unowned var sectionController: SectionTableViewController
     var index: Int = 0
-    var itemCount: Int = 3
+    var itemCount: Int = 4
 
     init(_ sectionController: SectionTableViewController) {
         self.sectionController = sectionController
@@ -24,7 +24,8 @@ class EmptyViewSection: SectionTableType {
         switch indexPath.item {
         case 0: cell.config(title: "TableView 示例")
         case 1: cell.config(title: "CollectionView 示例")
-        case 2: cell.config(title: "旧版示例入口")
+        case 2: cell.config(title: "ScrollView 示例")
+        case 3: cell.config(title: "旧版示例入口")
         default: break
         }
         return cell
@@ -34,7 +35,7 @@ class EmptyViewSection: SectionTableType {
         let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
         view.config(title: "EmptyPage 示例") { [weak self] in
             guard let self = self else { return }
-            self.itemCount = self.itemCount > 0 ? 0 : 3
+            self.itemCount = self.itemCount > 0 ? 0 : 4
             self.refresh()
         }
         return view
@@ -45,7 +46,14 @@ class EmptyViewSection: SectionTableType {
         switch index {
         case 0: vc = UITableViewController()
         case 1: vc = UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        case 2: vc = HomeViewController()
+        case 2:
+            vc = UIViewController()
+            vc.view.backgroundColor = .white
+            let scrollView = UIScrollView()
+            scrollView.frame = vc.view.bounds
+            scrollView.contentSize = CGSize(width: vc.view.bounds.width * 2, height: vc.view.bounds.height)
+            vc.view.addSubview(scrollView)
+        case 3: vc = HomeViewController()
         default: vc = UIViewController()
         }
         sectionController.st.push(vc: vc)

@@ -23,36 +23,35 @@
 import UIKit
 
 extension UICollectionView {
-  
-  @objc override var isEmpty: Bool {
-    let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
-    return (0..<count).first(where: { self.numberOfItems(inSection: $0) > 0 }) == nil
-  }
-  
-  @objc func emptyPage_insertItems(at indexPaths: [IndexPath]){
-    self.emptyPage_insertItems(at: indexPaths)
-    setEmptyView(isEmpty)
-  }
-  
-  @objc func emptyPage_deleteItems(at indexPaths: [IndexPath]){
-    self.emptyPage_deleteItems(at: indexPaths)
-    setEmptyView(isEmpty)
-  }
-  
-  @objc func emptyPage_insertSections(_ sections: IndexSet){
-    self.emptyPage_insertSections(sections)
-    setEmptyView(isEmpty)
-  }
-  
-  @objc func emptyPage_deleteSections(_ sections: IndexSet){
-    self.emptyPage_deleteSections(sections)
-    setEmptyView(isEmpty)
-  }
-  
-  @objc func emptyPage_reloadData() {
-    self.emptyPage_reloadData()
-    setEmptyView(isEmpty)
-  }
-  
+    
+    @objc override var isEmpty: Bool {
+        let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
+        return (0..<count).first(where: { self.numberOfItems(inSection: $0) > 0 }) == nil
+    }
+    
+    @objc func emptyPage_insertItems(at indexPaths: [IndexPath]) {
+        self.emptyPage_insertItems(at: indexPaths)
+        setEmptyView(isEmpty)
+    }
+    
+    @objc func emptyPage_deleteItems(at indexPaths: [IndexPath]) {
+        self.emptyPage_deleteItems(at: indexPaths)
+        setEmptyView(isEmpty)
+    }
+    
+    @objc func emptyPage_insertSections(_ sections: IndexSet) {
+        self.emptyPage_insertSections(sections)
+        setEmptyView(isEmpty)
+    }
+    
+    @objc func emptyPage_deleteSections(_ sections: IndexSet) {
+        self.emptyPage_deleteSections(sections)
+        setEmptyView(isEmpty)
+    }
+    
+    @objc func emptyPage_reloadData() {
+        self.emptyPage_reloadData()
+        setEmptyView(isEmpty)
+    }
+    
 }
-

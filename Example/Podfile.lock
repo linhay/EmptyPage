@@ -71,6 +71,7 @@ PODS:
     - Stem/Core
   - Stone (0.0.2)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.35.0)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
@@ -79,28 +80,31 @@ DEPENDENCIES:
   - Stem (= 0.0.27)
   - Stone
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - Stone
+    - SwiftLint
   https://github.com/CocoaPods/Specs.git:
     - Hue
     - SnapKit
     - Stem
     - SVProgressHUD
-  trunk:
-    - Stone
 
 EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: f48b9f0d92019313d89b1bdb341eec207a2b4de4
+  EmptyPage: b85eb9d70cda567e418becd1677a41865904595b
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: 1b48be402f890568bfce61afd3e25c504e92a706
   Stone: ce22394d2644c843bfc93413454df098c8c630d6
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 4166b999f7c02109a0edc190f96c6f72b59996af
+PODFILE CHECKSUM: 9c7af6e2cc1cac4eb61454dc887cbbf03a6393b1
 
 COCOAPODS: 1.8.0

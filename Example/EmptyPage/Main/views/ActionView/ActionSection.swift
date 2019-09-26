@@ -64,10 +64,11 @@ class ActionSection: SectionTableType {
                 let vc = UITableViewController()
                 vc.tableView.separatorStyle = .none
                 self?.sectionController.st.push(vc: vc)
-                SVProgressHUD.showInfo(withStatus: "5s 后执行 replace(by:)")
+                SVProgressHUD.showInfo(withStatus: "5s 后执行 ep.reload()")
                 Gcd.delay(2) { SVProgressHUD.dismiss() }
                 Gcd.delay(5) {
-                    vc.tableView.ep.replace(by: EmptyViewStore.dz.airbnb)
+                    vc.tableView.ep.setEmpty(EmptyViewStore.dz.airbnb)
+                    vc.tableView.ep.reload()
                     SVProgressHUD.showSuccess(withStatus: "已执行")
                 }
             }
@@ -75,10 +76,11 @@ class ActionSection: SectionTableType {
             cell.configRight(title: "无配置的 CollectionView") {[weak self] (_) in
                 let vc = UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
                 self?.sectionController.st.push(vc: vc)
-                SVProgressHUD.showInfo(withStatus: "5s 后执行 replace(by:)")
+                SVProgressHUD.showInfo(withStatus: "5s 后执行 ep.reload()")
                 Gcd.delay(2) { SVProgressHUD.dismiss() }
                 Gcd.delay(5) {
-                    vc.collectionView.ep.replace(by: EmptyViewStore.dz.airbnb)
+                    vc.collectionView.ep.setEmpty(EmptyViewStore.dz.airbnb)
+                    vc.collectionView.ep.reload()
                     SVProgressHUD.showSuccess(withStatus: "已执行")
                 }
             }
