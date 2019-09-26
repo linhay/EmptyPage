@@ -169,39 +169,6 @@ extension UIScrollView {
     
 }
 
-public extension EmptyPage where Base: UIScrollView {
-    
-    /// 设置 空白页视图
-    /// - Parameter view: 空白页视图
-    func setEmpty(_ view: UIView?) {
-        base.emptyView = view
-    }
-    
-    /// 设置 第一次 reload 采用的空白页(可用于加载loading)
-    /// - Parameter view: 空白页视图
-    func setFirstLoading(_ view: UIView?) {
-        base.firstLoadingView = view
-    }
-
-    /// 主动触发空白页视图显示逻辑
-    func reload() {
-        base.setEmptyView(base.isEmpty)
-    }
-    
-    /// 空白页视图
-    var emptyView: UIView? {
-        set { base.emptyView = newValue }
-        get { return base.emptyView }
-    }
-    
-    /// 第一次 reload 采用的空白页(可用于加载loading)
-    var firstLoadingView: UIView? {
-        set { base.firstLoadingView = newValue }
-        get { return base.firstLoadingView }
-    }
-    
-}
-
 extension UIScrollView {
 
     private func reSizeEmptyPage(function: String = #function) {
