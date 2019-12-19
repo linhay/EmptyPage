@@ -1,28 +1,19 @@
-osx_image: xcode10.3	
-language: swift
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
 
-cache: cocoapods
-podfile: Example/Podfile
+language: objective-c
+osx_image: xcode10
 
 env:
-  global:
-    - LANG=en_US.UTF-8
-    - LC_ALL=en_US.UTF-8
-    - XCODE_WORKSPACE=Example/EmptyPage.xcworkspace
-  matrix:
-    - SCHEME="EmptyPage"
-
-before_install:
-  - gem update --system
-  - gem install bundler
-  - bundle update
-  - pod install --project-directory=Example
+  - DESTINATION='platform=iOS Simulator,name=iPad Air'
+  - DESTINATION='platform=iOS Simulator,name=iPhone 5s'
+  - DESTINATION='platform=iOS Simulator,name=iPhone SE'
+  - DESTINATION='platform=iOS Simulator,name=iPhone 7'
+  - DESTINATION='platform=iOS Simulator,name=iPhone 7 Plus'
 
 script:
-  - set -o pipefail
-  - xcodebuild -workspace "$XCODE_WORKSPACE" -scheme "$SCHEME" -configuration Debug clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
-  - xcodebuild -workspace "$XCODE_WORKSPACE" -scheme "$SCHEME" -configuration Release clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty -c
-  - bundle exec pod lib lint --allow-warnings --verbose
+  - set -o pipefail && xcodebuild -workspace Example/EmptyPage.xcworkspace -scheme EmptyPage-Example -destination "$DESTINATION" ONLY_ACTIVE_ARCH=NO test | xcpretty
 
 after_success:
   - sleep 3
