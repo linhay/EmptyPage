@@ -10,5 +10,6 @@ target 'EmptyPage_Example' do
   pod 'Stuart', :git => 'git@github.com:linhay/Stuart.git', :branch => 'master'
   pod 'Stem',   :git => 'git@github.com:linhay/Stem.git',   :branch => 'develop'
   pod 'SVProgressHUD'
+  pod 'MJRefresh'
   pod 'SwiftLint'
 end

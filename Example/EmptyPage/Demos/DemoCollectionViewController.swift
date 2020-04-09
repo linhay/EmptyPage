@@ -9,74 +9,70 @@
 import UIKit
 import EmptyPage
 import SVProgressHUD
+import MJRefresh
+import Stem
+import Stuart
 
-private let reuseIdentifier = "Cell"
+class DemoCollectionItemCell: SectionItemCell<Void>,STViewProtocol {
 
-class DemoCollectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-
-    var rows = 0
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(collectionView)
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
-        layout.scrollDirection = .vertical
-        collectionView.backgroundColor = UIColor.gray
-        collectionView.frame = view.bounds
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.collectionViewLayout = layout
-        collectionView.ep.setFirstLoading(UIView())
-        collectionView.ep.setEmpty(EmptyStore.custom(block1: event1(), block2: event2()))
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        getData()
+    override class func preferredSize(collectionView: UICollectionView, model: Void? = nil) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 44)
     }
 
-    func event1() -> (() -> ()) {
-        return { self.getData() }
+}
+
+class DemoCollectionSection: SectionProtocol {
+    var index: Int = 0
+
+   unowned var collectionView: UICollectionView
+
+    var itemCount: Int = 3
+
+    init(collectionView: UICollectionView) {
+        self.collectionView = collectionView
+        collectionView.st.register(DemoCollectionItemCell.self)
     }
 
-    func event2() -> (() -> ()) {
-        return {
-            self.rows = 2
-            self.collectionView.insertItems(at: [IndexPath(row: 0, section: 0),IndexPath(row: 1, section: 0)])
-        }
+    func itemSize(at index: Int) -> CGSize {
+        DemoCollectionItemCell.preferredSize(collectionView: collectionView)
     }
 
-    func getData() {
-        SVProgressHUD.show()
-        rows = 0
-        sleep(3) {[weak self] in
-            guard let base = self else { return }
-            SVProgressHUD.dismiss()
-            base.collectionView.reloadData()
-        }
-    }
-
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rows
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .blue
+    func itemCell(at indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.st.dequeueCell(indexPath) as DemoCollectionItemCell
+        cell.backgroundColor = UIColor.st.random
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        rows -= 1
-        collectionView.deleteItems(at: [indexPath])
+
+}
+
+class DemoCollectionViewController: SectionController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
+        sectionView.ep.setEmpty(EmptyStore.demo.standard(tapEvent: { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            self.refresh()
+        }))
+        refresh()
+    }
+
+    @objc
+    func refresh() {
+        if sectionView.mj_header?.isRefreshing == false {
+            sectionView.mj_header?.beginRefreshing()
+            return
+        }
+        Gcd.delay(2) { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.manager.update(sections: self.manager.sections.isEmpty ? [DemoCollectionSection(collectionView: self.sectionView)] : [])
+            self.sectionView.mj_header?.endRefreshing()
+        }
     }
 
 }

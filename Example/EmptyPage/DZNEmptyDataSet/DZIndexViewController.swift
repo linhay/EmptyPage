@@ -11,27 +11,6 @@ import EmptyPage
 import SnapKit
 import Stem
 
-// MARK: - 初始化
-extension UIImage{
-    /// 获取指定颜色的图片
-    ///
-    /// - Parameters:
-    ///   - color: UIColor
-    ///   - size: 图片大小
-    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        if size.width <= 0 || size.height <= 0 { return nil }
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        context.setFillColor(color.cgColor)
-        context.fill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        guard let cgImg = image?.cgImage else { return nil }
-        self.init(cgImage: cgImg)
-    }
-}
-
 /// from: https://github.com/dzenbot/DZNEmptyDataSet
 class DZIndexViewController: UITableViewController {
 
