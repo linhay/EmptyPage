@@ -131,17 +131,20 @@ extension UIScrollView {
     }
     
     func setEmptyView(_ isEmpty: Bool) {
-        self.oldEmptyView?.removeFromSuperview()
-        
         guard isEmpty else {
             isScrollEnabled = oldIsScrollEnabled
             firstLoadingView?.removeFromSuperview()
             emptyView?.removeFromSuperview()
+            oldEmptyView?.removeFromSuperview()
             return
         }
-        
-        oldIsScrollEnabled = isScrollEnabled
-        isScrollEnabled = isEmpty
+
+        if oldEmptyView?.superview !== self {
+            oldIsScrollEnabled = isScrollEnabled
+            isScrollEnabled = isEmpty == false
+        }
+
+        oldEmptyView?.removeFromSuperview()
         
         var emptyView: UIView?
         

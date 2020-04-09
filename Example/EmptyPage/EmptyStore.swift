@@ -8,8 +8,46 @@
 
 import UIKit
 import EmptyPage
+
+struct DZNEmptyDataSet {
+
+}
+
+struct DemoSet {
+
+    func standard(tapEvent: ((EmptyPageForStandard) -> Void)?) -> EmptyPageView {
+       return EmptyPageView.Template.standard
+        .change(hspace: .button, value: 30)
+        .change(vspace: .textWithButton, value: 10)
+        .change(vspace: .titleWithText, value: 10)
+        .config(button: { (item) in
+            item.layer.borderColor = UIColor("#2ca3fa").cgColor
+            item.layer.borderWidth = 1
+            item.layer.cornerRadius = 5
+            item.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            item.backgroundColor = .white
+            item.setTitleColor(UIColor("#2ca3fa"), for: .normal)
+            item.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        })
+        .set(image: UIImage(named: "empty-1001")!)
+        .set(title: "Nobody is following",
+             color: UIColor("#536571"),
+             font: UIFont.boldSystemFont(ofSize: 18))
+        .set(text: "Following people helps you keep what they're saying and recommending.",
+             color: UIColor("#c3ccd1"))
+        .set(buttonTitle: "Find interesting people to follow >>")
+        .set(tap: tapEvent)
+        .mix()
+        .set(backgroundColor: UIColor.white)
+    }
+
+}
+
 class EmptyStore {
-  
+
+ static let dzn = DZNEmptyDataSet()
+ static let demo = DemoSet()
+
   class var loading: EmptyPageView{
     return EmptyPageView.Template.image
       .set(image: UIImage(named: "load-0"))

@@ -5,6 +5,7 @@ PODS:
   - EmptyPage/Core (3.3.0)
   - EmptyPage/Standard (3.3.0):
     - EmptyPage/Core
+  - MJRefresh (3.3.1)
   - SnapKit (5.0.0)
   - Stem (0.0.31):
     - Stem/AVKit (= 0.0.31)
@@ -174,6 +175,7 @@ PODS:
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
+  - MJRefresh
   - SnapKit (= 5.0.0)
   - "Stem (from `git@github.com:linhay/Stem.git`, branch `develop`)"
   - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `master`)"
@@ -182,6 +184,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - MJRefresh
     - SnapKit
     - SVProgressHUD
     - SwiftLint
@@ -201,17 +204,18 @@ CHECKOUT OPTIONS:
     :commit: c7fa7ed8607342a7e6d91760e03ab29880552b30
     :git: "git@github.com:linhay/Stem.git"
   Stuart:
-    :commit: 4fe44369e7d99d644ad2eb04711c75ae8026028e
+    :commit: e43b576351fcd78423887448208d278342746ca1
     :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
   EmptyPage: b85eb9d70cda567e418becd1677a41865904595b
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: ea4aa174339e851a15619fd7d370cc3570667f6c
   Stuart: b5fccbcb300fd684f248d371c7b36be7494a88b3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 002741590eaee6030d7a9e6ee37c8ae6caa87b12
+PODFILE CHECKSUM: b80657be41226e1ebd399ce57699ca21ef6fed65
 
 COCOAPODS: 1.9.0
