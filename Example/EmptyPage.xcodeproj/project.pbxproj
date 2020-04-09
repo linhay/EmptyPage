@@ -13,6 +13,7 @@
 		9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB38E2008674E002264E7 /* HomeViewController.storyboard */; };
 		9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB39020088528002264E7 /* EmptyPageForCustom.swift */; };
 		9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB3922008853E002264E7 /* EmptyPageForCustom.xib */; };
+		AE38F5D96C49EB394DD1D0F4 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41596BF002FE665F5D287E21 /* Pods_EmptyPage_Example.framework */; };
 		CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD056F2E21D0E78200A7F94A /* AutoLayoutViewController.swift */; };
 		CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD056F3021D0E78F00A7F94A /* AutoLayoutViewController.storyboard */; };
 		CD22C7BF2334BFC3003192F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7B82334BFC3003192F1 /* MainViewController.swift */; };
@@ -42,13 +43,12 @@
 		CDCA14462338D7FD00D1425E /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA14442338D7FD00D1425E /* ActionCell.swift */; };
 		CDCA14472338D7FD00D1425E /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCA14452338D7FD00D1425E /* ActionCell.xib */; };
 		CDCA14492338D8A600D1425E /* ActionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA14482338D8A600D1425E /* ActionSection.swift */; };
-		D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		279651C94AB31F26C93245C4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A92FDD691F47CFF2DA54F12 /* Pods-EmptyPage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.release.xcconfig"; sourceTree = "<group>"; };
+		41596BF002FE665F5D287E21 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* EmptyPage_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmptyPage_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1322284C3AF07E5E228A989 /* Pods_EmptyPage_Example.framework in Frameworks */,
+				AE38F5D96C49EB394DD1D0F4 /* Pods_EmptyPage_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,9 +179,9 @@
 		CC162247290B497944FA1627 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A65B0197A95543AF5D0756E /* Pods_EmptyPage_Example.framework */,
 				7A0D4B6758498EB40AB7A721 /* Pods_EmptyPage_Tests.framework */,
 				A530BC265F9B925295F14521 /* Pods_EmptyPage_Objective_C.framework */,
+				41596BF002FE665F5D287E21 /* Pods_EmptyPage_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,8 +296,8 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				37B7C346C082BFE4312356BF /* [CP] Embed Pods Frameworks */,
 				CD543C68233CCBC200CFE10F /* ShellScript */,
+				15F810948AB7A8443DD29DB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,7 +364,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37B7C346C082BFE4312356BF /* [CP] Embed Pods Frameworks */ = {
+		15F810948AB7A8443DD29DB2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -372,20 +372,18 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EmptyPage/EmptyPage.framework",
-				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Stem/Stem.framework",
-				"${BUILT_PRODUCTS_DIR}/Stone/Stone.framework",
+				"${BUILT_PRODUCTS_DIR}/Stuart/Stuart.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyPage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stem.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stone.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stuart.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
