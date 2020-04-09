@@ -10,7 +10,6 @@ import UIKit
 import Stem
 import EmptyPage
 import SVProgressHUD
-import Stone
 
 class ActionSection: SectionTableType {
 

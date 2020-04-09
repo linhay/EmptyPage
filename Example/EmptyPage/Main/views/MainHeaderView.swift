@@ -10,7 +10,7 @@ import UIKit
 import Stem
 import SnapKit
 
-class MainHeaderView: UITableViewHeaderFooterView, STCellProtocol {
+class MainHeaderView: UITableViewHeaderFooterView, STViewProtocol {
 
     lazy private var titleLabel = UILabel()
 
@@ -28,7 +28,7 @@ class MainHeaderView: UITableViewHeaderFooterView, STCellProtocol {
             make.height.greaterThanOrEqualTo(45)
         }
 
-        _ = contentView.st.set(tap: { _ in
+        contentView.st.setTapGesture({ _ in
             self.action?()
         })
     }
@@ -43,11 +43,11 @@ extension MainHeaderView {
 
     func config(title: String?, action: (() -> Void)? = nil) {
         if action == nil {
-            contentView.backgroundColor = UIColor(hex: "F6F6F6")
+            contentView.backgroundColor = UIColor("#F6F6F6")
             titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         }else{
             titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-            contentView.backgroundColor = UIColor(hex: "CCCCCC")
+            contentView.backgroundColor = UIColor("#CCCCCC")
         }
         self.titleLabel.text = title
         self.action = action

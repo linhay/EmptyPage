@@ -8,7 +8,6 @@
 
 import UIKit
 import EmptyPage
-import Hue
 
 class HomeViewController: UITableViewController {
     
@@ -95,20 +94,20 @@ class HomeViewController: UITableViewController {
                 .change(vspace: .textWithButton, value: 10)
                 .change(vspace: .titleWithText, value: 10)
                 .config(button: { (item) in
-                    item.layer.borderColor = UIColor(hex: "#2ca3fa").cgColor
+                    item.layer.borderColor = UIColor("#2ca3fa").cgColor
                     item.layer.borderWidth = 1
                     item.layer.cornerRadius = 5
                     item.titleLabel?.font = UIFont.systemFont(ofSize: 14)
                     item.backgroundColor = .white
-                    item.setTitleColor(UIColor(hex: "#2ca3fa"), for: .normal)
+                    item.setTitleColor(UIColor("#2ca3fa"), for: .normal)
                     item.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
                 })
                 .set(image: UIImage(named: "empty-1001")!)
                 .set(title: "Nobody is following",
-                     color: UIColor(hex: "#536571"),
+                     color: UIColor("#536571"),
                      font: UIFont.boldSystemFont(ofSize: 18))
                 .set(text: "Following people helps you keep what they're saying and recommending.",
-                     color: UIColor(hex: "#c3ccd1"))
+                     color: UIColor("#c3ccd1"))
                 .set(buttonTitle: "Find interesting people to follow >>")
                 .set(tap: alertEvent())
                 .mix()
@@ -126,7 +125,7 @@ class HomeViewController: UITableViewController {
                 .change(height: .button, value: 60)
                 .change(hspace: .image, value: 15)
                 .config(button: { (item) in
-                    item.backgroundColor = UIColor(hex: "#0180bf")
+                    item.backgroundColor = UIColor("#0180bf")
                     item.contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
                 })
                 .set(image: UIImage(named: "empty-1002")!)
@@ -156,16 +155,16 @@ class HomeViewController: UITableViewController {
                 .set(image: UIImage(named: "404")!)
                 .change(vspace: .titleWithText, value: 0)
                 .set(title: "FILE NOT FOUND",
-                     color: UIColor(hex: "#849aac"),
+                     color: UIColor("#849aac"),
                      font: UIFont.boldSystemFont(ofSize: 18))
                 .set(text: "Lorem ipsum dolor sit amet.\nconectetur adipscing elit sed do eiusmod",
-                     color: UIColor(hex: "#c5cfd7"))
+                     color: UIColor("#c5cfd7"))
                 .config(button: { (item) in
                     item.isHidden = true
                 })
                 .set(tap: alertEvent())
                 .mix()
-                .set(backgroundColor: UIColor(hex: "#f5f7f9"))
+                .set(backgroundColor: UIColor("#f5f7f9"))
             let item = CellItem(title: "404 page - Illustration",
                                 subTitle: "https://dribbble.com/iftikharshaikh",
                                 emptyView: emptyView)

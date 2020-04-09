@@ -5,105 +5,213 @@ PODS:
   - EmptyPage/Core (3.3.0)
   - EmptyPage/Standard (3.3.0):
     - EmptyPage/Core
-  - Hue (5.0.0)
   - SnapKit (5.0.0)
-  - Stem (0.0.27):
-    - Stem/Application (= 0.0.27)
-    - Stem/CGGeometry (= 0.0.27)
-    - Stem/Color (= 0.0.27)
-    - Stem/Control (= 0.0.27)
-    - Stem/Core (= 0.0.27)
-    - Stem/Font (= 0.0.27)
-    - Stem/Foundation (= 0.0.27)
-    - Stem/GestureRecognizer (= 0.0.27)
-    - Stem/Image (= 0.0.27)
-    - Stem/ImageView (= 0.0.27)
-    - Stem/InputView (= 0.0.27)
-    - Stem/Label (= 0.0.27)
-    - Stem/ListView (= 0.0.27)
-    - Stem/NavigationBar (= 0.0.27)
-    - Stem/NSLayoutConstraint (= 0.0.27)
-    - Stem/PopGesture (= 0.0.27)
-    - Stem/Storyboard (= 0.0.27)
-    - Stem/UIDevice (= 0.0.27)
-    - Stem/View (= 0.0.27)
-    - Stem/ViewController (= 0.0.27)
-  - Stem/Application (0.0.27):
+  - Stem (0.0.31):
+    - Stem/AVKit (= 0.0.31)
+    - Stem/Core (= 0.0.31)
+    - Stem/Foundation (= 0.0.31)
+    - Stem/Fundamentals (= 0.0.31)
+    - Stem/NSObject (= 0.0.31)
+    - Stem/Runtime (= 0.0.31)
+    - Stem/UIKit (= 0.0.31)
+    - Stem/WebKit (= 0.0.31)
+  - Stem/AVKit (0.0.31):
     - Stem/Core
-  - Stem/CGGeometry (0.0.27):
+  - Stem/Core (0.0.31)
+  - Stem/Foundation (0.0.31):
     - Stem/Core
-  - Stem/Color (0.0.27):
+    - Stem/Foundation/Coder (= 0.0.31)
+    - Stem/Foundation/Collections (= 0.0.31)
+    - Stem/Foundation/Custom (= 0.0.31)
+    - Stem/Foundation/Date (= 0.0.31)
+    - Stem/Foundation/Dispatch (= 0.0.31)
+    - Stem/Foundation/Fundamentals (= 0.0.31)
+    - Stem/Foundation/pre-release (= 0.0.31)
+    - Stem/Foundation/String (= 0.0.31)
+  - Stem/Foundation/Coder (0.0.31):
     - Stem/Core
-  - Stem/Control (0.0.27):
+  - Stem/Foundation/Collections (0.0.31):
     - Stem/Core
-  - Stem/Core (0.0.27)
-  - Stem/Font (0.0.27):
+  - Stem/Foundation/Custom (0.0.31):
     - Stem/Core
-  - Stem/Foundation (0.0.27):
+  - Stem/Foundation/Date (0.0.31):
     - Stem/Core
-  - Stem/GestureRecognizer (0.0.27):
+  - Stem/Foundation/Dispatch (0.0.31):
     - Stem/Core
-  - Stem/Image (0.0.27):
+  - Stem/Foundation/Fundamentals (0.0.31):
     - Stem/Core
-  - Stem/ImageView (0.0.27):
+  - Stem/Foundation/pre-release (0.0.31):
     - Stem/Core
-    - Stem/Image
-  - Stem/InputView (0.0.27):
-    - Stem/CGGeometry
+  - Stem/Foundation/String (0.0.31):
     - Stem/Core
-  - Stem/Label (0.0.27):
+    - Stem/Fundamentals
+  - Stem/Fundamentals (0.0.31):
     - Stem/Core
-  - Stem/ListView (0.0.27):
+  - Stem/NSObject (0.0.31):
     - Stem/Core
-  - Stem/NavigationBar (0.0.27):
+  - Stem/Runtime (0.0.31)
+  - Stem/UIKit (0.0.31):
     - Stem/Core
-  - Stem/NSLayoutConstraint (0.0.27):
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+    - Stem/UIKit/Application (= 0.0.31)
+    - Stem/UIKit/AttributedString (= 0.0.31)
+    - Stem/UIKit/Color (= 0.0.31)
+    - Stem/UIKit/Control (= 0.0.31)
+    - Stem/UIKit/Custom (= 0.0.31)
+    - Stem/UIKit/Font (= 0.0.31)
+    - Stem/UIKit/GestureRecognizer (= 0.0.31)
+    - Stem/UIKit/Image (= 0.0.31)
+    - Stem/UIKit/ImageView (= 0.0.31)
+    - Stem/UIKit/InputView (= 0.0.31)
+    - Stem/UIKit/Interface (= 0.0.31)
+    - Stem/UIKit/Label (= 0.0.31)
+    - Stem/UIKit/ListView (= 0.0.31)
+    - Stem/UIKit/NavigationBar (= 0.0.31)
+    - Stem/UIKit/NSLayoutConstraint (= 0.0.31)
+    - Stem/UIKit/UIDevice (= 0.0.31)
+    - Stem/UIKit/View (= 0.0.31)
+    - Stem/UIKit/ViewController (= 0.0.31)
+  - Stem/UIKit/Application (0.0.31):
     - Stem/Core
-  - Stem/PopGesture (0.0.27):
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/AttributedString (0.0.31):
     - Stem/Core
-  - Stem/Storyboard (0.0.27):
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Color (0.0.31):
     - Stem/Core
-  - Stem/UIDevice (0.0.27):
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Control (0.0.31):
     - Stem/Core
-  - Stem/View (0.0.27):
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Custom (0.0.31):
     - Stem/Core
-  - Stem/ViewController (0.0.27):
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Font (0.0.31):
     - Stem/Core
-  - Stone (0.0.2)
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/GestureRecognizer (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Image (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/ImageView (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/InputView (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Interface (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/Label (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/ListView (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+    - Stem/UIKit/Interface
+  - Stem/UIKit/NavigationBar (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/NSLayoutConstraint (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/UIDevice (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/View (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/UIKit/ViewController (0.0.31):
+    - Stem/Core
+    - Stem/Fundamentals
+    - Stem/NSObject
+    - Stem/Runtime
+  - Stem/WebKit (0.0.31):
+    - Stem/Core
+  - Stuart (0.0.1):
+    - Stuart/SectionView (= 0.0.1)
+  - Stuart/SectionView (0.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.35.0)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
-  - Hue
   - SnapKit (= 5.0.0)
-  - Stem (= 0.0.27)
-  - Stone
+  - "Stem (from `git@github.com:linhay/Stem.git`, branch `develop`)"
+  - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `master`)"
   - SVProgressHUD
   - SwiftLint
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
-    - Hue
+  trunk:
     - SnapKit
-    - Stem
-    - Stone
     - SVProgressHUD
     - SwiftLint
 
 EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
+  Stem:
+    :branch: develop
+    :git: "git@github.com:linhay/Stem.git"
+  Stuart:
+    :branch: master
+    :git: "git@github.com:linhay/Stuart.git"
+
+CHECKOUT OPTIONS:
+  Stem:
+    :commit: c7fa7ed8607342a7e6d91760e03ab29880552b30
+    :git: "git@github.com:linhay/Stem.git"
+  Stuart:
+    :commit: 4fe44369e7d99d644ad2eb04711c75ae8026028e
+    :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
   EmptyPage: b85eb9d70cda567e418becd1677a41865904595b
-  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Stem: 1b48be402f890568bfce61afd3e25c504e92a706
-  Stone: ce22394d2644c843bfc93413454df098c8c630d6
+  Stem: ea4aa174339e851a15619fd7d370cc3570667f6c
+  Stuart: b5fccbcb300fd684f248d371c7b36be7494a88b3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 9c7af6e2cc1cac4eb61454dc887cbbf03a6393b1
+PODFILE CHECKSUM: 002741590eaee6030d7a9e6ee37c8ae6caa87b12
 
-COCOAPODS: 1.8.0
+COCOAPODS: 1.9.0
