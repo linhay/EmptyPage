@@ -47,8 +47,8 @@ extension UIScrollView {
     }
     
     var oldIsScrollEnabled: Bool {
-        get { return objc_getAssociatedObject(self, EmptyDataKey.oldEmptyView) as? Bool ?? self.isScrollEnabled }
-        set { objc_setAssociatedObject(self, EmptyDataKey.oldEmptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+        get { return objc_getAssociatedObject(self, EmptyDataKey.oldIsScrollEnabled) as? Bool ?? self.isScrollEnabled }
+        set { objc_setAssociatedObject(self, EmptyDataKey.oldIsScrollEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
     // 私有属性 (多次赋值emptyView时,防止多个emptyView同时出现)
