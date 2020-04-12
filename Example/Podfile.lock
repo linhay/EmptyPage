@@ -1,9 +1,9 @@
 PODS:
-  - EmptyPage (3.3.0):
-    - EmptyPage/Core (= 3.3.0)
-    - EmptyPage/Standard (= 3.3.0)
-  - EmptyPage/Core (3.3.0)
-  - EmptyPage/Standard (3.3.0):
+  - EmptyPage (4.0.0):
+    - EmptyPage/Core (= 4.0.0)
+    - EmptyPage/Standard (= 4.0.0)
+  - EmptyPage/Core (4.0.0)
+  - EmptyPage/Standard (4.0.0):
     - EmptyPage/Core
   - MJRefresh (3.3.1)
   - SnapKit (5.0.0)
@@ -208,7 +208,7 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
-  EmptyPage: b85eb9d70cda567e418becd1677a41865904595b
+  EmptyPage: 02c6172a3479ca14e9b3e4f738a336ec1535ea61
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: ea4aa174339e851a15619fd7d370cc3570667f6c
