@@ -33,6 +33,11 @@
 		CD50BC732333D10700FBA091 /* SectionTableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD50BC722333D10700FBA091 /* SectionTableType.swift */; };
 		CD50BC7D2333D64800FBA091 /* SectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD50BC7C2333D64800FBA091 /* SectionTableCell.swift */; };
 		CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECAD5226EE63D0075CBD5 /* .travis.yml */; };
+		CD6ED8C0244213D4002ED925 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6ED8BF244213D4002ED925 /* IndexViewController.swift */; };
+		CD6ED8C6244214A6002ED925 /* IndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6ED8C4244214A6002ED925 /* IndexCell.swift */; };
+		CD6ED8C7244214A6002ED925 /* IndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6ED8C5244214A6002ED925 /* IndexCell.xib */; };
+		CD6ED8C92442161E002ED925 /* IndexSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6ED8C82442161E002ED925 /* IndexSection.swift */; };
+		CD6ED8CB244216C7002ED925 /* IndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6ED8CA244216C7002ED925 /* IndexModel.swift */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
 		CDC946FE22017D6A0037F305 /* DZIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC946FC22017D6A0037F305 /* DZIndexViewController.swift */; };
@@ -80,6 +85,11 @@
 		CD50BC722333D10700FBA091 /* SectionTableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableType.swift; sourceTree = "<group>"; };
 		CD50BC7C2333D64800FBA091 /* SectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableCell.swift; sourceTree = "<group>"; };
 		CD5ECAD5226EE63D0075CBD5 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		CD6ED8BF244213D4002ED925 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		CD6ED8C4244214A6002ED925 /* IndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexCell.swift; sourceTree = "<group>"; };
+		CD6ED8C5244214A6002ED925 /* IndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexCell.xib; sourceTree = "<group>"; };
+		CD6ED8C82442161E002ED925 /* IndexSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexSection.swift; sourceTree = "<group>"; };
+		CD6ED8CA244216C7002ED925 /* IndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModel.swift; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
 		CDC946FC22017D6A0037F305 /* DZIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZIndexViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +137,8 @@
 		607FACD21AFB9204008FA782 /* Example for EmptyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CD6ED8DA2442D011002ED925 /* Demo */,
+				CD6ED8C124421425002ED925 /* Index */,
 				CD22C7B62334BFC3003192F1 /* Main */,
 				CD50BC6F2333CF7700FBA091 /* SectionTable */,
 				CDC947002201B4650037F305 /* Demos */,
@@ -255,6 +267,25 @@
 			path = SectionTable;
 			sourceTree = "<group>";
 		};
+		CD6ED8C124421425002ED925 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				CD6ED8BF244213D4002ED925 /* IndexViewController.swift */,
+				CD6ED8C82442161E002ED925 /* IndexSection.swift */,
+				CD6ED8C4244214A6002ED925 /* IndexCell.swift */,
+				CD6ED8C5244214A6002ED925 /* IndexCell.xib */,
+				CD6ED8CA244216C7002ED925 /* IndexModel.swift */,
+			);
+			path = Index;
+			sourceTree = "<group>";
+		};
+		CD6ED8DA2442D011002ED925 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		CDC946FB22017D6A0037F305 /* DZNEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */,
+				CD6ED8C7244214A6002ED925 /* IndexCell.xib in Resources */,
 				CD41A025233A15E600C78381 /* TemplateCell.xib in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
@@ -436,14 +468,17 @@
 			files = (
 				CD41A056233A353800C78381 /* DZNEmptySection.swift in Sources */,
 				CD22C7C02334BFC3003192F1 /* MainHeaderView.swift in Sources */,
+				CD6ED8CB244216C7002ED925 /* IndexModel.swift in Sources */,
 				9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */,
 				CDC946FF22017D6A0037F305 /* DetailViewController.swift in Sources */,
 				CD22C7C22334BFC3003192F1 /* EmptyViewSection.swift in Sources */,
+				CD6ED8C0244213D4002ED925 /* IndexViewController.swift in Sources */,
 				CDC947032201B4650037F305 /* DemoScrollViewController.swift in Sources */,
 				CD22C7BF2334BFC3003192F1 /* MainViewController.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
 				CD50BC7D2333D64800FBA091 /* SectionTableCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				CD6ED8C6244214A6002ED925 /* IndexCell.swift in Sources */,
 				CD41A107233A47D300C78381 /* DZNEmptyCell.swift in Sources */,
 				CDC947042201B4650037F305 /* DemoTableViewController.swift in Sources */,
 				CDC947062201B47C0037F305 /* DemoCollectionViewController.swift in Sources */,
@@ -454,6 +489,7 @@
 				CD41A024233A15E600C78381 /* TemplateCell.swift in Sources */,
 				9D9EB38D200866C7002264E7 /* HomeViewController.swift in Sources */,
 				CD056F2F21D0E78200A7F94A /* AutoLayoutViewController.swift in Sources */,
+				CD6ED8C92442161E002ED925 /* IndexSection.swift in Sources */,
 				CD50BC732333D10700FBA091 /* SectionTableType.swift in Sources */,
 				CDCA14462338D7FD00D1425E /* ActionCell.swift in Sources */,
 				CD50BC712333CF8600FBA091 /* SectionTableViewController.swift in Sources */,

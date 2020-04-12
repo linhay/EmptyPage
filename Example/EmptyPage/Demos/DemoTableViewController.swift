@@ -18,7 +18,6 @@ class DemoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        tableView.ep.setFirstLoading(EmptyStore.loading)
         tableView.ep.setEmpty(EmptyStore.custom(block1: event1(), block2: event2()))
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         getData(isFirst: true)

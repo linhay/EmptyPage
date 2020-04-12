@@ -43,7 +43,6 @@ class DemoCollectionSection: SectionProtocol {
         return cell
     }
 
-
 }
 
 class DemoCollectionViewController: SectionController {

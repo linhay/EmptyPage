@@ -109,18 +109,6 @@ extension EmptyPageView {
 
 // MARK: - for Template
 extension EmptyPageView {
-    /// 自定义视图模板
-    @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "Template", message: "[4.0.0]移除")
-    public struct ContentView {
-        /// 文本样式模板 `EmptyPageForText`
-        @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "text", message: "[4.0.0]移除")
-        public static var onlyText: EmptyPageForText { return EmptyPageForText() }
-        /// 图片样式模板 `EmptyPageForImage`
-        @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "image", message: "[4.0.0]移除")
-        public static var onlyImage: EmptyPageForImage {  return EmptyPageForImage() }
-        /// 混合样式模板 `EmptyPageForStandard`
-        public static var standard: EmptyPageForStandard {  return EmptyPageForStandard() }
-    }
 
     /// 自定义视图模板
     public struct Template {

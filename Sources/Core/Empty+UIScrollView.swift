@@ -24,177 +24,69 @@ import UIKit
 
 extension UIScrollView {
     
-    fileprivate struct EmptyDataKey {
-        static let emptyView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.emptyView".hashValue)!
-        static let isSetedEmptyView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.isSetedEmptyView".hashValue)!
-        static let oldEmptyView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.oldEmptyView".hashValue)!
-        static let firstLoadingView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.firstLoadingView".hashValue)!
-        static let isSetedFirstLoadingView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.isSetedFirstLoadingView".hashValue)!
-        static let oldIsScrollEnabled = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.oldIsScrollEnabled".hashValue)!
-        static let isFirstLoading = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.isFirstLoading".hashValue)!
-    }
-    
-    /// 是否手动设置过 空白页
-    var isSetedEmptyView: Bool {
-        get { return objc_getAssociatedObject(self, EmptyDataKey.isSetedEmptyView) as? Bool ?? false }
-        set { objc_setAssociatedObject(self, EmptyDataKey.isSetedEmptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-    
-    /// 是否手动设置过 加载空白页
-    var isSetedFirstLoadingView: Bool {
-        get { return objc_getAssociatedObject(self, EmptyDataKey.isSetedFirstLoadingView) as? Bool ?? false }
-        set { objc_setAssociatedObject(self, EmptyDataKey.isSetedFirstLoadingView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-    
-    var oldIsScrollEnabled: Bool {
-        get { return objc_getAssociatedObject(self, EmptyDataKey.oldEmptyView) as? Bool ?? self.isScrollEnabled }
-        set { objc_setAssociatedObject(self, EmptyDataKey.oldEmptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-    
-    // 私有属性 (多次赋值emptyView时,防止多个emptyView同时出现)
-    weak var oldEmptyView: UIView? {
-        get { return objc_getAssociatedObject(self, EmptyDataKey.oldEmptyView) as? UIView }
-        set {
-            // 防止多次设置emptyView
-            if oldEmptyView?.superview != nil { return }
-            if let emptyView: AnyObject = newValue {
-                objc_setAssociatedObject(self, EmptyDataKey.oldEmptyView, emptyView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
+    func isSubClassOfScrollView() -> Bool {
+        if self.isKind(of: UITableView.self) {
+            return false
+        } else if self.isKind(of: UICollectionView.self) {
+            return false
+        } else if self.isKind(of: UIScrollView.self) {
+            return true
         }
+        return false
     }
     
-    // 空白页视图
-    var emptyView: UIView? {
-        get {
-            if !isSetedEmptyView, let view = EmptyPageConfig.shared.emptyView?(self) {
-                self.emptyView = view
-                return view
-            }
-            
-            return objc_getAssociatedObject(self, EmptyDataKey.emptyView) as? UIView
+    func needReload(view: UIView) -> Bool {
+        guard view !== emptyView else {
+            return false
         }
-        set {
-            self.isSetedEmptyView = true
-            
-            if self.emptyView !== newValue {
-                self.oldEmptyView = self.emptyView
-            }
-            
-            if newValue != nil {
-                EmptyPageRuntime.swizzingLayout
-                /// 兼容子类化情况
-                if self.isKind(of: UITableView.self) {
-                    EmptyPageRuntime.swizzingTableView
-                } else if self.isKind(of: UICollectionView.self) {
-                    EmptyPageRuntime.swizzingCollectionView
-                } else {
-                    
-                }
-            } else {
-                emptyView?.removeFromSuperview()
-                self.oldEmptyView = nil
-            }
-            
-            objc_setAssociatedObject(self, EmptyDataKey.emptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        
+        guard view.description.contains("_UIScrollViewScrollIndicator") == false else {
+            return false
         }
+        
+        guard ep_supplementaryView.contains(where: { $0 == type(of: view) }) == false else {
+            return false
+        }
+        
+        return true
     }
     
-    /// 是否是第一次 展示 EmptyView
-    var isFirstLoading: Bool {
-        get { return objc_getAssociatedObject(self, EmptyDataKey.isFirstLoading) as? Bool ?? true }
-        set { objc_setAssociatedObject(self, EmptyDataKey.isFirstLoading, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    /// 第一次 reload 采用的空白页(可用于加载loading)
-    var firstLoadingView: UIView? {
-        get {
-            if !isSetedFirstLoadingView, let view = EmptyPageConfig.shared.firstLoadingView?(self) {
-                self.firstLoadingView = view
-                return view
-            }
-            
-            return objc_getAssociatedObject(self, EmptyDataKey.firstLoadingView) as? UIView
-        }
-        set {
-            self.isSetedFirstLoadingView = true
-            objc_setAssociatedObject(self, EmptyDataKey.firstLoadingView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-}
-
-extension UIScrollView {
-    
-    @objc var isEmpty: Bool {
-        return subviews.first(where: { $0 !== self.emptyView && $0 !== oldEmptyView && $0 !== firstLoadingView }) == nil
-    }
-    
-    func setEmptyView(_ isEmpty: Bool) {
-        guard isEmpty else {
-            isScrollEnabled = oldIsScrollEnabled
-            firstLoadingView?.removeFromSuperview()
-            emptyView?.removeFromSuperview()
-            oldEmptyView?.removeFromSuperview()
+    @objc func emptyPage_insertSubview(_ view: UIView, at index: Int) {
+        emptyPage_insertSubview(view, at: index)
+        guard needReload(view: view) else {
             return
         }
-
-        if oldEmptyView?.superview !== self {
-            oldIsScrollEnabled = isScrollEnabled
-            isScrollEnabled = isEmpty == false
-        }
-
-        oldEmptyView?.removeFromSuperview()
-        
-        var emptyView: UIView?
-        
-        if isFirstLoading, let firstView = firstLoadingView {
-            emptyView = firstView
-            isFirstLoading = false
-        } else {
-            firstLoadingView?.removeFromSuperview()
-            firstLoadingView = nil
-            emptyView = self.emptyView
-        }
-        
-        guard let view = emptyView else { return }
-
-        view.frame = bounds
-        view.removeFromSuperview()
-        addSubview(view)
-        
-        #if swift(>=4.2)
-        sendSubviewToBack(view)
-        #else
-        sendSubview(toBack: view)
-        #endif
+        reloadEmptyView(isEmpty: false)
     }
     
-}
-
-extension UIScrollView {
-
-    private func reSizeEmptyPage(function: String = #function) {
-        if let emptyView = self.ep.firstLoadingView {
-            if emptyView.superview != nil, emptyView.frame != bounds {
-                emptyView.frame = bounds
-            }
-        } else if let emptyView = self.ep.emptyView {
-            if emptyView.superview != nil, emptyView.frame != bounds {
-                emptyView.frame = bounds
-            }
+    @objc func emptyPage_addSubview(_ view: UIView) {
+        emptyPage_addSubview(view)
+        guard isSubClassOfScrollView() else {
+            return
         }
+        guard needReload(view: view) else {
+            return
+        }
+        reloadEmptyView(isEmpty: false)
     }
-
-    @objc func emptyPage_layoutSubviews() {
-        emptyPage_layoutSubviews()
-        reSizeEmptyPage()
-
+    
+    @objc func emptyPage_willRemoveSubview(_ subview: UIView) {
+        emptyPage_willRemoveSubview(subview)
+        guard isSubClassOfScrollView() else {
+            return
+        }
+        guard subview !== emptyView else {
+            return
+        }
+        
+        let isEmpty = subviews.filter({ view -> Bool in
+            guard needReload(view: view) && view !== subview else {
+                return false
+            }
+            return true
+        }).isEmpty
+        
+        reloadEmptyView(isEmpty: isEmpty)
     }
-
-    @objc func emptyPage_layoutIfNeeded() {
-        emptyPage_layoutIfNeeded()
-        reSizeEmptyPage()
-    }
-
+    
 }

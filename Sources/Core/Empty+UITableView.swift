@@ -24,35 +24,35 @@ import UIKit
 
 extension UITableView {
     
-    @objc override var isEmpty: Bool {
+    var isEmpty: Bool {
         let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
         return (0..<count).first(where: { self.numberOfRows(inSection: $0) > 0 }) == nil
     }
     
     @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         self.emptyPage_insertRows(at: indexPaths, with: animation)
-        setEmptyView(isEmpty)
+        reloadEmptyView(isEmpty: isEmpty)
     }
     
     @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         self.emptyPage_deleteRows(at: indexPaths, with: animation)
-        setEmptyView(isEmpty)
+        reloadEmptyView(isEmpty: isEmpty)
     }
     
     @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
         self.emptyPage_insertSections(sections, with: animation)
-        setEmptyView(isEmpty)
+        reloadEmptyView(isEmpty: isEmpty)
         
     }
     
     @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
         self.emptyPage_deleteSections(sections, with: animation)
-        setEmptyView(isEmpty)
+        reloadEmptyView(isEmpty: isEmpty)
     }
     
     @objc func emptyPage_reloadData() {
         self.emptyPage_reloadData()
-        setEmptyView(isEmpty)
+        reloadEmptyView(isEmpty: isEmpty)
     }
     
 }
