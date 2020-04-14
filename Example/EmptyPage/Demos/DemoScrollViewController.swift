@@ -39,7 +39,7 @@ class DemoScrollViewController: UIViewController {
             guard let self = self else {
                 return
             }
-            self.scrollView.ep.isShow ? self.scrollView.addSubview(self.itemView) : self.itemView.removeFromSuperview()
+            self.scrollView.ep.isShow ? self.scrollView.insertSubview(self.itemView, at: 0) : self.itemView.removeFromSuperview()
             self.scrollView.mj_header?.endRefreshing()
         }
     }
@@ -69,6 +69,7 @@ extension DemoScrollViewController {
             }
             self.refresh()
         }))
+        scrollView.ep.isScrollEnabled = true
         scrollView.contentSize = view.bounds.size
         scrollView.ep.setSupplementaryView([MJRefreshNormalHeader.self])
         scrollView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))

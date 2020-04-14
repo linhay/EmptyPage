@@ -22,7 +22,7 @@
 
 import UIKit
 
-public struct EmptyPage<Base> {
+public class EmptyPage<Base> {
     public let base: Base
     public init(_ base: Base) {
         self.base = base

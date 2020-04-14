@@ -35,27 +35,27 @@ class ActionSection: SectionTableType {
         case 0:
             cell.configLeft(title: "全局添加 EmptyView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "设置成功")
-                UIScrollView.ep.setGlobalEmpty { (_) -> UIView? in
-                    return EmptyViewStore.dz.airbnb.emptyView
-                }
+//                UIScrollView.ep.setGlobalEmpty { (_) -> UIView? in
+//                    return EmptyViewStore.dz.airbnb.emptyView
+//                }
             }
 
             cell.configRight(title: "移除全局 EmptyView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "已取消")
-                UIScrollView.ep.setGlobalEmpty(nil)
+//                UIScrollView.ep.setGlobalEmpty(nil)
             }
             return cell
         case 1:
             cell.configLeft(title: "全局添加 FirstLoadingView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "设置成功")
-                UIScrollView.ep.setGlobalFirstLoading { (_) -> UIView? in
-                    return EmptyViewStore.loading.emptyView
-                }
+//                UIScrollView.ep.setGlobalFirstLoading { (_) -> UIView? in
+//                    return EmptyViewStore.loading.emptyView
+//                }
             }
 
             cell.configRight(title: "移除全局 FirstLoadingView") { (_) in
                 SVProgressHUD.showSuccess(withStatus: "已取消")
-                UIScrollView.ep.setGlobalFirstLoading(nil)
+//                UIScrollView.ep.setGlobalFirstLoading(nil)
             }
             return cell
         case 2:
