@@ -50,6 +50,10 @@ class DemoCollectionViewController: SectionController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "示例",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(jumpToMain))
         sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
         sectionView.ep.setEmpty(EmptyStore.demo.standard(tapEvent: { [weak self] _ in
             guard let self = self else {
@@ -58,6 +62,12 @@ class DemoCollectionViewController: SectionController {
             self.refresh()
         }))
         refresh()
+    }
+
+    @objc
+    func jumpToMain() {
+        let vc = MainViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc
