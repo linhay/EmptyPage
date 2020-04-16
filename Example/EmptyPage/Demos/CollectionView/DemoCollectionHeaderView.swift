@@ -10,7 +10,7 @@ import UIKit
 import Stem
 import Stuart
 
-class DemoCollectionHeaderView: SectionReusableView<Void>, STNibProtocol {
+class DemoCollectionHeaderView: STSectionReusableView<Void>, STNibProtocol {
 
     override class func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
         return CGSize.init(width: collectionView.bounds.width, height: 44)

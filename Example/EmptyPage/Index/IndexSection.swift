@@ -10,7 +10,7 @@ import UIKit
 import Stuart
 import Stem
 
-class IndexSection: SectionProtocol {
+class IndexSection: STSectionProtocol {
 
 
     var index: Int = 0

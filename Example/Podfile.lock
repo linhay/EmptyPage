@@ -171,8 +171,12 @@ PODS:
   - Stem/WebKit (0.0.31):
     - Stem/Core
   - Stuart (0.0.1):
+    - Stuart/ListView (= 0.0.1)
     - Stuart/SectionView (= 0.0.1)
+    - Stuart/unit (= 0.0.1)
+  - Stuart/ListView (0.0.1)
   - Stuart/SectionView (0.0.1)
+  - Stuart/unit (0.0.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -208,7 +212,7 @@ SPEC CHECKSUMS:
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: f3e2d0f79aa3c154eb4a0c013f9e42b06e1dd93a
-  Stuart: b5fccbcb300fd684f248d371c7b36be7494a88b3
+  Stuart: cb3c117ea3a990c3f4edcb74bdab2986221509d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
 PODFILE CHECKSUM: b2dd5571e84cd5ed7df7df5a86761076cc993a43
