@@ -15,8 +15,8 @@ import Stuart
 
 class DemoCollectionViewController: UIViewController {
 
-    @IBOutlet weak var sectionView: SectionView!
-    lazy var manager = SectionManager(sectionView: sectionView)
+    @IBOutlet weak var sectionView: STSectionView!
+    lazy var manager = STSectionManager(sectionView: sectionView)
 
     var section = DemoCollectionSection()
     

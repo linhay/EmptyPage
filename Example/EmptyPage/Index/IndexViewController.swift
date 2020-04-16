@@ -10,7 +10,7 @@ import UIKit
 import Stem
 import Stuart
 
-class IndexViewController: SectionController {
+class IndexViewController: STSectionController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

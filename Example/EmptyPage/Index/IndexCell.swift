@@ -10,7 +10,7 @@ import UIKit
 import Stuart
 import Stem
 
-class IndexCell: SectionItemCell<Void>, STNibProtocol {
+class IndexCell: STSectionItemCell<Void>, STNibProtocol {
 
     @IBOutlet private weak var titleLabel: UILabel!
     

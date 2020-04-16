@@ -10,7 +10,7 @@ import Foundation
 import Stem
 import Stuart
 
-class DemoCollectionSection: SectionProtocol {
+class DemoCollectionSection: STSectionProtocol {
 
     var collectionView: UICollectionView?
     var index: Int = 0
