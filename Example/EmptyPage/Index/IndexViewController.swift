@@ -17,7 +17,7 @@ class IndexViewController: SectionController {
         var models = [IndexModel]()
 
         do {
-            let model = IndexModel(title: "collectionView")
+            let model = IndexModel(title: "CollectionView")
             models.append(model)
             model.delegate.delegate(on: self) { (self, _) in
                 self.st.push(vc: DemoCollectionViewController())
@@ -25,7 +25,7 @@ class IndexViewController: SectionController {
         }
 
         do {
-            let model = IndexModel(title: "tableView")
+            let model = IndexModel(title: "TableView")
             models.append(model)
             model.delegate.delegate(on: self) { (self, _) in
                 self.st.push(vc: DemoTableViewController())
@@ -33,15 +33,23 @@ class IndexViewController: SectionController {
         }
 
         do {
-            let model = IndexModel(title: "scrollView")
+            let model = IndexModel(title: "ScrollView")
             models.append(model)
             model.delegate.delegate(on: self) { (self, _) in
                 self.st.push(vc: DemoScrollViewController())
             }
         }
 
-        let demoSection = IndexSection(collectionView: sectionView, models: models)
-        manager.update(sections: demoSection)
+        do {
+            let model = IndexModel(title: "WKWebView")
+            models.append(model)
+            model.delegate.delegate(on: self) { (self, _) in
+                self.st.push(vc: DemoScrollViewController())
+            }
+        }
+
+        let demoSection = IndexSection(models: models)
+        manager.update(demoSection)
     }
 
 }
