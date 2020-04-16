@@ -44,10 +44,15 @@
 		CDC946FF22017D6A0037F305 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC946FD22017D6A0037F305 /* DetailViewController.swift */; };
 		CDC947032201B4650037F305 /* DemoScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC947012201B4650037F305 /* DemoScrollViewController.swift */; };
 		CDC947042201B4650037F305 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC947022201B4650037F305 /* DemoTableViewController.swift */; };
-		CDC947062201B47C0037F305 /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC947052201B47C0037F305 /* DemoCollectionViewController.swift */; };
 		CDCA14462338D7FD00D1425E /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA14442338D7FD00D1425E /* ActionCell.swift */; };
 		CDCA14472338D7FD00D1425E /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDCA14452338D7FD00D1425E /* ActionCell.xib */; };
 		CDCA14492338D8A600D1425E /* ActionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA14482338D8A600D1425E /* ActionSection.swift */; };
+		CDF2E295244740CA002491A1 /* DemoCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2E294244740CA002491A1 /* DemoCollectionItemCell.swift */; };
+		CDF2E297244740F8002491A1 /* DemoCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2E296244740F8002491A1 /* DemoCollectionSection.swift */; };
+		CDF2E29C24474261002491A1 /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2E29A24474261002491A1 /* DemoCollectionViewController.swift */; };
+		CDF2E29D24474261002491A1 /* DemoCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF2E29B24474261002491A1 /* DemoCollectionViewController.xib */; };
+		CDF2E2C424484721002491A1 /* DemoCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2E2C224484721002491A1 /* DemoCollectionHeaderView.swift */; };
+		CDF2E2C524484721002491A1 /* DemoCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF2E2C324484721002491A1 /* DemoCollectionHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,10 +101,15 @@
 		CDC946FD22017D6A0037F305 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CDC947012201B4650037F305 /* DemoScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoScrollViewController.swift; sourceTree = "<group>"; };
 		CDC947022201B4650037F305 /* DemoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
-		CDC947052201B47C0037F305 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
 		CDCA14442338D7FD00D1425E /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		CDCA14452338D7FD00D1425E /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		CDCA14482338D8A600D1425E /* ActionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSection.swift; sourceTree = "<group>"; };
+		CDF2E294244740CA002491A1 /* DemoCollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionItemCell.swift; sourceTree = "<group>"; };
+		CDF2E296244740F8002491A1 /* DemoCollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionSection.swift; sourceTree = "<group>"; };
+		CDF2E29A24474261002491A1 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
+		CDF2E29B24474261002491A1 /* DemoCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoCollectionViewController.xib; sourceTree = "<group>"; };
+		CDF2E2C224484721002491A1 /* DemoCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionHeaderView.swift; sourceTree = "<group>"; };
+		CDF2E2C324484721002491A1 /* DemoCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoCollectionHeaderView.xib; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,7 +308,7 @@
 		CDC947002201B4650037F305 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
-				CDC947052201B47C0037F305 /* DemoCollectionViewController.swift */,
+				CDF2E293244740B2002491A1 /* CollectionView */,
 				CDC947012201B4650037F305 /* DemoScrollViewController.swift */,
 				CDC947022201B4650037F305 /* DemoTableViewController.swift */,
 				CD50BC6D2333CEAE00FBA091 /* GlobalViewController.swift */,
@@ -314,6 +324,19 @@
 				CDCA14482338D8A600D1425E /* ActionSection.swift */,
 			);
 			path = ActionView;
+			sourceTree = "<group>";
+		};
+		CDF2E293244740B2002491A1 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CDF2E29A24474261002491A1 /* DemoCollectionViewController.swift */,
+				CDF2E29B24474261002491A1 /* DemoCollectionViewController.xib */,
+				CDF2E294244740CA002491A1 /* DemoCollectionItemCell.swift */,
+				CDF2E296244740F8002491A1 /* DemoCollectionSection.swift */,
+				CDF2E2C224484721002491A1 /* DemoCollectionHeaderView.swift */,
+				CDF2E2C324484721002491A1 /* DemoCollectionHeaderView.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,12 +404,14 @@
 			files = (
 				CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */,
 				CD6ED8C7244214A6002ED925 /* IndexCell.xib in Resources */,
+				CDF2E29D24474261002491A1 /* DemoCollectionViewController.xib in Resources */,
 				CD41A025233A15E600C78381 /* TemplateCell.xib in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				CD41A108233A47D300C78381 /* DZNEmptyCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
+				CDF2E2C524484721002491A1 /* DemoCollectionHeaderView.xib in Resources */,
 				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
 				CDCA14472338D7FD00D1425E /* ActionCell.xib in Resources */,
@@ -467,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD41A056233A353800C78381 /* DZNEmptySection.swift in Sources */,
+				CDF2E29C24474261002491A1 /* DemoCollectionViewController.swift in Sources */,
 				CD22C7C02334BFC3003192F1 /* MainHeaderView.swift in Sources */,
 				CD6ED8CB244216C7002ED925 /* IndexModel.swift in Sources */,
 				9D9EB39120088528002264E7 /* EmptyPageForCustom.swift in Sources */,
@@ -477,11 +503,13 @@
 				CD22C7BF2334BFC3003192F1 /* MainViewController.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
 				CD50BC7D2333D64800FBA091 /* SectionTableCell.swift in Sources */,
+				CDF2E297244740F8002491A1 /* DemoCollectionSection.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				CDF2E2C424484721002491A1 /* DemoCollectionHeaderView.swift in Sources */,
 				CD6ED8C6244214A6002ED925 /* IndexCell.swift in Sources */,
 				CD41A107233A47D300C78381 /* DZNEmptyCell.swift in Sources */,
 				CDC947042201B4650037F305 /* DemoTableViewController.swift in Sources */,
-				CDC947062201B47C0037F305 /* DemoCollectionViewController.swift in Sources */,
+				CDF2E295244740CA002491A1 /* DemoCollectionItemCell.swift in Sources */,
 				CD50BC6E2333CEAE00FBA091 /* GlobalViewController.swift in Sources */,
 				CD22C7C32334BFC3003192F1 /* EmptyViewSectionCell.swift in Sources */,
 				CD41A014233A0F8E00C78381 /* EmptyViewStore.swift in Sources */,

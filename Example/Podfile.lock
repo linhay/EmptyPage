@@ -180,7 +180,7 @@ DEPENDENCIES:
   - MJRefresh
   - SnapKit (= 5.0.0)
   - "Stem (from `git@github.com:linhay/Stem.git`, branch `develop`)"
-  - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `master`)"
+  - Stuart (from `/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec`)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -196,16 +196,12 @@ EXTERNAL SOURCES:
     :branch: develop
     :git: "git@github.com:linhay/Stem.git"
   Stuart:
-    :branch: master
-    :git: "git@github.com:linhay/Stuart.git"
+    :path: "/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec"
 
 CHECKOUT OPTIONS:
   Stem:
     :commit: 1e43e8aa3b89bddea2d7616a78e2b689119bb575
     :git: "git@github.com:linhay/Stem.git"
-  Stuart:
-    :commit: e43b576351fcd78423887448208d278342746ca1
-    :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
   EmptyPage: 02c6172a3479ca14e9b3e4f738a336ec1535ea61
@@ -215,6 +211,6 @@ SPEC CHECKSUMS:
   Stuart: b5fccbcb300fd684f248d371c7b36be7494a88b3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: b9a9a823cb715f3fdb85442fc189e50632935387
+PODFILE CHECKSUM: b2dd5571e84cd5ed7df7df5a86761076cc993a43
 
 COCOAPODS: 1.9.0

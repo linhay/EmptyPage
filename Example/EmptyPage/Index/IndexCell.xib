@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="357" height="45"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-bh-1i3">
-                        <rect key="frame" x="0.0" y="0.0" width="357" height="45"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-bh-1i3">
+                        <rect key="frame" x="16" y="0.0" width="325" height="45"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -28,8 +28,8 @@
             <constraints>
                 <constraint firstItem="pc5-bh-1i3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QtY-UZ-NNA"/>
                 <constraint firstAttribute="bottom" secondItem="pc5-bh-1i3" secondAttribute="bottom" id="ROn-un-tXz"/>
-                <constraint firstItem="pc5-bh-1i3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mIx-6w-Xcd"/>
-                <constraint firstAttribute="trailing" secondItem="pc5-bh-1i3" secondAttribute="trailing" id="wTG-mB-uaB"/>
+                <constraint firstItem="pc5-bh-1i3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="mIx-6w-Xcd"/>
+                <constraint firstAttribute="trailing" secondItem="pc5-bh-1i3" secondAttribute="trailing" constant="16" id="wTG-mB-uaB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="357" height="110"/>

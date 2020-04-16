@@ -12,26 +12,26 @@ import Stem
 
 class IndexSection: SectionProtocol {
 
+
     var index: Int = 0
-
-    unowned var collectionView: UICollectionView
-
     var itemCount: Int { models.count }
+    var collectionView: UICollectionView?
 
+    func config(collectionView: UICollectionView) {
+        collectionView.st.register(IndexCell.self)
+    }
     let models: [IndexModel]
 
-    init(collectionView: UICollectionView, models: [IndexModel]) {
-        self.collectionView = collectionView
+    init(models: [IndexModel]) {
         self.models = models
-        collectionView.st.register(IndexCell.self)
     }
 
     func itemSize(at index: Int) -> CGSize {
-        return IndexCell.preferredSize(collectionView: collectionView)
+        return IndexCell.preferredSize(collectionView: sectionView)
     }
 
     func itemCell(at indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.st.dequeueCell(indexPath) as IndexCell
+        let cell = sectionView.st.dequeueCell(indexPath) as IndexCell
         if let model = models.value(at: indexPath.item) {
             cell.config(model: model)
         }
