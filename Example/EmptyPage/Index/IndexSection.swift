@@ -15,15 +15,30 @@ class IndexSection: SectionCollectionProtocol {
     var index: Int = 0
     var itemCount: Int { models.count }
     var collectionView: UICollectionView?
+    var title: String = ""
 
     func config(sectionView: UICollectionView) {
         sectionView.st.register(IndexCell.self)
+        sectionView.st.registerSupplementaryView(kind: .header, IndexHeaderView.self)
     }
 
     let models: [IndexModel]
 
     init(models: [IndexModel]) {
         self.models = models
+    }
+
+    var headerSize: CGSize {
+        return IndexHeaderView.preferredSize(collectionView: collectionView, model: nil)
+    }
+
+    var headerView: UICollectionReusableView? {
+        guard title.isEmpty == false else {
+            return nil
+        }
+        let header: IndexHeaderView = collectionView.st.dequeueSupplementaryView(kind: .header, indexPath: indexPath(from: index))
+        header.config(title)
+        return header
     }
 
     func itemSize(at index: Int) -> CGSize {

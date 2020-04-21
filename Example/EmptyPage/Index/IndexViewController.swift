@@ -40,15 +40,8 @@ class IndexViewController: SectionCollectionViewController {
             }
         }
 
-//        do {
-//            let model = IndexModel(title: "WKWebView")
-//            models.append(model)
-//            model.delegate.delegate(on: self) { (self, _) in
-//                self.st.push(vc: WebViewController())
-//            }
-//        }
-
         let demoSection = IndexSection(models: models)
+        demoSection.title = "demo"
         manager.update(demoSection)
     }
 
