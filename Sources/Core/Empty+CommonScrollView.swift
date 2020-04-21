@@ -71,6 +71,9 @@ extension UIScrollView {
 extension UIScrollView {
     
     func reloadEmptyView(isEmpty: Bool = false) {
+        guard emptyView != nil else {
+            return
+        }
         if isEmpty, emptyView?.superview == nil {
             ep_isScrollEnabled = isScrollEnabled
         }
@@ -102,6 +105,13 @@ extension UIScrollView {
         emptyView?.removeFromSuperview()
         isScrollEnabled = ep_isScrollEnabled
     }
+
+    func set(canScrollEnabled: Bool) {
+        ep_canScrollEnabled = canScrollEnabled
+        if emptyView?.superview === self {
+            isScrollEnabled = canScrollEnabled
+        }
+    }
     
     func setEmptyView(_ view: UIView?) {
         guard let view = view else {
@@ -123,13 +133,13 @@ extension UIScrollView {
 // MARK: - layoutSubviews
 extension UIScrollView {
     
-    private func reSizeEmptyPage(function: String = #function) {
+    func reSizeEmptyPage() {
         guard let view = emptyView, view.superview != nil, view.frame != bounds else {
             return
         }
         view.frame = bounds
     }
-    
+
     @objc func emptyPage_layoutSubviews() {
         emptyPage_layoutSubviews()
         reSizeEmptyPage()

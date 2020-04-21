@@ -10,16 +10,16 @@ import UIKit
 import Stuart
 import Stem
 
-class IndexSection: STSectionProtocol {
-
-
+class IndexSection: SectionCollectionProtocol {
+    var core: SectionCore?
     var index: Int = 0
     var itemCount: Int { models.count }
     var collectionView: UICollectionView?
 
-    func config(collectionView: UICollectionView) {
-        collectionView.st.register(IndexCell.self)
+    func config(sectionView: UICollectionView) {
+        sectionView.st.register(IndexCell.self)
     }
+
     let models: [IndexModel]
 
     init(models: [IndexModel]) {
@@ -27,19 +27,19 @@ class IndexSection: STSectionProtocol {
     }
 
     func itemSize(at index: Int) -> CGSize {
-        return IndexCell.preferredSize(collectionView: sectionView)
+        return IndexCell.preferredSize(collectionView: collectionView, model: nil)
     }
 
-    func itemCell(at indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = sectionView.st.dequeueCell(indexPath) as IndexCell
-        if let model = models.value(at: indexPath.item) {
-            cell.config(model: model)
+    func item(at index: Int) -> UICollectionViewCell {
+        let cell = collectionView.st.dequeueCell(indexPath(from: index)) as IndexCell
+        if let model = models.value(at: index) {
+            cell.config(model)
         }
         return cell
     }
 
-    func didSelectItem(at indexPath: IndexPath) {
-        models.value(at: indexPath.item)?.delegate.call()
+    func didSelectItem(at index: Int) {
+        models.value(at: index)?.delegate.call()
     }
 
 }

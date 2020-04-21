@@ -1,8 +1,8 @@
 //
-//  DemoCollectionSection.swift
+//  DemoTableSection.swift
 //  EmptyPage_Example
 //
-//  Created by 林翰 on 2020/4/15.
+//  Created by 林翰 on 2020/4/19.
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
@@ -10,27 +10,11 @@ import Foundation
 import Stem
 import Stuart
 
-class DemoCollectionSection: SectionCollectionProtocol {
+class DemoTableSection: SectionTableProtocol {
 
     var core: SectionCore?
     var itemCount: Int { list.count }
-
     var list: [Int] = .init(repeating: 0, count: 3)
-
-    func config(sectionView: UICollectionView) {
-        sectionView.st.registerSupplementaryView(kind: .header, DemoCollectionHeaderView.self)
-        sectionView.st.register(DemoCollectionItemCell.self)
-    }
-
-
-    var headerSize: CGSize {
-        return DemoCollectionHeaderView.preferredSize(collectionView: collectionView, model: nil)
-    }
-
-    var headerView: UICollectionReusableView? {
-        let view: DemoCollectionHeaderView = collectionView.st.dequeueSupplementaryView(kind: .header, indexPath: indexPath(from: 0))
-        return view
-    }
 
     func itemHeight(at index: Int) -> CGFloat {
         return DemoTableViewCell.preferredHeight
@@ -40,13 +24,9 @@ class DemoCollectionSection: SectionCollectionProtocol {
         sectionView.st.register(DemoTableViewCell.self)
     }
 
-    func itemSize(at index: Int) -> CGSize {
-        DemoCollectionItemCell.preferredSize(collectionView: collectionView, model: nil)
-    }
-
-    func item(at index: Int) -> UICollectionViewCell {
-        let cell = collectionView.st.dequeueCell(indexPath(from: index)) as DemoCollectionItemCell
-        cell.backgroundColor = UIColor.st.random
+    func item(at index: Int) -> UITableViewCell {
+        let cell: DemoTableViewCell = tableView.st.dequeueCell(indexPath(from: index))
+        cell.contentView.backgroundColor = UIColor.st.random
         return cell
     }
 

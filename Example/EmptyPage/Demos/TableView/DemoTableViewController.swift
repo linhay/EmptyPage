@@ -1,5 +1,5 @@
 //
-//  DemoCollectionViewController.swift
+//  DemoTableViewController.swift
 //  EmptyPage_Example
 //
 //  Created by linhay on 2018/1/13.
@@ -13,13 +13,13 @@ import MJRefresh
 import Stem
 import Stuart
 
-class DemoCollectionViewController: UIViewController {
+class DemoTableViewController: UIViewController, STNibProtocol {
 
-    @IBOutlet weak var sectionView: SectionCollectionView!
-    lazy var manager = SectionCollectionManager(sectionView: sectionView)
+    @IBOutlet weak var sectionView: SectionTableView!
+    lazy var manager = SectionTableManager(sectionView: sectionView)
 
-    var section = DemoCollectionSection()
-    
+    var section = DemoTableSection()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
@@ -60,6 +60,12 @@ class DemoCollectionViewController: UIViewController {
     }
 
     @IBAction func insertSectionsAction(_ sender: UIButton) {
-        manager.insert(section: DemoCollectionSection(), at: 0)
+        manager.insert(section: DemoTableSection(), at: 0)
     }
+
+    @IBAction func canScrollEnabledAction(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        sectionView.ep.isScrollEnabled = sender.isSelected
+    }
+    
 }
