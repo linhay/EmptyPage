@@ -10,9 +10,9 @@ import Foundation
 import Stem
 import Stuart
 
-class DemoCollectionItemCell: STSectionItemCell<Void>,STViewProtocol {
+class DemoCollectionItemCell: UICollectionViewCell, ConfigurableCollectionCell, STViewProtocol {
 
-    override class func preferredSize(collectionView: UICollectionView, model: Void? = nil) -> CGSize {
+    static func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 44)
     }
 

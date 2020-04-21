@@ -10,20 +10,15 @@ import UIKit
 import Stuart
 import Stem
 
-class IndexCell: STSectionItemCell<Void>, STNibProtocol {
+class IndexCell: UICollectionViewCell, ConfigurableCollectionCell, STNibProtocol {
 
     @IBOutlet private weak var titleLabel: UILabel!
     
-    override class func preferredSize(collectionView: UICollectionView, model: Void? = nil) -> CGSize {
+    static func preferredSize(collectionView: UICollectionView, model: IndexModel?) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 45)
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    func config(model: IndexModel)  {
+    func config(_ model: IndexModel) {
         titleLabel.text = model.title
     }
 

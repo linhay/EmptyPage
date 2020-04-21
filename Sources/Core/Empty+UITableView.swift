@@ -42,7 +42,6 @@ extension UITableView {
     @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
         self.emptyPage_insertSections(sections, with: animation)
         reloadEmptyView(isEmpty: isEmpty)
-        
     }
     
     @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {

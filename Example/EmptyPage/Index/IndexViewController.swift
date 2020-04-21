@@ -10,7 +10,7 @@ import UIKit
 import Stem
 import Stuart
 
-class IndexViewController: STSectionController {
+class IndexViewController: SectionCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +40,13 @@ class IndexViewController: STSectionController {
             }
         }
 
-        do {
-            let model = IndexModel(title: "WKWebView")
-            models.append(model)
-            model.delegate.delegate(on: self) { (self, _) in
-                self.st.push(vc: DemoScrollViewController())
-            }
-        }
+//        do {
+//            let model = IndexModel(title: "WKWebView")
+//            models.append(model)
+//            model.delegate.delegate(on: self) { (self, _) in
+//                self.st.push(vc: WebViewController())
+//            }
+//        }
 
         let demoSection = IndexSection(models: models)
         manager.update(demoSection)

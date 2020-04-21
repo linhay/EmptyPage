@@ -53,18 +53,12 @@ struct EmptyPageRuntime {
         swizzing(sel: #selector(UITableView.insertRows(at:with:)),
                  of: #selector(UITableView.emptyPage_insertRows(at:with:)),
                  in: UITableView.self)
-        swizzing(sel: #selector(UITableView.insertRows(at:with:)),
-                 of: #selector(UITableView.emptyPage_insertRows(at:with:)),
-                 in: UITableView.self)
-        
         swizzing(sel: #selector(UITableView.deleteRows(at:with:)),
                  of: #selector(UITableView.emptyPage_deleteRows(at:with:)),
                  in: UITableView.self)
-        
         swizzing(sel: #selector(UITableView.insertSections(_:with:)),
                  of: #selector(UITableView.emptyPage_insertSections(_:with:)),
                  in: UITableView.self)
-        
         swizzing(sel: #selector(UITableView.deleteSections(_:with:)),
                  of: #selector(UITableView.emptyPage_deleteSections(_:with:)),
                  in: UITableView.self)

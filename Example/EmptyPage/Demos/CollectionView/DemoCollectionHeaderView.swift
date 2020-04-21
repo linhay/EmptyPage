@@ -10,15 +10,10 @@ import UIKit
 import Stem
 import Stuart
 
-class DemoCollectionHeaderView: STSectionReusableView<Void>, STNibProtocol {
+class DemoCollectionHeaderView: UICollectionReusableView, ConfigurableCollectionCell, STNibProtocol {
 
-    override class func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
-        return CGSize.init(width: collectionView.bounds.width, height: 44)
+     class func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
+        return .init(width: collectionView.bounds.width, height: 44)
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
 }

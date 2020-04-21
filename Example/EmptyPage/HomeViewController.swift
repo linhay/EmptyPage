@@ -308,7 +308,7 @@ class HomeViewController: UITableViewController {
         }
         switch item.subTitle {
         case "tableView":
-            let vc = DemoTableViewController(style: .plain)
+            let vc = DemoTableViewController()
             navigationController?.pushViewController(vc, animated: true)
         case "collectionView":
             let vc = DemoCollectionViewController()

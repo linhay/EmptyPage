@@ -35,7 +35,7 @@ extension UIScrollView {
         return false
     }
     
-    func needReload(view: UIView) -> Bool {
+    private func needReload(view: UIView) -> Bool {
         guard view !== emptyView else {
             return false
         }

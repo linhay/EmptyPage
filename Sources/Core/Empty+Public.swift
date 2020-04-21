@@ -38,7 +38,7 @@ public extension EmptyPage where Base: UIScrollView {
     /// 空白页显示时, scroll能否滚动
     var isScrollEnabled: Bool {
         set {
-            base.ep_canScrollEnabled = newValue
+            base.set(canScrollEnabled: newValue)
         }
         get {
             return base.ep_canScrollEnabled
