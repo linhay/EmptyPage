@@ -24,7 +24,7 @@ import UIKit
 
 extension UIScrollView {
     
-    private enum EmptyDataKey {
+     enum EmptyDataKey {
         static let emptyView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.emptyView".hashValue)!
         static let ep_isScrollEnabled = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.isScrollEnabled".hashValue)!
         static let ep_canScrollEnabled = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.canScrollEnabled".hashValue)!

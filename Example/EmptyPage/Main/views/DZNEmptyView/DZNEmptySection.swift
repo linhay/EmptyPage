@@ -23,7 +23,7 @@ class DZNEmptySection: SectionTableType {
     }
 
     var headerView: UITableViewHeaderFooterView? {
-        let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
+        let view = tableView.st.dequeue() as MainHeaderView
         view.config(title: "DZNEmptyDataSet 示例") { [weak self] in
             guard let self = self else { return }
             self.itemCount = self.itemCount > 0 ? 0 : DZEmptyStyle.allCases.count
@@ -33,7 +33,7 @@ class DZNEmptySection: SectionTableType {
     }
 
     func cell(tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.st.dequeueCell(indexPath) as TemplateCell
+        let cell = tableView.st.dequeue(at: indexPath) as TemplateCell
         let style = DZEmptyStyle.allCases[indexPath.item]
         cell.config(title: style.item.title)
         return cell

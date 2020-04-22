@@ -18,7 +18,7 @@ class DemoCollectionSection: SectionCollectionProtocol {
     var list: [Int] = .init(repeating: 0, count: 3)
 
     func config(sectionView: UICollectionView) {
-        sectionView.st.registerSupplementaryView(kind: .header, DemoCollectionHeaderView.self)
+        sectionView.st.register(DemoCollectionHeaderView.self, for: .header)
         sectionView.st.register(DemoCollectionItemCell.self)
     }
 
@@ -28,7 +28,7 @@ class DemoCollectionSection: SectionCollectionProtocol {
     }
 
     var headerView: UICollectionReusableView? {
-        let view: DemoCollectionHeaderView = collectionView.st.dequeueSupplementaryView(kind: .header, indexPath: indexPath(from: 0))
+        let view: DemoCollectionHeaderView = collectionView.st.dequeue(at: indexPath(from: 0), kind: .header)
         return view
     }
 
@@ -45,7 +45,7 @@ class DemoCollectionSection: SectionCollectionProtocol {
     }
 
     func item(at index: Int) -> UICollectionViewCell {
-        let cell = collectionView.st.dequeueCell(indexPath(from: index)) as DemoCollectionItemCell
+        let cell = collectionView.st.dequeue(at: indexPath(from: index)) as DemoCollectionItemCell
         cell.backgroundColor = UIColor.st.random
         return cell
     }

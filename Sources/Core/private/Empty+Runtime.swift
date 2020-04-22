@@ -96,9 +96,7 @@ struct EmptyPageRuntime {
     ///   - selector: 被交换的方法
     ///   - replace: 用于交换的方法
     ///   - classType: 所属类型
-    static func swizzing(sel: Selector,
-                         of: Selector,
-                         in classType: AnyClass) {
+    static func swizzing(sel: Selector, of: Selector, in classType: AnyClass) {
         let select1 = sel
         let select2 = of
         
@@ -126,3 +124,4 @@ struct EmptyPageRuntime {
         }
     }
 }
+

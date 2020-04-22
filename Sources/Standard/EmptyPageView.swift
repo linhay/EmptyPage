@@ -22,10 +22,6 @@
 
 import UIKit
 
-/// `EmptyPageContentViewProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageContentViewProtocol.mix()` 函数
-@available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "EmptyPageTemplateProtocol", message: "[4.0.0]移除")
-public protocol EmptyPageContentViewProtocol: EmptyPageTemplateProtocol { }
-
 /// `EmptyPageTemplateProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageTemplateProtocol.mix()` 函数
 public protocol EmptyPageTemplateProtocol: NSObjectProtocol { }
 

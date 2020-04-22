@@ -25,7 +25,7 @@ class DemoTableSection: SectionTableProtocol {
     }
 
     func item(at index: Int) -> UITableViewCell {
-        let cell: DemoTableViewCell = tableView.st.dequeueCell(indexPath(from: index))
+        let cell: DemoTableViewCell = tableView.st.dequeue(at: indexPath(from: index))
         cell.contentView.backgroundColor = UIColor.st.random
         return cell
     }

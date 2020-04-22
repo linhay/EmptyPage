@@ -23,7 +23,9 @@
 import UIKit
 
 extension UIScrollView {
-    
+
+    /// 类型限制于除 [UICollectionView, UITableView] 外的 UIScrollView与子类
+    /// - Returns: 条件是否成立
     func isSubClassOfScrollView() -> Bool {
         if self.isKind(of: UITableView.self) {
             return false
