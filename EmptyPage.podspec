@@ -14,7 +14,9 @@ s.ios.deployment_target = '8.0'
 s.requires_arc = true
 
 s.subspec 'Core' do |ss|
-  ss.source_files = 'Sources/Core/*.{swift,h}'
+  ss.source_files = ['Sources/Core/*.h',
+                     'Sources/Core/private/*.swift',
+                     'Sources/Core/public/*.swift']
 end
 
 s.subspec 'Standard' do |ss|

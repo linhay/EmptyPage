@@ -28,7 +28,7 @@ class DemoScrollViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         scrollView.contentSize = CGSize(width: view.bounds.width, height: 500)
-        scrollView.ep.setSupplementaryView([MJRefreshNormalHeader.self])
+        scrollView.ep.setSupplementaryView(MJRefreshNormalHeader.self)
         scrollView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
         scrollView.ep.setEmpty(EmptyStore.demo.standard(tapEvent: { [weak self] _ in
             guard let self = self else {

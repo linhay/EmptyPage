@@ -16,11 +16,11 @@ class EmptyViewSection: SectionTableType {
     init(_ sectionController: SectionTableViewController) {
         self.sectionController = sectionController
         tableView.st.register(EmptyViewSectionCell.self)
-        tableView.st.registerHeaderFooterView(MainHeaderView.self)
+        tableView.st.register(MainHeaderView.self)
     }
 
     func cell(tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.st.dequeueCell(indexPath) as EmptyViewSectionCell
+        let cell = tableView.st.dequeue(at: indexPath) as EmptyViewSectionCell
         switch indexPath.item {
         case 0: cell.config(title: "TableView 示例")
         case 1: cell.config(title: "CollectionView 示例")
@@ -32,7 +32,7 @@ class EmptyViewSection: SectionTableType {
     }
 
     var headerView: UITableViewHeaderFooterView? {
-        let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
+        let view = tableView.st.dequeue() as MainHeaderView
         view.config(title: "EmptyPage 示例") { [weak self] in
             guard let self = self else { return }
             self.itemCount = self.itemCount > 0 ? 0 : 4

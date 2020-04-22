@@ -18,7 +18,7 @@ class TemplateSection: SectionTableType {
     var itemCount: Int = 3
 
     func cell(tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.st.dequeueCell(indexPath) as TemplateCell
+        let cell = tableView.st.dequeue(at: indexPath) as TemplateCell
         switch indexPath.item {
         case 0: cell.config(title: "纯文字")
         case 1: cell.config(title: "纯图片")
@@ -34,7 +34,7 @@ class TemplateSection: SectionTableType {
     }
 
     var headerView: UITableViewHeaderFooterView? {
-        let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
+        let view = tableView.st.dequeue() as MainHeaderView
         view.config(title: "Template 示例") { [weak self] in
             guard let self = self else { return }
             self.itemCount = self.itemCount > 0 ? 0 : 3

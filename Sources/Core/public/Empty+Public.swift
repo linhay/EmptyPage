@@ -23,19 +23,64 @@
 import UIKit
 
 public extension EmptyPage where Base: UIScrollView {
-    
-    /// 设置 空白页视图
-    /// - Parameter view: 空白页视图
+
+    /**
+     设置 空白页视图
+
+     - Authors: linhey
+     - Date: 2020/04/22
+
+     - Parameter view: 空白页视图
+
+     - Example:
+
+     ```
+
+     scrollView.ep.setEmpty(EmptyView()))
+
+     ```
+     */
     func setEmpty(_ view: UIView?) {
         base.setEmptyView(view)
     }
     
-    /// 主动触发空白页视图显示逻辑
+    /**
+     主动触发空白页视图显示逻辑,
+
+     - Authors: linhey
+     - Date: 2020/04/22
+     - Example:
+
+     ```
+
+     scrollView.ep.reload()
+
+     ```
+
+     - Important:
+
+     - 不走 tableView.reloadData() | collectionView.reloadData()
+
+     */
     func reload() {
         base.setEmptyView(emptyView)
     }
     
-    /// 空白页显示时, scroll能否滚动
+    /**
+     空白页显示时, scroll能否滚动
+
+     - Authors: linhey
+     - Date: 2020/04/22
+
+     - Example:
+
+     ```
+
+      scrollView.ep.isScrollEnabled = true  // 当空白页显示时可以滚动
+      scrollView.ep.isScrollEnabled = false // 当空白页显示时不可以滚动
+
+     ```
+     */
     var isScrollEnabled: Bool {
         set {
             base.set(canScrollEnabled: newValue)
@@ -49,11 +94,71 @@ public extension EmptyPage where Base: UIScrollView {
     var emptyView: UIView? {
         return base.emptyView
     }
-    
+
+    /**
+     不参与 UIScrollView 空白计算的子视图类型
+
+     - Authors: linhey
+     - Date: 2020/04/22
+
+     - Parameter views: 子视图
+
+     - Example:
+
+     ```
+
+     scrollView.ep.setSupplementaryView([MJRefreshNormalHeader.self])
+
+     ```
+
+     - Important:
+
+     - 只在 UIScrollView 上生效
+
+     */
+    func setSupplementaryView(_ views: UIView.Type...) {
+        base.ep_supplementaryView = views
+    }
+
+    /**
+     不参与 UIScrollView 空白计算的子视图类型
+
+     - Authors: linhey
+     - Date: 2020/04/22
+
+     - Parameter views: 子视图
+
+     - Example:
+
+     ```
+
+     scrollView.ep.setSupplementaryView([MJRefreshNormalHeader.self])
+
+     ```
+
+     - Important:
+
+     - 只在 UIScrollView 上生效
+
+     */
     func setSupplementaryView(_ views: [UIView.Type]) {
         base.ep_supplementaryView = views
     }
-    
+
+    /**
+     空白页是否显示
+
+     - Authors: linhey
+     - Date: 2020/04/22
+
+     - Example:
+
+     ```
+
+     scrollView.ep.isShow
+
+     ```
+     */
     var isShow: Bool {
         emptyView?.superview === base
     }

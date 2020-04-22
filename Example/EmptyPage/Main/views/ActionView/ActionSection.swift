@@ -20,7 +20,7 @@ class ActionSection: SectionTableType {
     var itemCount: Int = 3
 
     var headerView: UITableViewHeaderFooterView? {
-        let view = tableView.st.dequeueHeaderFooterView() as MainHeaderView
+        let view = tableView.st.dequeue() as MainHeaderView
         view.config(title: "Action 示例") { [weak self] in
             guard let self = self else { return }
             self.itemCount = self.itemCount > 0 ? 0 : 3
@@ -30,7 +30,7 @@ class ActionSection: SectionTableType {
     }
 
     func cell(tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.st.dequeueCell(indexPath) as ActionCell
+        let cell = tableView.st.dequeue(at: indexPath) as ActionCell
         switch indexPath.item {
         case 0:
             cell.configLeft(title: "全局添加 EmptyView") { (_) in
@@ -92,7 +92,7 @@ class ActionSection: SectionTableType {
     init(_ sectionController: SectionTableViewController) {
         self.sectionController = sectionController
         tableView.st.register(ActionCell.self)
-        tableView.st.registerHeaderFooterView(MainHeaderView.self)
+        tableView.st.register(MainHeaderView.self)
     }
 
 }

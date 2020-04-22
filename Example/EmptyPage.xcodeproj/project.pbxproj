@@ -20,6 +20,9 @@
 		CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */; };
 		CD22C7C22334BFC3003192F1 /* EmptyViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */; };
 		CD22C7C32334BFC3003192F1 /* EmptyViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */; };
+		CD293E4824504F610094B2A4 /* trunk.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD293E4524504F610094B2A4 /* trunk.sh */; };
+		CD293E4924504F610094B2A4 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD293E4624504F610094B2A4 /* document.sh */; };
+		CD293E4A24504F610094B2A4 /* git_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD293E4724504F610094B2A4 /* git_config.sh */; };
 		CD41A014233A0F8E00C78381 /* EmptyViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41A013233A0F8E00C78381 /* EmptyViewStore.swift */; };
 		CD41A021233A157C00C78381 /* TemplateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41A020233A157C00C78381 /* TemplateSection.swift */; };
 		CD41A024233A15E600C78381 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41A022233A15E600C78381 /* TemplateCell.swift */; };
@@ -85,6 +88,9 @@
 		CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyViewSectionCell.xib; sourceTree = "<group>"; };
 		CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewSection.swift; sourceTree = "<group>"; };
 		CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewSectionCell.swift; sourceTree = "<group>"; };
+		CD293E4524504F610094B2A4 /* trunk.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = trunk.sh; sourceTree = "<group>"; };
+		CD293E4624504F610094B2A4 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = document.sh; sourceTree = "<group>"; };
+		CD293E4724504F610094B2A4 /* git_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = git_config.sh; sourceTree = "<group>"; };
 		CD41A013233A0F8E00C78381 /* EmptyViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewStore.swift; sourceTree = "<group>"; };
 		CD41A020233A157C00C78381 /* TemplateSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateSection.swift; sourceTree = "<group>"; };
 		CD41A022233A15E600C78381 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				CD293E4424504F610094B2A4 /* scripts */,
 				CD5ECAD5226EE63D0075CBD5 /* .travis.yml */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
@@ -259,6 +266,17 @@
 				CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */,
 			);
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		CD293E4424504F610094B2A4 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				CD293E4524504F610094B2A4 /* trunk.sh */,
+				CD293E4624504F610094B2A4 /* document.sh */,
+				CD293E4724504F610094B2A4 /* git_config.sh */,
+			);
+			name = scripts;
+			path = ../scripts;
 			sourceTree = "<group>";
 		};
 		CD41A01F233A156A00C78381 /* TemplateView */ = {
@@ -440,12 +458,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD5302EE244C1F4A0059D5C5 /* DemoScrollViewController.xib in Resources */,
+				CD293E4824504F610094B2A4 /* trunk.sh in Resources */,
 				CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */,
 				CD6ED8C7244214A6002ED925 /* IndexCell.xib in Resources */,
 				CDF2E29D24474261002491A1 /* DemoCollectionViewController.xib in Resources */,
 				CD41A025233A15E600C78381 /* TemplateCell.xib in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
+				CD293E4A24504F610094B2A4 /* git_config.sh in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				CD293E4924504F610094B2A4 /* document.sh in Resources */,
 				CD41A108233A47D300C78381 /* DZNEmptyCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,

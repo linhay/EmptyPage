@@ -19,7 +19,7 @@ class IndexSection: SectionCollectionProtocol {
 
     func config(sectionView: UICollectionView) {
         sectionView.st.register(IndexCell.self)
-        sectionView.st.registerSupplementaryView(kind: .header, IndexHeaderView.self)
+        sectionView.st.register(IndexHeaderView.self, for: .header)
     }
 
     let models: [IndexModel]
@@ -36,7 +36,7 @@ class IndexSection: SectionCollectionProtocol {
         guard title.isEmpty == false else {
             return nil
         }
-        let header: IndexHeaderView = collectionView.st.dequeueSupplementaryView(kind: .header, indexPath: indexPath(from: index))
+        let header: IndexHeaderView = collectionView.st.dequeue(at: indexPath(from: index), kind: .header)
         header.config(title)
         return header
     }
@@ -46,7 +46,7 @@ class IndexSection: SectionCollectionProtocol {
     }
 
     func item(at index: Int) -> UICollectionViewCell {
-        let cell = collectionView.st.dequeueCell(indexPath(from: index)) as IndexCell
+        let cell = collectionView.st.dequeue(at: indexPath(from: index)) as IndexCell
         if let model = models.value(at: index) {
             cell.config(model)
         }
