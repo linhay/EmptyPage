@@ -10,18 +10,18 @@ s.source = { :git => 'https://github.com/linhay/EmptyPage.git', :tag => s.versio
 
 s.swift_version = ['4.0', '4.2', '5.0', '5.1']
 
-s.ios.deployment_target = '8.0'
+s.ios.deployment_target = '9.0'
 s.requires_arc = true
 
-s.subspec 'Core' do |ss|
-  ss.source_files = ['Sources/Core/*.h',
+s.subspec 'Core' do |sp|
+  sp.source_files = ['Sources/Core/*.h',
                      'Sources/Core/private/*.swift',
                      'Sources/Core/public/*.swift']
 end
 
-s.subspec 'Standard' do |ss|
-  ss.source_files = 'Sources/Standard/*.{swift}'
-  ss.dependency 'EmptyPage/Core'
+s.subspec 'Standard' do |sp|
+  sp.source_files = 'Sources/Standard/*.{swift}'
+  sp.dependency 'EmptyPage/Core'
 end
 
 end

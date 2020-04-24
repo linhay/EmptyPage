@@ -53,5 +53,9 @@ extension UICollectionView {
         self.emptyPage_reloadData()
         reloadEmptyView(isEmpty: isEmpty)
     }
+
+    override func emptypage_reloadEmptyView() {
+        reloadEmptyView(isEmpty: isEmpty)
+    }
     
 }

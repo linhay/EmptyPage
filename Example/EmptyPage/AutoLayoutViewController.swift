@@ -86,7 +86,7 @@ class AutoLayoutViewController: UIViewController {
   @IBAction func imageSpace(_ sender: UIButton) {
     imageSpaceValue += (imageSpaceValue > 100) ? -90 : 10
     if onlyImageView.superview != nil {
-      onlyImageView.change(hspace: EmptyPageForImage.HSpaceType.image, value: imageSpaceValue)
+//      onlyImageView.change(hspace: EmptyPageForImage.HSpaceType.image, value: imageSpaceValue)
     }
     
     if standardView.superview != nil {

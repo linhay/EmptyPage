@@ -31,6 +31,7 @@ public extension EmptyPage where Base: UIScrollView {
      - Date: 2020/04/22
 
      - Parameter view: 空白页视图
+     - Parameter isReload: 是否需要刷新空白页显示
 
      - Example:
 
@@ -40,8 +41,9 @@ public extension EmptyPage where Base: UIScrollView {
 
      ```
      */
-    func setEmpty(_ view: UIView?) {
+    func setEmpty(_ view: UIView?, isReload: Bool = false) {
         base.setEmptyView(view)
+        isReload ? reload() : ()
     }
     
     /**
@@ -63,7 +65,7 @@ public extension EmptyPage where Base: UIScrollView {
 
      */
     func reload() {
-        base.setEmptyView(emptyView)
+        base.emptypage_reloadEmptyView()
     }
     
     /**

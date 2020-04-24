@@ -60,8 +60,7 @@ class EmptyStore {
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.repeatCount = Float.infinity
         item.layer.add(animation, forKey: nil)
-      }
-      .mix()
+      }.mix()
   }
   
   class func custom(block1: @escaping (()->()),
