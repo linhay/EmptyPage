@@ -19,31 +19,35 @@ class DemoCollectionViewController: UIViewController {
     lazy var manager = SectionCollectionManager(sectionView: sectionView)
 
     var section = DemoCollectionSection()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
-        sectionView.ep.setEmpty(EmptyStore.demo.standard(tapEvent: { [weak self] _ in
+
+    var emptyView: UIView {
+        EmptyStore.demo.standard(tapEvent: { [weak self] _ in
             guard let self = self else {
                 return
             }
+            self.sectionView.ep.setEmpty(EmptyStore.loading, isReload: true)
             self.refresh()
-        }))
-        refresh()
+        })
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sectionView.ep.setEmpty(EmptyStore.loading, isReload: true)
+        sectionView.ep.reload()
+//        sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
+//        self.sectionView.mj_header?.beginRefreshing()
     }
 
     @objc
     func refresh() {
-        if sectionView.mj_header?.isRefreshing == false {
-            sectionView.mj_header?.beginRefreshing()
-            return
-        }
         Gcd.delay(2) { [weak self] in
             guard let self = self else {
                 return
             }
-            self.manager.update(self.section)
+            self.sectionView.ep.setEmpty(self.emptyView)
+            self.section.insert(at: 0)
             self.sectionView.mj_header?.endRefreshing()
+            self.manager.update(self.section)
         }
     }
 

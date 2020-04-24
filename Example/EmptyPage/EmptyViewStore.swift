@@ -70,7 +70,6 @@ enum TemplateStyle: EmptyViewStoreProtocol {
         case .image:
             return EmptyPageView.Template.image
                 .set(image: UIImage(named: "empty-1002")!)
-                .change(hspace: .image, value: 10)
                 .mix()
         case .standard:
             let images = (0...3).map { (item) -> UIImage in

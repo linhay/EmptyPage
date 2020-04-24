@@ -70,7 +70,7 @@ extension UIScrollView {
 
 extension UIScrollView {
     
-    func reloadEmptyView(isEmpty: Bool = false) {
+    func reloadEmptyView(isEmpty: Bool) {
         guard emptyView != nil else {
             return
         }
@@ -112,7 +112,9 @@ extension UIScrollView {
             isScrollEnabled = canScrollEnabled
         }
     }
-    
+
+    @objc func emptypage_reloadEmptyView() { }
+
     func setEmptyView(_ view: UIView?) {
         guard let view = view else {
             isScrollEnabled = ep_isScrollEnabled
@@ -125,7 +127,6 @@ extension UIScrollView {
         }
         
         emptyView = view
-        reloadEmptyView()
     }
     
 }

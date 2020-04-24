@@ -218,7 +218,6 @@ class HomeViewController: UITableViewController {
         if true {
             let emptyView = EmptyPageView.Template.image
                 .set(image: UIImage(named: "empty-1002")!)
-                .change(hspace: .image, value: 10)
                 .mix()
             let item = CellItem(title: "纯图片", subTitle: "默认样式", emptyView: emptyView)
             items.append(item)

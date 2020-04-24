@@ -5,6 +5,7 @@ PODS:
   - EmptyPage/Core (4.0.0)
   - EmptyPage/Standard (4.0.0):
     - EmptyPage/Core
+  - LookinServer (1.0.0)
   - MJRefresh (3.4.1)
   - SnapKit (5.0.0)
   - Stem (0.0.31):
@@ -181,6 +182,7 @@ PODS:
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
+  - LookinServer
   - MJRefresh
   - SnapKit (= 5.0.0)
   - Stem (from `/Users/linhey/Desktop/linhey/pod_template_stem/Template.podspec`)
@@ -189,6 +191,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - LookinServer
     - MJRefresh
     - SnapKit
     - SVProgressHUD
@@ -202,13 +205,14 @@ EXTERNAL SOURCES:
     :path: "/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: 6e6caaf7a8ae06182b6610235a36b54a06149e48
+  EmptyPage: a962abcbd1eda8ec234083499640166b886e5995
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: f3e2d0f79aa3c154eb4a0c013f9e42b06e1dd93a
   Stuart: d186cb413906b9681c2895b6c44bbf8b7b6a28b5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c4debd923db3b7b507c6ca5419085dbaa89a2b7c
+PODFILE CHECKSUM: e6204da6958dacd7f7b51ac014638e66f7cc0f99
 
 COCOAPODS: 1.9.0
