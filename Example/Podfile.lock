@@ -205,7 +205,7 @@ EXTERNAL SOURCES:
     :path: "/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: a962abcbd1eda8ec234083499640166b886e5995
+  EmptyPage: 26e1dddd708261c85d9850c2a8840a431d4f968e
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf

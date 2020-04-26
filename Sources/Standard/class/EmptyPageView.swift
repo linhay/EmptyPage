@@ -108,10 +108,18 @@ extension EmptyPageView {
 
     /// 自定义视图模板
     public struct Template {
+
+        static func load<T: UIView>() -> T {
+            let bundle = Bundle(path: Bundle(for: EmptyPageView.self).path(forResource: "Standard", ofType: "bundle")!)
+            let nib = UINib(nibName: String(describing: T.self), bundle: bundle)
+            let view = nib.instantiate(withOwner: nib, options: nil).first
+            return view as! T
+        }
+
         /// 文本样式模板 `EmptyPageForText`
         public static var text: EmptyPageForText { return EmptyPageForText() }
         /// 图片样式模板 `EmptyPageForImage`
-        public static var image: EmptyPageForImage { return EmptyPageForImage() }
+        public static var image: EmptyPageForImage { return load() as EmptyPageForImage }
         /// 混合样式模板 `EmptyPageForStandard`
         public static var standard: EmptyPageForStandard { return EmptyPageForStandard() }
     }
