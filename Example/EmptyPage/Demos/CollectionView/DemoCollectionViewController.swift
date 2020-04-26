@@ -32,10 +32,8 @@ class DemoCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sectionView.ep.setEmpty(EmptyStore.loading, isReload: true)
-        sectionView.ep.reload()
-//        sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
-//        self.sectionView.mj_header?.beginRefreshing()
+        sectionView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
+        sectionView.mj_header?.beginRefreshing()
     }
 
     @objc

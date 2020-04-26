@@ -26,18 +26,14 @@ import UIKit
 open class EmptyPageForImage: UIView, EmptyPageTemplateProtocol {
 
     // MARK: - Public property
-    public let imageView: UIImageView = UIImageView()
-    // MARK: - Override
-    public init() {
-        super.init(frame: CGRect.zero)
-        buildUI()
-    }
+    @IBOutlet public var imageView: UIImageView!
+    @IBOutlet private var heightConstraint: NSLayoutConstraint!
+    @IBOutlet private var widthConstraint: NSLayoutConstraint!
+    private var customSize: CGSize?
 
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        buildUI()
+    deinit {
+        print(Self.self)
     }
-
 }
 
 // MARK: 调整 layout 相关枚举与函数
@@ -45,11 +41,21 @@ extension EmptyPageForImage {
 
     @discardableResult
     public func change(size: CGSize) -> Self {
-//        imageView.widthAnchor.constraint(equalToConstant: size.width).isActive = true
-//        heightAnchor.constraint(equalToConstant: size.height).isActive = true
-//        imageView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
-//        print(size)
-        return self
+        customSize = size
+        return layout(size: size)
+    }
+
+    @discardableResult
+    func layout(size: CGSize) -> Self {
+        if let size = customSize {
+            heightConstraint.constant = size.height
+            widthConstraint.constant = size.width
+            return self
+        } else {
+            heightConstraint.constant = size.height
+            widthConstraint.constant = size.width
+            return self
+        }
     }
 
 }
@@ -63,7 +69,7 @@ extension EmptyPageForImage {
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
     public func config(imageView call: (_: UIImageView) -> Void) -> Self {
-//        call(imageView)
+        call(imageView)
         return self
     }
 
@@ -78,8 +84,8 @@ extension EmptyPageForImage {
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
     public func set(image: UIImage?) -> Self {
-//        change(size: image?.size ?? .zero)
-//        imageView.image = image
+        layout(size: image?.size ?? .zero)
+        imageView.image = image
         return self
     }
 
@@ -92,25 +98,12 @@ extension EmptyPageForImage {
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
     public func set(images: [UIImage], duration: TimeInterval, repeatCount: Int = 0) -> Self {
-//        change(size: images.first?.size ?? .zero)
-//        imageView.animationDuration = duration
-//        imageView.animationRepeatCount = repeatCount
-//        imageView.animationImages = images
-//        imageView.startAnimating()
+        layout(size: images.first?.size ?? .zero)
+        imageView.animationDuration = duration
+        imageView.animationRepeatCount = repeatCount
+        imageView.animationImages = images
+        imageView.startAnimating()
         return self
-    }
-
-}
-
-extension EmptyPageForImage {
-
-    func buildUI() {
-        addSubview(imageView)
-        backgroundColor = UIColor.blue
-        imageView.backgroundColor = UIColor.red
-        topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        heightAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
     }
 
 }

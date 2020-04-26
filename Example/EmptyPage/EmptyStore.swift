@@ -50,6 +50,7 @@ class EmptyStore {
 
   class var loading: EmptyPageView{
     return EmptyPageView.Template.image
+      .change(size: .init(width: 20, height: 20))
       .set(image: UIImage(named: "load-0"))
       .config { (item) in
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
