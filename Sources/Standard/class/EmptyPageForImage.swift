@@ -25,28 +25,33 @@ import UIKit
 /// `EmptyPageForImage` 图片样式模板
 open class EmptyPageForImage: UIView, EmptyPageTemplateProtocol {
 
+    public var edge: UIEdgeInsets = .zero
+
     // MARK: - Public property
-    @IBOutlet public var imageView: UIImageView!
+    @IBOutlet public private(set) var imageView: UIImageView!
+    
+    // MARK: - private property
+    private var customSize: CGSize?
+    
+    // MARK: - private NSLayoutConstraint
     @IBOutlet private var heightConstraint: NSLayoutConstraint!
     @IBOutlet private var widthConstraint: NSLayoutConstraint!
-    private var customSize: CGSize?
-
-    deinit {
-        print(Self.self)
-    }
 }
 
 // MARK: 调整 layout 相关枚举与函数
 extension EmptyPageForImage {
-
+    
+    /// 调整尺寸
+    /// - Parameter size: 尺寸
+    /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
     public func change(size: CGSize) -> Self {
         customSize = size
         return layout(size: size)
     }
-
+    
     @discardableResult
-    func layout(size: CGSize) -> Self {
+    private func layout(size: CGSize) -> Self {
         if let size = customSize {
             heightConstraint.constant = size.height
             widthConstraint.constant = size.width
@@ -57,12 +62,12 @@ extension EmptyPageForImage {
             return self
         }
     }
-
+    
 }
 
 // MARK: 深度配置元素 相关函数
 extension EmptyPageForImage {
-
+    
     /// 配置 `EmptyPageForImage.imageView`
     ///
     /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
@@ -72,12 +77,12 @@ extension EmptyPageForImage {
         call(imageView)
         return self
     }
-
+    
 }
 
 // MARK: 轻度配置元素 相关函数
 extension EmptyPageForImage {
-
+    
     /// 设置 `EmptyPageForImage.imageView`
     ///
     /// - Parameter value: 图片
@@ -88,7 +93,7 @@ extension EmptyPageForImage {
         imageView.image = image
         return self
     }
-
+    
     /// 设置 `EmptyPageForImage.imageView`
     ///
     /// - Parameters:
@@ -105,5 +110,5 @@ extension EmptyPageForImage {
         imageView.startAnimating()
         return self
     }
-
+    
 }

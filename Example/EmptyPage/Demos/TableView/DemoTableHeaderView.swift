@@ -12,8 +12,8 @@ import Stuart
 
 class DemoTableHeaderView: UITableViewHeaderFooterView, ConfigurableTableCell {
 
-    static func preferredHeight(model: Void?) -> CGFloat {
-        return 44
+    static func preferredSize(tableView: UITableView, model: Void?) -> CGSize {
+        return CGSize(width: 0, height: 44)
     }
 
 }

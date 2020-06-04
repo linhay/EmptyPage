@@ -25,13 +25,15 @@ import UIKit
 /// `EmptyPageForStandard` 混合样式模板
 open class EmptyPageForStandard: UIView, EmptyPageTemplateProtocol {
 
+    public var edge: UIEdgeInsets = .zero
+
     // MARK: - Public property
     /// 图片 imageView
     public let imageView: UIImageView = {
         let item = UIImageView()
         return item
     }()
-
+    
     /// 标题 Label
     public let titleLabel: UILabel = {
         let item = UILabel()
@@ -39,7 +41,7 @@ open class EmptyPageForStandard: UIView, EmptyPageTemplateProtocol {
         item.textColor = UIColor.black
         return item
     }()
-
+    
     /// 描述 Label
     public let textLabel: UILabel = {
         let item = UILabel()
@@ -48,7 +50,7 @@ open class EmptyPageForStandard: UIView, EmptyPageTemplateProtocol {
         item.textColor = UIColor.gray
         return item
     }()
-
+    
     /// 底部按钮 button
     public let button: UIButton = {
         let item = UIButton(type: .custom)
@@ -62,39 +64,39 @@ open class EmptyPageForStandard: UIView, EmptyPageTemplateProtocol {
         item.addTarget(self, action: #selector(event), for: UIControl.Event.touchUpInside)
         return item
     }()
-
+    
     /// 点击事件
     public var eventStore: ((_: EmptyPageForStandard) -> Void)?
-
+    
     // MARK: - Override
     public init() {
         super.init(frame: CGRect.zero)
         buildUI()
     }
-
+    
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         buildUI()
     }
-
+    
     open override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         guard imageView.image == nil else { return }
         newWindow == nil ? imageView.stopAnimating() : imageView.startAnimating()
     }
-
+    
 }
 
 // MARK: 调整 layout 相关枚举与函数
 extension EmptyPageForStandard {
-
+    
     /// 视图高度调整
     ///
     /// - button: 按钮 default: 自适应
     public enum HeightType {
         case button
     }
-
+    
     /// 修改视图高度
     ///
     /// - Parameters:
@@ -111,7 +113,7 @@ extension EmptyPageForStandard {
         let constraint = constraints.first { (item) -> Bool in
             return item.firstAttribute == .height && item.firstItem === targetItem
         }
-
+        
         if let constraint = constraint {
             constraint.constant = value
         } else {
@@ -125,7 +127,7 @@ extension EmptyPageForStandard {
         updateConstraintsIfNeeded()
         return self
     }
-
+    
     /// 垂直方向间距类型
     ///
     /// - imageWithTitle: 图片与标题间距 default: 10
@@ -137,7 +139,7 @@ extension EmptyPageForStandard {
         case titleWithText
         case textWithButton
     }
-
+    
     /// 修改视图垂直方向上的间距
     ///
     /// - Parameters:
@@ -164,14 +166,14 @@ extension EmptyPageForStandard {
             fromItem = button
             toItem = textLabel
         }
-
+        
         let findItem = constraints.first { (item) -> Bool in
             return item.firstAttribute == .top
                 && item.secondAttribute == secondAttribute
                 && item.firstItem === fromItem
                 && item.secondItem === toItem
         }
-
+        
         if let findItem = findItem {
             findItem.constant = value
         } else {
@@ -182,11 +184,11 @@ extension EmptyPageForStandard {
                                           constant: value)
             addConstraint(item)
         }
-
+        
         updateConstraintsIfNeeded()
         return self
     }
-
+    
     /// 修改视图水平方向上的间距
     ///
     /// - image:  主图左右间距 default: 无约束
@@ -199,7 +201,7 @@ extension EmptyPageForStandard {
         case text
         case button
     }
-
+    
     /// 修改视图水平方向上的间距
     ///
     /// - Parameters:
@@ -208,7 +210,7 @@ extension EmptyPageForStandard {
     /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
     @discardableResult
     public func change(hspace type: HSpaceType, value: CGFloat) -> Self {
-
+        
         var fromItem: NSObject
         let toItem: NSObject = self
         let priority = UILayoutPriority(999)
@@ -222,7 +224,7 @@ extension EmptyPageForStandard {
         case .button:
             fromItem = button
         }
-
+        
         let findItems = constraints.filter { (constraint) -> Bool in
             guard constraint.priority == priority,
                 let firstItem = constraint.firstItem as? NSObject,
@@ -232,7 +234,7 @@ extension EmptyPageForStandard {
                 else { return false }
             return true
         }
-
+        
         if findItems.isEmpty {
             let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
                                                relatedBy: .equal,
@@ -250,18 +252,18 @@ extension EmptyPageForStandard {
                 item.constant = item.firstAttribute == .left ? value : -value
             }
         }
-
+        
         updateConstraintsIfNeeded()
         return self
     }
-
+    
     /// 取消视图水平方向上的间距约束
     ///
     /// - Parameter type: 调整类型,可查阅: `EmptyPageForStandard.HSpaceType`
     /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
     @discardableResult
     public func change(cancel type: HSpaceType) -> Self {
-
+        
         var fromItem: NSObject
         let toItem: NSObject = self
         let priority = UILayoutPriority(999)
@@ -275,7 +277,7 @@ extension EmptyPageForStandard {
         case .button:
             fromItem = button
         }
-
+        
         let findItems = constraints.filter { (constraint) -> Bool in
             guard constraint.priority == priority,
                 let firstItem = constraint.firstItem as? NSObject,
@@ -285,10 +287,10 @@ extension EmptyPageForStandard {
                 else { return false }
             return true
         }
-
+        
         if findItems.isEmpty { return self }
         removeConstraints(findItems)
-
+        
         let centerItems = constraints.filter { (constraint) -> Bool in
             guard
                 constraint.firstAttribute == .centerX,
@@ -301,7 +303,7 @@ extension EmptyPageForStandard {
                 else { return false }
             return true
         }
-
+        
         if centerItems.isEmpty {
             let centerItem = NSLayoutConstraint(item: fromItem, attribute: .centerX,
                                                 relatedBy: .equal,
@@ -310,16 +312,16 @@ extension EmptyPageForStandard {
             centerItem.priority = priority
             addConstraint(centerItem)
         }
-
+        
         updateConstraintsIfNeeded()
         return self
     }
-
+    
 }
 
 // MARK: 深度配置元素 相关函数
 extension EmptyPageForStandard {
-
+    
     /// 配置图片元素
     ///
     /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.imageView`
@@ -329,7 +331,7 @@ extension EmptyPageForStandard {
         call(imageView)
         return self
     }
-
+    
     /// 配置标题元素
     ///
     /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.titleLabel`
@@ -339,7 +341,7 @@ extension EmptyPageForStandard {
         call(titleLabel)
         return self
     }
-
+    
     /// 配置文本元素
     ///
     /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.textLabel`
@@ -349,7 +351,7 @@ extension EmptyPageForStandard {
         call(textLabel)
         return self
     }
-
+    
     /// 配置底部按钮元素
     ///
     /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.button`
@@ -360,12 +362,12 @@ extension EmptyPageForStandard {
         call(button)
         return self
     }
-
+    
 }
 
 // MARK: 轻度配置元素 相关函数
 extension EmptyPageForStandard {
-
+    
     /// 设置 `EmptyPageForStandard.imageView`
     ///
     /// - Parameter value: 图片
@@ -376,7 +378,7 @@ extension EmptyPageForStandard {
         setImageAspect(firstImage: value)
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.imageView`
     ///
     /// - Parameters:
@@ -393,7 +395,7 @@ extension EmptyPageForStandard {
         imageView.animationImages = images
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.titleLabel`
     ///
     /// - Parameters:
@@ -408,7 +410,7 @@ extension EmptyPageForStandard {
         titleLabel.font = font
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.titleLabel`
     ///
     /// - Parameter value: 富文本
@@ -418,7 +420,7 @@ extension EmptyPageForStandard {
         titleLabel.attributedText = value
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.textLabel`
     ///
     /// - Parameters:
@@ -433,7 +435,7 @@ extension EmptyPageForStandard {
         textLabel.font = font
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.textLabel`
     ///
     /// - Parameter value: 富文本
@@ -443,7 +445,7 @@ extension EmptyPageForStandard {
         textLabel.attributedText = value
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.button`
     ///
     /// - Parameter value: 标题
@@ -457,7 +459,7 @@ extension EmptyPageForStandard {
         if let color = color { button.setTitleColor(color, for: state) }
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.button` 点击事件
     ///
     /// - Parameters:
@@ -469,7 +471,7 @@ extension EmptyPageForStandard {
         button.addTarget(target, action: action, for: UIControl.Event.touchUpInside)
         return self
     }
-
+    
     /// 设置 `EmptyPageForStandard.button` 点击事件
     ///
     /// - Parameter event: 点击事件
@@ -479,16 +481,16 @@ extension EmptyPageForStandard {
         eventStore = event
         return self
     }
-
+    
 }
 
 // MARK: - build ui
 extension EmptyPageForStandard {
-
+    
     @objc func event() {
         eventStore?(self)
     }
-
+    
     func setImageAspect(firstImage: UIImage?) {
         guard let firstImage = firstImage, firstImage.size.width != 0, firstImage.size.height != 0 else { return }
         let constraint = constraints.first(where: { (element) -> Bool in
@@ -497,7 +499,7 @@ extension EmptyPageForStandard {
                 && element.firstAttribute == .width
                 && element.secondAttribute == .height
         })
-
+        
         if let constraint = constraint { removeConstraint(constraint) }
         let float = firstImage.size.width / firstImage.size.height
         let newConstraint = NSLayoutConstraint(item: imageView, attribute: .width,
@@ -507,7 +509,7 @@ extension EmptyPageForStandard {
         addConstraint(newConstraint)
         updateConstraintsIfNeeded()
     }
-
+    
     func buildUI() {
         addSubview(imageView)
         addSubview(titleLabel)
@@ -515,37 +517,37 @@ extension EmptyPageForStandard {
         addSubview(button)
         buildLayouts()
     }
-
+    
     func buildLayouts() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
-
+        
         var constraints = [NSLayoutConstraint]()
-
+        
         do {
             _ = change(vspace: .imageTop, value: 20)
             constraints.append(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
         }
-
+        
         do {
             _ = change(vspace: .imageWithTitle, value: 10)
             _ = change(hspace: .title, value: 15)
         }
-
+        
         do {
             _ = change(vspace: .titleWithText, value: 5)
             _ = change(hspace: .text, value: 15)
         }
-
+        
         do {
             _ = change(vspace: .textWithButton, value: 10)
             _ = change(hspace: .button, value: 15)
             constraints.append(NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -20))
         }
-
+        
         addConstraints(constraints)
     }
-
+    
 }

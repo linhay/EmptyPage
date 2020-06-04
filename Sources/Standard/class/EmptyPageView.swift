@@ -23,25 +23,24 @@
 import UIKit
 
 /// `EmptyPageTemplateProtocol` 用于约束 `EmptyPageView` 中的内容视图(contentView), 并提供 `EmptyPageTemplateProtocol.mix()` 函数
-public protocol EmptyPageTemplateProtocol: NSObjectProtocol { }
+public protocol EmptyPageTemplateProtocol: UIView {
+
+    var edge: UIEdgeInsets { get set }
+
+}
 
 public extension EmptyPageTemplateProtocol {
 
     /// 将不同空白页内容样式约束至背景View上
     ///
     /// - Returns: EmptyPageView
-    func mix() -> EmptyPageView {
-        guard let view = self as? UIView else { return EmptyPageView() }
-        return EmptyPageView.mix(view: view)
+    func mix(layout: ((_ backView: UIView, _ view: UIView) -> Void)? = nil) -> EmptyPageView {
+        return EmptyPageView(contentView: self, layout: layout)
     }
 
-    /// 将不同空白页内容样式约束至背景View上
-    ///
-    /// - Parameter config: 自定义约束
-    /// - Returns: EmptyPageView
-    func mix(_ config: ((_: UIView) -> Void)) -> EmptyPageView {
-        guard let view = self as? UIView else { return EmptyPageView() }
-        return EmptyPageView.mix(view: view)
+    func change(edge: UIEdgeInsets) -> Self {
+        self.edge = edge
+        return self
     }
 
 }
@@ -49,18 +48,42 @@ public extension EmptyPageTemplateProtocol {
 /// 自定义视图的容器视图
 public class EmptyPageView: UIView {
 
+    /// 预设默认背景色
+    public static var backColor: UIColor? = UIColor.white
     /// 内容视图
-    public weak var contentView: UIView?
-
+    public private(set) weak var contentView: UIView?
     /// 事件
-    public var eventStore: ((_: EmptyPageView) -> Void)?
+    private var backgroundTapAction: ((_: EmptyPageView) -> Void)?
+    private var edge: UIEdgeInsets = .zero
 
     /// 点击手势
-    lazy var tapGesture: UITapGestureRecognizer = {
+    private lazy var tapGesture: UITapGestureRecognizer = {
         let item = UITapGestureRecognizer(target: self, action: #selector(event))
         self.addGestureRecognizer(item)
         return item
     }()
+
+    public init(contentView: UIView, layout: ((_ self: UIView, _ view: UIView) -> Void)? = nil) {
+        super.init(frame: .zero)
+
+        if let view = contentView as? EmptyPageTemplateProtocol {
+            self.edge = view.edge
+        }
+        backgroundColor = EmptyPageView.backColor
+        addSubview(contentView)
+        if layout == nil {
+            contentView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+            contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        } else {
+            layout?(self, contentView)
+        }
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 
 }
 
@@ -86,7 +109,7 @@ extension EmptyPageView {
     /// - Parameter color: 背景颜色
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
     public func set(backgroundColor color: UIColor) -> Self {
-        self.backgroundColor = color
+        backgroundColor = color
         return self
     }
 
@@ -96,8 +119,8 @@ extension EmptyPageView {
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
     @discardableResult
     public func set(tap event: ((_: EmptyPageView) -> Void)?) -> Self {
-        _ = self.tapGesture
-        eventStore = event
+        _ = tapGesture
+        backgroundTapAction = event
         return self
     }
 
@@ -125,48 +148,12 @@ extension EmptyPageView {
     }
 
 }
-
-// MARK: - class method
-extension EmptyPageView {
-
-    /// 预设默认背景色
-    public static var backColor: UIColor = UIColor.white
-
-    /// backgroundView
-    public class var backgroundView: EmptyPageView {
-        let view = EmptyPageView(frame: UIScreen.main.bounds)
-        view.backgroundColor = EmptyPageView.backColor
-        return view
-    }
-
-}
-
-// MARK: - mix methods
-public extension EmptyPageView {
-
-    /// 将 自定义视图 约束至 `EmptyPageView` 上
-    ///
-    /// - Parameters:
-    ///   - view: 空白页内容样式
-    ///   - config: 自定义约束
-    /// - Returns: 为支持链式调用,返回 `EmptyPageView`
-    class func mix(backView: EmptyPageView = backgroundView, view: UIView) -> EmptyPageView {
-        backView.addSubview(view)
-        backView.contentView = view
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.centerXAnchor.constraint(equalTo: backView.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: backView.centerYAnchor).isActive = true
-        view.widthAnchor.constraint(equalTo: backView.widthAnchor).isActive = true
-        return backView
-    }
-}
-
 // MARK: - private method
 extension EmptyPageView {
 
     /// 点击手势事件
     @objc private func event() {
-        eventStore?(self)
+        backgroundTapAction?(self)
     }
 
 }

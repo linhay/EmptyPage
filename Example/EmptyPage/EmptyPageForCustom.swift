@@ -11,6 +11,8 @@ import EmptyPage
 
 class EmptyPageForCustom: UIView,EmptyPageTemplateProtocol {
 
+  public var edge: UIEdgeInsets = .zero
+
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var btn1: UIButton!

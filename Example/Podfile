@@ -7,13 +7,11 @@ install! 'cocoapods', :generate_multiple_pod_projects => true
 target 'EmptyPage_Example' do
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit', '5.0.0'
-  pod 'Stuart', :path => '/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec'
-#  git => 'git@github.com:linhay/Stuart.git', :branch => 'master'
-  pod 'Stem', :path => '/Users/linhey/Desktop/linhey/pod_template_stem/Template.podspec'
-  #:git => 'git@github.com:linhay/Stem.git',   :branch => 'develop'
+  pod 'Stuart', :git => 'git@github.com:linhay/Stuart.git', :branch => 'dev'
+  pod 'Stem', :git => 'git@github.com:linhay/Stem.git',   :branch => 'develop'
   pod 'SVProgressHUD'
   pod 'MJRefresh'
   pod 'LookinServer', :configurations => ['Debug']
-  # pod 'SwiftLint'
+   pod 'SwiftLint'
 end
  

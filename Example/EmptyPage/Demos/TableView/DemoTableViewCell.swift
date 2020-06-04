@@ -10,10 +10,10 @@ import UIKit
 import Stuart
 import Stem
 
-class DemoTableViewCell: SectionTableItemCell<Void>, STNibProtocol {
+class DemoTableViewCell: UITableViewCell, ConfigurableTableCell, STNibProtocol {
 
-    override class var preferredHeight: CGFloat {
-        return 44
+    static func preferredSize(tableView: UITableView, model: Void?) -> CGSize {
+        .init(width: 0, height: 44)
     }
     
 }

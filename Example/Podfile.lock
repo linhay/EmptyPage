@@ -11,6 +11,7 @@ PODS:
   - Stem (0.0.31):
     - Stem/AVKit (= 0.0.31)
     - Stem/Core (= 0.0.31)
+    - Stem/CoreText (= 0.0.31)
     - Stem/Foundation (= 0.0.31)
     - Stem/Fundamentals (= 0.0.31)
     - Stem/NSObject (= 0.0.31)
@@ -20,6 +21,8 @@ PODS:
   - Stem/AVKit (0.0.31):
     - Stem/Core
   - Stem/Core (0.0.31)
+  - Stem/CoreText (0.0.31):
+    - Stem/Core
   - Stem/Foundation (0.0.31):
     - Stem/Core
     - Stem/Foundation/Coder (= 0.0.31)
@@ -105,6 +108,7 @@ PODS:
     - Stem/Runtime
   - Stem/UIKit/Font (0.0.31):
     - Stem/Core
+    - Stem/CoreText
     - Stem/Fundamentals
     - Stem/NSObject
     - Stem/Runtime
@@ -179,17 +183,21 @@ PODS:
   - Stuart/SectionView (0.0.1)
   - Stuart/unit (0.0.1)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
   - LookinServer
   - MJRefresh
   - SnapKit (= 5.0.0)
-  - Stem (from `/Users/linhey/Desktop/linhey/pod_template_stem/Template.podspec`)
-  - Stuart (from `/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec`)
+  - "Stem (from `git@github.com:linhay/Stem.git`, branch `develop`)"
+  - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `dev`)"
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - SwiftLint
   trunk:
     - LookinServer
     - MJRefresh
@@ -200,19 +208,30 @@ EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
   Stem:
-    :path: "/Users/linhey/Desktop/linhey/pod_template_stem/Template.podspec"
+    :branch: develop
+    :git: "git@github.com:linhay/Stem.git"
   Stuart:
-    :path: "/Users/linhey/Desktop/linhey/pod_template_stuart/Template.podspec"
+    :branch: dev
+    :git: "git@github.com:linhay/Stuart.git"
+
+CHECKOUT OPTIONS:
+  Stem:
+    :commit: 0c5e00788d66bb8f5fbc4b93c802f291ee2c09ec
+    :git: "git@github.com:linhay/Stem.git"
+  Stuart:
+    :commit: cdf9baa74318b6e84f490b6fde8aaa5066231e89
+    :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
   EmptyPage: 26e1dddd708261c85d9850c2a8840a431d4f968e
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Stem: f3e2d0f79aa3c154eb4a0c013f9e42b06e1dd93a
+  Stem: 179e38e4bc5f522550df4b95c610629fee1d62c4
   Stuart: d186cb413906b9681c2895b6c44bbf8b7b6a28b5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: e6204da6958dacd7f7b51ac014638e66f7cc0f99
+PODFILE CHECKSUM: 42001215c3887b2042d41096fc46471b975b88fe
 
 COCOAPODS: 1.9.0
