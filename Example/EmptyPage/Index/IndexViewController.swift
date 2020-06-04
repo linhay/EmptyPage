@@ -40,9 +40,15 @@ class IndexViewController: SectionCollectionViewController {
             }
         }
 
+        navigationItem.rightBarButtonItem = .init(title: "示例", style: .plain, target: self, action: #selector(demos))
         let demoSection = IndexSection(models: models)
         demoSection.title = "demo"
         manager.update(demoSection)
+    }
+
+    @objc
+    func demos() {
+        st.push(vc: HomeViewController())
     }
 
 }

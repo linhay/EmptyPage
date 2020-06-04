@@ -98,7 +98,7 @@ class AutoLayoutViewController: UIViewController {
   @IBAction func textSpace(_ sender: UIButton) {
     textSpaceValue += (textSpaceValue > 100) ? -90 : 10
     if onlyTextView.superview != nil {
-      onlyTextView.change(hspace: EmptyPageForText.HSpaceType.text, value: textSpaceValue)
+//      onlyTextView.change(hspace: EmptyPageForText.HSpaceType.text, value: textSpaceValue)
     }
     
     if standardView.superview != nil {

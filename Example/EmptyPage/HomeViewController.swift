@@ -75,13 +75,7 @@ class HomeViewController: UITableViewController {
     }
     
     func buildDemos() {
-        let table = CellItem(title: "tableView示例", subTitle: "tableView", emptyView: EmptyPageView())
-        let collection = CellItem(title: "collectionView示例", subTitle: "collectionView", emptyView: EmptyPageView())
-        let scrollView = CellItem(title: "scrollView示例", subTitle: "scrollView", event: {
-            let vc = DemoScrollViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
-        sections.append(Section(title: "完整示例", items: [table,collection, scrollView]))
+        sections.append(Section(title: "完整示例", items: []))
     }
     
     func buildByEmptystat() {
@@ -182,7 +176,7 @@ class HomeViewController: UITableViewController {
             view.label.text = "Connection failure"
             let item = CellItem(title: "自定义样式",
                                 subTitle: "一",
-                                emptyView: .mix(view: view))
+                                emptyView: .init(contentView: view))
             items.append(item)
         }
         sections.append(Section(title: "自定义样式",items: items))
@@ -202,7 +196,6 @@ class HomeViewController: UITableViewController {
                                              attributes: [.font : UIFont.systemFont(ofSize: 20),
                                                           .foregroundColor: UIColor.darkText])
         attributed.append(attributed2)
-        
         if true {
             let emptyView = EmptyPageView.Template.text.set(text: "Connection failure").mix()
             let item = CellItem(title: "纯文字", subTitle: "默认样式", emptyView: emptyView)

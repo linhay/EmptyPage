@@ -23,147 +23,69 @@
 import UIKit
 
 /// `EmptyPageForText` 文字样式模板
-open class EmptyPageForText: UIView, EmptyPageTemplateProtocol {
-  
-  // MARK: - Public property
-  public let label: UILabel = {
-    let label = UILabel()
-    label.numberOfLines = 0
-    label.textAlignment = .center
-    label.textColor = .black
-    return label
-  }()
-  
-  // MARK: - Override
-  public init() {
-    super.init(frame: CGRect.zero)
-    buildUI()
-  }
-  
-  public required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    buildUI()
-  }
+open class EmptyPageForText: UILabel, EmptyPageTemplateProtocol {
+    public var edge: UIEdgeInsets = .zero
 
-}
-
-// MARK: 调整 layout 相关枚举与函数
-extension EmptyPageForText {
-
-  /// 修改视图水平方向上的间距
-  ///
-  /// - text: 文本左右间距
-  public enum HSpaceType {
-    case text
-  }
-
-  /// 修改视图水平方向上的间距
-  ///
-  /// - Parameters:
-  ///   - space: 指定视图间距
-  ///   - value: 修改值
-  @discardableResult
-  public func change(hspace type: HSpaceType, value: CGFloat) -> Self {
-    
-    let fromItem: NSObject = label
-    let toItem: NSObject = self
-    let priority = UILayoutPriority(999)
-    
-    let findItems = constraints.filter { (constraint) -> Bool in
-      guard constraint.priority == priority,
-        constraint.firstItem === fromItem,
-        constraint.secondItem === toItem
-        else { return false }
-      return true
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
     }
-    
-    if findItems.isEmpty {
-      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
-                                         relatedBy: .equal,
-                                         toItem: toItem, attribute: .left,
-                                         multiplier: 1, constant: value)
-      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
-                                        relatedBy: .equal,
-                                        toItem: toItem, attribute: .right,
-                                        multiplier: 1, constant: -value)
-      rightItem.priority = priority
-      leftItem.priority = priority
-      addConstraints([rightItem, leftItem])
-    } else {
-      findItems.forEach { (item) in
-        item.constant = item.firstAttribute == .left ? value : -value
-      }
+
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
     }
-    
-    updateConstraintsIfNeeded()
-    return self
-  }
-  
+
+    func initialize() {
+        textAlignment = .center
+    }
 }
 
 // MARK: 深度配置元素 相关函数
-extension EmptyPageForText {
+public extension EmptyPageForText {
 
-  /// 配置 `EmptyPageForText.label`
-  ///
-  /// - Parameter call: 元素回调, 回调 `EmptyPageForText.label`
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
-  @discardableResult
-  public func config(label call: (_: UILabel) -> Void) -> Self {
-    call(label)
-    return self
-  }
+    /// 配置 `EmptyPageForText.label`
+    ///
+    /// - Parameter call: 元素回调, 回调 `EmptyPageForText.label`
+    /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
+    @discardableResult
+    func config(label call: (_: UILabel) -> Void) -> Self {
+        call(self)
+        return self
+    }
 
 }
 
 // MARK: 轻度配置元素 相关函数
-extension EmptyPageForText {
+public extension EmptyPageForText {
 
-  /// 设置 `EmptyPageForText.label`
-  ///
-  /// - Parameters:
-  ///   - title: 文本
-  ///   - color: 文本颜色 default: UIColor.black
-  ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
-  @discardableResult
-  public func set(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
-    label.text = text
-    label.textColor = color
-    label.font = font
-    return self
-  }
+    /// 设置 `EmptyPageForText.label`
+    ///
+    /// - Parameters:
+    ///   - title: 文本
+    ///   - color: 文本颜色 default: UIColor.black
+    ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
+    /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
+    @discardableResult
+    func set(text: String, color: UIColor? = nil, font: UIFont? = nil) -> Self {
+        self.text = text
+        if let value = color {
+            self.textColor = value
+        }
+        if let font = font {
+            self.font = font
+        }
+        return self
+    }
 
-  /// 设置 `EmptyPageForText.label`
-  ///
-  /// - Parameter attributed: 富文本
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
-  @discardableResult
-  public func set(attributed: NSAttributedString) -> Self {
-    label.attributedText = attributed
-    return self
-  }
-  
-}
+    /// 设置 `EmptyPageForText.label`
+    ///
+    /// - Parameter attributed: 富文本
+    /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
+    @discardableResult
+    func set(attributed: NSAttributedString) -> Self {
+        self.attributedText = attributed
+        return self
+    }
 
-extension EmptyPageForText {
-  
-  func buildUI() {
-    addSubview(label)
-    label.translatesAutoresizingMaskIntoConstraints = false
-    
-    #if swift(>=4.2)
-    let options = NSLayoutConstraint.FormatOptions(rawValue: 0)
-    #else
-    let options = NSLayoutFormatOptions(rawValue: 0)
-    #endif
-    
-    let layout0 = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[label]-|",
-                                                 options: options,
-                                                 metrics: nil,
-                                                 views: ["label": label])
-    _ = change(hspace: .text, value: 15)
-    addConstraints(layout0)
-  }
-  
 }

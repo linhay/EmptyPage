@@ -17,7 +17,7 @@ class DemoTableSection: SectionTableProtocol {
     var list: [Int] = .init(repeating: 0, count: 3)
 
     func itemHeight(at index: Int) -> CGFloat {
-        return DemoTableViewCell.preferredHeight
+        return DemoTableViewCell.preferredSize(tableView: tableView, model: nil).height
     }
 
     func config(sectionView: UITableView) {

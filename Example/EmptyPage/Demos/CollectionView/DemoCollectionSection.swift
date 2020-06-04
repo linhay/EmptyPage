@@ -32,10 +32,6 @@ class DemoCollectionSection: SectionCollectionProtocol {
         return view
     }
 
-    func itemHeight(at index: Int) -> CGFloat {
-        return DemoTableViewCell.preferredHeight
-    }
-
     func config(sectionView: UITableView) {
         sectionView.st.register(DemoTableViewCell.self)
     }

@@ -83,7 +83,7 @@ class DZIndexViewController: UITableViewController {
                          color: UIColor("#545454"),
                          font: UIFont.boldSystemFont(ofSize: 15))
                     .change(vspace: .titleWithText, value: 15)
-                    .mix({ (item) in
+                    .mix(layout: { (backView, item) in
                         item.snp.makeConstraints({ (make) in
                             make.left.equalToSuperview().offset(15)
                             make.right.equalToSuperview().offset(-15)
@@ -328,7 +328,7 @@ class DZIndexViewController: UITableViewController {
                     .set(text: "Safari cannot open the page because your iPhone is not connected to the Internet.",
                          color: UIColor("#7d7f7f"),
                          font: UIFont.systemFont(ofSize: 18))
-                    .change(hspace: .text, value: 20)
+                    .change(edge: .init(top: 0, left: 20, bottom: 0, right: 20))
                     .mix()
                     .set(tap: backgroundTapEvent())
             case .skype:
@@ -341,7 +341,7 @@ class DZIndexViewController: UITableViewController {
                 attr.append(attr2)
                 return EmptyPageView.Template.text
                     .set(attributed: attr)
-                    .change(hspace: .text, value: 20)
+                    .change(edge: .init(top: 0, left: 20, bottom: 0, right: 20))
                     .mix()
                     .set(tap: backgroundTapEvent())
             case .slack:
