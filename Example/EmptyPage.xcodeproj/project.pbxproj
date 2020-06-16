@@ -20,9 +20,6 @@
 		CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */; };
 		CD22C7C22334BFC3003192F1 /* EmptyViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */; };
 		CD22C7C32334BFC3003192F1 /* EmptyViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */; };
-		CD293E4824504F610094B2A4 /* trunk.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD293E4524504F610094B2A4 /* trunk.sh */; };
-		CD293E4924504F610094B2A4 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD293E4624504F610094B2A4 /* document.sh */; };
-		CD293E4A24504F610094B2A4 /* git_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD293E4724504F610094B2A4 /* git_config.sh */; };
 		CD41A014233A0F8E00C78381 /* EmptyViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41A013233A0F8E00C78381 /* EmptyViewStore.swift */; };
 		CD41A021233A157C00C78381 /* TemplateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41A020233A157C00C78381 /* TemplateSection.swift */; };
 		CD41A024233A15E600C78381 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD41A022233A15E600C78381 /* TemplateCell.swift */; };
@@ -49,6 +46,11 @@
 		CD89238C244F3EFB003B4AB4 /* DemoTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD89238B244F3EFB003B4AB4 /* DemoTableHeaderView.swift */; };
 		CD89239B244F4E07003B4AB4 /* IndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD892399244F4E07003B4AB4 /* IndexHeaderView.swift */; };
 		CD89239C244F4E07003B4AB4 /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD89239A244F4E07003B4AB4 /* IndexHeaderView.xib */; };
+		CD9C18222498639400FC0DE9 /* trunk.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C181F2498639400FC0DE9 /* trunk.sh */; };
+		CD9C18232498639400FC0DE9 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18202498639400FC0DE9 /* document.sh */; };
+		CD9C18242498639400FC0DE9 /* git_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18212498639400FC0DE9 /* git_config.sh */; };
+		CD9C1826249863C500FC0DE9 /* license in Resources */ = {isa = PBXBuildFile; fileRef = CD9C1825249863C500FC0DE9 /* license */; };
+		CD9C1828249863E100FC0DE9 /* license.py in Resources */ = {isa = PBXBuildFile; fileRef = CD9C1827249863E100FC0DE9 /* license.py */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
 		CDC946FE22017D6A0037F305 /* DZIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC946FC22017D6A0037F305 /* DZIndexViewController.swift */; };
@@ -88,9 +90,6 @@
 		CD22C7BC2334BFC3003192F1 /* EmptyViewSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyViewSectionCell.xib; sourceTree = "<group>"; };
 		CD22C7BD2334BFC3003192F1 /* EmptyViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewSection.swift; sourceTree = "<group>"; };
 		CD22C7BE2334BFC3003192F1 /* EmptyViewSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewSectionCell.swift; sourceTree = "<group>"; };
-		CD293E4524504F610094B2A4 /* trunk.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = trunk.sh; sourceTree = "<group>"; };
-		CD293E4624504F610094B2A4 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = document.sh; sourceTree = "<group>"; };
-		CD293E4724504F610094B2A4 /* git_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = git_config.sh; sourceTree = "<group>"; };
 		CD41A013233A0F8E00C78381 /* EmptyViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewStore.swift; sourceTree = "<group>"; };
 		CD41A020233A157C00C78381 /* TemplateSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateSection.swift; sourceTree = "<group>"; };
 		CD41A022233A15E600C78381 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
@@ -117,6 +116,11 @@
 		CD89238B244F3EFB003B4AB4 /* DemoTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableHeaderView.swift; sourceTree = "<group>"; };
 		CD892399244F4E07003B4AB4 /* IndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHeaderView.swift; sourceTree = "<group>"; };
 		CD89239A244F4E07003B4AB4 /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
+		CD9C181F2498639400FC0DE9 /* trunk.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = trunk.sh; sourceTree = "<group>"; };
+		CD9C18202498639400FC0DE9 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = document.sh; sourceTree = "<group>"; };
+		CD9C18212498639400FC0DE9 /* git_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = git_config.sh; sourceTree = "<group>"; };
+		CD9C1825249863C500FC0DE9 /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
+		CD9C1827249863E100FC0DE9 /* license.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = license.py; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
 		CDC946FC22017D6A0037F305 /* DZIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZIndexViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +204,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				CD293E4424504F610094B2A4 /* scripts */,
+				CD9C181E2498639400FC0DE9 /* scripts */,
 				CD5ECAD5226EE63D0075CBD5 /* .travis.yml */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
@@ -267,17 +271,6 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
-		CD293E4424504F610094B2A4 /* scripts */ = {
-			isa = PBXGroup;
-			children = (
-				CD293E4524504F610094B2A4 /* trunk.sh */,
-				CD293E4624504F610094B2A4 /* document.sh */,
-				CD293E4724504F610094B2A4 /* git_config.sh */,
-			);
-			name = scripts;
-			path = ../scripts;
-			sourceTree = "<group>";
-		};
 		CD41A01F233A156A00C78381 /* TemplateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +322,18 @@
 				CD89239A244F4E07003B4AB4 /* IndexHeaderView.xib */,
 			);
 			path = Index;
+			sourceTree = "<group>";
+		};
+		CD9C181E2498639400FC0DE9 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				CD9C1825249863C500FC0DE9 /* license */,
+				CD9C1827249863E100FC0DE9 /* license.py */,
+				CD9C181F2498639400FC0DE9 /* trunk.sh */,
+				CD9C18202498639400FC0DE9 /* document.sh */,
+				CD9C18212498639400FC0DE9 /* git_config.sh */,
+			);
+			path = scripts;
 			sourceTree = "<group>";
 		};
 		CDBC9B592448791600384B69 /* TableView */ = {
@@ -394,10 +399,12 @@
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "EmptyPage_Example" */;
 			buildPhases = (
 				7CD4D0AEEEE555DC7F08EB2C /* [CP] Check Pods Manifest.lock */,
+				CD9C181C2498631F00FC0DE9 /* Script-Git */,
+				CD9C181D2498633100FC0DE9 /* Script-license */,
+				CD543C68233CCBC200CFE10F /* Script-SwiftLint */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				CD543C68233CCBC200CFE10F /* ShellScript */,
 				EB8249D12F7B6FDE4D3FF153 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -450,20 +457,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD5302EE244C1F4A0059D5C5 /* DemoScrollViewController.xib in Resources */,
-				CD293E4824504F610094B2A4 /* trunk.sh in Resources */,
+				CD9C18222498639400FC0DE9 /* trunk.sh in Resources */,
 				CD22C7C12334BFC3003192F1 /* EmptyViewSectionCell.xib in Resources */,
 				CD6ED8C7244214A6002ED925 /* IndexCell.xib in Resources */,
 				CDF2E29D24474261002491A1 /* DemoCollectionViewController.xib in Resources */,
 				CD41A025233A15E600C78381 /* TemplateCell.xib in Resources */,
 				9D9EB38F2008674E002264E7 /* HomeViewController.storyboard in Resources */,
-				CD293E4A24504F610094B2A4 /* git_config.sh in Resources */,
+				CD9C18242498639400FC0DE9 /* git_config.sh in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				CD293E4924504F610094B2A4 /* document.sh in Resources */,
+				CD9C18232498639400FC0DE9 /* document.sh in Resources */,
 				CD41A108233A47D300C78381 /* DZNEmptyCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD056F3121D0E78F00A7F94A /* AutoLayoutViewController.storyboard in Resources */,
 				CDF2E2C524484721002491A1 /* DemoCollectionHeaderView.xib in Resources */,
 				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
+				CD9C1826249863C500FC0DE9 /* license in Resources */,
+				CD9C1828249863E100FC0DE9 /* license.py in Resources */,
 				9D9EB3932008853E002264E7 /* EmptyPageForCustom.xib in Resources */,
 				CD5302B7244B70360059D5C5 /* DemoTableViewCell.xib in Resources */,
 				CD89239C244F4E07003B4AB4 /* IndexHeaderView.xib in Resources */,
@@ -493,7 +502,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CD543C68233CCBC200CFE10F /* ShellScript */ = {
+		CD543C68233CCBC200CFE10F /* Script-SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -502,13 +511,50 @@
 			);
 			inputPaths = (
 			);
+			name = "Script-SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# \"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		CD9C181C2498631F00FC0DE9 /* Script-Git */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Script-Git";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh \"$PROJECT_DIR/scripts/git_config.sh\"\n";
+		};
+		CD9C181D2498633100FC0DE9 /* Script-license */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Script-license";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\npython3 \"$PROJECT_DIR/scripts/license.py\"\n";
 		};
 		EB8249D12F7B6FDE4D3FF153 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

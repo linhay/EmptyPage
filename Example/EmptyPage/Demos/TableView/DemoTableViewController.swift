@@ -65,7 +65,7 @@ class DemoTableViewController: UIViewController, STNibProtocol {
 
     @IBAction func canScrollEnabledAction(_ sender: UIButton) {
         sender.isSelected.toggle()
-        sectionView.ep.isScrollEnabled = sender.isSelected
+        sectionView.ep.canScrollEnabled = sender.isSelected
     }
     
 }

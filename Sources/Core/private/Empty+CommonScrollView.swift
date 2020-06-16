@@ -22,133 +22,24 @@
 
 import UIKit
 
-extension UIScrollView {
+extension UIView {
     
-     enum EmptyDataKey {
-        static let emptyView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.emptyView".hashValue)!
-        static let ep_isScrollEnabled = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.isScrollEnabled".hashValue)!
-        static let ep_canScrollEnabled = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.canScrollEnabled".hashValue)!
-        static let ep_supplementaryView = UnsafeRawPointer(bitPattern: "EmptyPage.UIScrollView.ep.supplementaryView".hashValue)!
-    }
-    
-    // swiftlint:disable implicit_getter
-    var ep_isScrollEnabled: Bool {
-        set { objc_setAssociatedObject(self, EmptyDataKey.ep_isScrollEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-        get { return objc_getAssociatedObject(self, EmptyDataKey.ep_isScrollEnabled) as? Bool ?? self.isScrollEnabled }
-    }
-    
-    var ep_canScrollEnabled: Bool {
-        set { objc_setAssociatedObject(self, EmptyDataKey.ep_canScrollEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-        get { return objc_getAssociatedObject(self, EmptyDataKey.ep_canScrollEnabled) as? Bool ?? false }
-    }
-    
-    var ep_supplementaryView: [UIView.Type] {
-        set { objc_setAssociatedObject(self, EmptyDataKey.ep_supplementaryView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-        get { return objc_getAssociatedObject(self, EmptyDataKey.ep_supplementaryView) as? [UIView.Type] ?? [] }
-    }
-    
-    // 空白页视图
-    var emptyView: UIView? {
-        get {
-            return objc_getAssociatedObject(self, EmptyDataKey.emptyView) as? UIView
-        }
-        set {
-            EmptyPageRuntime.swizzingLayout
-            if self.isKind(of: UITableView.self) {
-                EmptyPageRuntime.swizzingTableView
-            } else if self.isKind(of: UICollectionView.self) {
-                EmptyPageRuntime.swizzingCollectionView
-            } else if self.isKind(of: UIScrollView.self) {
-                EmptyPageRuntime.swizzingScrollView
-            }
-            objc_setAssociatedObject(self, EmptyDataKey.emptyView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    // swiftlint:enable implicit_getter
-    
-}
-
-extension UIScrollView {
-    
-    func reloadEmptyView(isEmpty: Bool) {
-        guard emptyView != nil else {
-            return
-        }
-        if isEmpty, emptyView?.superview == nil {
-            ep_isScrollEnabled = isScrollEnabled
-        }
-        isEmpty ? showEmptyView() : hideEmptyView()
-    }
-    
-    private func showEmptyView() {
-        guard let view = emptyView else {
-            isScrollEnabled = ep_isScrollEnabled
-            return
-        }
-        
-        isScrollEnabled = ep_canScrollEnabled
-        
-        view.frame = bounds
-        if view.superview !== self {
-            view.removeFromSuperview()
-            addSubview(view)
-        }
-        
-        #if swift(>=4.2)
-        sendSubviewToBack(view)
-        #else
-        sendSubview(toBack: view)
-        #endif
-    }
-    
-    private func hideEmptyView() {
-        emptyView?.removeFromSuperview()
-        isScrollEnabled = ep_isScrollEnabled
+     enum EmptyPageViewKey {
+        static let manager = UnsafeRawPointer(bitPattern: "EmptyPage.uiview.ep.manager".hashValue)!
     }
 
-    func set(canScrollEnabled: Bool) {
-        ep_canScrollEnabled = canScrollEnabled
-        if emptyView?.superview === self {
-            isScrollEnabled = canScrollEnabled
-        }
-    }
-
-    @objc func emptypage_reloadEmptyView() { }
-
-    func setEmptyView(_ view: UIView?) {
-        guard let view = view else {
-            isScrollEnabled = ep_isScrollEnabled
-            emptyView?.removeFromSuperview()
-            return
-        }
-        
-        if emptyView !== view {
-            emptyView?.removeFromSuperview()
-        }
-        
-        emptyView = view
-    }
-    
-}
-
-// MARK: - layoutSubviews
-extension UIScrollView {
-    
-    func reSizeEmptyPage() {
-        guard let view = emptyView, view.superview != nil, view.frame != bounds else {
-            return
-        }
-        view.frame = bounds
+     var emptyPageViewManager: EmptyPageViewManager? {
+        set { objc_setAssociatedObject(self, EmptyPageViewKey.manager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+        get { return objc_getAssociatedObject(self, EmptyPageViewKey.manager) as? EmptyPageViewManager }
     }
 
     @objc func emptyPage_layoutSubviews() {
         emptyPage_layoutSubviews()
-        reSizeEmptyPage()
+        emptyPageViewManager?.resize()
     }
-    
+
     @objc func emptyPage_layoutIfNeeded() {
         emptyPage_layoutIfNeeded()
-        reSizeEmptyPage()
+        emptyPageViewManager?.resize()
     }
-    
 }

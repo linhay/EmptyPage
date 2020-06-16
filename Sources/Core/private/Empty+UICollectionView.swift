@@ -24,38 +24,29 @@ import UIKit
 
 extension UICollectionView {
     
-    var isEmpty: Bool {
-        let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
-        return (0..<count).first(where: { self.numberOfItems(inSection: $0) > 0 }) == nil
-    }
-    
     @objc func emptyPage_insertItems(at indexPaths: [IndexPath]) {
         self.emptyPage_insertItems(at: indexPaths)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_deleteItems(at indexPaths: [IndexPath]) {
         self.emptyPage_deleteItems(at: indexPaths)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_insertSections(_ sections: IndexSet) {
         self.emptyPage_insertSections(sections)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_deleteSections(_ sections: IndexSet) {
         self.emptyPage_deleteSections(sections)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_reloadData() {
         self.emptyPage_reloadData()
-        reloadEmptyView(isEmpty: isEmpty)
-    }
-
-    override func emptypage_reloadEmptyView() {
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
 }

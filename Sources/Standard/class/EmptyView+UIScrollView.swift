@@ -22,7 +22,17 @@
 
 import UIKit
 
-public extension EmptyPage where Base: UIScrollView {
+public extension EmptyPage where Base: UITableView {
+    /// 添加空白页视图
+    ///
+    /// - Parameter view: 模板视图
+    func setEmpty(_ template: EmptyPageTemplateProtocol?) {
+        self.setEmpty(template?.mix())
+    }
+
+}
+
+public extension EmptyPage where Base: UICollectionView {
     /// 添加空白页视图
     ///
     /// - Parameter view: 模板视图

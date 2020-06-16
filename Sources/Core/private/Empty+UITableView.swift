@@ -31,31 +31,27 @@ extension UITableView {
     
     @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         self.emptyPage_insertRows(at: indexPaths, with: animation)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         self.emptyPage_deleteRows(at: indexPaths, with: animation)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
         self.emptyPage_insertSections(sections, with: animation)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
         self.emptyPage_deleteSections(sections, with: animation)
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
     @objc func emptyPage_reloadData() {
         self.emptyPage_reloadData()
-        reloadEmptyView(isEmpty: isEmpty)
-    }
-
-    override func emptypage_reloadEmptyView() {
-        reloadEmptyView(isEmpty: isEmpty)
+        emptyPageViewManager?.reload()
     }
     
 }
