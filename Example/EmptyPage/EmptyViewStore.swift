@@ -15,7 +15,7 @@ protocol EmptyViewStoreProtocol {
     var emptyView: EmptyPageView { get }
 }
 
-extension EmptyPage where Base: UIScrollView {
+extension EmptyPage where Base: UICollectionView {
 
     /// 添加空白页视图
     ///
@@ -24,6 +24,17 @@ extension EmptyPage where Base: UIScrollView {
         self.setEmpty(template?.emptyView)
     }
     
+}
+
+extension EmptyPage where Base: UITableView {
+
+    /// 添加空白页视图
+    ///
+    /// - Parameter view: 模板视图
+    func setEmpty(_ template: EmptyViewStoreProtocol?) {
+        self.setEmpty(template?.emptyView)
+    }
+
 }
 
 

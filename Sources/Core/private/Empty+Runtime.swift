@@ -25,27 +25,13 @@ import UIKit
 struct EmptyPageRuntime {
     
     static let swizzingLayout: Void = {
-        swizzing(sel: #selector(UIScrollView.layoutSubviews),
-                 of: #selector(UIScrollView.emptyPage_layoutSubviews),
-                 in: UIScrollView.self)
+        swizzing(sel: #selector(UIView.layoutSubviews),
+                 of: #selector(UIView.emptyPage_layoutSubviews),
+                 in: UIView.self)
         
-        swizzing(sel: #selector(UIScrollView.layoutIfNeeded),
-                 of: #selector(UIScrollView.emptyPage_layoutIfNeeded),
-                 in: UIScrollView.self)
-    }()
-
-    static let swizzingScrollView: Void = {
-        swizzing(sel: #selector(UIScrollView.addSubview(_:)),
-                 of: #selector(UIScrollView.emptyPage_addSubview(_:)),
-                 in: UIScrollView.self)
-
-        swizzing(sel: #selector(UIScrollView.insertSubview(_:at:)),
-                 of: #selector(UIScrollView.emptyPage_insertSubview(_:at:)),
-                 in: UIScrollView.self)
-
-        swizzing(sel: #selector(UIScrollView.willRemoveSubview(_:)),
-                 of: #selector(UIScrollView.emptyPage_willRemoveSubview(_:)),
-                 in: UIScrollView.self)
+        swizzing(sel: #selector(UIView.layoutIfNeeded),
+                 of: #selector(UIView.emptyPage_layoutIfNeeded),
+                 in: UIView.self)
     }()
     
     /// 替换 tableView 相关函数
@@ -124,4 +110,3 @@ struct EmptyPageRuntime {
         }
     }
 }
-

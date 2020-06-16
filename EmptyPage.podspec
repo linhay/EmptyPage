@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
     s.source = { :git => 'https://github.com/linhay/EmptyPage.git', :tag => s.version.to_s }
 
     s.swift_version = ['4.0', '4.2', '5.0', '5.1']
+    s.default_subspec = 'Core'
 
     s.ios.deployment_target = '9.0'
     s.requires_arc = true
