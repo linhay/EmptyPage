@@ -25,10 +25,10 @@ import UIKit
 open class EmptyPageViewManager: NSObject {
 
     // 空白页视图
-    open var view: UIView?
+    open private(set) var view: UIView?
     // 父视图
-    open weak var delegate: UIView?
-    open var isEmpty: () -> Bool
+    open private(set) weak var delegate: UIView?
+    open private(set) var isEmpty: () -> Bool
 
     public init(delegate: UIView, isEmpty: @escaping () -> Bool) {
         self.isEmpty = isEmpty
@@ -66,7 +66,7 @@ open class EmptyPageViewManager: NSObject {
 
 open class EmptyPageScrollViewManager: EmptyPageViewManager {
 
-    open var isScrollEnabled: Bool = true
+    private(set) var isScrollEnabled: Bool = true
     open var canScrollEnabled: Bool = true
     private var scrollView: UIScrollView? { delegate as? UIScrollView }
 
