@@ -24,10 +24,13 @@ import UIKit
 
 public extension EmptyPage where Base: UIView {
 
-    /// 空白页视图
-    var emptyView: UIView? {
-        return base.emptyPageViewManager?.view
+    var manager: EmptyPageViewManager? {
+        set { base.emptyPageViewManager = newValue }
+        get { return base.emptyPageViewManager }
     }
+
+    /// 空白页视图
+    var emptyView: UIView? { manager?.view }
 
     /**
      空白页是否显示
@@ -39,7 +42,7 @@ public extension EmptyPage where Base: UIView {
 
      ```
 
-     scrollView.ep.isShow
+     UIView().ep.isShow
 
      ```
      */
@@ -56,14 +59,7 @@ public extension EmptyPage where Base: UIView {
 
      ```
 
-     scrollView.ep.reload()
-
-     ```
-
-     - Important:
-
-     - 不走 tableView.reloadData() | collectionView.reloadData()
-
+     UIView().ep.reload()
      */
     func reload() {
         base.emptyPageViewManager?.reload()
@@ -72,6 +68,11 @@ public extension EmptyPage where Base: UIView {
 }
 
 public extension EmptyPage where Base: UIScrollView {
+
+    var manager: EmptyPageScrollViewManager? {
+        set { base.emptyPageViewManager = newValue }
+        get { return base.emptyPageViewManager as? EmptyPageScrollViewManager }
+    }
 
     /**
      空白页显示时, scroll能否滚动
@@ -83,18 +84,14 @@ public extension EmptyPage where Base: UIScrollView {
 
      ```
 
-      scrollView.ep.isScrollEnabled = true  // 当空白页显示时可以滚动
-      scrollView.ep.isScrollEnabled = false // 当空白页显示时不可以滚动
+      scrollView.ep.canScrollEnabled = true  // 当空白页显示时可以滚动
+      scrollView.ep.canScrollEnabled = false // 当空白页显示时不可以滚动
 
      ```
      */
     var canScrollEnabled: Bool {
-        set {
-            (base.emptyPageViewManager as? EmptyPageScrollViewManager)?.canScrollEnabled = newValue
-        }
-        get {
-            return (base.emptyPageViewManager as? EmptyPageScrollViewManager)?.canScrollEnabled ?? false
-        }
+        set { manager?.canScrollEnabled = newValue }
+        get { return manager?.canScrollEnabled ?? false }
     }
 
 }
@@ -108,7 +105,7 @@ public extension EmptyPage where Base: UITableView {
      - Date: 2020/04/22
 
      - Parameter view: 空白页视图
-     - Parameter isReload: 是否需要刷新空白页显示
+     - Parameter isReload: 是否需要立即刷新空白页显示
 
      - Example:
 
@@ -119,10 +116,12 @@ public extension EmptyPage where Base: UITableView {
      ```
      */
     func setEmpty(_ view: UIView?, isReload: Bool = false) {
-        if base.emptyPageViewManager == nil {
-            base.emptyPageViewManager = EmptyPageTableViewManager(delegate: base)
+        EmptyPageRuntime.swizzingLayout
+        EmptyPageRuntime.swizzingTableView
+        if manager == nil {
+            manager = EmptyPageTableViewManager(delegate: base)
         }
-        base.emptyPageViewManager?.setEmptyView(view)
+        manager?.setEmptyView(view)
         isReload ? reload() : ()
     }
 
@@ -150,10 +149,10 @@ public extension EmptyPage where Base: UICollectionView {
     func setEmpty(_ view: UIView?, isReload: Bool = false) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView
-        if base.emptyPageViewManager == nil {
-            base.emptyPageViewManager = EmptyPageCollectionViewManager(delegate: base)
+        if manager == nil {
+            manager = EmptyPageCollectionViewManager(delegate: base)
         }
-        base.emptyPageViewManager?.setEmptyView(view)
+        manager?.setEmptyView(view)
         isReload ? reload() : ()
     }
 

@@ -24,11 +24,6 @@ import UIKit
 
 extension UITableView {
     
-    var isEmpty: Bool {
-        let count = dataSource?.numberOfSections?(in: self) ?? numberOfSections
-        return (0..<count).first(where: { self.numberOfRows(inSection: $0) > 0 }) == nil
-    }
-    
     @objc func emptyPage_insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
         self.emptyPage_insertRows(at: indexPaths, with: animation)
         emptyPageViewManager?.reload()
