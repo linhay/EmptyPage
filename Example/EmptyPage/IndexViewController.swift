@@ -13,7 +13,7 @@ class IndexViewController: SectionCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.update(IndexStandardSection())
+        manager.update(IndexDZNEmptyDataSetSection(), IndexDribbbleSection())
     }
 
 }
