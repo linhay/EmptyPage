@@ -23,9 +23,6 @@ Pod::Spec.new do |s|
     s.subspec 'Standard' do |sp|
         sp.dependency 'EmptyPage/Core'
         sp.source_files = 'Sources/Standard/class/*.{swift}'
-        sp.resource_bundles = {
-            'Standard' => ['Sources/Standard/resources/*.xib']
-        }
     end
 
 end

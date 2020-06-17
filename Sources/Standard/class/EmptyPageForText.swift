@@ -24,6 +24,7 @@ import UIKit
 
 /// `EmptyPageForText` 文字样式模板
 open class EmptyPageForText: UILabel, EmptyPageTemplateProtocol {
+    
     public var edge: UIEdgeInsets = .zero
 
     public override init(frame: CGRect) {
