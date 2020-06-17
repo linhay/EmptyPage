@@ -16,10 +16,23 @@ class IndexHeaderView: UICollectionReusableView, STNibProtocol, ConfigurableColl
         return .init(width: collectionView.bounds.width, height: 60)
     }
 
+    @IBOutlet private weak var tapView: UIControl!
     @IBOutlet private weak var titleLabel: UILabel!
+    let tapEvent = Delegate<Void, Void>()
+
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        tapView.layer.st.setBorder(color: .darkGray, width: 0.5)
+    }
 
     func config(_ model: String) {
         titleLabel.text = model
     }
+
+    @IBAction func tapAction(_ sender: UIControl) {
+        tapEvent.call()
+    }
+
 
 }

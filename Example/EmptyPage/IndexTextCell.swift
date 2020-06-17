@@ -1,5 +1,5 @@
 //
-//  IndexCell.swift
+//  IndexTextCell.swift
 //  EmptyPage_Example
 //
 //  Created by 林翰 on 2020/6/17.
@@ -10,25 +10,19 @@ import UIKit
 import Stem
 import Stuart
 
-class IndexCell: UICollectionViewCell, STNibProtocol, ConfigurableCollectionCell {
+class IndexTextCell: UICollectionViewCell, ConfigurableCollectionCell, STNibProtocol {
 
     static func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
         return .init(width: collectionView.bounds.width, height: 60)
     }
 
-    @IBOutlet private weak var iconView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var textLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        iconView.layer.cornerRadius = 4
-    }
-
-    func config(icon: UIImage, title: String, text: String) {
-        iconView.image = icon
+    func config(title: String, text: String) {
         titleLabel.text = title
         textLabel.text = text
     }
-    
+
+
 }

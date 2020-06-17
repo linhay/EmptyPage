@@ -74,7 +74,7 @@ open class EmptyPageViewManager: NSObject {
 open class EmptyPageScrollViewManager: EmptyPageViewManager {
 
     private(set) var isScrollEnabled: Bool = true
-    open var canScrollEnabled: Bool = true
+    open var canScrollEnabled: Bool = false
     private var scrollView: UIScrollView? { delegate as? UIScrollView }
 
     open override func reload() {

@@ -409,7 +409,7 @@ enum DZNEmptyDataSet: String, CaseIterable {
     }
 }
 
-enum Dribbble: Int, CaseIterable {
+enum Dribbble: String, CaseIterable {
     
     case illustration
     
