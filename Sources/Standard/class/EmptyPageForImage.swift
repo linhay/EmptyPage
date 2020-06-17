@@ -23,91 +23,72 @@
 import UIKit
 
 /// `EmptyPageForImage` 图片样式模板
-open class EmptyPageForImage: UIView, EmptyPageTemplateProtocol {
+open class EmptyPageForImage: UIImageView, EmptyPageTemplateProtocol {
 
     public var edge: UIEdgeInsets = .zero
-
-    // MARK: - Public property
-    @IBOutlet public private(set) var imageView: UIImageView!
     
     // MARK: - private property
     private var customSize: CGSize?
-    
-    // MARK: - private NSLayoutConstraint
-    @IBOutlet private var heightConstraint: NSLayoutConstraint!
-    @IBOutlet private var widthConstraint: NSLayoutConstraint!
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
+
+    func initialize() {
+        contentMode = .scaleAspectFit
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+
 }
 
 // MARK: 调整 layout 相关枚举与函数
-extension EmptyPageForImage {
+public extension EmptyPageForImage {
     
     /// 调整尺寸
     /// - Parameter size: 尺寸
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
-    public func change(size: CGSize) -> Self {
-        customSize = size
-        return layout(size: size)
-    }
-    
-    @discardableResult
-    private func layout(size: CGSize) -> Self {
-        if let size = customSize {
-            heightConstraint.constant = size.height
-            widthConstraint.constant = size.width
-            return self
-        } else {
-            heightConstraint.constant = size.height
-            widthConstraint.constant = size.width
-            return self
-        }
+    func layout(size: CGSize) -> Self {
+        let size = customSize ?? size
+        self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        return self
     }
     
 }
 
 // MARK: 深度配置元素 相关函数
-extension EmptyPageForImage {
+public extension EmptyPageForImage {
     
     /// 配置 `EmptyPageForImage.imageView`
     ///
     /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
-    public func config(imageView call: (_: UIImageView) -> Void) -> Self {
-        call(imageView)
+    func config(imageView call: (_: Self) -> Void) -> Self {
+        call(self)
         return self
     }
     
 }
 
 // MARK: 轻度配置元素 相关函数
-extension EmptyPageForImage {
+public extension EmptyPageForImage {
     
     /// 设置 `EmptyPageForImage.imageView`
     ///
     /// - Parameter value: 图片
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
-    public func set(image: UIImage?) -> Self {
+    func set(image: UIImage?) -> Self {
         layout(size: image?.size ?? .zero)
-        imageView.image = image
-        return self
-    }
-    
-    /// 设置 `EmptyPageForImage.imageView`
-    ///
-    /// - Parameters:
-    ///   - images: 图片组
-    ///   - duration: 播放时长
-    ///   - repeatCount: 循环次数
-    /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
-    @discardableResult
-    public func set(images: [UIImage], duration: TimeInterval, repeatCount: Int = 0) -> Self {
-        layout(size: images.first?.size ?? .zero)
-        imageView.animationDuration = duration
-        imageView.animationRepeatCount = repeatCount
-        imageView.animationImages = images
-        imageView.startAnimating()
+        self.image = image
         return self
     }
     
