@@ -20,6 +20,8 @@ class IndexTextCell: UICollectionViewCell, ConfigurableCollectionCell, STNibProt
     @IBOutlet private weak var textLabel: UILabel!
 
     func config(title: String, text: String) {
+        titleLabel.isHidden = title.isEmpty
+        textLabel.isHidden = text.isEmpty
         titleLabel.text = title
         textLabel.text = text
     }

@@ -46,10 +46,7 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
         item.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         return item
     }()
-    
-    /// 点击事件
-    public var eventStore: ((_: EmptyPageForStandard) -> Void)?
-    
+
     var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
     
     // MARK: - Override
@@ -65,9 +62,13 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
     
     func initialize() {
         translatesAutoresizingMaskIntoConstraints = false
+        axis = .vertical
+        distribution = .fill
+        alignment = .center
         views.forEach { view in
+            view.isHidden = true
             view.translatesAutoresizingMaskIntoConstraints = false
-            addArrangedSubview(imageView)
+            addArrangedSubview(view)
         }
     }
     
@@ -76,21 +77,25 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
 public extension EmptyPageForStandard {
     
     func config(imageView call: (_: EmptyPageForImage) -> Void) -> Self {
+        imageView.isHidden = false
         call(imageView)
         return self
     }
     
     func config(titleLabel call: (_: EmptyPageForText) -> Void) -> Self {
+        titleLabel.isHidden = false
         call(titleLabel)
         return self
     }
     
     func config(textLabel call: (_: EmptyPageForText) -> Void) -> Self {
+        textLabel.isHidden = false
         call(textLabel)
         return self
     }
     
     func config(button call: (_: UIButton) -> Void) -> Self {
+        button.isHidden = false
         call(button)
         return self
     }
@@ -123,17 +128,20 @@ public extension EmptyPageForStandard {
         }
     }
     
-    func layout(view: ViewType, type: LayoutType) -> Self {
+    func layout(view: ViewType, types: LayoutType...) -> Self {
         let view = self.view(for: view)
-        switch type {
-        case .height(let v):
-            view.heightAnchor.constraint(equalToConstant: v).isActive = true
-        case .width(let v):
-            view.widthAnchor.constraint(equalToConstant: v).isActive = true
-        case .afterSpac(let v):
-            addCustomSpacing(v, after: view)
-        case .insets(let v):
-            break
+        types.forEach { type in
+            switch type {
+            case .height(let v):
+                view.heightAnchor.constraint(equalToConstant: v).isActive = true
+            case .width(let v):
+                view.widthAnchor.constraint(equalToConstant: v).isActive = true
+            case .afterSpac(let v):
+                addCustomSpacing(v, after: view)
+            case .insets(let v):
+                view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v).isActive = true
+                view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v).isActive = true
+            }
         }
         return self
     }

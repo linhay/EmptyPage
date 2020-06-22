@@ -27,6 +27,8 @@ class IndexCell: UICollectionViewCell, STNibProtocol, ConfigurableCollectionCell
 
     func config(icon: UIImage, title: String, text: String) {
         iconView.image = icon
+        titleLabel.isHidden = title.isEmpty
+        textLabel.isHidden = text.isEmpty
         titleLabel.text = title
         textLabel.text = text
     }

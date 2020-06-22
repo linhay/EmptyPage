@@ -38,6 +38,7 @@ open class EmptyPageForText: UILabel, EmptyPageTemplateProtocol {
     }
 
     func initialize() {
+        translatesAutoresizingMaskIntoConstraints = false
         textAlignment = .center
     }
 }
