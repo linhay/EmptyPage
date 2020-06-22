@@ -45,14 +45,6 @@ open class EmptyPageViewManager: NSObject {
         guard let delegate = delegate, let view = view else {
             return
         }
-        view.frame = CGRect(origin: .zero, size: delegate.frame.size)
-    }
-
-    open func reload() {
-        view?.removeFromSuperview()
-        guard let delegate = delegate, let view = view, isEmpty() else {
-            return
-        }
         if #available(iOS 11.0, *) {
             let height = delegate.frame.size.height - (delegate.safeAreaInsets.top + delegate.safeAreaInsets.bottom)
             let width = delegate.frame.size.width - (delegate.safeAreaInsets.left + delegate.safeAreaInsets.right)
@@ -61,6 +53,15 @@ open class EmptyPageViewManager: NSObject {
         } else {
             view.frame = CGRect(origin: .zero, size: delegate.frame.size)
         }
+    }
+
+    open func reload() {
+        view?.removeFromSuperview()
+        guard let delegate = delegate, let view = view, isEmpty() else {
+            return
+        }
+
+        resize()
         delegate.addSubview(view)
         #if swift(>=4.2)
         delegate.sendSubviewToBack(view)

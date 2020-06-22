@@ -29,6 +29,8 @@ open class EmptyPageForImage: UIImageView, EmptyPageTemplateProtocol {
     
     // MARK: - private property
     private var customSize: CGSize?
+    private lazy var height = heightAnchor.constraint(equalToConstant: 0)
+    private lazy var width = widthAnchor.constraint(equalToConstant: 0)
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,8 +58,15 @@ public extension EmptyPageForImage {
     @discardableResult
     func layout(size: CGSize) -> Self {
         let size = customSize ?? size
-        self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        height.constant = size.height
+        height.priority = .defaultHigh
+        width.constant = size.width
+        if height.isActive == false {
+            height.isActive = true
+        }
+        if width.isActive {
+            width.isActive = true
+        }
         return self
     }
     

@@ -1,5 +1,5 @@
 //
-//  IndexDribbbleSection.swift
+//  IndexStandardSection.swift
 //  EmptyPage_Example
 //
 //  Created by 林翰 on 2020/6/17.
@@ -9,12 +9,41 @@
 import UIKit
 import Stuart
 import Stem
+import EmptyPage
 
-class IndexDribbbleSection: SectionCollectionProtocol {
+enum Standard: String, CaseIterable {
+    case image
+    case text
+    case standard
+
+    func view() -> EmptyPageView {
+        switch self {
+        case .image:
+            return EmptyPageView.Template.image
+                .set(image: UIImage(named: "empty"))
+                .mix()
+        case .text:
+            return EmptyPageView.Template.text
+                .set(text: "搜索不到数据")
+                .mix()
+        case .standard:
+            return EmptyPageView.Template.standard
+                .config(imageView: {
+                    $0.set(image: UIImage(named: "empty"))
+                    $0.layout(size: .init(width: 200, height: 200))
+                })
+                .config(textLabel: { $0.text = "搜索不到数据" })
+                .config(button: { $0.setTitle("点击重试", for: .normal) })
+                .mix()
+        }
+    }
+}
+
+class IndexStandardSection: SectionCollectionProtocol {
 
     var core: SectionCore?
 
-    var itemCount: Int = 1
+    var itemCount: Int = Standard.allCases.count
 
     func config(sectionView: UICollectionView) {
         sectionView.st.register(IndexTextCell.self)
@@ -27,9 +56,9 @@ class IndexDribbbleSection: SectionCollectionProtocol {
 
     var headerView: UICollectionReusableView? {
         let view = dequeue(kind: .header) as IndexHeaderView
-        view.config("Dribbble")
+        view.config("Standard")
         view.tapEvent.delegate(on: self) { (self, _) in
-            self.itemCount = self.itemCount == 1 ? Dribbble.allCases.count : 1
+            self.itemCount = self.itemCount == 1 ? Standard.allCases.count : 1
             self.reload()
         }
         return view
@@ -41,14 +70,14 @@ class IndexDribbbleSection: SectionCollectionProtocol {
 
     func item(at row: Int) -> UICollectionViewCell {
         let cell: IndexTextCell = dequeue(at: row)
-        if let style = Dribbble.allCases.value(at: row) {
-            cell.config(title: style.rawValue, text: style.link)
+        if let style = Standard.allCases.value(at: row) {
+            cell.config(title: style.rawValue, text: "")
         }
         return cell
     }
 
     func didSelectItem(at row: Int) {
-        guard let item = Dribbble.allCases.value(at: row) else {
+        guard let item = Standard.allCases.value(at: row) else {
             return
         }
 
