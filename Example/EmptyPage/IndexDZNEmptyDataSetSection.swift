@@ -71,9 +71,7 @@ enum DZNEmptyDataSet: String, CaseIterable {
                     item.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
                     item.backgroundColor = UIColor.white
                 })
-                .layout(view: .imageView, types: .afterSpac(24))
-                .layout(view: .titleLabel, types: .afterSpac(24))
-                .layout(view: .textLabel, types: .afterSpac(24))
+                .layout(type: .afterSpac(24), views: .imageView, .titleLabel, .textLabel)
                 .mix()
         case .appStore:
             return EmptyPageView.Template.standard
