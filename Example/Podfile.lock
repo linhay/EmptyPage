@@ -173,7 +173,9 @@ PODS:
   - Stem/WebKit (0.0.31):
     - Stem/Core
   - Stuart (0.0.1):
+    - Stuart/Configurable (= 0.0.1)
     - Stuart/SectionView (= 0.0.1)
+  - Stuart/Configurable (0.0.1)
   - Stuart/SectionView (0.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.39.2)
@@ -212,16 +214,16 @@ CHECKOUT OPTIONS:
     :commit: 0c5e00788d66bb8f5fbc4b93c802f291ee2c09ec
     :git: "git@github.com:linhay/Stem.git"
   Stuart:
-    :commit: b968e2a791355a0e8c61f227ab870f55b8135a10
+    :commit: d1b9f124019d2506768676b1a82c00c857bad3cc
     :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
-  EmptyPage: 3ea58bf8fde7c7be0c50c9ec7b1e72e4195bd898
+  EmptyPage: 0a3dd3bc94e9b3134c33a5ec6c47ccfb6ec9b74b
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: 179e38e4bc5f522550df4b95c610629fee1d62c4
-  Stuart: 08d2f1b29f8f077a6aa222e4cf89075b51e88b17
+  Stuart: 59481afc2b60a9d5da6234647e72e62b79817205
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 

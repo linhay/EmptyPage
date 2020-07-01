@@ -415,7 +415,7 @@ class IndexDZNEmptyDataSetSection: SectionCollectionProtocol {
     }
 
     var headerSize: CGSize {
-        return IndexHeaderView.preferredSize(collectionView: collectionView, model: nil)
+        return IndexHeaderView.preferredSize(collectionView: sectionView, model: nil)
     }
 
     var headerView: UICollectionReusableView? {
@@ -429,7 +429,7 @@ class IndexDZNEmptyDataSetSection: SectionCollectionProtocol {
     }
 
     func itemSize(at row: Int) -> CGSize {
-        return IndexCell.preferredSize(collectionView: collectionView, model: nil)
+        return IndexCell.preferredSize(collectionView: sectionView, model: nil)
     }
 
     func item(at row: Int) -> UICollectionViewCell {
@@ -449,8 +449,8 @@ class IndexDZNEmptyDataSetSection: SectionCollectionProtocol {
         vc.tableView.backgroundColor = .white
         vc.view.backgroundColor = .white
         vc.tableView.separatorStyle = .none
-        vc.tableView.ep.setEmpty(item.view())
-        sectionView?.st.viewController?.st.push(vc: vc)
+        vc.tableView.ep.set(emptyView: item.view())
+        sectionView.st.viewController?.st.push(vc: vc)
     }
 
 }

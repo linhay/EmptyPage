@@ -128,21 +128,6 @@ public extension EmptyPageForStandard {
         }
     }
 
-    private func layout(_ view: ViewType, type: LayoutType) {
-        let view = self.view(for: view)
-        switch type {
-        case .height(let v):
-            view.heightAnchor.constraint(equalToConstant: v).isActive = true
-        case .width(let v):
-            view.widthAnchor.constraint(equalToConstant: v).isActive = true
-        case .afterSpac(let v):
-            addCustomSpacing(v, after: view)
-        case .insets(let v):
-            view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v).isActive = true
-            view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v).isActive = true
-        }
-    }
-
     func layout(type: LayoutType, views: [ViewType]) -> Self {
         views.forEach({ self.layout($0, type: type) })
         return self
@@ -160,8 +145,23 @@ public extension EmptyPageForStandard {
     func layout(view: ViewType, types: LayoutType...) -> Self {
         return layout(view: view, types: types)
     }
-    
-    func addCustomSpacing(_ spacing: CGFloat, after arrangedSubview: UIView) {
+
+    private func layout(_ view: ViewType, type: LayoutType) {
+        let view = self.view(for: view)
+        switch type {
+        case .height(let v):
+            view.heightAnchor.constraint(equalToConstant: v).isActive = true
+        case .width(let v):
+            view.widthAnchor.constraint(equalToConstant: v).isActive = true
+        case .afterSpac(let v):
+            addCustomSpacing(v, after: view)
+        case .insets(let v):
+            view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v).isActive = true
+            view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v).isActive = true
+        }
+    }
+
+    private func addCustomSpacing(_ spacing: CGFloat, after arrangedSubview: UIView) {
         if #available(iOS 11.0, *) {
             setCustomSpacing(spacing, after: arrangedSubview)
             return

@@ -15,9 +15,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.subspec 'Core' do |sp|
-        sp.source_files = ['Sources/Core/*.h',
-        'Sources/Core/private/*.swift',
-        'Sources/Core/public/*.swift']
+        sp.source_files = ['Sources/Core/*.{h,swift}', 'Sources/Core/**/*.{h,swift}']
     end
 
     s.subspec 'Standard' do |sp|

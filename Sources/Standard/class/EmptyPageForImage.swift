@@ -26,6 +26,8 @@ import UIKit
 open class EmptyPageForImage: UIImageView, EmptyPageTemplateProtocol {
 
     public var edge: UIEdgeInsets = .zero
+
+    public var isSingleView: Bool { true }
     
     // MARK: - private property
     private var customSize: CGSize?

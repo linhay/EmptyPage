@@ -26,6 +26,12 @@ extension UIView {
     
      enum EmptyPageViewKey {
         static let manager = UnsafeRawPointer(bitPattern: "EmptyPage.uiview.ep.manager".hashValue)!
+        static let useCustomManager = UnsafeRawPointer(bitPattern: "EmptyPage.uiview.ep.useCustomManager".hashValue)!
+    }
+
+    var useCustomManager: Bool {
+        set { objc_setAssociatedObject(self, EmptyPageViewKey.useCustomManager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+        get { return objc_getAssociatedObject(self, EmptyPageViewKey.useCustomManager) as? Bool ?? false }
     }
 
      var emptyPageViewManager: EmptyPageViewManager? {

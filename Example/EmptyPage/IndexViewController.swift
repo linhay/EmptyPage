@@ -15,7 +15,8 @@ class IndexViewController: SectionCollectionViewController {
         super.viewDidLoad()
         manager.update(IndexStandardSection(),
                        IndexDZNEmptyDataSetSection(),
-                       IndexDribbbleSection())
+                       IndexDribbbleSection(),
+                       IndexManagerSection())
     }
 
 }

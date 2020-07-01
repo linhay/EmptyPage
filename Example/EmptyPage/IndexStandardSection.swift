@@ -51,7 +51,7 @@ class IndexStandardSection: SectionCollectionProtocol {
     }
 
     var headerSize: CGSize {
-        return IndexHeaderView.preferredSize(collectionView: collectionView, model: nil)
+        return IndexHeaderView.preferredSize(collectionView: sectionView, model: nil)
     }
 
     var headerView: UICollectionReusableView? {
@@ -65,7 +65,7 @@ class IndexStandardSection: SectionCollectionProtocol {
     }
 
     func itemSize(at row: Int) -> CGSize {
-        return IndexTextCell.preferredSize(collectionView: collectionView, model: nil)
+        return IndexTextCell.preferredSize(collectionView: sectionView, model: nil)
     }
 
     func item(at row: Int) -> UICollectionViewCell {
@@ -85,8 +85,8 @@ class IndexStandardSection: SectionCollectionProtocol {
         vc.tableView.backgroundColor = .white
         vc.view.backgroundColor = .white
         vc.tableView.separatorStyle = .none
-        vc.tableView.ep.setEmpty(item.view())
-        sectionView?.st.viewController?.st.push(vc: vc)
+        vc.tableView.ep.set(emptyView: item.view())
+        sectionView.st.viewController?.st.push(vc: vc)
     }
 
 }
