@@ -27,6 +27,8 @@ open class EmptyPageForText: UILabel, EmptyPageTemplateProtocol {
     
     public var edge: UIEdgeInsets = .zero
 
+    public var isSingleView: Bool { true }
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()

@@ -27,7 +27,7 @@ public extension EmptyPage where Base: UITableView {
     ///
     /// - Parameter view: 模板视图
     func setEmpty(_ template: EmptyPageTemplateProtocol?) {
-        self.setEmpty(template?.mix())
+        self.set(emptyView: template?.mix())
     }
 
 }
@@ -37,7 +37,7 @@ public extension EmptyPage where Base: UICollectionView {
     ///
     /// - Parameter view: 模板视图
     func setEmpty(_ template: EmptyPageTemplateProtocol?) {
-        self.setEmpty(template?.mix())
+        self.set(emptyView: template?.mix())
     }
 
 }
