@@ -1,7 +1,7 @@
 //
 //  EmptyPage
 //
-//  Copyright (c) 2018 linhay - https://github.com/linhay
+//  Copyright (c) 2018 linhey - https://github.com/linhay
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
