@@ -14,7 +14,7 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
     /// 设置空白页后视图是否可以滚动
     open var canScrollEnabled: Bool = false
     /// 可滚动的父视图
-    public var scrollView: UIScrollView? { delegate as? UIScrollView }
+    public var scrollView: UIScrollView? { target as? UIScrollView }
 
     open override func reload() {
         guard let scrollView = scrollView else {

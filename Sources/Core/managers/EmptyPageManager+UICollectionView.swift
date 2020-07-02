@@ -9,15 +9,15 @@ import UIKit
 
 open class EmptyPageCollectionViewManager: EmptyPageScrollViewManager {
 
-    public convenience init(delegate: UICollectionView) {
-        self.init(delegate: delegate) { [weak delegate] () -> Bool in
-            guard let collectionView = delegate else {
-                return false
-            }
+    public var collectionView: UICollectionView? { target as? UICollectionView }
 
-            let count = collectionView.dataSource?.numberOfSections?(in: collectionView) ?? collectionView.numberOfSections
-            return (0..<count).contains(where: { collectionView.numberOfItems(inSection: $0) > 0 }) == false
+    open override func isEmpty() -> Bool {
+        guard let collectionView = collectionView else {
+            return false
         }
+
+        let count = collectionView.dataSource?.numberOfSections?(in: collectionView) ?? collectionView.numberOfSections
+        return (0..<count).contains(where: { collectionView.numberOfItems(inSection: $0) > 0 }) == false
     }
 
 }

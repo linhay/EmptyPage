@@ -8,16 +8,16 @@
 import UIKit
 
 open class EmptyPageTableViewManager: EmptyPageScrollViewManager {
-
-    public convenience init(delegate: UITableView) {
-        self.init(delegate: delegate) { [weak delegate] () -> Bool in
-            guard let tableView = delegate else {
-                return false
-            }
-
-            let count = tableView.dataSource?.numberOfSections?(in: tableView) ?? tableView.numberOfSections
-            return (0..<count).contains(where: { tableView.numberOfRows(inSection: $0) > 0 }) == false
+    
+    public var tableView: UITableView? { target as? UITableView }
+    
+    open override func isEmpty() -> Bool {
+        guard let tableView = tableView else {
+            return false
         }
+        
+        let count = tableView.dataSource?.numberOfSections?(in: tableView) ?? tableView.numberOfSections
+        return (0..<count).contains(where: { tableView.numberOfRows(inSection: $0) > 0 }) == false
     }
-
+    
 }

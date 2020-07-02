@@ -14,7 +14,7 @@ public extension EmptyPage where Base: UIScrollView {
             return base.emptyPageViewManager as? EmptyPageScrollViewManager
         }
         
-        if base.emptyPageViewManager == nil, let placeholder = EmptyPageConfig.shared.scrollViewGloalManager?(base) {
+        if base.emptyPageViewManager == nil, let placeholder = EmptyPageConfig.shared.scrollViewGloalManager {
             set(manager: placeholder)
         }
         
