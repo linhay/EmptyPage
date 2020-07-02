@@ -39,6 +39,7 @@ public extension EmptyPage where Base: UIView {
     func set(manager: EmptyPageViewManager?) {
         base.useCustomManager = true
         base.emptyPageViewManager = manager
+        manager?.set(target: base)
     }
 
     func reload() {
@@ -47,11 +48,7 @@ public extension EmptyPage where Base: UIView {
 
     func set(emptyView view: UIView?) {
         EmptyPageRuntime.swizzingLayout
-        if let view = view {
-            manager?.set(emptyView: { view }, in: base)
-        } else {
-            manager?.set(emptyView: nil, in: base)
-        }
+        manager?.set(emptyView: view)
     }
 
 }

@@ -43,11 +43,7 @@ public extension EmptyPage where Base: UITableView {
     func set(emptyView view: UIView?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
-        if let view = view {
-            manager?.set(emptyView: { view }, in: base)
-        } else {
-            manager?.set(emptyView: nil, in: base)
-        }
+        manager?.set(emptyView: view)
     }
     
 }

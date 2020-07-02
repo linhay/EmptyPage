@@ -31,6 +31,11 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
     /// 可滚动的父视图
     public var scrollView: UIScrollView? { target as? UIScrollView }
 
+    open override func resize() {
+        super.resize()
+        emptyView?.frame.origin.y = scrollView?.contentOffset.y ?? 0
+    }
+
     open override func reload() {
         guard let scrollView = scrollView else {
             super.reload()
