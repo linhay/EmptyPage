@@ -14,7 +14,7 @@ public extension EmptyPage where Base: UIView {
             return base.emptyPageViewManager
         }
 
-        if base.emptyPageViewManager == nil, let placeholder = EmptyPageConfig.shared.viewGloalManager?(base) {
+        if base.emptyPageViewManager == nil, let placeholder = EmptyPageConfig.shared.viewGloalManager {
             set(manager: placeholder)
         }
 
@@ -33,9 +33,9 @@ public extension EmptyPage where Base: UIView {
     func set(emptyView view: UIView?) {
         EmptyPageRuntime.swizzingLayout
         if let view = view {
-            manager?.set(emptyView: { view })
+            manager?.set(emptyView: { view }, in: base)
         } else {
-            manager?.set(emptyView: nil)
+            manager?.set(emptyView: nil, in: base)
         }
     }
 

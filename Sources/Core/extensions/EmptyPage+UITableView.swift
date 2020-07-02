@@ -15,10 +15,10 @@ public extension EmptyPage where Base: UITableView {
         }
         
         if base.emptyPageViewManager == nil {
-            if let placeholder = EmptyPageConfig.shared.tableViewGloalManager?(base) {
+            if let placeholder = EmptyPageConfig.shared.tableViewGloalManager {
                 set(manager: placeholder)
             } else {
-                set(manager: EmptyPageTableViewManager(delegate: base))
+                set(manager: EmptyPageTableViewManager())
             }
         }
         
@@ -29,9 +29,9 @@ public extension EmptyPage where Base: UITableView {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
         if let view = view {
-            manager?.set(emptyView: { view })
+            manager?.set(emptyView: { view }, in: base)
         } else {
-            manager?.set(emptyView: nil)
+            manager?.set(emptyView: nil, in: base)
         }
     }
     

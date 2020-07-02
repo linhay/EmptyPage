@@ -15,10 +15,10 @@ public extension EmptyPage where Base: UICollectionView {
         }
 
         if base.emptyPageViewManager == nil {
-            if let placeholder = EmptyPageConfig.shared.collectionViewGloalManager?(base) {
+            if let placeholder = EmptyPageConfig.shared.collectionViewGloalManager {
                 set(manager: placeholder)
             } else {
-                set(manager: EmptyPageCollectionViewManager(delegate: base))
+                set(manager: EmptyPageCollectionViewManager())
             }
         }
 
@@ -29,9 +29,9 @@ public extension EmptyPage where Base: UICollectionView {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView
         if let view = view {
-            manager?.set(emptyView: { view })
+            manager?.set(emptyView: { view }, in: base)
         } else {
-            manager?.set(emptyView: nil)
+            manager?.set(emptyView: nil, in: base)
         }
     }
 
