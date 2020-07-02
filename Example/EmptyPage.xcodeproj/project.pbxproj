@@ -16,12 +16,11 @@
 		CD9C18222498639400FC0DE9 /* trunk.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C181F2498639400FC0DE9 /* trunk.sh */; };
 		CD9C18232498639400FC0DE9 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18202498639400FC0DE9 /* document.sh */; };
 		CD9C18242498639400FC0DE9 /* git_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18212498639400FC0DE9 /* git_config.sh */; };
-		CD9C1826249863C500FC0DE9 /* license in Resources */ = {isa = PBXBuildFile; fileRef = CD9C1825249863C500FC0DE9 /* license */; };
-		CD9C1828249863E100FC0DE9 /* license.py in Resources */ = {isa = PBXBuildFile; fileRef = CD9C1827249863E100FC0DE9 /* license.py */; };
 		CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C18992498E51700FC0DE9 /* IndexViewController.swift */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
 		CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */; };
+		CDE853D824ADCFA600833115 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D724ADCFA600833115 /* StateManager.swift */; };
 		CDF1DE15249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */; };
 		CDF1DE18249A567F0037F7ED /* IndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE16249A567F0037F7ED /* IndexHeaderView.swift */; };
 		CDF1DE19249A567F0037F7ED /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF1DE17249A567F0037F7ED /* IndexHeaderView.xib */; };
@@ -59,6 +58,7 @@
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
 		CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerSection.swift; sourceTree = "<group>"; };
+		CDE853D724ADCFA600833115 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDZNEmptyDataSetSection.swift; sourceTree = "<group>"; };
 		CDF1DE16249A567F0037F7ED /* IndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHeaderView.swift; sourceTree = "<group>"; };
 		CDF1DE17249A567F0037F7ED /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 		607FACD21AFB9204008FA782 /* Example for EmptyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CDE853D624ADCF9600833115 /* managers */,
 				CD97EC5624A8D5EF00F05158 /* toolbar */,
 				CD9C18A52498E68D00FC0DE9 /* Info.plist */,
 				CDA25D562009A7BD003C0E7E /* Images.xcassets */,
@@ -178,6 +179,14 @@
 				CD9C18212498639400FC0DE9 /* git_config.sh */,
 			);
 			path = scripts;
+			sourceTree = "<group>";
+		};
+		CDE853D624ADCF9600833115 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				CDE853D724ADCFA600833115 /* StateManager.swift */,
+			);
+			path = managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +263,6 @@
 				CDF1DE21249A6D2E0037F7ED /* IndexTextCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
-				CD9C1826249863C500FC0DE9 /* license in Resources */,
-				CD9C1828249863E100FC0DE9 /* license.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\npython3 \"$PROJECT_DIR/scripts/license.py\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd $PROJECT_DIR/scripts\npython3 license.py\n";
 		};
 		EB8249D12F7B6FDE4D3FF153 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -374,6 +381,7 @@
 				CDF1DE23249A6E890037F7ED /* IndexDribbbleSection.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
 				CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */,
+				CDE853D824ADCFA600833115 /* StateManager.swift in Sources */,
 				CD97EC5924A8D5EF00F05158 /* TestViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				CD97EC5A24A8D5EF00F05158 /* ToolbarSection.swift in Sources */,

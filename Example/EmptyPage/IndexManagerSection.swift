@@ -15,8 +15,8 @@ class NetworkManager: EmptyPageCollectionViewManager {
     
     var noNetwork: Bool = false
 
-    override func set(emptyView: (() -> UIView?)?, in target: UIView) {
-        super.set(emptyView: { [weak self] () -> UIView? in
+    override func set(emptyViewProvider provider: (() -> UIView?)?) {
+        super.set(emptyViewProvider: { [weak self] () -> UIView? in
             guard let self = self else {
                 return nil
             }
@@ -25,8 +25,8 @@ class NetworkManager: EmptyPageCollectionViewManager {
                     .set(text: "no network")
                     .mix()
             }
-            return emptyView?()
-        }, in: target)
+            return provider?()
+        })
     }
 
 }
@@ -65,6 +65,7 @@ class IndexManagerSection: SectionCollectionProtocol {
         switch row {
         case 0: cell.config(title: "NetworkManager", text: "无网络状态 - 空白页切换")
         case 1: cell.config(title: "Config - NetworkManager", text: "全局配置无网络状态 - 空白页切换")
+        case 2: cell.config(title: "StateManager", text: "多状态 - 空白页切换")
         default:
             break
         }
@@ -99,6 +100,24 @@ class IndexManagerSection: SectionCollectionProtocol {
             }
 
             toolItems = [item]
+        case 2:
+            contentView.ep.set(emptyView: EmptyStore.loading, for: .loading)
+            contentView.ep.set(emptyView: EmptyStore.dzn.airbnb.view(), for: .normal)
+            do {
+                let item = ToolItem<SectionCollectionView>(title: "loading")
+                item.action.delegate(on: self) { (self, contentView) in
+                    contentView.ep.change(state: .loading)
+                }
+                toolItems.append(item)
+            }
+
+            do {
+                let item = ToolItem<SectionCollectionView>(title: "normal")
+                item.action.delegate(on: self) { (self, contentView) in
+                    contentView.ep.change(state: .normal)
+                }
+                toolItems.append(item)
+            }
         default:
             break
         }

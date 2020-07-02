@@ -154,7 +154,7 @@ class EmptyStore {
     static let dzn = DZNEmptyDataSet.self
     static let demo = DemoSet()
     
-    class var loading: EmptyPageView{
+    class var loading: EmptyPageView {
         return EmptyPageView.Template.image
             .layout(size: .init(width: 20, height: 20))
             .config(imageView: {

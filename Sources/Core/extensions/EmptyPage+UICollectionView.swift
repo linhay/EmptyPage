@@ -43,11 +43,7 @@ public extension EmptyPage where Base: UICollectionView {
     func set(emptyView view: UIView?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView
-        if let view = view {
-            manager?.set(emptyView: { view }, in: base)
-        } else {
-            manager?.set(emptyView: nil, in: base)
-        }
+        manager?.set(emptyView: view)
     }
 
 }
