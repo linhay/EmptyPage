@@ -21,6 +21,7 @@
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
 		CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */; };
 		CDE853D824ADCFA600833115 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D724ADCFA600833115 /* StateManager.swift */; };
+		CDE853DA24ADEF5400833115 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D924ADEF5400833115 /* NetworkManager.swift */; };
 		CDF1DE15249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */; };
 		CDF1DE18249A567F0037F7ED /* IndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE16249A567F0037F7ED /* IndexHeaderView.swift */; };
 		CDF1DE19249A567F0037F7ED /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF1DE17249A567F0037F7ED /* IndexHeaderView.xib */; };
@@ -59,6 +60,7 @@
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
 		CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerSection.swift; sourceTree = "<group>"; };
 		CDE853D724ADCFA600833115 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		CDE853D924ADEF5400833115 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDZNEmptyDataSetSection.swift; sourceTree = "<group>"; };
 		CDF1DE16249A567F0037F7ED /* IndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHeaderView.swift; sourceTree = "<group>"; };
 		CDF1DE17249A567F0037F7ED /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE853D724ADCFA600833115 /* StateManager.swift */,
+				CDE853D924ADEF5400833115 /* NetworkManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				CDF1DE18249A567F0037F7ED /* IndexHeaderView.swift in Sources */,
 				CDF1DE20249A6D2E0037F7ED /* IndexTextCell.swift in Sources */,
 				CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */,
+				CDE853DA24ADEF5400833115 /* NetworkManager.swift in Sources */,
 				CD97EC5D24A8D60A00F05158 /* ToolbarCell.swift in Sources */,
 				CDF1DE15249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift in Sources */,
 			);
