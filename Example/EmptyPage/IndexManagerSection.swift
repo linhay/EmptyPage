@@ -11,26 +11,6 @@ import Stuart
 import Stem
 import EmptyPage
 
-class NetworkManager: EmptyPageCollectionViewManager {
-    
-    var noNetwork: Bool = false
-
-    override func set(emptyViewProvider provider: (() -> UIView?)?) {
-        super.set(emptyViewProvider: { [weak self] () -> UIView? in
-            guard let self = self else {
-                return nil
-            }
-            if self.noNetwork {
-                return EmptyPageView.Template.text
-                    .set(text: "no network")
-                    .mix()
-            }
-            return provider?()
-        })
-    }
-
-}
-
 class IndexManagerSection: SectionCollectionProtocol {
 
     var core: SectionCore?
