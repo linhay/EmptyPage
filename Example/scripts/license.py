@@ -24,7 +24,7 @@ def license(path: str):
     with open(path, 'rb') as reader:
         return reader.readlines()
 
-def fileCallback(path: str, license: bytearray = license(path=os.getcwd() + '/scripts/license')):
+def fileCallback(path: str, license: bytearray = license(path=os.getcwd() + '/license')):
     if path.endswith('.DS_Store'):
         return
 
@@ -46,4 +46,4 @@ def fileCallback(path: str, license: bytearray = license(path=os.getcwd() + '/sc
             writer.writelines(lines)
 
 
-BFS_Dir(os.getcwd() + '../Sources', dirCallback=dirCallback,fileCallback=fileCallback)
+BFS_Dir(os.getcwd() + '/../../Sources', dirCallback=dirCallback,fileCallback=fileCallback)
