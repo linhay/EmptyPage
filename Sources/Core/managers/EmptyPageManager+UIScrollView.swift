@@ -42,11 +42,8 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
             return
         }
 
-        if isShow == false {
+        if isShow == false, isEmpty() {
             isScrollEnabled = scrollView.isScrollEnabled
-        }
-
-        if isEmpty() {
             scrollView.isScrollEnabled = canScrollEnabled
         } else {
             scrollView.isScrollEnabled = isScrollEnabled
