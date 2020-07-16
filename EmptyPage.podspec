@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
     s.source = { :git => 'https://github.com/linhay/EmptyPage.git', :tag => s.version.to_s }
 
     s.swift_version = ['4.0', '4.2', '5.0', '5.1']
-    s.default_subspec = 'core'
 
     s.ios.deployment_target = '9.0'
     s.requires_arc = true
@@ -19,7 +18,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'standard' do |sp|
-        sp.dependency 'EmptyPage/Core'
+        sp.dependency 'EmptyPage/core'
         sp.source_files = 'Sources/Standard/class/*.{swift}'
     end
 
