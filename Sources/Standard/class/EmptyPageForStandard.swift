@@ -38,12 +38,13 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
     public let button: UIButton = {
         let item = UIButton(type: .custom)
         item.isHidden = true
-        item.layer.cornerRadius = 2
-        item.setTitleColor(UIColor.blue, for: .normal)
+        item.backgroundColor = .blue
+        item.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        item.layer.cornerRadius = 4
         item.contentVerticalAlignment = .center
         item.contentHorizontalAlignment = .center
+        item.contentEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
         item.accessibilityIdentifier = "empty set button"
-        item.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         return item
     }()
 
@@ -70,6 +71,16 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
             view.translatesAutoresizingMaskIntoConstraints = false
             addArrangedSubview(view)
         }
+
+        textLabel.config { view in
+            view.font = UIFont.systemFont(ofSize: 14)
+            view.textColor = UIColor(red: 153 / 255, green: 153 / 255, blue: 153 / 255, alpha: 1)
+        }
+
+        _ = layout(type: .afterSpac(20), views: [.imageView])
+        _ = layout(view: .textLabel, types: [.afterSpac(28), .height(20)])
+        _ = layout(view: .titleLabel, types: [.afterSpac(8), .height(22.5)])
+        _ = layout(view: .button, types: [.height(36)])
     }
     
 }

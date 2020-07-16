@@ -42,6 +42,8 @@ open class EmptyPageForText: UILabel, EmptyPageTemplateProtocol {
     func initialize() {
         numberOfLines = 0
         translatesAutoresizingMaskIntoConstraints = false
+        font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        textColor = UIColor(red: 102 / 255, green: 102 / 255, blue: 102 / 255, alpha: 1)
         textAlignment = .center
     }
 }
