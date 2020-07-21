@@ -54,6 +54,12 @@ public class EmptyPageView: UIView {
     public private(set) weak var contentView: UIView?
     /// 事件
     public var backgroundTapEvent = EmptyPageDelegate<Void, Void>()
+
+    public let topGuide    = UILayoutGuide()
+    public let leftGuide   = UILayoutGuide()
+    public let rightGuide  = UILayoutGuide()
+    public let bottomGuide = UILayoutGuide()
+
     private var edge: UIEdgeInsets = .zero
     /// 点击手势
     private lazy var tapGesture: UITapGestureRecognizer = {
@@ -62,11 +68,6 @@ public class EmptyPageView: UIView {
         return item
     }()
 
-    let topGuide = UILayoutGuide()
-    let leftGuide = UILayoutGuide()
-    let rightGuide = UILayoutGuide()
-    let bottomGuide = UILayoutGuide()
-    
     public init(contentView: EmptyPageTemplateProtocol, layout: ((_ self: UIView, _ view: EmptyPageTemplateProtocol) -> Void)? = nil) {
         super.init(frame: .zero)
         
