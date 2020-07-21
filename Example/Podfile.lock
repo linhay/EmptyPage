@@ -1,7 +1,10 @@
 PODS:
-  - EmptyPage/Core (4.0.0)
-  - EmptyPage/Standard (4.0.0):
-    - EmptyPage/Core
+  - EmptyPage (4.0.0):
+    - EmptyPage/core (= 4.0.0)
+    - EmptyPage/standard (= 4.0.0)
+  - EmptyPage/core (4.0.0)
+  - EmptyPage/standard (4.0.0):
+    - EmptyPage/core
   - LookinServer (1.0.0)
   - MJRefresh (3.4.3)
   - SnapKit (5.0.0)
@@ -181,8 +184,7 @@ PODS:
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
-  - EmptyPage/Core (from `../EmptyPage.podspec`)
-  - EmptyPage/Standard (from `../EmptyPage.podspec`)
+  - EmptyPage (from `../EmptyPage.podspec`)
   - LookinServer
   - MJRefresh
   - SnapKit (= 5.0.0)
@@ -218,7 +220,7 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
-  EmptyPage: 0a3dd3bc94e9b3134c33a5ec6c47ccfb6ec9b74b
+  EmptyPage: ce3763639e812b2faa9ba744542d5907efa42458
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
@@ -227,6 +229,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 47e44247289ebe9c4da8abd22f200533c17ab769
+PODFILE CHECKSUM: 00e02adcca97c4615128b7d64fc83fc58038dc0a
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.9.3

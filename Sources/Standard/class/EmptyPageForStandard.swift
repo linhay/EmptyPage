@@ -24,7 +24,7 @@ import UIKit
 
 /// `EmptyPageForStandard` 混合样式模板
 open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
-    
+
     public var edge: UIEdgeInsets = .zero
     
     // MARK: - Public property

@@ -27,14 +27,6 @@ public protocol EmptyPageTemplateProtocol: UIView {
     
     var edge: UIEdgeInsets { get set }
     
-    var isSingleView: Bool { get }
-    
-}
-
-public extension EmptyPageTemplateProtocol {
-    
-    var isSingleView: Bool { false }
-    
 }
 
 public extension EmptyPageTemplateProtocol {
@@ -61,15 +53,19 @@ public class EmptyPageView: UIView {
     /// 内容视图
     public private(set) weak var contentView: UIView?
     /// 事件
-    private var backgroundTapAction: ((_: EmptyPageView) -> Void)?
+    public var backgroundTapEvent = EmptyPageDelegate<Void, Void>()
     private var edge: UIEdgeInsets = .zero
-    
     /// 点击手势
     private lazy var tapGesture: UITapGestureRecognizer = {
-        let item = UITapGestureRecognizer(target: self, action: #selector(event))
+        let item = UITapGestureRecognizer(target: self, action: #selector(backgroundTapAction))
         self.addGestureRecognizer(item)
         return item
     }()
+
+    let topGuide = UILayoutGuide()
+    let leftGuide = UILayoutGuide()
+    let rightGuide = UILayoutGuide()
+    let bottomGuide = UILayoutGuide()
     
     public init(contentView: EmptyPageTemplateProtocol, layout: ((_ self: UIView, _ view: EmptyPageTemplateProtocol) -> Void)? = nil) {
         super.init(frame: .zero)
@@ -77,25 +73,49 @@ public class EmptyPageView: UIView {
         self.edge = contentView.edge
         backgroundColor = EmptyPageView.backColor
         addSubview(contentView)
-        if layout == nil {
-            contentView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                                         contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
-            if contentView.isSingleView {
-                let trailing = contentView.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: edge.right)
-                let leading = contentView.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: edge.left)
-                NSLayoutConstraint.activate([trailing, leading])
-            } else {
-                let trailing = contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: edge.right)
-                let leading = contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: edge.left)
-                NSLayoutConstraint.activate([trailing, leading].map({
-                    $0.priority = UILayoutPriority(rawValue: 751)
-                    return $0
-                }))
-            }
-        } else {
-            layout?(self, contentView)
+
+        if let layout = layout {
+            layout(self, contentView)
+            return
         }
+
+        addLayoutGuide(topGuide)
+        addLayoutGuide(leftGuide)
+        addLayoutGuide(rightGuide)
+        addLayoutGuide(bottomGuide)
+
+        topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: 3.0 / 4).isActive = true
+        leftGuide.widthAnchor.constraint(equalTo: rightGuide.widthAnchor, multiplier: 1).isActive = true
+
+        topGuide.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        bottomGuide.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        leftGuide.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
+        rightGuide.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
+
+        do {
+            let constraint = contentView.leftAnchor.constraint(equalTo: leftGuide.rightAnchor, constant: edge.left)
+            constraint.priority = .defaultHigh
+            constraint.isActive = true
+        }
+
+        do {
+            let constraint = contentView.topAnchor.constraint(equalTo: topGuide.bottomAnchor, constant: edge.top)
+            constraint.priority = .defaultHigh
+            constraint.isActive = true
+        }
+
+        do {
+            let constraint = contentView.rightAnchor.constraint(equalTo: rightGuide.leftAnchor, constant: edge.right)
+            constraint.priority = .defaultHigh
+            constraint.isActive = true
+        }
+
+        do {
+            let constraint = contentView.bottomAnchor.constraint(equalTo: bottomGuide.topAnchor, constant: edge.bottom)
+            constraint.priority = .defaultHigh
+            constraint.isActive = true
+        }
+
     }
     
     required init?(coder: NSCoder) {
@@ -135,9 +155,8 @@ extension EmptyPageView {
     /// - Parameter event: 点击事件
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
     @discardableResult
-    public func set(tap event: ((_: EmptyPageView) -> Void)?) -> Self {
+    public func setBackgroundTap() -> Self {
         _ = tapGesture
-        backgroundTapAction = event
         return self
     }
     
@@ -161,8 +180,8 @@ extension EmptyPageView {
 extension EmptyPageView {
     
     /// 点击手势事件
-    @objc private func event() {
-        backgroundTapAction?(self)
+    @objc private func backgroundTapAction() {
+        backgroundTapEvent.call()
     }
     
 }
