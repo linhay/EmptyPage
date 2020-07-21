@@ -35,6 +35,9 @@ enum Standard: String, CaseIterable {
                 .config(textLabel: { $0.text = "搜索不到数据" })
                 .config(button: { $0.setTitle("点击重试", for: .normal) })
                 .mix()
+            .layout(vertical: {
+                $0.height?.st.change(multiplier: 1.0 / 9)
+            })
         }
     }
 }
