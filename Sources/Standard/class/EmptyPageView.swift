@@ -85,7 +85,7 @@ public class EmptyPageView: UIView {
         addLayoutGuide(rightGuide)
         addLayoutGuide(bottomGuide)
 
-        topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: 3.0 / 4).isActive = true
+        topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: 1).isActive = true
         leftGuide.widthAnchor.constraint(equalTo: rightGuide.widthAnchor, multiplier: 1).isActive = true
 
         topGuide.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
