@@ -55,10 +55,30 @@ public class EmptyPageView: UIView {
     /// 事件
     public var backgroundTapEvent = EmptyPageDelegate<Void, Void>()
 
+    // MARK: - Layout
     public let topGuide    = UILayoutGuide()
     public let leftGuide   = UILayoutGuide()
     public let rightGuide  = UILayoutGuide()
     public let bottomGuide = UILayoutGuide()
+
+    private var contentViewLayout = ContentViewLayout()
+    private var verticalLayout    = VerticalLayout()
+    private var horizontalLayout  = HorizontalLayout()
+
+    public class VerticalLayout {
+        public var height: NSLayoutConstraint?
+    }
+
+    public class HorizontalLayout {
+        public var width: NSLayoutConstraint?
+    }
+
+    public class ContentViewLayout {
+       public var top: NSLayoutConstraint?
+       public var bottom: NSLayoutConstraint?
+       public var left: NSLayoutConstraint?
+       public var right: NSLayoutConstraint?
+    }
 
     private var edge: UIEdgeInsets = .zero
     /// 点击手势
@@ -70,7 +90,6 @@ public class EmptyPageView: UIView {
 
     public init(contentView: EmptyPageTemplateProtocol, layout: ((_ self: UIView, _ view: EmptyPageTemplateProtocol) -> Void)? = nil) {
         super.init(frame: .zero)
-        
         self.edge = contentView.edge
         backgroundColor = EmptyPageView.backColor
         addSubview(contentView)
@@ -85,36 +104,49 @@ public class EmptyPageView: UIView {
         addLayoutGuide(rightGuide)
         addLayoutGuide(bottomGuide)
 
-        topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: 1).isActive = true
-        leftGuide.widthAnchor.constraint(equalTo: rightGuide.widthAnchor, multiplier: 1).isActive = true
-
         topGuide.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         bottomGuide.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         leftGuide.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
         rightGuide.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
 
         do {
+            let constraint = topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: 1)
+            constraint.isActive = true
+            verticalLayout.height = constraint
+        }
+
+        do {
+            let constraint = leftGuide.widthAnchor.constraint(equalTo: rightGuide.widthAnchor, multiplier: 1)
+            constraint.isActive = true
+            horizontalLayout.width = constraint
+        }
+
+        do {
             let constraint = contentView.leftAnchor.constraint(equalTo: leftGuide.rightAnchor, constant: edge.left)
             constraint.priority = .defaultHigh
             constraint.isActive = true
+            contentViewLayout.left = constraint
         }
 
         do {
             let constraint = contentView.topAnchor.constraint(equalTo: topGuide.bottomAnchor, constant: edge.top)
             constraint.priority = .defaultHigh
             constraint.isActive = true
+            contentViewLayout.top = constraint
         }
 
         do {
             let constraint = contentView.rightAnchor.constraint(equalTo: rightGuide.leftAnchor, constant: edge.right)
             constraint.priority = .defaultHigh
             constraint.isActive = true
+            contentViewLayout.right = constraint
         }
 
         do {
             let constraint = contentView.bottomAnchor.constraint(equalTo: bottomGuide.topAnchor, constant: edge.bottom)
             constraint.priority = .defaultHigh
             constraint.isActive = true
+            contentViewLayout.bottom = constraint
         }
 
     }
@@ -125,14 +157,33 @@ public class EmptyPageView: UIView {
     
 }
 
+public extension EmptyPageView {
+
+    func layout(vertical call: (VerticalLayout) -> Void) -> Self {
+        call(self.verticalLayout)
+        return self
+    }
+
+    func layout(horizontal call: (HorizontalLayout) -> Void) -> Self {
+        call(self.horizontalLayout)
+        return self
+    }
+
+    func layout(content call: (ContentViewLayout) -> Void) -> Self {
+        call(self.contentViewLayout)
+        return self
+    }
+
+}
+
 // MARK: - for configs method
-extension EmptyPageView {
+public extension EmptyPageView {
     
     /// 配置 `EmptyPageView`
     ///
     /// - Parameter call: 视图回调
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
-    public func config(view call: (_: EmptyPageView) -> Void) -> Self {
+    func config(view call: (_: EmptyPageView) -> Void) -> Self {
         call(self)
         return self
     }
@@ -140,13 +191,13 @@ extension EmptyPageView {
 }
 
 // MARK: - for set method
-extension EmptyPageView {
+public extension EmptyPageView {
     
     /// 配置 `EmptyPageView`
     ///
     /// - Parameter color: 背景颜色
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
-    public func set(backgroundColor color: UIColor) -> Self {
+    func set(backgroundColor color: UIColor) -> Self {
         backgroundColor = color
         return self
     }
@@ -156,7 +207,7 @@ extension EmptyPageView {
     /// - Parameter event: 点击事件
     /// - Returns: 为支持链式调用,返回 `EmptyPageView`
     @discardableResult
-    public func setBackgroundTap() -> Self {
+    func setBackgroundTap() -> Self {
         _ = tapGesture
         return self
     }
