@@ -81,6 +81,6 @@ open class EmptyPageViewManager: NSObject {
 public extension EmptyPageViewManager {
 
     /// 空白页是否显示
-    var isShow: Bool { emptyView != nil && emptyView?.superview == nil }
+    var isShow: Bool { emptyView != nil && emptyView?.superview != nil }
 
 }
