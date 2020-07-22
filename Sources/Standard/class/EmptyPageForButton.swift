@@ -50,6 +50,10 @@ open class EmptyPageForButton: UIButton {
     @discardableResult
     public func set(tapEvent: (() -> Void)?) -> Self {
         self.tapEvent = tapEvent
+        removeTarget(self, action: #selector(touchUpInsideAction), for: .touchUpInside)
+        if tapEvent != nil {
+            addTarget(self, action: #selector(touchUpInsideAction), for: .touchUpInside)
+        }
         return self
     }
 
@@ -67,7 +71,6 @@ open class EmptyPageForButton: UIButton {
 
     func initialize() {
         set(style: Self.style)
-        addTarget(self, action: #selector(touchUpInsideAction), for: .touchUpInside)
     }
 
     @objc
