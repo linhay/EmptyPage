@@ -33,20 +33,9 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
     /// 标题 Label
     public let titleLabel = EmptyPageForText(frame: .zero)
     /// 描述 Label
-    public let textLabel: EmptyPageForText = EmptyPageForText(frame: .zero)
+    public let textLabel = EmptyPageForText(frame: .zero)
     /// 底部按钮 button
-    public let button: UIButton = {
-        let item = UIButton(type: .custom)
-        item.isHidden = true
-        item.backgroundColor = .blue
-        item.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        item.layer.cornerRadius = 4
-        item.contentVerticalAlignment = .center
-        item.contentHorizontalAlignment = .center
-        item.contentEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
-        item.accessibilityIdentifier = "empty set button"
-        return item
-    }()
+    public let button = EmptyPageForButton(frame: .zero)
 
     var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
     
@@ -105,7 +94,7 @@ public extension EmptyPageForStandard {
         return self
     }
     
-    func config(button call: (_: UIButton) -> Void) -> Self {
+    func config(button call: (_: EmptyPageForButton) -> Void) -> Self {
         button.isHidden = false
         call(button)
         return self
