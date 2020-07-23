@@ -20,6 +20,7 @@
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
 		CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */; };
+		CDE714F924C9DF6F001658B4 /* CustomViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE714F824C9DF6F001658B4 /* CustomViewManager.swift */; };
 		CDE853D824ADCFA600833115 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D724ADCFA600833115 /* StateManager.swift */; };
 		CDE853DA24ADEF5400833115 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D924ADEF5400833115 /* NetworkManager.swift */; };
 		CDF1DE15249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */; };
@@ -59,6 +60,7 @@
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
 		CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerSection.swift; sourceTree = "<group>"; };
+		CDE714F824C9DF6F001658B4 /* CustomViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewManager.swift; sourceTree = "<group>"; };
 		CDE853D724ADCFA600833115 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		CDE853D924ADEF5400833115 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDZNEmptyDataSetSection.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				CDE853D724ADCFA600833115 /* StateManager.swift */,
 				CDE853D924ADEF5400833115 /* NetworkManager.swift */,
+				CDE714F824C9DF6F001658B4 /* CustomViewManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				CDF1DE23249A6E890037F7ED /* IndexDribbbleSection.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
 				CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */,
+				CDE714F924C9DF6F001658B4 /* CustomViewManager.swift in Sources */,
 				CDE853D824ADCFA600833115 /* StateManager.swift in Sources */,
 				CD97EC5924A8D5EF00F05158 /* TestViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

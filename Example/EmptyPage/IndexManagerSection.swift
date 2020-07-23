@@ -15,7 +15,7 @@ class IndexManagerSection: SectionCollectionProtocol {
 
     var core: SectionCore?
 
-    var itemCount: Int = 3
+    var itemCount: Int = 4
 
     func config(sectionView: UICollectionView) {
         sectionView.st.register(IndexTextCell.self)
@@ -30,7 +30,7 @@ class IndexManagerSection: SectionCollectionProtocol {
         let view = dequeue(kind: .header) as IndexHeaderView
         view.config("Manager")
         view.tapEvent.delegate(on: self) { (self, _) in
-            self.itemCount = self.itemCount == 3 ? 3 : 1
+            self.itemCount = self.itemCount == 4 ? 4 : 1
             self.reload()
         }
         return view
@@ -44,8 +44,9 @@ class IndexManagerSection: SectionCollectionProtocol {
         let cell: IndexTextCell = dequeue(at: row)
         switch row {
         case 0: cell.config(title: "NetworkManager", text: "无网络状态 - 空白页切换")
-        case 1: cell.config(title: "Config - NetworkManager", text: "全局配置无网络状态 - 空白页切换")
+        case 1: cell.config(title: "NetworkManager - Config", text: "全局配置无网络状态 - 空白页切换")
         case 2: cell.config(title: "StateManager", text: "多状态 - 空白页切换")
+        case 3: cell.config(title: "CustomViewManager", text: "自定义 UIView 空白页管理器")
         default:
             break
         }
@@ -54,11 +55,8 @@ class IndexManagerSection: SectionCollectionProtocol {
 
     func didSelectItem(at row: Int) {
         let contentView = SectionCollectionView()
-        contentView.backgroundColor = .white
-
         var toolItems = [ToolItem<SectionCollectionView>]()
         let vc  = TestViewController(contentView: contentView)
-        sectionView.st.viewController?.st.push(vc: vc)
 
         switch row {
         case 0:
@@ -98,10 +96,41 @@ class IndexManagerSection: SectionCollectionProtocol {
                 }
                 toolItems.append(item)
             }
+        case 3:
+            let contentView = UIView()
+            let vc = TestViewController(contentView: contentView)
+            sectionView.st.viewController?.st.push(vc: vc)
+            contentView.ep.set(manager: CustomViewManager())
+            contentView.ep.set(emptyView: EmptyStore.dzn.airbnb.view())
+            let placeholderView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
+            placeholderView.backgroundColor = UIColor.st.random
+            var toolItems = [ToolItem<UIView>]()
+            do {
+                let item = ToolItem<UIView>(title: "add view and reload")
+                item.action.delegate(on: self) { (self, contentView) in
+                    placeholderView.removeFromSuperview()
+                    contentView.addSubview(placeholderView)
+                    contentView.ep.reload()
+                }
+                toolItems.append(item)
+            }
+
+            do {
+                let item = ToolItem<UIView>(title: "remove view and reload")
+                item.action.delegate(on: self) { (self, contentView) in
+                    placeholderView.removeFromSuperview()
+                    contentView.ep.reload()
+                }
+                toolItems.append(item)
+            }
+            vc.config(toolItems: toolItems)
+            return
         default:
             break
         }
 
+        contentView.backgroundColor = .white
+        sectionView.st.viewController?.st.push(vc: vc)
         vc.config(toolItems: toolItems)
     }
 
