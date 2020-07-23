@@ -39,4 +39,4 @@ public extension EmptyPageCompatible {
     static var ep: EmptyPage<Self>.Type { return EmptyPage<Self>.self }
 }
 
-extension UIScrollView: EmptyPageCompatible { }
+extension UIView: EmptyPageCompatible { }
