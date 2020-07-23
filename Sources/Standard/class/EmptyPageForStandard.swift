@@ -37,7 +37,7 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
     /// 底部按钮 button
     public let button = EmptyPageForButton(frame: .zero)
 
-    var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
+    private var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
     
     // MARK: - Override
     public override init(frame: CGRect) {
@@ -50,15 +50,21 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
         initialize()
     }
     
-    func initialize() {
+    private func initialize() {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         distribution = .fill
         alignment = .center
+
         views.forEach { view in
             view.isHidden = true
             view.translatesAutoresizingMaskIntoConstraints = false
             addArrangedSubview(view)
+        }
+
+        titleLabel.config { view in
+            view.font = UIFont.systemFont(ofSize: 16)
+            view.textColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
         }
 
         textLabel.config { view in
