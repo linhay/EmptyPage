@@ -24,29 +24,29 @@ import UIKit
 
 /// `EmptyPageForImage` 图片样式模板
 open class EmptyPageForImage: UIImageView, EmptyPageTemplateProtocol {
-
+    
     public var edge: UIEdgeInsets = .zero
     
     // MARK: - private property
     private var customSize: CGSize?
     private lazy var height = heightAnchor.constraint(equalToConstant: 0)
     private lazy var width = widthAnchor.constraint(equalToConstant: 0)
-
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
-
+    
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
     }
-
-    func initialize() {
+    
+    private func initialize() {
         contentMode = .scaleAspectFit
         translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
 }
 
 // MARK: 调整 layout 相关枚举与函数

@@ -26,19 +26,18 @@ public class EmptyPageDelegate<Input, Output> {
     init() {}
     
     private var block: ((Input) -> Output?)?
-
 }
 
 public extension EmptyPageDelegate {
 
-    public func delegate<T: AnyObject>(on target: T, block: ((T, Input) -> Output)?) {
+    func delegate<T: AnyObject>(on target: T, block: ((T, Input) -> Output)?) {
         self.block = { [weak target] input in
             guard let target = target else { return nil }
             return block?(target, input)
         }
     }
 
-    public func call(_ input: Input) -> Output? {
+    func call(_ input: Input) -> Output? {
         return block?(input)
     }
 

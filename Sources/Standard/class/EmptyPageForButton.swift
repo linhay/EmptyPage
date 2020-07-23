@@ -23,7 +23,7 @@
 import UIKit
 
 open class EmptyPageForButton: UIButton {
-
+    
     public struct Style {
         public var backgroundColor: UIColor? = .systemBlue
         public var titleLabelFont: UIFont = .systemFont(ofSize: 16, weight: .medium)
@@ -33,20 +33,20 @@ open class EmptyPageForButton: UIButton {
         public var contentHorizontalAlignment: UIControl.ContentHorizontalAlignment = .center
         public var contentEdgeInsets: UIEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
     }
-
+    
     public static let style = Style()
-    var tapEvent: (() -> Void)?
-
+    private var tapEvent: (() -> Void)?
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
     }
-
+    
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
     }
-
+    
     @discardableResult
     public func set(tapEvent: (() -> Void)?) -> Self {
         self.tapEvent = tapEvent
@@ -56,7 +56,7 @@ open class EmptyPageForButton: UIButton {
         }
         return self
     }
-
+    
     @discardableResult
     public func set(style: Style) -> Self {
         backgroundColor = style.backgroundColor
@@ -68,14 +68,14 @@ open class EmptyPageForButton: UIButton {
         contentEdgeInsets = style.contentEdgeInsets
         return self
     }
-
-    func initialize() {
+    
+    private func initialize() {
         set(style: Self.style)
     }
-
+    
     @objc
     private func touchUpInsideAction() {
         tapEvent?()
     }
-
+    
 }
