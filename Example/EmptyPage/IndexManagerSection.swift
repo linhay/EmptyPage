@@ -139,9 +139,7 @@ class IndexManagerSection: SectionCollectionProtocol {
 extension IndexManagerSection {
 
     func setEmptyPage(contentView: SectionCollectionView) {
-        contentView.ep.set(emptyView: EmptyPageView.Template.image
-            .set(image: UIImage(color: .red, size: .init(width: 60, height: 60)))
-            .mix())
+        contentView.ep.set(emptyView: EmptyStore.demo.standard(tapEvent: nil))
     }
 
     func enableNetworkItems() -> [ToolItem<SectionCollectionView>] {
