@@ -1,32 +1,45 @@
 //
-//  StateManager.swift
-//  EmptyPage_Example
+//  CollectionView+EmptyStateManager.swift
+//  iDxyer
 //
-//  Created by 林翰 on 2020/7/2.
-//  Copyright © 2020 CocoaPods. All rights reserved.
+//  Created by 林翰 on 2020/8/5.
 //
 
 import UIKit
 import EmptyPage
+import Reachability
 
-class StateManager: EmptyPageCollectionViewManager {
+public class StateManager: EmptyPageCollectionViewManager {
 
-    enum State: Int {
+    public enum State: Int {
         case loading
         case normal
+        case noNetwork
     }
 
     private(set) var state: State = .normal
     private(set) var emptyViewStore: [State: UIView] = [:]
 
-    override var emptyViewProvider: () -> UIView? {
-        return { [weak self] () -> UIView? in
+    override init() {
+        super.init()
+        set(emptyViewProvider: { [weak self] () -> UIView? in
             guard let self = self else {
                 return nil
             }
+
+            if AppManager.shared.reachability.connection == .unavailable, let view = self.emptyViewStore[.noNetwork] {
+                return view
+            }
+
             return self.emptyViewStore[self.state]
-        }
+        })
     }
+
+    public override func set(emptyView view: UIView?) { }
+
+}
+
+public extension StateManager {
 
     func change(state: State) {
         self.state = state
@@ -37,15 +50,15 @@ class StateManager: EmptyPageCollectionViewManager {
         emptyViewStore[state] = emptyView
     }
 
-    override func set(emptyViewProvider provider: (() -> UIView?)?) { }
-
 }
 
-extension EmptyPage where Base: UICollectionView {
+public extension EmptyPage where Base: UICollectionView {
 
     func set(emptyView: UIView?, for state: StateManager.State) {
         if manager == nil || (manager is StateManager) == false {
-            self.set(manager: StateManager())
+            let manager = StateManager()
+            manager.set(target: base)
+            self.set(manager: manager)
         }
 
         guard let manager = manager as? StateManager else {
