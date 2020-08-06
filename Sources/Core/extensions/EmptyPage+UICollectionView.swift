@@ -40,6 +40,14 @@ public extension EmptyPage where Base: UICollectionView {
         return base.emptyPageViewManager as? EmptyPageCollectionViewManager
     }
 
+    func set(manager: EmptyPageViewManager?) {
+        EmptyPageRuntime.swizzingLayout
+        EmptyPageRuntime.swizzingCollectionView
+        base.useCustomManager = true
+        base.emptyPageViewManager = manager
+        manager?.set(target: base)
+    }
+
     func set(emptyView view: UIView?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView

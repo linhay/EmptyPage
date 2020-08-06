@@ -27,9 +27,17 @@ open class EmptyPageViewManager: NSObject {
     // 父视图
     open private(set) weak var target: UIView?
     open private(set) weak var emptyView: UIView?
-
     open private(set) var emptyViewProvider: () -> UIView? = { nil }
-    
+
+    public override init() {
+        super.init()
+    }
+
+    public init(target: UIView?) {
+        super.init()
+        self.target = target
+    }
+
     /// 设置目标视图
     /// - Parameter target: 目标视图
     open func set(target: UIView?) {
@@ -42,7 +50,7 @@ open class EmptyPageViewManager: NSObject {
         self.emptyViewProvider = provider ?? { nil }
     }
 
-    public func set(emptyView view: UIView?) {
+    open func set(emptyView view: UIView?) {
         set(emptyViewProvider: { view })
     }
 

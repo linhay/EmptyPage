@@ -5,6 +5,7 @@ use_frameworks!
 install! 'cocoapods', :generate_multiple_pod_projects => true
 
 target 'EmptyPage_Example' do
+  pod 'ReachabilitySwift'
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit', '5.0.0'
   pod 'Stuart', :git => 'git@github.com:linhay/Stuart.git', :branch => 'dev'
