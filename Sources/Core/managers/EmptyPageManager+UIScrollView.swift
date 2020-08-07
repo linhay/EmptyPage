@@ -36,23 +36,22 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
         emptyView?.frame.origin.y = scrollView?.contentOffset.y ?? 0
     }
 
-    open override func reload() {
-        guard let scrollView = scrollView else {
-            super.reload()
-            return
-        }
+    open override func reload(completion: ((Bool) -> Void)? = nil) {
+        super.reload { [weak self] isEmpty in
+            guard let self = self, let scrollView = self.scrollView else {
+                return
+            }
 
-        switch (isShow, isEmpty()) {
-        case (false, true):
-            isScrollEnabled = scrollView.isScrollEnabled
-            scrollView.isScrollEnabled = canScrollEnabled
-        case (false, false), (true, true):
-            break
-        case (true, false):
-            scrollView.isScrollEnabled = isScrollEnabled
+            switch (self.isShow, isEmpty && self.emptyView != nil) {
+            case (false, true):
+                self.isScrollEnabled = scrollView.isScrollEnabled
+                scrollView.isScrollEnabled = self.canScrollEnabled
+            case (false, false), (true, true):
+                break
+            case (true, false):
+                scrollView.isScrollEnabled = self.isScrollEnabled
+            }
         }
-
-        super.reload()
     }
 
 }
