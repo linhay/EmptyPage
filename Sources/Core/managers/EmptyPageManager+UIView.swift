@@ -67,9 +67,10 @@ open class EmptyPageViewManager: NSObject {
     }
 
     /// 处理展示空白页逻辑
-    open func reload() {
+    open func reload(completion: ((_ isEmpty: Bool) -> Void)? = nil) {
         emptyView?.removeFromSuperview()
         guard let delegate = target, isEmpty(), let view = emptyViewProvider() else {
+            completion?(false)
             return
         }
 
@@ -82,6 +83,8 @@ open class EmptyPageViewManager: NSObject {
         #else
         delegate.sendSubview(toBack: view)
         #endif
+
+        completion?(true)
     }
 
 }
