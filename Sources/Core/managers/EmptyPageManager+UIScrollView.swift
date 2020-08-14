@@ -40,6 +40,7 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
         let isShow = self.isShow
         super.reload { [weak self] isEmpty in
             guard let self = self, let scrollView = self.scrollView else {
+                completion?(isEmpty)
                 return
             }
 
@@ -52,6 +53,8 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
             case (true, false):
                 scrollView.isScrollEnabled = self.isScrollEnabled
             }
+
+            completion?(isEmpty)
         }
     }
 
