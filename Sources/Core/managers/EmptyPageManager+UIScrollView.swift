@@ -37,12 +37,13 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
     }
 
     open override func reload(completion: ((Bool) -> Void)? = nil) {
+        let isShow = self.isShow
         super.reload { [weak self] isEmpty in
             guard let self = self, let scrollView = self.scrollView else {
                 return
             }
 
-            switch (self.isShow, isEmpty && self.emptyView != nil) {
+            switch (isShow, isEmpty && self.emptyView != nil) {
             case (false, true):
                 self.isScrollEnabled = scrollView.isScrollEnabled
                 scrollView.isScrollEnabled = self.canScrollEnabled
