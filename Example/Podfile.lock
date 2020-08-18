@@ -1,15 +1,20 @@
 PODS:
-  - EmptyPage (3.3.1):
-    - EmptyPage/Core (= 3.3.1)
-    - EmptyPage/Standard (= 3.3.1)
-  - EmptyPage/Core (3.3.1)
-  - EmptyPage/Standard (3.3.1):
-    - EmptyPage/Core
-  - MJRefresh (3.4.1)
+  - EmptyPage (4.0.0):
+    - EmptyPage/core (= 4.0.0)
+    - EmptyPage/managers (= 4.0.0)
+    - EmptyPage/standard (= 4.0.0)
+  - EmptyPage/core (4.0.0)
+  - EmptyPage/managers (4.0.0)
+  - EmptyPage/standard (4.0.0):
+    - EmptyPage/core
+  - LookinServer (1.0.0)
+  - MJRefresh (3.4.3)
+  - ReachabilitySwift (5.0.0)
   - SnapKit (5.0.0)
   - Stem (0.0.31):
     - Stem/AVKit (= 0.0.31)
     - Stem/Core (= 0.0.31)
+    - Stem/CoreText (= 0.0.31)
     - Stem/Foundation (= 0.0.31)
     - Stem/Fundamentals (= 0.0.31)
     - Stem/NSObject (= 0.0.31)
@@ -19,6 +24,8 @@ PODS:
   - Stem/AVKit (0.0.31):
     - Stem/Core
   - Stem/Core (0.0.31)
+  - Stem/CoreText (0.0.31):
+    - Stem/Core
   - Stem/Foundation (0.0.31):
     - Stem/Core
     - Stem/Foundation/Coder (= 0.0.31)
@@ -104,6 +111,7 @@ PODS:
     - Stem/Runtime
   - Stem/UIKit/Font (0.0.31):
     - Stem/Core
+    - Stem/CoreText
     - Stem/Fundamentals
     - Stem/NSObject
     - Stem/Runtime
@@ -171,23 +179,32 @@ PODS:
   - Stem/WebKit (0.0.31):
     - Stem/Core
   - Stuart (0.0.1):
+    - Stuart/Configurable (= 0.0.1)
     - Stuart/SectionView (= 0.0.1)
+  - Stuart/Configurable (0.0.1)
   - Stuart/SectionView (0.0.1)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
+  - LookinServer
   - MJRefresh
+  - ReachabilitySwift
   - SnapKit (= 5.0.0)
   - "Stem (from `git@github.com:linhay/Stem.git`, branch `develop`)"
-  - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `master`)"
+  - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `dev`)"
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - LookinServer
     - MJRefresh
+    - ReachabilitySwift
     - SnapKit
     - SVProgressHUD
+    - SwiftLint
 
 EXTERNAL SOURCES:
   EmptyPage:
@@ -196,25 +213,28 @@ EXTERNAL SOURCES:
     :branch: develop
     :git: "git@github.com:linhay/Stem.git"
   Stuart:
-    :branch: master
+    :branch: dev
     :git: "git@github.com:linhay/Stuart.git"
 
 CHECKOUT OPTIONS:
   Stem:
-    :commit: 1e43e8aa3b89bddea2d7616a78e2b689119bb575
+    :commit: 0c5e00788d66bb8f5fbc4b93c802f291ee2c09ec
     :git: "git@github.com:linhay/Stem.git"
   Stuart:
-    :commit: e43b576351fcd78423887448208d278342746ca1
+    :commit: d1b9f124019d2506768676b1a82c00c857bad3cc
     :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
-  EmptyPage: 6bf71d62adac092849bcf6c9c88de970abe6601c
-  MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
+  EmptyPage: b049b273a91f2b71d1be52b62e23dfa3a221fa43
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Stem: f3e2d0f79aa3c154eb4a0c013f9e42b06e1dd93a
-  Stuart: b5fccbcb300fd684f248d371c7b36be7494a88b3
+  Stem: 179e38e4bc5f522550df4b95c610629fee1d62c4
+  Stuart: 59481afc2b60a9d5da6234647e72e62b79817205
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: b9a9a823cb715f3fdb85442fc189e50632935387
+PODFILE CHECKSUM: 5b4148dddb1992fb515483b0b1745bbd84900222
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.9.3

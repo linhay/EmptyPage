@@ -1,7 +1,7 @@
 //
 //  EmptyPage
 //
-//  Copyright (c) 2018 linhay - https://github.com/linhay
+//  Copyright (c) 2018 linhey - https://github.com/linhay
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 
 import UIKit
 
-public struct EmptyPage<Base> {
+public class EmptyPage<Base> {
     public let base: Base
     public init(_ base: Base) {
         self.base = base
@@ -39,4 +39,4 @@ public extension EmptyPageCompatible {
     static var ep: EmptyPage<Self>.Type { return EmptyPage<Self>.self }
 }
 
-extension UIScrollView: EmptyPageCompatible { }
+extension UIView: EmptyPageCompatible { }

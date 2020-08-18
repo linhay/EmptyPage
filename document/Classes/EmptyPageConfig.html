@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EmptyPageConfig Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/EmptyPageConfig" class="dashAnchor"></a>
+
+    <a title="EmptyPageConfig Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          EmptyPage Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">EmptyPage Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      EmptyPageConfig Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPage.html">EmptyPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageCollectionViewManager.html">EmptyPageCollectionViewManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageConfig.html">EmptyPageConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageDelegate.html">EmptyPageDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForButton.html">EmptyPageForButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForButton/Style.html">– Style</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForImage.html">EmptyPageForImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForStandard.html">EmptyPageForStandard</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForStandard/ViewType.html">– ViewType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForStandard/LayoutType.html">– LayoutType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageForText.html">EmptyPageForText</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageScrollViewManager.html">EmptyPageScrollViewManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageTableViewManager.html">EmptyPageTableViewManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageView.html">EmptyPageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageView/VerticalLayout.html">– VerticalLayout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageView/HorizontalLayout.html">– HorizontalLayout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageView/ContentViewLayout.html">– ContentViewLayout</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageView/Template.html">– Template</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/EmptyPageViewManager.html">EmptyPageViewManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions.html#/c:objc(cs)UIView">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/EmptyPageCompatible.html">EmptyPageCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/EmptyPageTemplateProtocol.html">EmptyPageTemplateProtocol</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>EmptyPageConfig</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">EmptyPageConfig</span></code></pre>
+
+                </div>
+              </div>
+            
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC6sharedACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC6sharedACvpZ">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">EmptyPageConfig</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC16viewGloalManagerAA0ab4ViewF0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/viewGloalManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC16viewGloalManagerAA0ab4ViewF0CSgvp">viewGloalManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UIView 的全局 EmptyPageViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">viewGloalManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageViewManager.html">EmptyPageViewManager</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC22scrollViewGloalManagerAA0ab6ScrolleG0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewGloalManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC22scrollViewGloalManagerAA0ab6ScrolleG0CSgvp">scrollViewGloalManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UIScrollView 的全局 EmptyPageScrollViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">scrollViewGloalManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageScrollViewManager.html">EmptyPageScrollViewManager</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC21tableViewGloalManagerAA0ab5TableeG0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/tableViewGloalManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC21tableViewGloalManagerAA0ab5TableeG0CSgvp">tableViewGloalManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UITableView 的全局 EmptyPageTableViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">tableViewGloalManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageTableViewManager.html">EmptyPageTableViewManager</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC26collectionViewGloalManagerAA0ab10CollectioneG0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/collectionViewGloalManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC26collectionViewGloalManagerAA0ab10CollectioneG0CSgvp">collectionViewGloalManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UICollectionView 的全局 EmptyPageCollectionViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">collectionViewGloalManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageCollectionViewManager.html">EmptyPageCollectionViewManager</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC15setGloalManager4viewyAA0ab4ViewF0CSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/setGloalManager(view:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC15setGloalManager4viewyAA0ab4ViewF0CSg_tF">setGloalManager(view:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>设置 UIView 的全局 EmptyPageViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setGloalManager</span><span class="p">(</span><span class="n">view</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageViewManager.html">EmptyPageViewManager</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>EmptyPageViewManager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC15setGloalManager10scrollViewyAA0ab6ScrollhF0CSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/setGloalManager(scrollView:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC15setGloalManager10scrollViewyAA0ab6ScrollhF0CSg_tF">setGloalManager(scrollView:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>设置 UIScrollView 的全局 EmptyPageScrollViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setGloalManager</span><span class="p">(</span><span class="n">scrollView</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageScrollViewManager.html">EmptyPageScrollViewManager</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>EmptyPageScrollViewManager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC15setGloalManager9tableViewyAA0ab5TablehF0CSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/setGloalManager(tableView:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC15setGloalManager9tableViewyAA0ab5TablehF0CSg_tF">setGloalManager(tableView:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>设置 UITableView 的全局 EmptyPageTableViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setGloalManager</span><span class="p">(</span><span class="n">tableView</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageTableViewManager.html">EmptyPageTableViewManager</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>EmptyPageTableViewManager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9EmptyPage0aB6ConfigC15setGloalManager14collectionViewyAA0ab10CollectionhF0CSg_tF"></a>
+                    <a name="//apple_ref/swift/Method/setGloalManager(collectionView:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9EmptyPage0aB6ConfigC15setGloalManager14collectionViewyAA0ab10CollectionhF0CSg_tF">setGloalManager(collectionView:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>设置 UICollectionView 的全局 EmptyPageCollectionViewManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setGloalManager</span><span class="p">(</span><span class="n">collectionView</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Classes/EmptyPageCollectionViewManager.html">EmptyPageCollectionViewManager</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>EmptyPageCollectionViewManager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://github.com/linhay/EmptyPage" target="_blank" rel="external">linhay</a>. All rights reserved. (Last updated: 2020-07-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

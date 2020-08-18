@@ -1,7 +1,7 @@
 //
 //  EmptyPage
 //
-//  Copyright (c) 2018 linhay - https://github.com/linhay
+//  Copyright (c) 2018 linhey - https://github.com/linhay
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,39 +22,22 @@
 
 import UIKit
 
-public extension EmptyPage where Base: UIScrollView {
+public extension EmptyPage where Base: UITableView {
     /// 添加空白页视图
     ///
     /// - Parameter view: 模板视图
     func setEmpty(_ template: EmptyPageTemplateProtocol?) {
-        self.setEmpty(template?.mix())
-    }
-
-    /// 添加 loading 空白页视图
-    ///
-    /// - Parameter view: 模板视图
-    func setFirstLoading(_ template: EmptyPageTemplateProtocol?) {
-        self.setFirstLoading(template?.mix())
+        self.set(emptyView: template?.mix())
     }
 
 }
 
-public extension UIScrollView {
-
+public extension EmptyPage where Base: UICollectionView {
     /// 添加空白页视图
     ///
-    /// - Parameter view: `EmptyPageView`
-    @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "ep.setEmpty(_:)", message: "[4.0.0]移除")
-    func setEmpty(view: EmptyPageView?) {
-        self.setEmpty(view)
-    }
-
-    /// 添加空白页视图
-    ///
-    /// - Parameter view: `EmptyPageView`
-    @available(iOS, introduced: 8.0, deprecated: 8.0, renamed: "ep.setEmpty(_:)", message: "[4.0.0]移除")
-    func setEmpty(_ view: EmptyPageView?) {
-        self.ep.setEmpty(view)
+    /// - Parameter view: 模板视图
+    func setEmpty(_ template: EmptyPageTemplateProtocol?) {
+        self.set(emptyView: template?.mix())
     }
 
 }
