@@ -48,6 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+    UINavigationItem.st.isHideBackButtonText = true
+    UINavigationBar.appearance().tintColor = .black
+    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    
     AppManager.shared.start()
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = UINavigationController(rootViewController: IndexViewController())

@@ -160,17 +160,17 @@ public class EmptyPageView: UIView {
 public extension EmptyPageView {
 
     func layout(vertical call: (VerticalLayout) -> Void) -> Self {
-        call(self.verticalLayout)
+        call(verticalLayout)
         return self
     }
 
     func layout(horizontal call: (HorizontalLayout) -> Void) -> Self {
-        call(self.horizontalLayout)
+        call(horizontalLayout)
         return self
     }
 
     func layout(content call: (ContentViewLayout) -> Void) -> Self {
-        call(self.contentViewLayout)
+        call(contentViewLayout)
         return self
     }
 

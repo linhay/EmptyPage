@@ -11,6 +11,49 @@ import EmptyPage
 import Stem
 import SnapKit
 
+enum Standard: String, CaseIterable {
+
+    case image
+    case text
+    case standard
+
+    func view() -> EmptyPageView {
+        let cn = NSAttributedString(string: "搜索不到数据 \n",
+                                    attributes: [.font(.systemFont(ofSize: 14, weight: .medium)),
+                                                 .paragraphStyle([.minimumLineHeight(20),
+                                                                  .maximumLineHeight(20)])])
+        let en = NSAttributedString(string: "No data found",
+                                    attributes: [.font(.systemFont(ofSize: 14, weight: .medium)),
+                                                 .paragraphStyle([.minimumLineHeight(20),
+                                                                  .maximumLineHeight(20)])])
+        let attr = cn + en
+        let image = UIImage(named: "empty")
+
+        switch self {
+        case .image:
+            return EmptyPageView.Template.image
+                .set(image: image)
+                .mix()
+        case .text:
+            return EmptyPageView.Template.text
+                .set(attributed: attr)
+                .mix()
+        case .standard:
+            return EmptyPageView.Template.standard
+                .config(imageView: { $0.set(image: image) })
+                .config(textLabel: { $0.set(attributed: attr) })
+                .config(button: {
+                    $0.setTitle("点击重试", for: .normal)
+                    $0.set {
+                        print("tap event")
+                    }
+                })
+                .layout(type: .insets(20), views: [.button])
+                .mix()
+        }
+    }
+}
+
 enum Dribbble: String, CaseIterable {
     
     case illustration
