@@ -41,6 +41,18 @@ public extension EmptyPageStateProtocol where Self: EmptyPageViewManager {
         viewStore[state] = emptyView
     }
 
+    fileprivate var viewProvider: () -> UIView? {
+        return { [weak self] in
+            guard let self = self else {
+                return nil
+            }
+            if let box = self.hookProvider.call(self.state), let view = box {
+                return view
+            }
+            return self.viewStore[self.state]
+        }
+    }
+
 }
 
 open class EmptyPageViewStateManager<State: OptionSet & Hashable>: EmptyPageViewManager, EmptyPageStateProtocol {
@@ -49,17 +61,7 @@ open class EmptyPageViewStateManager<State: OptionSet & Hashable>: EmptyPageView
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
 
-    open override var emptyViewProvider: () -> UIView? {
-        return { [weak self] in
-            guard let self = self else {
-                return nil
-            }
-            if let view = self.hookProvider.call(self.state) {
-                return view
-            }
-            return self.viewStore[self.state]
-        }
-    }
+    open override var emptyViewProvider: () -> UIView? { viewProvider }
 
     public init(state: State) {
         self.state = state
@@ -74,17 +76,7 @@ open class EmptyPageScrollViewStateManager<State: OptionSet & Hashable>: EmptyPa
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
 
-    open override var emptyViewProvider: () -> UIView? {
-        return { [weak self] in
-            guard let self = self else {
-                return nil
-            }
-            if let view = self.hookProvider.call(self.state) {
-                return view
-            }
-            return self.viewStore[self.state]
-        }
-    }
+    open override var emptyViewProvider: () -> UIView? { viewProvider }
 
     public init(state: State) {
         self.state = state
@@ -99,17 +91,7 @@ open class EmptyPageCollectionStateManager<State: OptionSet & Hashable>: EmptyPa
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
 
-    open override var emptyViewProvider: () -> UIView? {
-        return { [weak self] in
-            guard let self = self else {
-                return nil
-            }
-            if let view = self.hookProvider.call(self.state) {
-                return view
-            }
-            return self.viewStore[self.state]
-        }
-    }
+    open override var emptyViewProvider: () -> UIView? { viewProvider }
 
     public init(state: State) {
         self.state = state
@@ -124,17 +106,7 @@ open class EmptyPageTableStateManager<State: OptionSet & Hashable>: EmptyPageTab
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
 
-    open override var emptyViewProvider: () -> UIView? {
-        return { [weak self] in
-            guard let self = self else {
-                return nil
-            }
-            if let view = self.hookProvider.call(self.state) {
-                return view
-            }
-            return self.viewStore[self.state]
-        }
-    }
+    open override var emptyViewProvider: () -> UIView? { viewProvider }
 
     public init(state: State) {
         self.state = state
