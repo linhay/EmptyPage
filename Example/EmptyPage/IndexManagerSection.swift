@@ -81,6 +81,8 @@ class IndexManagerSection: SectionCollectionProtocol {
         case 2:
             contentView.ep.set(emptyView: EmptyStore.loading, for: .loading)
             contentView.ep.set(emptyView: EmptyStore.dzn.airbnb.view(), for: .normal)
+            contentView.ep.set(emptyView: EmptyStore.demo.standard(tapEvent: nil), for: .noNetwork)
+
             do {
                 let item = ToolItem<SectionCollectionView>(title: "loading")
                 item.action.delegate(on: self) { (self, contentView) in
@@ -96,6 +98,15 @@ class IndexManagerSection: SectionCollectionProtocol {
                 }
                 toolItems.append(item)
             }
+
+            do {
+                let item = ToolItem<SectionCollectionView>(title: "noNetwork")
+                item.action.delegate(on: self) { (self, contentView) in
+                    contentView.ep.change(state: .noNetwork)
+                }
+                toolItems.append(item)
+            }
+
         case 3:
             let contentView = UIView()
             let vc = TestViewController(contentView: contentView)

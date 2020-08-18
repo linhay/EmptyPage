@@ -23,24 +23,24 @@
 import Foundation
 
 public class EmptyPageDelegate<Input, Output> {
-    init() {}
+    public init() {}
     
     private var block: ((Input) -> Output?)?
 }
 
 public extension EmptyPageDelegate {
-
+    
     func delegate<T: AnyObject>(on target: T, block: ((T, Input) -> Output)?) {
         self.block = { [weak target] input in
             guard let target = target else { return nil }
             return block?(target, input)
         }
     }
-
+    
     func call(_ input: Input) -> Output? {
         return block?(input)
     }
-
+    
 }
 public extension EmptyPageDelegate where Input == Void {
     func call() -> Output? {
