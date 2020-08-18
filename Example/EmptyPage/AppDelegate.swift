@@ -8,18 +8,54 @@
 
 import UIKit
 import EmptyPage
+import Reachability
+
+class AppManager {
+
+   static let shared = AppManager()
+
+    let reachability = try! Reachability()
+
+    func start() {
+        startReachability()
+    }
+
+    func startReachability() {
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+        }
+
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  var window: UIWindow?
+    var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    AppManager.shared.start()
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = UINavigationController(rootViewController: DemoCollectionViewController())
+    window?.rootViewController = UINavigationController(rootViewController: IndexViewController())
     window?.makeKeyAndVisible()
     return true
   }
+
+
 
 }
 

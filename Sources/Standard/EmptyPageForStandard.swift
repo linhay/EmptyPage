@@ -1,7 +1,7 @@
 //
 //  EmptyPage
 //
-//  Copyright (c) 2018 linhay - https://github.com/linhay
+//  Copyright (c) 2018 linhey - https://github.com/linhay
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,529 +23,177 @@
 import UIKit
 
 /// `EmptyPageForStandard` 混合样式模板
-open class EmptyPageForStandard: UIView, EmptyPageTemplateProtocol {
-  
-  // MARK: - Public property
-  /// 图片 imageView
-  public let imageView: UIImageView = {
-    let item = UIImageView()
-    return item
-  }()
-  
-  /// 标题 Label
-  public let titleLabel: UILabel = {
-    let item = UILabel()
-    item.textAlignment = .center
-    item.textColor = UIColor.black
-    return item
-  }()
-  
-  /// 描述 Label
-  public let textLabel: UILabel = {
-    let item = UILabel()
-    item.numberOfLines = 0
-    item.textAlignment = .center
-    item.textColor = UIColor.gray
-    return item
-  }()
-  
-  /// 底部按钮 button
-  public let button: UIButton = {
-    let item = UIButton(type: .custom)
-    item.isHidden = true
-    item.layer.cornerRadius = 2
-    item.setTitleColor(UIColor.blue, for: .normal)
-    item.contentVerticalAlignment = .center
-    item.contentHorizontalAlignment = .center
-    item.accessibilityIdentifier = "empty set button"
-    item.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-    item.addTarget(self, action: #selector(event), for: UIControl.Event.touchUpInside)
-    return item
-  }()
-  
-  /// 点击事件
-  public var eventStore: ((_: EmptyPageForStandard) -> Void)?
+open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
 
-  // MARK: - Override
-  public init() {
-    super.init(frame: CGRect.zero)
-    buildUI()
-  }
-  
-  public required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    buildUI()
-  }
-  
-  open override func willMove(toWindow newWindow: UIWindow?) {
-    super.willMove(toWindow: newWindow)
-    guard imageView.image == nil else { return }
-    newWindow == nil ? imageView.stopAnimating() : imageView.startAnimating()
-  }
+    public var edge: UIEdgeInsets = .zero
+    
+    // MARK: - Public property
+    /// 图片 imageView
+    public let imageView = EmptyPageForImage(frame: .zero)
+    /// 标题 Label
+    public let titleLabel = EmptyPageForText(frame: .zero)
+    /// 描述 Label
+    public let textLabel = EmptyPageForText(frame: .zero)
+    /// 底部按钮 button
+    public let button = EmptyPageForButton(frame: .zero)
 
+    private var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
+    
+    // MARK: - Override
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required public init(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
+    
+    private func initialize() {
+        translatesAutoresizingMaskIntoConstraints = false
+        axis = .vertical
+        distribution = .fill
+        alignment = .center
+
+        views.forEach { view in
+            view.isHidden = true
+            view.translatesAutoresizingMaskIntoConstraints = false
+            addArrangedSubview(view)
+        }
+
+        titleLabel.config { view in
+            view.font = UIFont.systemFont(ofSize: 16)
+            view.textColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
+        }
+
+        textLabel.config { view in
+            view.font = UIFont.systemFont(ofSize: 14)
+            view.textColor = UIColor(red: 153 / 255, green: 153 / 255, blue: 153 / 255, alpha: 1)
+        }
+
+        _ = layout(type: .afterSpac(20), views: [.imageView])
+        _ = layout(view: .textLabel, types: [.afterSpac(28), .height(20)])
+        _ = layout(view: .titleLabel, types: [.afterSpac(8), .height(22.5)])
+        _ = layout(view: .button, types: [.height(36)])
+    }
+    
+}
+
+public extension EmptyPageForStandard {
+    
+    func config(imageView call: (_: EmptyPageForImage) -> Void) -> Self {
+        imageView.isHidden = false
+        call(imageView)
+        return self
+    }
+    
+    func config(titleLabel call: (_: EmptyPageForText) -> Void) -> Self {
+        titleLabel.isHidden = false
+        call(titleLabel)
+        return self
+    }
+    
+    func config(textLabel call: (_: EmptyPageForText) -> Void) -> Self {
+        textLabel.isHidden = false
+        call(textLabel)
+        return self
+    }
+    
+    func config(button call: (_: EmptyPageForButton) -> Void) -> Self {
+        button.isHidden = false
+        call(button)
+        return self
+    }
+    
 }
 
 // MARK: 调整 layout 相关枚举与函数
-extension EmptyPageForStandard {
-  
-  /// 视图高度调整
-  ///
-  /// - button: 按钮 default: 自适应
-  public enum HeightType {
-    case button
-  }
-  
-  /// 修改视图高度
-  ///
-  /// - Parameters:
-  ///   - type: 调整类型,可查阅: `EmptyPageForStandard.HeightType`
-  ///   - value: 调整值
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func change(height type: HeightType, value: CGFloat) -> Self {
-    var targetItem: NSObject
-    switch type {
-    case .button:
-      targetItem = button
-    }
-    let constraint = constraints.first { (item) -> Bool in
-      return item.firstAttribute == .height && item.firstItem === targetItem
+public extension EmptyPageForStandard {
+    
+    /// 视图高度调整
+    ///
+    /// - button: 按钮 default: 自适应
+    enum ViewType {
+        case imageView, titleLabel, textLabel, button
     }
     
-    if let constraint = constraint {
-      constraint.constant = value
-    } else {
-      let constraint = NSLayoutConstraint(item: targetItem, attribute: .height,
-                                          relatedBy: .equal,
-                                          toItem: nil, attribute: .notAnAttribute,
-                                          multiplier: 1,
-                                          constant: value)
-      addConstraint(constraint)
-    }
-    updateConstraintsIfNeeded()
-    return self
-  }
-  
-  /// 垂直方向间距类型
-  ///
-  /// - imageWithTitle: 图片与标题间距 default: 10
-  /// - titleWithText:  标题与文本间距 default: 5
-  /// - textWithButton: 文本与按钮间距 default: 10
-  public enum VSpaceType {
-    case imageTop
-    case imageWithTitle
-    case titleWithText
-    case textWithButton
-  }
-  
-  /// 修改视图垂直方向上的间距
-  ///
-  /// - Parameters:
-  ///   - type: 调整类型,可查阅: `EmptyPageForStandard.VSpaceType`
-  ///   - value: 调整值
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func change(vspace type: VSpaceType, value: CGFloat) -> Self {
-    var fromItem: NSObject
-    var toItem: NSObject
-    var secondAttribute: NSLayoutConstraint.Attribute = .bottom
-    switch type {
-    case .imageTop:
-      fromItem = imageView
-      toItem = self
-      secondAttribute = .top
-    case .imageWithTitle:
-      fromItem = titleLabel
-      toItem = imageView
-    case .titleWithText:
-      fromItem = textLabel
-      toItem = titleLabel
-    case .textWithButton:
-      fromItem = button
-      toItem = textLabel
+    enum LayoutType {
+        case width(_: CGFloat)
+        case height(_: CGFloat)
+        case insets(_: CGFloat)
+        case afterSpac(_: CGFloat)
     }
     
-    let findItem = constraints.first { (item) -> Bool in
-      return item.firstAttribute == .top
-        && item.secondAttribute == secondAttribute
-        && item.firstItem === fromItem
-        && item.secondItem === toItem
-    }
-    
-    if let findItem = findItem {
-      findItem.constant = value
-    } else {
-      let item = NSLayoutConstraint(item: fromItem, attribute: .top,
-                                    relatedBy: .equal,
-                                    toItem: toItem, attribute: secondAttribute,
-                                    multiplier: 1,
-                                    constant: value)
-      addConstraint(item)
-    }
-    
-    updateConstraintsIfNeeded()
-    return self
-  }
-  
-  /// 修改视图水平方向上的间距
-  ///
-  /// - image:  主图左右间距 default: 无约束
-  /// - title:  标题左右间距 default: 15
-  /// - text:   文本左右间距 default: 15
-  /// - button: 按钮左右间距 default: 15
-  public enum HSpaceType {
-    case image
-    case title
-    case text
-    case button
-  }
-  
-  /// 修改视图水平方向上的间距
-  ///
-  /// - Parameters:
-  ///   - type: 调整类型,可查阅: `EmptyPageForStandard.HSpaceType`
-  ///   - value: 调整值
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func change(hspace type: HSpaceType, value: CGFloat) -> Self {
-    
-    var fromItem: NSObject
-    let toItem: NSObject = self
-    let priority = UILayoutPriority(999)
-    switch type {
-    case .image:
-      fromItem = imageView
-    case .title:
-      fromItem = titleLabel
-    case .text:
-      fromItem = textLabel
-    case .button:
-      fromItem = button
-    }
-    
-    let findItems = constraints.filter { (constraint) -> Bool in
-      guard constraint.priority == priority,
-        let firstItem = constraint.firstItem as? NSObject,
-        let secondItem = constraint.secondItem as? NSObject,
-        firstItem === fromItem,
-        secondItem === toItem
-        else { return false }
-      return true
-    }
-    
-    if findItems.isEmpty {
-      let rightItem = NSLayoutConstraint(item: fromItem, attribute: .left,
-                                         relatedBy: .equal,
-                                         toItem: toItem, attribute: .left,
-                                         multiplier: 1, constant: value)
-      let leftItem = NSLayoutConstraint(item: fromItem, attribute: .right,
-                                        relatedBy: .equal,
-                                        toItem: toItem, attribute: .right,
-                                        multiplier: 1, constant: -value)
-      rightItem.priority = priority
-      leftItem.priority = priority
-      addConstraints([rightItem, leftItem])
-    } else {
-      findItems.forEach { (item) in
-        item.constant = item.firstAttribute == .left ? value : -value
-      }
-    }
-    
-    updateConstraintsIfNeeded()
-    return self
-  }
-  
-  /// 取消视图水平方向上的间距约束
-  ///
-  /// - Parameter type: 调整类型,可查阅: `EmptyPageForStandard.HSpaceType`
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func change(cancel type: HSpaceType) -> Self {
-    
-    var fromItem: NSObject
-    let toItem: NSObject = self
-    let priority = UILayoutPriority(999)
-    switch type {
-    case .image:
-      fromItem = imageView
-    case .title:
-      fromItem = titleLabel
-    case .text:
-      fromItem = textLabel
-    case .button:
-      fromItem = button
-    }
-    
-    let findItems = constraints.filter { (constraint) -> Bool in
-      guard constraint.priority == priority,
-        let firstItem = constraint.firstItem as? NSObject,
-        let secondItem = constraint.secondItem as? NSObject,
-        firstItem == fromItem,
-        secondItem == toItem
-        else { return false }
-      return true
-    }
-    
-    if findItems.isEmpty { return self }
-    removeConstraints(findItems)
-    
-    let centerItems = constraints.filter { (constraint) -> Bool in
-      guard
-        constraint.firstAttribute == .centerX,
-        constraint.secondAttribute == .centerX,
-        constraint.priority == priority,
-        let firstItem = constraint.firstItem as? NSObject,
-        let secondItem = constraint.secondItem as? NSObject,
-        firstItem === fromItem,
-        secondItem === toItem
-        else { return false }
-      return true
+    func view(for type: ViewType) -> UIView {
+        switch type {
+        case .imageView: return imageView
+        case .titleLabel: return titleLabel
+        case .textLabel: return textLabel
+        case .button: return button
+        }
     }
 
-    if centerItems.isEmpty {
-      let centerItem = NSLayoutConstraint(item: fromItem, attribute: .centerX,
-                                          relatedBy: .equal,
-                                          toItem: toItem, attribute: .centerX,
-                                          multiplier: 1, constant: 0)
-      centerItem.priority = priority
-      addConstraint(centerItem)
+    func layout(type: LayoutType, views: [ViewType]) -> Self {
+        views.forEach({ self.layout($0, type: type) })
+        return self
+    }
+
+    func layout(view: ViewType, types: [LayoutType]) -> Self {
+        types.forEach({ self.layout(view, type: $0) })
+        return self
+    }
+
+    func layout(type: LayoutType, views: ViewType...) -> Self {
+        return layout(type: type, views: views)
     }
     
-    updateConstraintsIfNeeded()
-    return self
-  }
-  
-}
+    func layout(view: ViewType, types: LayoutType...) -> Self {
+        return layout(view: view, types: types)
+    }
 
-// MARK: 深度配置元素 相关函数
-extension EmptyPageForStandard {
-  
-  /// 配置图片元素
-  ///
-  /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.imageView`
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func config(imageView call: (_: UIImageView) -> Void) -> Self {
-    call(imageView)
-    return self
-  }
-  
-  /// 配置标题元素
-  ///
-  /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.titleLabel`
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func config(titleLabel call: (_: UILabel) -> Void) -> Self {
-    call(titleLabel)
-    return self
-  }
-  
-  /// 配置文本元素
-  ///
-  /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.textLabel`
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func config(textLabel call: (_: UILabel) -> Void) -> Self {
-    call(textLabel)
-    return self
-  }
-  
-  /// 配置底部按钮元素
-  ///
-  /// - Parameter call: 元素回调, 回调 `EmptyPageForStandard.button`
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func config(button call: (_: UIButton) -> Void) -> Self {
-    button.isHidden = false
-    call(button)
-    return self
-  }
-  
-}
+    private func layout(_ view: ViewType, type: LayoutType) {
+        let view = self.view(for: view)
+        switch type {
+        case .height(let v):
+            view.heightAnchor.constraint(equalToConstant: v).isActive = true
+        case .width(let v):
+            view.widthAnchor.constraint(equalToConstant: v).isActive = true
+        case .afterSpac(let v):
+            addCustomSpacing(v, after: view)
+        case .insets(let v):
+            view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v).isActive = true
+            view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v).isActive = true
+        }
+    }
 
-// MARK: 轻度配置元素 相关函数
-extension EmptyPageForStandard {
-  
-  /// 设置 `EmptyPageForStandard.imageView`
-  ///
-  /// - Parameter value: 图片
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(image value: UIImage?) -> Self {
-    imageView.image = value
-    setImageAspect(firstImage: value)
-    return self
-  }
-  
-  /// 设置 `EmptyPageForStandard.imageView`
-  ///
-  /// - Parameters:
-  ///   - images: 图片组
-  ///   - duration: 播放时长
-  ///   - repeatCount: 循环次数
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(images: [UIImage], duration: TimeInterval, repeatCount: Int = 0) -> Self {
-    imageView.image = nil
-    setImageAspect(firstImage: images.first)
-    imageView.animationDuration = duration
-    imageView.animationRepeatCount = repeatCount
-    imageView.animationImages = images
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.titleLabel`
-  ///
-  /// - Parameters:
-  ///   - title: 文本
-  ///   - color: 文本颜色 default: UIColor.black
-  ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(title: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
-    titleLabel.text = title
-    titleLabel.textColor = color
-    titleLabel.font = font
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.titleLabel`
-  ///
-  /// - Parameter value: 富文本
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(titleAttributed value: NSAttributedString) -> Self {
-    titleLabel.attributedText = value
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.textLabel`
-  ///
-  /// - Parameters:
-  ///   - title: 文本
-  ///   - color: 文本颜色 default: UIColor.black
-  ///   - font:  字体 default: UIFont.systemFont(ofSize: 18)
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(text: String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 18)) -> Self {
-    textLabel.text = text
-    textLabel.textColor = color
-    textLabel.font = font
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.textLabel`
-  ///
-  /// - Parameter value: 富文本
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(textAttributed value: NSAttributedString) -> Self {
-    textLabel.attributedText = value
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.button`
-  ///
-  /// - Parameter value: 标题
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(buttonTitle value: String,
-                  color: UIColor? = nil,
-                  for state: UIControl.State = .normal) -> Self {
-    button.isHidden = false
-    button.setTitle(value, for: state)
-    if let color = color { button.setTitleColor(color, for: state) }
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.button` 点击事件
-  ///
-  /// - Parameters:
-  ///   - target: target
-  ///   - action: 点击事件
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(tap target: Any?, action: Selector) -> Self {
-    button.addTarget(target, action: action, for: UIControl.Event.touchUpInside)
-    return self
-  }
-
-  /// 设置 `EmptyPageForStandard.button` 点击事件
-  ///
-  /// - Parameter event: 点击事件
-  /// - Returns: 为支持链式调用,返回 `EmptyPageForStandard`
-  @discardableResult
-  public func set(tap event: ((_: EmptyPageForStandard) -> Void)?) -> Self {
-    eventStore = event
-    return self
-  }
-
-}
-
-// MARK: - build ui
-extension EmptyPageForStandard {
-  
-  @objc func event() {
-    eventStore?(self)
-  }
-
-  func setImageAspect(firstImage: UIImage?) {
-    guard let firstImage = firstImage, firstImage.size.width != 0, firstImage.size.height != 0 else { return }
-    let constraint = constraints.first(where: { (element) -> Bool in
-      return element.firstItem === imageView
-        && element.secondItem === imageView
-        && element.firstAttribute == .width
-        && element.secondAttribute == .height
-    })
-    
-    if let constraint = constraint { removeConstraint(constraint) }
-    let float = firstImage.size.width / firstImage.size.height
-    let newConstraint = NSLayoutConstraint(item: imageView, attribute: .width,
-                                           relatedBy: .equal,
-                                           toItem: imageView, attribute: .height,
-                                           multiplier: float, constant: 0)
-    addConstraint(newConstraint)
-    updateConstraintsIfNeeded()
-  }
-  
-  func buildUI() {
-    addSubview(imageView)
-    addSubview(titleLabel)
-    addSubview(textLabel)
-    addSubview(button)
-    buildLayouts()
-  }
-  
-  func buildLayouts() {
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    textLabel.translatesAutoresizingMaskIntoConstraints = false
-    button.translatesAutoresizingMaskIntoConstraints = false
-    
-    var constraints = [NSLayoutConstraint]()
-    
-    do {
-      _ = change(vspace: .imageTop, value: 20)
-      constraints.append(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+    private func addCustomSpacing(_ spacing: CGFloat, after arrangedSubview: UIView) {
+        if #available(iOS 11.0, *) {
+            setCustomSpacing(spacing, after: arrangedSubview)
+            return
+        }
+        
+        guard arrangedSubviews.last != arrangedSubview, let index = arrangedSubviews.firstIndex(of: arrangedSubview) else {
+            return
+        }
+        
+        let tag = 5625235
+        let nextarrangedSubview = arrangedSubviews[index + 1]
+        let separatorView = nextarrangedSubview.tag == tag ? nextarrangedSubview : UIView(frame: .zero)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        switch axis {
+        case .horizontal:
+            separatorView.widthAnchor.constraint(equalToConstant: spacing).isActive = true
+        case .vertical:
+            separatorView.heightAnchor.constraint(equalToConstant: spacing).isActive = true
+        @unknown default:
+            return
+        }
+        guard nextarrangedSubview.tag == tag else {
+            return
+        }
+        insertArrangedSubview(separatorView, at: index + 1)
+        separatorView.tag = tag
     }
     
-    do {
-      _ = change(vspace: .imageWithTitle, value: 10)
-      _ = change(hspace: .title, value: 15)
-    }
-    
-    do {
-      _ = change(vspace: .titleWithText, value: 5)
-      _ = change(hspace: .text, value: 15)
-    }
-    
-    do {
-      _ = change(vspace: .textWithButton, value: 10)
-      _ = change(hspace: .button, value: 15)
-      constraints.append(NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -20))
-    }
-    
-    addConstraints(constraints)
-  }
-  
 }

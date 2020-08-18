@@ -1,15 +1,18 @@
 source 'https://cdn.cocoapods.org/'
 
-platform :ios, '10.0'
+platform :ios, '11.0'
 use_frameworks!
 install! 'cocoapods', :generate_multiple_pod_projects => true
 
 target 'EmptyPage_Example' do
+  pod 'ReachabilitySwift'
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit', '5.0.0'
-  pod 'Stuart', :git => 'git@github.com:linhay/Stuart.git', :branch => 'master'
-  pod 'Stem',   :git => 'git@github.com:linhay/Stem.git',   :branch => 'develop'
+  pod 'Stuart', :git => 'git@github.com:linhay/Stuart.git', :branch => 'dev'
+  pod 'Stem', :git => 'git@github.com:linhay/Stem.git',   :branch => 'develop'
   pod 'SVProgressHUD'
   pod 'MJRefresh'
-  # pod 'SwiftLint'
+  pod 'LookinServer', :configurations => ['Debug']
+  pod 'SwiftLint'
 end
+
