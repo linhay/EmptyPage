@@ -11,38 +11,6 @@ import Stuart
 import Stem
 import EmptyPage
 
-enum Standard: String, CaseIterable {
-    case image
-    case text
-    case standard
-
-    func view() -> EmptyPageView {
-        switch self {
-        case .image:
-            return EmptyPageView.Template.image
-                .set(image: UIImage(named: "empty"))
-                .mix()
-        case .text:
-            return EmptyPageView.Template.text
-                .set(text: "搜索不到数据")
-                .mix()
-        case .standard:
-            return EmptyPageView.Template.standard
-                .config(imageView: {
-                    $0.set(image: UIImage(named: "empty"))
-                })
-                .config(textLabel: { $0.text = "搜索不到数据" })
-                .config(button: {
-                    $0.setTitle("点击重试", for: .normal)
-                    $0.set {
-                        print("tap event")
-                    }
-                })
-                .mix()
-        }
-    }
-}
-
 class IndexStandardSection: SectionCollectionProtocol {
 
     var core: SectionCore?
