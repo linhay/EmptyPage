@@ -9,67 +9,47 @@ import UIKit
 import EmptyPage
 import Reachability
 
-public class StateManager: EmptyPageCollectionViewManager {
+public struct EmptyPageState: OptionSet, Hashable {
 
-    public enum State: Int {
-        case loading
-        case normal
-        case noNetwork
+    public let rawValue: Int
+
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
     }
 
-    private(set) var state: State = .normal
-    private(set) var emptyViewStore: [State: UIView] = [:]
-
-    override init() {
-        super.init()
-        set(emptyViewProvider: { [weak self] () -> UIView? in
-            guard let self = self else {
-                return nil
-            }
-
-            if AppManager.shared.reachability.connection == .unavailable, let view = self.emptyViewStore[.noNetwork] {
-                return view
-            }
-
-            return self.emptyViewStore[self.state]
-        })
-    }
-
-    public override func set(emptyView view: UIView?) { }
-
+    static let normal    = EmptyPageState(rawValue: 1)
+    static let loading   = EmptyPageState(rawValue: 2)
+    static let noNetwork = EmptyPageState(rawValue: 3)
 }
 
-public extension StateManager {
-
-    func change(state: State) {
-        self.state = state
-        reload()
-    }
-
-    func set(emptyView: UIView?, for state: State) {
-        emptyViewStore[state] = emptyView
-    }
-
-}
+class ExampleCollectionStateManager: EmptyPageCollectionStateManager<EmptyPageState> { }
 
 public extension EmptyPage where Base: UICollectionView {
 
-    func set(emptyView: UIView?, for state: StateManager.State) {
-        if manager == nil || (manager is StateManager) == false {
-            let manager = StateManager()
+    func set(emptyView: UIView?, for state: EmptyPageState) {
+
+        if manager == nil || (manager is ExampleCollectionStateManager) == false {
+            let manager = ExampleCollectionStateManager(state: .normal)
             manager.set(target: base)
+            manager.hookProvider.delegate(on: base) { (self, state) -> UIView? in
+                guard state == .normal, AppManager.shared.reachability.connection == .unavailable else {
+                    return nil
+                }
+                manager.state = .noNetwork
+                return manager.viewStore[.noNetwork]
+            }
             self.set(manager: manager)
         }
 
-        guard let manager = manager as? StateManager else {
+        guard let manager = manager as? ExampleCollectionStateManager else {
             return
         }
 
         manager.set(emptyView: emptyView, for: state)
     }
 
-    func change(state: StateManager.State) {
-        guard let manager = manager as? StateManager else {
+    func change(state: EmptyPageState) {
+        guard let manager = manager as? ExampleCollectionStateManager else {
             return
         }
         manager.change(state: state)
