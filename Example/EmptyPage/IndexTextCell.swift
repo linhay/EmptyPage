@@ -9,20 +9,25 @@
 import UIKit
 import Stem
 
+protocol IndexTextCellModelProtocol {
+    var title: String { get }
+    var text: String { get }
+}
+
 class IndexTextCell: UICollectionViewCell, ConfigurableCollectionCell, STNibProtocol {
 
-    static func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
+    static func preferredSize(collectionView: UICollectionView, model: IndexTextCellModelProtocol?) -> CGSize {
         return .init(width: collectionView.bounds.width, height: 60)
     }
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var textLabel: UILabel!
 
-    func config(title: String, text: String) {
-        titleLabel.isHidden = title.isEmpty
-        textLabel.isHidden = text.isEmpty
-        titleLabel.text = title
-        textLabel.text = text
+    func config(_ model: IndexTextCellModelProtocol) {
+        titleLabel.isHidden = model.title.isEmpty
+        textLabel.isHidden = model.text.isEmpty
+        titleLabel.text = model.title
+        textLabel.text = model.text
     }
 
 

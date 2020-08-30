@@ -85,7 +85,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Stem:
-    :commit: 899b0bd9ad59aa28b7a7f9ebc1751144797a489e
+    :commit: 40b853770d2c4194639f91d683f2dd64da4efd10
     :git: "git@github.com:linhay/Stem.git"
 
 SPEC CHECKSUMS:

@@ -13,10 +13,9 @@ class IndexViewController: SectionCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.update(IndexStandardSection(),
-                       IndexDribbbleSection(),
-                       IndexManagerSection(),
-                       IndexDZNEmptyDataSetSection())
+        manager.update(StandardSection(),
+                       DribbbleSection(),
+                       DZNEmptyDataSetSection())
     }
 
 }

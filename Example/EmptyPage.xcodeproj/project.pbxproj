@@ -9,29 +9,24 @@
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECAD5226EE63D0075CBD5 /* .travis.yml */; };
-		CD97EC5924A8D5EF00F05158 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97EC5724A8D5EF00F05158 /* TestViewController.swift */; };
-		CD97EC5A24A8D5EF00F05158 /* ToolbarSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97EC5824A8D5EF00F05158 /* ToolbarSection.swift */; };
-		CD97EC5D24A8D60A00F05158 /* ToolbarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97EC5B24A8D60A00F05158 /* ToolbarCell.swift */; };
-		CD97EC5E24A8D60A00F05158 /* ToolbarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD97EC5C24A8D60A00F05158 /* ToolbarCell.xib */; };
 		CD9C18222498639400FC0DE9 /* trunk.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C181F2498639400FC0DE9 /* trunk.sh */; };
 		CD9C18232498639400FC0DE9 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18202498639400FC0DE9 /* document.sh */; };
 		CD9C18242498639400FC0DE9 /* git_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18212498639400FC0DE9 /* git_config.sh */; };
 		CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C18992498E51700FC0DE9 /* IndexViewController.swift */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
-		CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */; };
-		CDE714F924C9DF6F001658B4 /* CustomViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE714F824C9DF6F001658B4 /* CustomViewManager.swift */; };
+		CDDE172324FB826700AD70B9 /* DemoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDE172224FB826700AD70B9 /* DemoSection.swift */; };
+		CDDE172524FB828F00AD70B9 /* BaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDE172424FB828F00AD70B9 /* BaseSection.swift */; };
 		CDE853D824ADCFA600833115 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D724ADCFA600833115 /* StateManager.swift */; };
-		CDE853DA24ADEF5400833115 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE853D924ADEF5400833115 /* NetworkManager.swift */; };
-		CDF1DE15249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */; };
+		CDF1DE15249A550F0037F7ED /* DZNEmptyDataSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE14249A550F0037F7ED /* DZNEmptyDataSetSection.swift */; };
 		CDF1DE18249A567F0037F7ED /* IndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE16249A567F0037F7ED /* IndexHeaderView.swift */; };
 		CDF1DE19249A567F0037F7ED /* IndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF1DE17249A567F0037F7ED /* IndexHeaderView.xib */; };
 		CDF1DE1C249A58050037F7ED /* IndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE1A249A58050037F7ED /* IndexCell.swift */; };
 		CDF1DE1D249A58050037F7ED /* IndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF1DE1B249A58050037F7ED /* IndexCell.xib */; };
 		CDF1DE20249A6D2E0037F7ED /* IndexTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE1E249A6D2E0037F7ED /* IndexTextCell.swift */; };
 		CDF1DE21249A6D2E0037F7ED /* IndexTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF1DE1F249A6D2E0037F7ED /* IndexTextCell.xib */; };
-		CDF1DE23249A6E890037F7ED /* IndexDribbbleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE22249A6E890037F7ED /* IndexDribbbleSection.swift */; };
-		CDF1DE25249A716C0037F7ED /* IndexStandardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE24249A716C0037F7ED /* IndexStandardSection.swift */; };
+		CDF1DE23249A6E890037F7ED /* DribbbleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE22249A6E890037F7ED /* DribbbleSection.swift */; };
+		CDF1DE25249A716C0037F7ED /* StandardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1DE24249A716C0037F7ED /* StandardSection.swift */; };
 		D1DA711524FFBB055DF9A88D /* Pods_EmptyPage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E3A5E7C2782BD08A8AD275 /* Pods_EmptyPage_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,10 +41,6 @@
 		A6E3A5E7C2782BD08A8AD275 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CD5ECAD5226EE63D0075CBD5 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
-		CD97EC5724A8D5EF00F05158 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		CD97EC5824A8D5EF00F05158 /* ToolbarSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarSection.swift; sourceTree = "<group>"; };
-		CD97EC5B24A8D60A00F05158 /* ToolbarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarCell.swift; sourceTree = "<group>"; };
-		CD97EC5C24A8D60A00F05158 /* ToolbarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolbarCell.xib; sourceTree = "<group>"; };
 		CD9C181F2498639400FC0DE9 /* trunk.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = trunk.sh; sourceTree = "<group>"; };
 		CD9C18202498639400FC0DE9 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = document.sh; sourceTree = "<group>"; };
 		CD9C18212498639400FC0DE9 /* git_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = git_config.sh; sourceTree = "<group>"; };
@@ -59,19 +50,18 @@
 		CD9C18A52498E68D00FC0DE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
-		CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerSection.swift; sourceTree = "<group>"; };
-		CDE714F824C9DF6F001658B4 /* CustomViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewManager.swift; sourceTree = "<group>"; };
+		CDDE172224FB826700AD70B9 /* DemoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSection.swift; sourceTree = "<group>"; };
+		CDDE172424FB828F00AD70B9 /* BaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
 		CDE853D724ADCFA600833115 /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
-		CDE853D924ADEF5400833115 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDZNEmptyDataSetSection.swift; sourceTree = "<group>"; };
+		CDF1DE14249A550F0037F7ED /* DZNEmptyDataSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DZNEmptyDataSetSection.swift; sourceTree = "<group>"; };
 		CDF1DE16249A567F0037F7ED /* IndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHeaderView.swift; sourceTree = "<group>"; };
 		CDF1DE17249A567F0037F7ED /* IndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexHeaderView.xib; sourceTree = "<group>"; };
 		CDF1DE1A249A58050037F7ED /* IndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexCell.swift; sourceTree = "<group>"; };
 		CDF1DE1B249A58050037F7ED /* IndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexCell.xib; sourceTree = "<group>"; };
 		CDF1DE1E249A6D2E0037F7ED /* IndexTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTextCell.swift; sourceTree = "<group>"; };
 		CDF1DE1F249A6D2E0037F7ED /* IndexTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexTextCell.xib; sourceTree = "<group>"; };
-		CDF1DE22249A6E890037F7ED /* IndexDribbbleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDribbbleSection.swift; sourceTree = "<group>"; };
-		CDF1DE24249A716C0037F7ED /* IndexStandardSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexStandardSection.swift; sourceTree = "<group>"; };
+		CDF1DE22249A6E890037F7ED /* DribbbleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DribbbleSection.swift; sourceTree = "<group>"; };
+		CDF1DE24249A716C0037F7ED /* StandardSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSection.swift; sourceTree = "<group>"; };
 		E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmptyPage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,15 +100,15 @@
 			isa = PBXGroup;
 			children = (
 				CDE853D624ADCF9600833115 /* managers */,
-				CD97EC5624A8D5EF00F05158 /* toolbar */,
 				CD9C18A52498E68D00FC0DE9 /* Info.plist */,
 				CDA25D562009A7BD003C0E7E /* Images.xcassets */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				CD9C18992498E51700FC0DE9 /* IndexViewController.swift */,
-				CDF1DE24249A716C0037F7ED /* IndexStandardSection.swift */,
-				CDA3CA4524A5BC0E00388188 /* IndexManagerSection.swift */,
-				CDF1DE22249A6E890037F7ED /* IndexDribbbleSection.swift */,
-				CDF1DE14249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift */,
+				CDDE172424FB828F00AD70B9 /* BaseSection.swift */,
+				CDDE172224FB826700AD70B9 /* DemoSection.swift */,
+				CDF1DE24249A716C0037F7ED /* StandardSection.swift */,
+				CDF1DE22249A6E890037F7ED /* DribbbleSection.swift */,
+				CDF1DE14249A550F0037F7ED /* DZNEmptyDataSetSection.swift */,
 				CDF1DE1A249A58050037F7ED /* IndexCell.swift */,
 				CDF1DE1B249A58050037F7ED /* IndexCell.xib */,
 				CDF1DE1E249A6D2E0037F7ED /* IndexTextCell.swift */,
@@ -162,17 +152,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CD97EC5624A8D5EF00F05158 /* toolbar */ = {
-			isa = PBXGroup;
-			children = (
-				CD97EC5724A8D5EF00F05158 /* TestViewController.swift */,
-				CD97EC5824A8D5EF00F05158 /* ToolbarSection.swift */,
-				CD97EC5B24A8D60A00F05158 /* ToolbarCell.swift */,
-				CD97EC5C24A8D60A00F05158 /* ToolbarCell.xib */,
-			);
-			path = toolbar;
-			sourceTree = "<group>";
-		};
 		CD9C181E2498639400FC0DE9 /* scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,8 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				CDE853D724ADCFA600833115 /* StateManager.swift */,
-				CDE853D924ADEF5400833115 /* NetworkManager.swift */,
-				CDE714F824C9DF6F001658B4 /* CustomViewManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -264,7 +241,6 @@
 				CD9C18222498639400FC0DE9 /* trunk.sh in Resources */,
 				CD9C18242498639400FC0DE9 /* git_config.sh in Resources */,
 				CDF1DE1D249A58050037F7ED /* IndexCell.xib in Resources */,
-				CD97EC5E24A8D60A00F05158 /* ToolbarCell.xib in Resources */,
 				CD9C18232498639400FC0DE9 /* document.sh in Resources */,
 				CDF1DE21249A6D2E0037F7ED /* IndexTextCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
@@ -384,22 +360,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDF1DE23249A6E890037F7ED /* IndexDribbbleSection.swift in Sources */,
+				CDF1DE23249A6E890037F7ED /* DribbbleSection.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
-				CDA3CA4624A5BC0E00388188 /* IndexManagerSection.swift in Sources */,
-				CDE714F924C9DF6F001658B4 /* CustomViewManager.swift in Sources */,
 				CDE853D824ADCFA600833115 /* StateManager.swift in Sources */,
-				CD97EC5924A8D5EF00F05158 /* TestViewController.swift in Sources */,
+				CDDE172324FB826700AD70B9 /* DemoSection.swift in Sources */,
+				CDDE172524FB828F00AD70B9 /* BaseSection.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				CD97EC5A24A8D5EF00F05158 /* ToolbarSection.swift in Sources */,
 				CDF1DE1C249A58050037F7ED /* IndexCell.swift in Sources */,
-				CDF1DE25249A716C0037F7ED /* IndexStandardSection.swift in Sources */,
+				CDF1DE25249A716C0037F7ED /* StandardSection.swift in Sources */,
 				CDF1DE18249A567F0037F7ED /* IndexHeaderView.swift in Sources */,
 				CDF1DE20249A6D2E0037F7ED /* IndexTextCell.swift in Sources */,
 				CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */,
-				CDE853DA24ADEF5400833115 /* NetworkManager.swift in Sources */,
-				CD97EC5D24A8D60A00F05158 /* ToolbarCell.swift in Sources */,
-				CDF1DE15249A550F0037F7ED /* IndexDZNEmptyDataSetSection.swift in Sources */,
+				CDF1DE15249A550F0037F7ED /* DZNEmptyDataSetSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
