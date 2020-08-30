@@ -18,6 +18,21 @@ enum Standard: String, CaseIterable {
     case text_attributed = "纯文本 - 富文本样式"
     case standard        = "复合型"
 
+    func desc() -> String {
+        switch self {
+        case .image_normal:
+            return "EmptyPageView.Template.image"
+        case .image_animate:
+            return "EmptyPageView.Template.image"
+        case .text_normal:
+            return "EmptyPageView.Template.text"
+        case .text_attributed:
+            return "EmptyPageView.Template.text"
+        case .standard:
+            return "EmptyPageView.Template.standard"
+        }
+    }
+
     func view() -> EmptyPageView {
         switch self {
         case .image_normal:
@@ -66,7 +81,7 @@ class IndexStandardSection: SectionCollectionProtocol {
     func item(at row: Int) -> UICollectionViewCell {
         let cell: IndexTextCell = dequeue(at: row)
         if let style = Standard.allCases.value(at: row) {
-            cell.config(title: style.rawValue, text: "")
+            cell.config(title: style.rawValue, text: style.desc())
         }
         return cell
     }
