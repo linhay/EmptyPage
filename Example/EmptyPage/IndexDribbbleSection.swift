@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Stuart
 import Stem
 
 class IndexDribbbleSection: SectionCollectionProtocol {

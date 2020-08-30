@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Stuart
 import Stem
 
 class IndexHeaderView: UICollectionReusableView, STNibProtocol, ConfigurableCollectionCell {

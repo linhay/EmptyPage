@@ -8,7 +8,6 @@
 
 import UIKit
 import Stem
-import Stuart
 
 class IndexCell: UICollectionViewCell, STNibProtocol, ConfigurableCollectionCell {
 

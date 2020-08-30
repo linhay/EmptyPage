@@ -8,7 +8,6 @@
 
 import UIKit
 import Stem
-import Stuart
 
 struct ToolItem<View> {
     let title: String
