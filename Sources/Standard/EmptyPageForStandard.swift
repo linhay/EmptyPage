@@ -82,25 +82,25 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
 
 public extension EmptyPageForStandard {
     
-    func config(imageView call: (_: EmptyPageForImage) -> Void) -> Self {
+    func config(imageView call: (EmptyPageForImage) -> Void) -> Self {
         imageView.isHidden = false
         call(imageView)
         return self
     }
     
-    func config(titleLabel call: (_: EmptyPageForText) -> Void) -> Self {
+    func config(titleLabel call: (EmptyPageForText) -> Void) -> Self {
         titleLabel.isHidden = false
         call(titleLabel)
         return self
     }
     
-    func config(textLabel call: (_: EmptyPageForText) -> Void) -> Self {
+    func config(textLabel call: (EmptyPageForText) -> Void) -> Self {
         textLabel.isHidden = false
         call(textLabel)
         return self
     }
     
-    func config(button call: (_: EmptyPageForButton) -> Void) -> Self {
+    func config(button call: (EmptyPageForButton) -> Void) -> Self {
         button.isHidden = false
         call(button)
         return self

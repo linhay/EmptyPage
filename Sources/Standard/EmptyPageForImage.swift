@@ -77,7 +77,7 @@ public extension EmptyPageForImage {
     /// - Parameter call: 元素回调, 回调 `EmptyPageForImage.imageView`
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
-    func config(imageView call: (_: Self) -> Void) -> Self {
+    func config(imageView call: (Self) -> Void) -> Self {
         call(self)
         return self
     }

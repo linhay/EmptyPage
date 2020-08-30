@@ -10,13 +10,16 @@ import UIKit
 import Stem
 import EmptyPage
 
-enum Standard: String, CaseIterable {
+enum Standard: String, CaseIterable, IndexTextCellModelProtocol {
 
     case image_normal    = "纯图片 - 静态图片"
     case image_animate   = "纯图片 - 动态图片"
     case text_normal     = "纯文字 - 单样式"
     case text_attributed = "纯文本 - 富文本样式"
     case standard        = "复合型"
+
+    var title: String { rawValue }
+    var text: String { desc() }
 
     func desc() -> String {
         switch self {
@@ -49,44 +52,12 @@ enum Standard: String, CaseIterable {
     }
 }
 
-class IndexStandardSection: SectionCollectionProtocol {
+class StandardSection: BaseSection {
 
-    var core: SectionCore?
+    override var title: String { "Standard" }
+    override var rawModels: [IndexTextCell.Model] { Standard.allCases }
 
-    var itemCount: Int = Standard.allCases.count
-
-    func config(sectionView: UICollectionView) {
-        sectionView.st.register(IndexTextCell.self)
-        sectionView.st.register(IndexHeaderView.self, for: .header)
-    }
-
-    var headerSize: CGSize {
-        return IndexHeaderView.preferredSize(collectionView: sectionView, model: nil)
-    }
-
-    var headerView: UICollectionReusableView? {
-        let view = dequeue(kind: .header) as IndexHeaderView
-        view.config("Standard")
-        view.tapEvent.delegate(on: self) { (self, _) in
-            self.itemCount = self.itemCount == 1 ? Standard.allCases.count : 1
-            self.reload()
-        }
-        return view
-    }
-
-    func itemSize(at row: Int) -> CGSize {
-        return IndexTextCell.preferredSize(collectionView: sectionView, model: nil)
-    }
-
-    func item(at row: Int) -> UICollectionViewCell {
-        let cell: IndexTextCell = dequeue(at: row)
-        if let style = Standard.allCases.value(at: row) {
-            cell.config(title: style.rawValue, text: style.desc())
-        }
-        return cell
-    }
-
-    func didSelectItem(at row: Int) {
+    override func didSelectItem(at row: Int) {
         guard let item = Standard.allCases.value(at: row) else {
             return
         }

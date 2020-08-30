@@ -54,7 +54,7 @@ public extension EmptyPageForText {
     /// - Parameter call: 元素回调, 回调 `EmptyPageForText.label`
     /// - Returns: 为支持链式调用,返回 `EmptyPageForText`
     @discardableResult
-    func config(label call: (_: UILabel) -> Void) -> Self {
+    func config(label call: (UILabel) -> Void) -> Self {
         call(self)
         return self
     }

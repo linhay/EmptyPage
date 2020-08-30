@@ -27,7 +27,6 @@ class ExampleCollectionStateManager: EmptyPageCollectionStateManager<EmptyPageSt
 public extension EmptyPage where Base: UICollectionView {
 
     func set(emptyView: UIView?, for state: EmptyPageState) {
-
         if manager == nil || (manager is ExampleCollectionStateManager) == false {
             let manager = ExampleCollectionStateManager(state: .normal)
             manager.set(target: base)
