@@ -118,17 +118,17 @@ enum TemplateSet {
     static func loading() -> EmptyPageTemplateProtocol {
         EmptyPageView.Template.image
             .layout(size: .init(width: 20, height: 20))
-//            .config(imageView: {
-//                $0.set(image: UIImage(named: "load-0"))
-//                let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-//                animation.fromValue = CGFloat.pi * 2
-//                animation.toValue = 0
-//                animation.duration = 2
-//                animation.autoreverses = false
-//                animation.fillMode = CAMediaTimingFillMode.forwards
-//                animation.repeatCount = Float.infinity
-//                $0.layer.add(animation, forKey: nil)
-//            })
+        //            .config(imageView: {
+        //                $0.set(image: UIImage(named: "load-0"))
+        //                let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        //                animation.fromValue = CGFloat.pi * 2
+        //                animation.toValue = 0
+        //                animation.duration = 2
+        //                animation.autoreverses = false
+        //                animation.fillMode = CAMediaTimingFillMode.forwards
+        //                animation.repeatCount = Float.infinity
+        //                $0.layer.add(animation, forKey: nil)
+        //            })
     }
 
     static func standard1(tapEvent: (() -> Void)?) -> EmptyPageTemplateProtocol {
@@ -177,14 +177,14 @@ enum TemplateSet {
     }
 
     static func text_attributed() -> EmptyPageTemplateProtocol {
-         let cn = NSAttributedString(string: "搜索不到数据 \n",
-                                                      attributes: [.font(.systemFont(ofSize: 14, weight: .medium)),
-                                                                   .paragraphStyle([.minimumLineHeight(20),
-                                                                                    .maximumLineHeight(20)])])
-         let en = NSAttributedString(string: "No data found",
-                                                      attributes: [.font(.systemFont(ofSize: 14, weight: .medium)),
-                                                                   .paragraphStyle([.minimumLineHeight(20),
-                                                                                    .maximumLineHeight(20)])])
+        let cn = NSAttributedString(string: "搜索不到数据 \n",
+                                    attributes: [.font(.systemFont(ofSize: 15, weight: .medium)),
+                                                 .paragraphStyle([.minimumLineHeight(20),
+                                                                  .maximumLineHeight(20)])])
+        let en = NSAttributedString(string: "No data found", attributes: [.foregroundColor(UIColor.red),
+                                                                          .font(.systemFont(ofSize: 20, weight: .medium)),
+                                                                          .paragraphStyle([.minimumLineHeight(20),
+                                                                                           .maximumLineHeight(20)])])
         return EmptyPageView.Template.text.set(attributed: cn + en)
     }
 
@@ -333,8 +333,8 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_foursquare")) })
                 .config(textLabel: {
                     $0.set(text: "Nobody has liked or commented on your check-ins yet.",
-                    color: UIColor("#cecbc6"),
-                    font: UIFont.systemFont(ofSize: 14))
+                           color: UIColor("#cecbc6"),
+                           font: UIFont.systemFont(ofSize: 14))
                 })
                 .config(button: {
                     $0.setTitle("Add friends to get started!", for: .normal)
@@ -381,13 +381,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_instagram")) })
                 .config(titleLabel: {
                     $0.set(text: "Instagram Direct",
-                        color: UIColor("#444444"),
-                        font: UIFont(name: "HelveticaNeue-Light", size: 26)!)
+                           color: UIColor("#444444"),
+                           font: UIFont(name: "HelveticaNeue-Light", size: 26)!)
                 })
                 .config(textLabel: {
                     $0.set(text: "Send photos and videos directly to your friends. Only the people you send to can see these posts.",
-                    color: UIColor("#444444"),
-                    font: UIFont.systemFont(ofSize: 16))
+                           color: UIColor("#444444"),
+                           font: UIFont.systemFont(ofSize: 16))
                 })
                 .layout(view: .imageView, types: .afterSpac(24))
                 .layout(view: .titleLabel, types: .afterSpac(24))
@@ -404,8 +404,8 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 })
                 .config(textLabel: {
                     $0.set(text: "To add a favorite, tap the star icon next to an App's name.",
-                    color: UIColor.lightGray,
-                    font: UIFont.systemFont(ofSize: 14))
+                           color: UIColor.lightGray,
+                           font: UIFont.systemFont(ofSize: 14))
                 })
                 .layout(view: .imageView, types: .afterSpac(9))
                 .layout(view: .titleLabel, types: .afterSpac(9))
@@ -417,13 +417,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_kickstarter")) })
                 .config(titleLabel: {
                     $0.set(text: "Activity empty",
-                            color: UIColor("#828587"),
-                                font: UIFont.systemFont(ofSize: 16))
+                           color: UIColor("#828587"),
+                           font: UIFont.systemFont(ofSize: 16))
                 })
                 .config(textLabel: {
                     $0.set(text: "When you back a project or follow a friend, their activity will show up here.",
-                    color: UIColor("#828587"),
-                    font: UIFont.systemFont(ofSize: 14))
+                           color: UIColor("#828587"),
+                           font: UIFont.systemFont(ofSize: 14))
                 })
                 .config(button: {
                     $0.setTitle("Discover projects", for: .normal)
@@ -446,13 +446,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_path")) })
                 .config(titleLabel: {
                     $0.set(text: "Message Your Friends",
-                    color: UIColor.white,
-                    font: UIFont.boldSystemFont(ofSize: 16))
+                           color: UIColor.white,
+                           font: UIFont.boldSystemFont(ofSize: 16))
                 })
                 .config(textLabel: {
                     $0.set(text: "Send a message or create a group.",
-                    color: UIColor("#a6978d"),
-                    font: UIFont.systemFont(ofSize: 14))
+                           color: UIColor("#a6978d"),
+                           font: UIFont.systemFont(ofSize: 14))
                 })
                 .layout(view: .imageView, types: .afterSpac(1))
                 .layout(view: .titleLabel, types: .afterSpac(1))
@@ -462,13 +462,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
             return EmptyPageView.Template.standard
                 .config(titleLabel: {
                     $0.set(text: "No Photos or Videos",
-                    color: UIColor("#999999"),
-                    font: UIFont.systemFont(ofSize: 30))
+                           color: UIColor("#999999"),
+                           font: UIFont.systemFont(ofSize: 30))
                 })
                 .config(textLabel: {
                     $0.set(text: "You can sync photos and videos onto your iPhone using iTunes.",
-                    color: UIColor("#999999"),
-                    font: UIFont.systemFont(ofSize: 18))
+                           color: UIColor("#999999"),
+                           font: UIFont.systemFont(ofSize: 18))
                 })
                 .layout(view: .textLabel, types: .insets(40))
                 .layout(view: .titleLabel, types: .afterSpac(15))
@@ -477,13 +477,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
             return EmptyPageView.Template.standard
                 .config(titleLabel: {
                     $0.set(text: "No Podcasts",
-                    color: UIColor("#999999"),
-                    font: UIFont.systemFont(ofSize: 30))
+                           color: UIColor("#999999"),
+                           font: UIFont.systemFont(ofSize: 30))
                 })
                 .config(textLabel: {
                     $0.set(text: "You can subscribe to podcasts in Top Charts or Featured.",
-                    color: UIColor("#999999"),
-                    font: UIFont.systemFont(ofSize: 18))
+                           color: UIColor("#999999"),
+                           font: UIFont.systemFont(ofSize: 18))
                 })
                 .layout(view: .textLabel, types: .insets(35))
                 .layout(view: .titleLabel, types: .afterSpac(45))
@@ -493,13 +493,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_remote")) })
                 .config(titleLabel: {
                     $0.set(text: "Cannot Connect to a Local Network",
-                    color: UIColor("#555555"),
-                    font: UIFont(name: "HelveticaNeue-Medium", size: 18)!)
+                           color: UIColor("#555555"),
+                           font: UIFont(name: "HelveticaNeue-Medium", size: 18)!)
                 })
                 .config(textLabel: {
                     $0.set(text: "You must connect to a Wi-Fi network to control iTunes or Apple TV",
-                    color: UIColor("#555555"),
-                    font: UIFont(name: "HelveticaNeue-Medium", size: 11.75)!)
+                           color: UIColor("#555555"),
+                           font: UIFont(name: "HelveticaNeue-Medium", size: 11.75)!)
                 })
                 .layout(view: .textLabel, types: .insets(20))
                 .mix()
@@ -527,8 +527,8 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_slack")) })
                 .config(textLabel: {
                     $0.set(text: "You don't have any recent mentions",
-                    color: UIColor("#d7d7d7"),
-                    font: UIFont.systemFont(ofSize: 19))
+                           color: UIColor("#d7d7d7"),
+                           font: UIFont.systemFont(ofSize: 19))
                 })
                 .layout(view: .textLabel, types: .insets(20))
                 .mix()
@@ -537,13 +537,13 @@ enum DZNEmptyDataSet: String, CaseIterable {
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_tumblr")) })
                 .config(titleLabel: {
                     $0.set(text: "This is your Dashboard.",
-                    color: UIColor("#aab6c4"),
-                    font: UIFont.systemFont(ofSize: 18))
+                           color: UIColor("#aab6c4"),
+                           font: UIFont.systemFont(ofSize: 18))
                 })
                 .config(textLabel: {
                     $0.set(text: "When you follow some blogs, their latest posts will show up here!",
-                    color: UIColor("#828e9c"),
-                    font: UIFont.systemFont(ofSize: 17))
+                           color: UIColor("#828e9c"),
+                           font: UIFont.systemFont(ofSize: 17))
                 })
                 .layout(view: .textLabel, types: .insets(20))
                 .layout(view: .imageView, types: .afterSpac(10))

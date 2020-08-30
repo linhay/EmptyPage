@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="c57-Gp-fTU">
-                        <rect key="frame" x="20" y="7.5" width="335" height="42"/>
+                        <rect key="frame" x="30" y="7.5" width="325" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usr-UC-x51">
-                                <rect key="frame" x="0.0" y="0.0" width="335" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6O-ZG-b6o">
-                                <rect key="frame" x="0.0" y="24" width="335" height="18"/>
+                                <rect key="frame" x="0.0" y="24" width="325" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="c57-Gp-fTU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="1M2-Sr-L91"/>
+                <constraint firstItem="c57-Gp-fTU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="1M2-Sr-L91"/>
                 <constraint firstAttribute="trailing" secondItem="Jod-bf-qch" secondAttribute="trailing" constant="20" id="7u6-7z-lGc"/>
                 <constraint firstAttribute="trailing" secondItem="c57-Gp-fTU" secondAttribute="trailing" constant="20" id="BQv-Eu-lH4"/>
                 <constraint firstItem="Jod-bf-qch" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="IVp-ku-bZd"/>
