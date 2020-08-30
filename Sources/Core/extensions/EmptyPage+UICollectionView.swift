@@ -40,6 +40,11 @@ public extension EmptyPage where Base: UICollectionView {
         return base.emptyPageViewManager as? EmptyPageCollectionViewManager
     }
 
+    var canScrollEnabled: Bool {
+        set { manager?.canScrollEnabled = newValue }
+        get { manager?.canScrollEnabled ?? false }
+    }
+    
     func set(manager: EmptyPageViewManager?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView

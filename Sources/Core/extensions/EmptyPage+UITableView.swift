@@ -40,6 +40,11 @@ public extension EmptyPage where Base: UITableView {
         return base.emptyPageViewManager as? EmptyPageTableViewManager
     }
 
+    var canScrollEnabled: Bool {
+        set { manager?.canScrollEnabled = newValue }
+        get { manager?.canScrollEnabled ?? false }
+    }
+    
     func set(manager: EmptyPageViewManager?) {
         EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
