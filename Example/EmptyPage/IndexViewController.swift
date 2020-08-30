@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Stuart
+import Stem
 
 class IndexViewController: SectionCollectionViewController {
 

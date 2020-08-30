@@ -59,14 +59,11 @@ public extension EmptyPageForImage {
     func layout(size: CGSize) -> Self {
         let size = customSize ?? size
         height.constant = size.height
-        height.priority = .defaultHigh
         width.constant = size.width
-        if height.isActive == false {
-            height.isActive = true
-        }
-        if width.isActive {
-            width.isActive = true
-        }
+
+        height.priority = .init(rawValue: 752)
+        height.priority = .init(rawValue: 752)
+
         return self
     }
     
@@ -98,6 +95,21 @@ public extension EmptyPageForImage {
     func set(image: UIImage?) -> Self {
         layout(size: image?.size ?? .zero)
         self.image = image
+        return self
+    }
+
+    @discardableResult
+    func set(images: [UIImage], duration: TimeInterval) -> Self {
+        guard let firstImage = images.first else {
+            set(image: nil)
+            return self
+        }
+
+        layout(size: firstImage.size)
+        animationImages = images
+        animationDuration = duration
+        animationRepeatCount = 0
+        startAnimating()
         return self
     }
     

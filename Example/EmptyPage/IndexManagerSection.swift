@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Stuart
 import Stem
 import EmptyPage
 
@@ -79,9 +78,9 @@ class IndexManagerSection: SectionCollectionProtocol {
 
             toolItems = [item]
         case 2:
-            contentView.ep.set(emptyView: EmptyStore.loading, for: .loading)
+            contentView.ep.set(emptyView: EmptyStore.templates.loading(), for: .loading)
             contentView.ep.set(emptyView: EmptyStore.dzn.airbnb.view(), for: .normal)
-            contentView.ep.set(emptyView: EmptyStore.demo.standard(tapEvent: nil), for: .noNetwork)
+            contentView.ep.set(emptyView: EmptyStore.templates.standard1(tapEvent: nil), for: .noNetwork)
 
             do {
                 let item = ToolItem<SectionCollectionView>(title: "loading")
@@ -150,7 +149,7 @@ class IndexManagerSection: SectionCollectionProtocol {
 extension IndexManagerSection {
 
     func setEmptyPage(contentView: SectionCollectionView) {
-        contentView.ep.set(emptyView: EmptyStore.demo.standard(tapEvent: nil))
+        contentView.ep.set(emptyView: EmptyStore.templates.standard1(tapEvent: nil))
     }
 
     func enableNetworkItems() -> [ToolItem<SectionCollectionView>] {

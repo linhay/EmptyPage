@@ -21,6 +21,7 @@ PODS:
     - Stem/Fundamentals (= 0.0.32)
     - Stem/NSObject (= 0.0.32)
     - Stem/Runtime (= 0.0.32)
+    - Stem/STUIKit (= 0.0.32)
     - Stem/UIKit (= 0.0.32)
     - Stem/WebKit (= 0.0.32)
   - Stem/AVKit (0.0.32):
@@ -45,6 +46,8 @@ PODS:
     - Stem/Core
   - Stem/Runtime (0.0.32):
     - Stem/Core
+  - Stem/STUIKit (0.0.32):
+    - Stem/UIKit
   - Stem/UIKit (0.0.32):
     - Stem/Core
     - Stem/Foundation
@@ -52,11 +55,6 @@ PODS:
     - Stem/Runtime
   - Stem/WebKit (0.0.32):
     - Stem/Core
-  - Stuart (0.0.1):
-    - Stuart/Configurable (= 0.0.1)
-    - Stuart/SectionView (= 0.0.1)
-  - Stuart/Configurable (0.0.1)
-  - Stuart/SectionView (0.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.39.2)
 
@@ -67,7 +65,6 @@ DEPENDENCIES:
   - ReachabilitySwift
   - SnapKit (= 5.0.0)
   - "Stem (from `git@github.com:linhay/Stem.git`)"
-  - "Stuart (from `git@github.com:linhay/Stuart.git`, branch `dev`)"
   - SVProgressHUD
   - SwiftLint
 
@@ -85,17 +82,11 @@ EXTERNAL SOURCES:
     :path: "../EmptyPage.podspec"
   Stem:
     :git: "git@github.com:linhay/Stem.git"
-  Stuart:
-    :branch: dev
-    :git: "git@github.com:linhay/Stuart.git"
 
 CHECKOUT OPTIONS:
   Stem:
-    :commit: 5c86384cba08cfcae5d9e33c80f3a7719e1b3e27
+    :commit: 899b0bd9ad59aa28b7a7f9ebc1751144797a489e
     :git: "git@github.com:linhay/Stem.git"
-  Stuart:
-    :commit: d1b9f124019d2506768676b1a82c00c857bad3cc
-    :git: "git@github.com:linhay/Stuart.git"
 
 SPEC CHECKSUMS:
   EmptyPage: b049b273a91f2b71d1be52b62e23dfa3a221fa43
@@ -103,11 +94,10 @@ SPEC CHECKSUMS:
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Stem: badd4e871d1dae882864974f79f91ad594586996
-  Stuart: 59481afc2b60a9d5da6234647e72e62b79817205
+  Stem: fa3287de5d52fbf54454bc7ff4e0a033bd36d5de
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 9cb86615b8e7d3b1c8a35590afe776745b3e4c76
+PODFILE CHECKSUM: 00728231125685a8df3ee1649c781d7eb4aabbd7
 
 COCOAPODS: 1.9.3
