@@ -47,7 +47,6 @@ public extension EmptyPage where Base: UIView {
     }
 
     func set(emptyView view: UIView?) {
-        EmptyPageRuntime.swizzingLayout
         manager?.set(emptyView: view)
     }
 

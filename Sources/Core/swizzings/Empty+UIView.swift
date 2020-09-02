@@ -39,13 +39,4 @@ extension UIView {
         get { return objc_getAssociatedObject(self, EmptyPageViewKey.manager) as? EmptyPageViewManager }
     }
 
-    @objc func emptyPage_layoutSubviews() {
-        emptyPage_layoutSubviews()
-        emptyPageViewManager?.resize()
-    }
-
-    @objc func emptyPage_layoutIfNeeded() {
-        emptyPage_layoutIfNeeded()
-        emptyPageViewManager?.resize()
-    }
 }

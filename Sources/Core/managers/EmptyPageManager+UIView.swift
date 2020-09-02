@@ -28,6 +28,7 @@ open class EmptyPageViewManager: NSObject {
     open private(set) weak var target: UIView?
     open private(set) weak var emptyView: UIView?
     open private(set) var emptyViewProvider: () -> UIView? = { nil }
+    private var token: NSKeyValueObservation?
 
     public override init() {
         super.init()
@@ -42,6 +43,16 @@ open class EmptyPageViewManager: NSObject {
     /// - Parameter target: 目标视图
     open func set(target: UIView?) {
         self.target = target
+
+        guard let target = target else {
+            self.token?.invalidate()
+            self.token = nil
+            return
+        }
+
+        self.token = target.observe(\.frame, options: [.new]) { [weak self] (_, _) in
+            self?.resize()
+        }
     }
 
     /// 设置新空白页 or 移除空白页

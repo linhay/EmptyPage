@@ -46,7 +46,6 @@ public extension EmptyPage where Base: UICollectionView {
     }
     
     func set(manager: EmptyPageViewManager?) {
-        EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView
         base.useCustomManager = true
         base.emptyPageViewManager = manager
@@ -54,7 +53,6 @@ public extension EmptyPage where Base: UICollectionView {
     }
 
     func set(emptyView view: UIView?) {
-        EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingCollectionView
         manager?.set(emptyView: view)
     }
