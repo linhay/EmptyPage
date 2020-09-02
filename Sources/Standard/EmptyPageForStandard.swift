@@ -37,6 +37,7 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
     /// 底部按钮 button
     public let button = EmptyPageForButton(frame: .zero)
 
+    private var layoutCache = [ViewType: [Int: [NSLayoutConstraint]]]()
     private var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
     
     // MARK: - Override
@@ -114,7 +115,7 @@ public extension EmptyPageForStandard {
     /// 视图高度调整
     ///
     /// - button: 按钮 default: 自适应
-    enum ViewType {
+    enum ViewType: Int {
         case imageView, titleLabel, textLabel, button
     }
     
@@ -123,6 +124,15 @@ public extension EmptyPageForStandard {
         case height(_: CGFloat)
         case insets(_: CGFloat)
         case afterSpac(_: CGFloat)
+
+        var rawValue: Int {
+            switch self {
+            case .width: return 0
+            case .height: return 1
+            case .insets: return 2
+            case .afterSpac: return 3
+            }
+        }
     }
     
     func view(for type: ViewType) -> UIView {
@@ -152,18 +162,39 @@ public extension EmptyPageForStandard {
         return layout(view: view, types: types)
     }
 
-    private func layout(_ view: ViewType, type: LayoutType) {
-        let view = self.view(for: view)
+    private func layout(_ viewType: ViewType, type: LayoutType) {
+        let view = self.view(for: viewType)
         switch type {
         case .height(let v):
-            view.heightAnchor.constraint(equalToConstant: v).isActive = true
+            if let cache = layoutCache[viewType]?[type.rawValue]?.first {
+                cache.constant = v
+            } else {
+                let constant = view.heightAnchor.constraint(equalToConstant: v)
+                constant.isActive = true
+                layoutCache[viewType] = [type.rawValue: [constant]]
+            }
         case .width(let v):
-            view.widthAnchor.constraint(equalToConstant: v).isActive = true
+            if let cache = layoutCache[viewType]?[type.rawValue]?.first {
+                cache.constant = v
+            } else {
+                let constant = view.widthAnchor.constraint(equalToConstant: v)
+                constant.isActive = true
+                layoutCache[viewType] = [type.rawValue: [constant]]
+            }
         case .afterSpac(let v):
             addCustomSpacing(v, after: view)
         case .insets(let v):
-            view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v).isActive = true
-            view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v).isActive = true
+            if let caches = layoutCache[viewType]?[type.rawValue] {
+                caches.forEach {
+                    $0.constant = v
+                }
+            } else {
+               let constants = [view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v),
+                                view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v)]
+                NSLayoutConstraint.activate(constants)
+                layoutCache[viewType] = [type.rawValue: constants]
+            }
+
         }
     }
 
