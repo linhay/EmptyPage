@@ -51,6 +51,7 @@
 		CD9C18A52498E68D00FC0DE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
+		CDC4361E24FF7C4800CB528F /* EmptyPage_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EmptyPage_Example.entitlements; sourceTree = "<group>"; };
 		CDDE172224FB826700AD70B9 /* DemoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSection.swift; sourceTree = "<group>"; };
 		CDDE172424FB828F00AD70B9 /* BaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
 		CDDE174324FB909A00AD70B9 /* TestMJRefreshCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMJRefreshCollectionVC.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				CDC4361E24FF7C4800CB528F /* EmptyPage_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for EmptyPage */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -342,7 +344,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EmptyPage/EmptyPage.framework",
-				"${PODS_ROOT}/LookinServer/LookinServer.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -352,7 +353,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyPage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -502,6 +502,7 @@
 			baseConfigurationReference = E355CF9FA2F096DBC0131154 /* Pods-EmptyPage_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EmptyPage_Example.entitlements;
 				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -509,7 +510,9 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = linhey.EmptyPage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -518,6 +521,7 @@
 			baseConfigurationReference = 2A92FDD691F47CFF2DA54F12 /* Pods-EmptyPage_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = EmptyPage_Example.entitlements;
 				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -525,7 +529,9 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = linhey.EmptyPage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -29,6 +29,8 @@ class DemoSection: BaseSection {
             let vc = TestMJRefreshCollectionVC()
             vc.config(canScroll: false)
             sectionView.st.viewController?.st.push(vc: vc)
+        case .work_manager_noNetwork:
+            break
         }
     }
 
@@ -38,6 +40,7 @@ enum DemoSet: String, CaseIterable, IndexTextCellModelProtocol {
 
     case work_mjRefresh_cansScroll = "MJRefresh 联动: 空页面时可滚动"
     case work_mjRefresh_cantScroll = "MJRefresh 联动: 空页面时不可滚动"
+    case work_manager_noNetwork    = "manager: 配置自动切换无网络状态空页面"
 
     var title: String { rawValue }
     var text: String { "" }
