@@ -46,7 +46,6 @@ public extension EmptyPage where Base: UITableView {
     }
     
     func set(manager: EmptyPageViewManager?) {
-        EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
         base.useCustomManager = true
         base.emptyPageViewManager = manager
@@ -54,7 +53,6 @@ public extension EmptyPage where Base: UITableView {
     }
 
     func set(emptyView view: UIView?) {
-        EmptyPageRuntime.swizzingLayout
         EmptyPageRuntime.swizzingTableView
         manager?.set(emptyView: view)
     }

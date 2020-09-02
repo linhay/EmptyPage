@@ -24,16 +24,6 @@ import UIKit
 
 struct EmptyPageRuntime {
     
-    static let swizzingLayout: Void = {
-        swizzing(sel: #selector(UIView.layoutSubviews),
-                 of: #selector(UIView.emptyPage_layoutSubviews),
-                 in: UIView.self)
-        
-        swizzing(sel: #selector(UIView.layoutIfNeeded),
-                 of: #selector(UIView.emptyPage_layoutIfNeeded),
-                 in: UIView.self)
-    }()
-    
     /// 替换 tableView 相关函数
     static let swizzingTableView: Void = {
         swizzing(sel: #selector(UITableView.insertRows(at:with:)),
