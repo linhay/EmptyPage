@@ -32,4 +32,9 @@ class TestMJRefreshCollectionVC: SectionCollectionViewController {
         })
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sectionView.ep.manager?.resize()
+    }
+
 }

@@ -11,7 +11,7 @@ target 'EmptyPage_Example' do
   pod 'Stem', :git => 'git@github.com:linhay/Stem.git'
   pod 'SVProgressHUD'
   pod 'MJRefresh'
-  pod 'LookinServer', :configurations => ['Debug']
+#  pod 'LookinServer', :configurations => ['Debug']
   pod 'SwiftLint'
 end
 

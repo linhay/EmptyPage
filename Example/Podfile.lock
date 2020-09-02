@@ -7,7 +7,6 @@ PODS:
   - EmptyPage/managers (4.0.0)
   - EmptyPage/standard (4.0.0):
     - EmptyPage/core
-  - LookinServer (1.0.0)
   - MJRefresh (3.4.3)
   - ReachabilitySwift (5.0.0)
   - SnapKit (5.0.0)
@@ -60,7 +59,6 @@ PODS:
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
-  - LookinServer
   - MJRefresh
   - ReachabilitySwift
   - SnapKit (= 5.0.0)
@@ -70,7 +68,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - LookinServer
     - MJRefresh
     - ReachabilitySwift
     - SnapKit
@@ -90,7 +87,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   EmptyPage: b049b273a91f2b71d1be52b62e23dfa3a221fa43
-  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
@@ -98,6 +94,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 00728231125685a8df3ee1649c781d7eb4aabbd7
+PODFILE CHECKSUM: 85dca2863c4cc93bd4fef04ca7336e4ba82fa260
 
 COCOAPODS: 1.9.3
