@@ -62,7 +62,7 @@ DEPENDENCIES:
   - MJRefresh
   - ReachabilitySwift
   - SnapKit (= 5.0.0)
-  - "Stem (from `git@github.com:linhay/Stem.git`)"
+  - Stem (from `https://github.com/linhay/Stem`)
   - SVProgressHUD
   - SwiftLint
 
@@ -78,12 +78,12 @@ EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
   Stem:
-    :git: "git@github.com:linhay/Stem.git"
+    :git: https://github.com/linhay/Stem
 
 CHECKOUT OPTIONS:
   Stem:
-    :commit: 4ce326bc312030134e97773d5a26d161d07d624a
-    :git: "git@github.com:linhay/Stem.git"
+    :commit: 3af2a4620b3ffd39cb1fcc198c327382aeaeb130
+    :git: https://github.com/linhay/Stem
 
 SPEC CHECKSUMS:
   EmptyPage: de2da93116ccb76779d6d4bf0aecde4fa922e627
@@ -94,6 +94,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 85dca2863c4cc93bd4fef04ca7336e4ba82fa260
+PODFILE CHECKSUM: b99a24a6b41610cfcbe1a5d3c4e1d3466ccbe605
 
 COCOAPODS: 1.9.3
