@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
         ]
     end
 
-    s.subspec 'standard' do |sp|
+    s.subspec 'templates' do |sp|
         sp.dependency 'EmptyPage/core'
         sp.source_files = 'Sources/standard/*.{swift}'
     end

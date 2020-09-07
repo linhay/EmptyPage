@@ -1,6 +1,5 @@
 ![title](https://s.linhey.com/emptypage-17.png)
 
-</p>
 <p align="center">
   <a href="https://travis-ci.org/linhay/EmptyPage">
     <a href="https://github.com/linhay/EmptyPage/actions?query=workflow%3Abuild"><img src="https://img.shields.io/github/workflow/status/linhay/EmptyPage/build/master?style=for-the-badge"></a>
