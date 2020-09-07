@@ -15,6 +15,8 @@
 		CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C18992498E51700FC0DE9 /* IndexViewController.swift */; };
 		CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA25D562009A7BD003C0E7E /* Images.xcassets */; };
 		CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */; };
+		CDAB9EDB250103530013ACEF /* TestStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAB9ED9250103530013ACEF /* TestStateViewController.swift */; };
+		CDAB9EDC250103530013ACEF /* TestStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDAB9EDA250103530013ACEF /* TestStateViewController.xib */; };
 		CDDE172324FB826700AD70B9 /* DemoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDE172224FB826700AD70B9 /* DemoSection.swift */; };
 		CDDE172524FB828F00AD70B9 /* BaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDE172424FB828F00AD70B9 /* BaseSection.swift */; };
 		CDDE174424FB909A00AD70B9 /* TestMJRefreshCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDE174324FB909A00AD70B9 /* TestMJRefreshCollectionVC.swift */; };
@@ -51,6 +53,8 @@
 		CD9C18A52498E68D00FC0DE9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA25D562009A7BD003C0E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDA25D5C2009E54F003C0E7E /* EmptyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStore.swift; sourceTree = "<group>"; };
+		CDAB9ED9250103530013ACEF /* TestStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStateViewController.swift; sourceTree = "<group>"; };
+		CDAB9EDA250103530013ACEF /* TestStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestStateViewController.xib; sourceTree = "<group>"; };
 		CDC4361E24FF7C4800CB528F /* EmptyPage_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EmptyPage_Example.entitlements; sourceTree = "<group>"; };
 		CDDE172224FB826700AD70B9 /* DemoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSection.swift; sourceTree = "<group>"; };
 		CDDE172424FB828F00AD70B9 /* BaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				CDDE174324FB909A00AD70B9 /* TestMJRefreshCollectionVC.swift */,
+				CDAB9ED9250103530013ACEF /* TestStateViewController.swift */,
+				CDAB9EDA250103530013ACEF /* TestStateViewController.xib */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				CD9C18242498639400FC0DE9 /* git_config.sh in Resources */,
 				CDF1DE1D249A58050037F7ED /* IndexCell.xib in Resources */,
 				CD9C18232498639400FC0DE9 /* document.sh in Resources */,
+				CDAB9EDC250103530013ACEF /* TestStateViewController.xib in Resources */,
 				CDF1DE21249A6D2E0037F7ED /* IndexTextCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
 				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
@@ -373,6 +380,7 @@
 			files = (
 				CDF1DE23249A6E890037F7ED /* DribbbleSection.swift in Sources */,
 				CDA25D5D2009E54F003C0E7E /* EmptyStore.swift in Sources */,
+				CDAB9EDB250103530013ACEF /* TestStateViewController.swift in Sources */,
 				CDE853D824ADCFA600833115 /* StateManager.swift in Sources */,
 				CDDE172324FB826700AD70B9 /* DemoSection.swift in Sources */,
 				CDDE174424FB909A00AD70B9 /* TestMJRefreshCollectionVC.swift in Sources */,

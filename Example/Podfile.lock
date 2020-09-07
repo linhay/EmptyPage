@@ -82,11 +82,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Stem:
-    :commit: 4b0ba6fdc70f3fbfde2cc3c9dd7b1b26bcf81b4d
+    :commit: 4ce326bc312030134e97773d5a26d161d07d624a
     :git: "git@github.com:linhay/Stem.git"
 
 SPEC CHECKSUMS:
-  EmptyPage: b049b273a91f2b71d1be52b62e23dfa3a221fa43
+  EmptyPage: de2da93116ccb76779d6d4bf0aecde4fa922e627
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf

@@ -22,40 +22,20 @@
 
 import UIKit
 
-open class EmptyPageScrollViewManager: EmptyPageViewManager {
+open class EmptyPageScrollViewStateManager<State: OptionSet & Hashable>: EmptyPageScrollViewManager, EmptyPageStateProtocol, EmptyPageStateScorllableProtocol {
 
-    /// 设置空白页前视图是否可以滚动
-    private(set) var isScrollEnabled: Bool = true
-    /// 设置空白页后视图是否可以滚动
-    open var canScrollEnabled: Bool = false
-    /// 可滚动的父视图
-    public var scrollView: UIScrollView? { target as? UIScrollView }
-
-    func canScroll(isShow: Bool, isEmpty: Bool) {
-
-        
+    public var scrollableStore: [State: Bool] = [:]
+    open var state: State
+    open var viewStore: [State: UIView] = [:]
+    public let hookProvider = EmptyPageDelegate<State, UIView?>()
+    open override var emptyViewProvider: () -> UIView? {
+        set { }
+        get { viewProvider }
     }
 
-    open override func reload(completion: ((Bool) -> Void)? = nil) {
-        let isShow = self.isShow
-        super.reload { [weak self] isEmpty in
-            guard let self = self, let scrollView = self.scrollView else {
-                completion?(isEmpty)
-                return
-            }
-
-            switch (isShow, isEmpty && self.emptyView != nil) {
-            case (false, true):
-                self.isScrollEnabled = scrollView.isScrollEnabled
-                scrollView.isScrollEnabled = self.canScrollEnabled
-            case (false, false), (true, true):
-                break
-            case (true, false):
-                scrollView.isScrollEnabled = self.isScrollEnabled
-            }
-
-            completion?(isEmpty)
-        }
+    public init(state: State) {
+        self.state = state
+        super.init()
     }
 
 }

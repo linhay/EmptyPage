@@ -22,47 +22,34 @@
 
 import UIKit
 
-open class EmptyPageViewManager: NSObject {
+open class EmptyPageViewManager: EmptyPageViewManagerProtocol {
 
     // 父视图
-    open private(set) weak var target: UIView?
-    open private(set) weak var emptyView: UIView?
-    open private(set) var emptyViewProvider: () -> UIView? = { nil }
-    private var token: NSKeyValueObservation?
+    public var targetBox: EmptyPageWeakBox<UIView> = .init()
+    public var emptyBox: EmptyPageWeakBox<UIView> = .init()
+    public var frameKvoToken: NSKeyValueObservation?
+    open var emptyViewProvider: () -> UIView? = { nil }
 
-    public override init() {
-        super.init()
-    }
-
+    public init() {}
+    
     public init(target: UIView?) {
-        super.init()
-        self.target = target
+        set(target: target)
     }
 
     /// 设置目标视图
     /// - Parameter target: 目标视图
     open func set(target: UIView?) {
-        self.target = target
-
-        guard let target = target else {
-            self.token?.invalidate()
-            self.token = nil
-            return
-        }
-
-        self.token = target.observe(\.frame, options: [.new]) { [weak self] (_, _) in
-            self?.resize()
-        }
+        ep_set(target: target)
     }
 
     /// 设置新空白页 or 移除空白页
     /// - Parameter emptyView: 新空白页, nil为移除当前空白页
     open func set(emptyViewProvider provider: (() -> UIView?)?) {
-        self.emptyViewProvider = provider ?? { nil }
+        ep_set(emptyViewProvider: provider)
     }
 
     open func set(emptyView view: UIView?) {
-        set(emptyViewProvider: { view })
+        ep_set(emptyView: view)
     }
 
     /// 判断是否显示空白页
@@ -71,38 +58,12 @@ open class EmptyPageViewManager: NSObject {
 
     /// 重置空白页尺寸
     open func resize() {
-        guard let delegate = target, let view = emptyView, view.superview == delegate else {
-            return
-        }
-        view.frame = CGRect(origin: .zero, size: delegate.frame.size)
+        ep_resize()
     }
 
     /// 处理展示空白页逻辑
     open func reload(completion: ((_ isEmpty: Bool) -> Void)? = nil) {
-        emptyView?.removeFromSuperview()
-        guard let delegate = target, isEmpty(), let view = emptyViewProvider() else {
-            completion?(false)
-            return
-        }
-
-        delegate.addSubview(view)
-
-        emptyView = view
-        resize()
-        #if swift(>=4.2)
-        delegate.sendSubviewToBack(view)
-        #else
-        delegate.sendSubview(toBack: view)
-        #endif
-
-        completion?(true)
+        ep_reload(completion: completion)
     }
-
-}
-
-public extension EmptyPageViewManager {
-
-    /// 空白页是否显示
-    var isShow: Bool { emptyView != nil && emptyView?.superview != nil }
 
 }

@@ -30,7 +30,8 @@ class DemoSection: BaseSection {
             vc.config(canScroll: false)
             sectionView.st.viewController?.st.push(vc: vc)
         case .work_manager_noNetwork:
-            break
+            let vc = TestStateViewController()
+            sectionView.st.viewController?.st.push(vc: vc)
         }
     }
 

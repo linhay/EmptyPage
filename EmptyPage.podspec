@@ -18,7 +18,11 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'managers' do |sp|
-        sp.source_files = ['Sources/managers/*.{h,swift}', 'Sources/managers/**/*.{h,swift}']
+        sp.source_files = [
+        'Sources/managers/*.{h,swift}',
+        'Sources/managers/**/**/*.{h,swift}',
+        'Sources/managers/**/*.{h,swift}'
+        ]
     end
 
     s.subspec 'standard' do |sp|
