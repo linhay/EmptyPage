@@ -1,11 +1,20 @@
 ![title](https://s.linhey.com/emptypage-17.png)
 
-[![build](https://travis-ci.org/linhay/EmptyPage.svg?branch=master)](https://travis-ci.org/BLFoundation/EmptyPage)
-![Swift4](https://img.shields.io/badge/swift-5.0-red.svg?style=flat)
-![Platform](https://img.shields.io/cocoapods/p/EmptyPage.svg?style=flat)
-![Version](https://img.shields.io/cocoapods/v/EmptyPage.svg?style=flat)
-![CocoaPods](https://img.shields.io/badge/dep-CocoaPods-orange.svg)
-![MIT](https://img.shields.io/badge/license-MIT-lightgray.svg)
+</p>
+<p align="center">
+  <a href="https://travis-ci.org/linhay/EmptyPage">
+    <a href="https://github.com/linhay/EmptyPage/actions?query=workflow%3Abuild"><img src="https://img.shields.io/github/workflow/status/linhay/EmptyPage/build/master?style=for-the-badge"></a>
+  </a>
+  <a href="https://cocoapods.org/pods/EmptyPage">
+    <img src="https://img.shields.io/cocoapods/v/EmptyPage.svg?style=for-the-badge"/>
+  </a>
+  <a href="https://cocoapods.org/pods/EmptyPage">
+    <img src="https://img.shields.io/cocoapods/l/EmptyPage.svg?style=for-the-badge"/>
+  </a>
+  <a href="https://cocoapods.org/pods/EmptyPage">
+    <img src="https://img.shields.io/cocoapods/p/EmptyPage.svg?style=for-the-badge"/>
+  </a>
+</p>
 
 ##### 一套应用于swift项目的空白页.可利用预置的模板快速构建空白页视图.亦可高度自定义视图搭建炫酷的交互.
 
