@@ -13,6 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
+    - name: setup-cocoapods
+      uses: maxim-lobanov/setup-cocoapods@v1.1
+      with:
+        podfile-path: Example/Podfile.lock
+      
     - name: Xcodebuild Action
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
