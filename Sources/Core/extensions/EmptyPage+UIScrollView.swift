@@ -23,7 +23,8 @@
 import UIKit
 
 public extension EmptyPage where Base: UIScrollView {
-    
+
+    /// 空白页管理器
     var manager: EmptyPageScrollViewManager? {
         if base.useCustomManager {
             return base.emptyPageViewManager as? EmptyPageScrollViewManager
@@ -35,7 +36,8 @@ public extension EmptyPage where Base: UIScrollView {
         
         return base.emptyPageViewManager as? EmptyPageScrollViewManager
     }
-    
+
+    /// 当显示空白页时页面是否可以滚动 | default: false
     var canScrollEnabled: Bool {
         set { manager?.canScrollEnabled = newValue }
         get { manager?.canScrollEnabled ?? false }

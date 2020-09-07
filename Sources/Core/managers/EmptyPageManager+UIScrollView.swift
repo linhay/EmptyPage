@@ -31,6 +31,10 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
     /// 可滚动的父视图
     public var scrollView: UIScrollView? { target as? UIScrollView }
 
+    /// 处理 ScrollView 滚动逻辑
+    /// - Parameters:
+    ///   - isShowBeforeReload: reload 之前空白页时是否正在显示
+    ///   - isEmptyAfterReload: reload 之后数据源是否为空
     public func canScroll(isShowBeforeReload isShow: Bool, isEmptyAfterReload isEmpty: Bool) {
         guard let scrollView = scrollView else {
             return
@@ -47,6 +51,8 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
         }
     }
 
+
+    /// 刷新空白页
     open override func reload(completion: ((Bool) -> Void)? = nil) {
         let isShow = self.isShow
         super.reload { [weak self] isEmpty in

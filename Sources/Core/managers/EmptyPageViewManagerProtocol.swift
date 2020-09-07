@@ -24,30 +24,42 @@ import UIKit
 
 public protocol EmptyPageViewManagerProtocol: class {
 
+    /// 被设置空白页的 View weak 引用.
     var targetBox: EmptyPageWeakBox<UIView> { get set }
+    /// 自定义空白页的 weak 引用.
     var emptyBox: EmptyPageWeakBox<UIView> { get set }
+    /// 生成空白页的闭包
     var emptyViewProvider: () -> UIView? { get set }
+    /// kvo 目标视图的 frame, 用来动态调整空白页的尺寸
     var frameKvoToken: NSKeyValueObservation? { get set }
+    /// 重新设置空白页的frame
     func resize()
+    /// 判断数据源是否为空
     func isEmpty() -> Bool
+    /// 刷新空白页
+    /// - Parameter completion: 完成刷新回调
     func reload(completion: ((_ isEmpty: Bool) -> Void)?)
 
 }
 
 public extension EmptyPageViewManagerProtocol {
 
+    /// 被设置空白页的 View
     var target: UIView? { targetBox.value }
+    /// 自定义空白页
     var emptyView: UIView? { emptyBox.value }
 
     /// 空白页是否显示
     var isShow: Bool { emptyView != nil && emptyView?.superview != nil }
 
+    /// 重新设置空白页的frame
     func resize() {
         ep_resize()
     }
 
 }
 
+/// 默认逻辑代码
 public extension EmptyPageViewManagerProtocol {
 
     func ep_resize() {

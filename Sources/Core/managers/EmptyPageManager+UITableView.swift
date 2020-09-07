@@ -23,9 +23,12 @@
 import UIKit
 
 open class EmptyPageTableViewManager: EmptyPageScrollViewManager {
-    
+
+    /// 被设置空白页的 View
     public var tableView: UITableView? { target as? UITableView }
-    
+
+    /// 判断数据源是否为空
+    /// - Returns: 数据源是否为空结果
     open override func isEmpty() -> Bool {
         guard let tableView = tableView else {
             return false

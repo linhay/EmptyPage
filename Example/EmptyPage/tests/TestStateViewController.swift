@@ -44,6 +44,11 @@ class TestStateViewController: UIViewController {
         })
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sectionView.mj_header?.beginRefreshing()
+    }
+
     @IBAction func setNoNetwork(_ sender: UIButton) {
         sectionView.ex.change(state: .noNetwork)
         manager.reload()
