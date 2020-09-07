@@ -2,10 +2,10 @@ PODS:
   - EmptyPage (4.0.0):
     - EmptyPage/core (= 4.0.0)
     - EmptyPage/managers (= 4.0.0)
-    - EmptyPage/standard (= 4.0.0)
+    - EmptyPage/templates (= 4.0.0)
   - EmptyPage/core (4.0.0)
   - EmptyPage/managers (4.0.0)
-  - EmptyPage/standard (4.0.0):
+  - EmptyPage/templates (4.0.0):
     - EmptyPage/core
   - MJRefresh (3.4.3)
   - ReachabilitySwift (5.0.0)
@@ -86,7 +86,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/linhay/Stem
 
 SPEC CHECKSUMS:
-  EmptyPage: de2da93116ccb76779d6d4bf0aecde4fa922e627
+  EmptyPage: ef263cb54e1bcc67af3d62e6464aaf2161c8c072
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
