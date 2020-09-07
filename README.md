@@ -14,20 +14,34 @@
     <img src="https://img.shields.io/cocoapods/p/EmptyPage.svg?style=for-the-badge"/>
   </a>
 </p>
-
 ##### 一套应用于swift项目的空白页.可利用预置的模板快速构建空白页视图.亦可高度自定义视图搭建炫酷的交互.
 
-> ##### oc项目可以使用[**DZNEmptyDataSet**](https://github.com/dzenbot/DZNEmptyDataSet)替代.
+
+
+---
+
+### EmptyPage 4.0.0 已经进入收尾阶段, 欢迎试用.
+
+- 试用地址:
+
+  ```ruby
+  pod 'EmptyPage', :git => 'https://github.com/linhay/EmptyPage'
+  ```
+
+- 文档地址:
+
+- [🇨🇳中文](https://github.com/linhay/EmptyPage/blob/master/4.0.0-README-CN.md)
+
+- [🇬🇧EN](https://github.com/linhay/EmptyPage/blob/master/4.0.0-README-EN.md)
+
+---
+
+
 
 ### 简介
 
 app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/网络请求失败)等, 添加一个空白指示页将有效缓解用户可能造成的焦虑或混乱. 并可以帮助用户处理问题.
 
-
-# 👇EmptyPage 4.0.0! 代码重构完毕, 文档补全中! 可以提前试用👇
-```ruby
-pod 'EmptyPage', :git => 'https://github.com/linhay/EmptyPage'
-```
 
 ### Features
 
@@ -37,7 +51,7 @@ pod 'EmptyPage', :git => 'https://github.com/linhay/EmptyPage'
 - [x] 支持完全自定义视图.
 - [x] 支持更多实用与设计感的模板.
 
-![Xcode icon](https://s.linhey.com/emptypage-18.gif "Some hover text")
+![Xcode icon](https://s.linhey.com/emptypage-18.gif "Some hover text"
 
 
 | ![](https://s.linhey.com/emptypage-10.gif) | ![](https://s.linhey.com/emptypage-12.gif) | ![](https://s.linhey.com/emptypage-11.gif) |
