@@ -31,29 +31,26 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
     /// 可滚动的父视图
     public var scrollView: UIScrollView? { target as? UIScrollView }
 
-    func canScroll(isShow: Bool, isEmpty: Bool) {
+    public func canScroll(isShowBeforeReload isShow: Bool, isEmptyAfterReload isEmpty: Bool) {
+        guard let scrollView = scrollView else {
+            return
+        }
 
-        
+        switch (isShow, isEmpty && emptyView != nil) {
+        case (false, true):
+            isScrollEnabled = scrollView.isScrollEnabled
+            scrollView.isScrollEnabled = canScrollEnabled
+        case (false, false), (true, true):
+            scrollView.isScrollEnabled = canScrollEnabled
+        case (true, false):
+            scrollView.isScrollEnabled = isScrollEnabled
+        }
     }
 
     open override func reload(completion: ((Bool) -> Void)? = nil) {
         let isShow = self.isShow
         super.reload { [weak self] isEmpty in
-            guard let self = self, let scrollView = self.scrollView else {
-                completion?(isEmpty)
-                return
-            }
-
-            switch (isShow, isEmpty && self.emptyView != nil) {
-            case (false, true):
-                self.isScrollEnabled = scrollView.isScrollEnabled
-                scrollView.isScrollEnabled = self.canScrollEnabled
-            case (false, false), (true, true):
-                break
-            case (true, false):
-                scrollView.isScrollEnabled = self.isScrollEnabled
-            }
-
+            self?.canScroll(isShowBeforeReload: isShow, isEmptyAfterReload: isEmpty)
             completion?(isEmpty)
         }
     }
