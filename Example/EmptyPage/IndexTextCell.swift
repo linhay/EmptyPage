@@ -14,10 +14,10 @@ protocol IndexTextCellModelProtocol {
     var text: String { get }
 }
 
-class IndexTextCell: UICollectionViewCell, ConfigurableCollectionCell, STNibProtocol {
+class IndexTextCell: UICollectionViewCell, ConfigurableView, STNibProtocol {
 
-    static func preferredSize(collectionView: UICollectionView, model: IndexTextCellModelProtocol?) -> CGSize {
-        return .init(width: collectionView.bounds.width, height: 60)
+    static func preferredSize(limit size: CGSize, model: IndexTextCellModelProtocol?) -> CGSize {
+        return .init(width: size.width, height: 60)
     }
 
     @IBOutlet private weak var titleLabel: UILabel!

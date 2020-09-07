@@ -51,7 +51,7 @@ public extension EmptyPage where Base: UICollectionView {
         guard let manager = manager as? ExampleCollectionStateManager else {
             return
         }
-        manager.change(state: state)
+        manager.set(state: state)
     }
 
 }

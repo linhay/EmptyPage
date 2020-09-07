@@ -9,10 +9,10 @@
 import UIKit
 import Stem
 
-class IndexHeaderView: UICollectionReusableView, STNibProtocol, ConfigurableCollectionCell {
+class IndexHeaderView: UICollectionReusableView, STNibProtocol, ConfigurableView {
 
-    static func preferredSize(collectionView: UICollectionView, model: String?) -> CGSize {
-        return .init(width: collectionView.bounds.width, height: 60)
+    static func preferredSize(limit size: CGSize, model: String?) -> CGSize {
+        return .init(width: size.width, height: 60)
     }
 
     @IBOutlet private weak var tapView: UIControl!

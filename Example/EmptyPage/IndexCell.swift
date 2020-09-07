@@ -9,10 +9,10 @@
 import UIKit
 import Stem
 
-class IndexCell: UICollectionViewCell, STNibProtocol, ConfigurableCollectionCell {
-
-    static func preferredSize(collectionView: UICollectionView, model: Void?) -> CGSize {
-        return .init(width: collectionView.bounds.width, height: 60)
+class IndexCell: UICollectionViewCell, STNibProtocol, ConfigurableView {
+    
+    static func preferredSize(limit size: CGSize, model: Void?) -> CGSize {
+        return .init(width: size.width, height: 60)
     }
 
     @IBOutlet private weak var iconView: UIImageView!

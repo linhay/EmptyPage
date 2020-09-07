@@ -26,7 +26,7 @@ class BaseSection: SingleTypeSection<IndexTextCell> {
     }
     
     override var headerSize: CGSize {
-        return IndexHeaderView.preferredSize(collectionView: sectionView, model: nil)
+        return IndexHeaderView.preferredSize(limit: sectionView.bounds.size, model: nil)
     }
     
     override var headerView: UICollectionReusableView? {
