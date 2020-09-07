@@ -14,9 +14,8 @@
     <img src="https://img.shields.io/cocoapods/p/EmptyPage.svg?style=for-the-badge"/>
   </a>
 </p>
+
 ##### 一套应用于swift项目的空白页.可利用预置的模板快速构建空白页视图.亦可高度自定义视图搭建炫酷的交互.
-
-
 
 ---
 
