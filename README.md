@@ -50,8 +50,6 @@ app 显示列表内容时, 在某一时刻可能数据为空(等待网络请求/
 - [x] 支持完全自定义视图.
 - [x] 支持更多实用与设计感的模板.
 
-![Xcode icon](https://s.linhey.com/emptypage-18.gif "Some hover text"
-
 | ![](https://s.linhey.com/emptypage-10.gif) | ![](https://s.linhey.com/emptypage-12.gif) | ![](https://s.linhey.com/emptypage-11.gif) |
 | :----------------------------------------: | :----------------------------------------: | ------------------------------------------ |
 |                                            |                                            |                                            |
