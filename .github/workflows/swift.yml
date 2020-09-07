@@ -19,7 +19,7 @@ jobs:
         # The path to the xcworkspace to build. Mutually exclusive with `project`.
         workspace: Example/EmptyPage.xcworkspace
         # The scheme to build. Required when using a workspace.
-        scheme: EmptyPage-Example
+        scheme: EmptyPage_Example
         # The destination specifier to build.
         destination: ${{ matrix.destination }}
         # The action to perform (e.g. build, test, ...).
