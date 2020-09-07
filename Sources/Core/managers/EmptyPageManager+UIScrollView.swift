@@ -44,13 +44,14 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
         case (false, true):
             isScrollEnabled = scrollView.isScrollEnabled
             scrollView.isScrollEnabled = canScrollEnabled
-        case (false, false), (true, true):
+        case (false, false):
+            break
+        case (true, true):
             scrollView.isScrollEnabled = canScrollEnabled
         case (true, false):
             scrollView.isScrollEnabled = isScrollEnabled
         }
     }
-
 
     /// 刷新空白页
     open override func reload(completion: ((Bool) -> Void)? = nil) {
