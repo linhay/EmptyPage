@@ -29,13 +29,17 @@ open class EmptyPageTableStateManager<State: OptionSet & Hashable>: EmptyPageTab
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
     open override var emptyViewProvider: () -> UIView? {
-        set { }
+        set { _ = newValue }
         get { viewProvider }
     }
     
     public init(state: State) {
         self.state = state
         super.init()
+    }
+
+    open override func reload(completion: ((Bool) -> Void)? = nil) {
+        ep_state_reload(completion: completion)
     }
 
 }

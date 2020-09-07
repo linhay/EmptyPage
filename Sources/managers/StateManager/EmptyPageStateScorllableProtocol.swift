@@ -39,10 +39,6 @@ public extension EmptyPageStateScorllableProtocol {
 
 public extension EmptyPageStateScorllableProtocol where Self: EmptyPageScrollViewManager & EmptyPageStateProtocol {
 
-    private func set(isScrollEnabled: Bool) {
-        (target as? UIScrollView)?.isScrollEnabled = isScrollEnabled
-    }
-
     private var viewProvider: () -> UIView? {
         return { [weak self] in
             guard let self = self else {
@@ -55,16 +51,19 @@ public extension EmptyPageStateScorllableProtocol where Self: EmptyPageScrollVie
         }
     }
 
-    func reload(completion: ((Bool) -> Void)?) {
+    func ep_state_reload(completion: ((Bool) -> Void)?) {
+        let isShow = self.isShow
         ep_reload { [weak self] isEmpty in
             guard let self = self else {
                 return
             }
             if isEmpty {
-                self.scrollView?.isScrollEnabled = self.scrollableStore[self.state] ?? true
-            } else {
-                self.scrollView?.isScrollEnabled = true
+                print(self.canScrollEnabled)
+                self.canScrollEnabled = self.scrollableStore[self.state] ?? false
+                print(self.canScrollEnabled)
             }
+            self.canScroll(isShowBeforeReload: isShow, isEmptyAfterReload: isEmpty)
+            completion?(isEmpty)
         }
     }
 

@@ -29,7 +29,7 @@ open class EmptyPageScrollViewStateManager<State: OptionSet & Hashable>: EmptyPa
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
     open override var emptyViewProvider: () -> UIView? {
-        set { }
+        set { _ = newValue }
         get { viewProvider }
     }
 
@@ -38,4 +38,8 @@ open class EmptyPageScrollViewStateManager<State: OptionSet & Hashable>: EmptyPa
         super.init()
     }
 
+    open override func reload(completion: ((Bool) -> Void)? = nil) {
+        ep_state_reload(completion: completion)
+    }
+    
 }

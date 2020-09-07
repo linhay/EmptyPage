@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECAD5226EE63D0075CBD5 /* .travis.yml */; };
+		CD87ED8025061A7200468FD7 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD87ED7F25061A7200468FD7 /* Example.swift */; };
 		CD9C18222498639400FC0DE9 /* trunk.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C181F2498639400FC0DE9 /* trunk.sh */; };
 		CD9C18232498639400FC0DE9 /* document.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18202498639400FC0DE9 /* document.sh */; };
 		CD9C18242498639400FC0DE9 /* git_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = CD9C18212498639400FC0DE9 /* git_config.sh */; };
@@ -43,7 +43,7 @@
 		A530BC265F9B925295F14521 /* Pods_EmptyPage_Objective_C.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Objective_C.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E3A5E7C2782BD08A8AD275 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8187284C2035D73F1FEC286 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		CD5ECAD5226EE63D0075CBD5 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		CD87ED7F25061A7200468FD7 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		CD9C181F2498639400FC0DE9 /* trunk.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = trunk.sh; sourceTree = "<group>"; };
 		CD9C18202498639400FC0DE9 /* document.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = document.sh; sourceTree = "<group>"; };
 		CD9C18212498639400FC0DE9 /* git_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = git_config.sh; sourceTree = "<group>"; };
@@ -134,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				CD9C181E2498639400FC0DE9 /* scripts */,
-				CD5ECAD5226EE63D0075CBD5 /* .travis.yml */,
 				72069FE43CCD8BD2766D9ED7 /* EmptyPage.podspec */,
 				A8187284C2035D73F1FEC286 /* README.md */,
 				279651C94AB31F26C93245C4 /* LICENSE */,
@@ -187,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE853D724ADCFA600833115 /* StateManager.swift */,
+				CD87ED7F25061A7200468FD7 /* Example.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -264,7 +264,6 @@
 				CDAB9EDC250103530013ACEF /* TestStateViewController.xib in Resources */,
 				CDF1DE21249A6D2E0037F7ED /* IndexTextCell.xib in Resources */,
 				CDA25D572009A7BD003C0E7E /* Images.xcassets in Resources */,
-				CD5ECAD6226EE63D0075CBD5 /* .travis.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +391,7 @@
 				CDF1DE20249A6D2E0037F7ED /* IndexTextCell.swift in Sources */,
 				CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */,
 				CDF1DE15249A550F0037F7ED /* DZNEmptyDataSetSection.swift in Sources */,
+				CD87ED8025061A7200468FD7 /* Example.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

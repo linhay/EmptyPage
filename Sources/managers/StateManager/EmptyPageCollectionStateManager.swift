@@ -37,13 +37,17 @@ open class EmptyPageCollectionStateManager<State: OptionSet & Hashable>: EmptyPa
         }
     }
     open override var emptyViewProvider: () -> UIView? {
-        set { }
+        set { _ = newValue }
         get { viewProvider }
     }
 
     public init(state: State) {
         self.state = state
         super.init()
+    }
+
+    open override func reload(completion: ((Bool) -> Void)? = nil) {
+        ep_state_reload(completion: completion)
     }
 
 }

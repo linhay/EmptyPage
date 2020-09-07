@@ -22,12 +22,14 @@ public struct EmptyPageState: OptionSet, Hashable {
     static let noNetwork = EmptyPageState(rawValue: 3)
 }
 
-class ExampleCollectionStateManager: EmptyPageCollectionStateManager<EmptyPageState> { }
+public class ExampleCollectionStateManager: EmptyPageCollectionStateManager<EmptyPageState> { }
 
-public extension EmptyPage where Base: UICollectionView {
+public extension Example where Base: UICollectionView {
 
-    func set(emptyView: UIView?, for state: EmptyPageState) {
-        if manager == nil || (manager is ExampleCollectionStateManager) == false {
+   private var manager: ExampleCollectionStateManager {
+        if let manager = base.ep.manager as? ExampleCollectionStateManager {
+            return manager
+        } else {
             let manager = ExampleCollectionStateManager(state: .normal)
             manager.set(target: base)
             manager.hookProvider.delegate(on: base) { (self, state) -> UIView? in
@@ -37,20 +39,20 @@ public extension EmptyPage where Base: UICollectionView {
                 manager.state = .noNetwork
                 return manager.viewStore[.noNetwork]
             }
-            self.set(manager: manager)
+            base.ep.set(manager: manager)
+            return manager
         }
+    }
 
-        guard let manager = manager as? ExampleCollectionStateManager else {
-            return
-        }
-
+    func set(emptyView: UIView?, for state: EmptyPageState) {
         manager.set(emptyView: emptyView, for: state)
     }
 
+    func set(canScroll: Bool, for state: EmptyPageState) {
+        manager.scrollableStore[state] = canScroll
+    }
+
     func change(state: EmptyPageState) {
-        guard let manager = manager as? ExampleCollectionStateManager else {
-            return
-        }
         manager.set(state: state)
     }
 
