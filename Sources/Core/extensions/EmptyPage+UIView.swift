@@ -24,6 +24,7 @@ import UIKit
 
 public extension EmptyPage where Base: UIView {
 
+    /// 空白页管理器
     var manager: EmptyPageViewManager? {
         if base.useCustomManager {
             return base.emptyPageViewManager
@@ -36,16 +37,21 @@ public extension EmptyPage where Base: UIView {
         return base.emptyPageViewManager
     }
 
+    /// 设置当前 View 的空白页管理器
+    /// - Parameter manager: 空白页管理器
     func set(manager: EmptyPageViewManager?) {
         base.useCustomManager = true
         base.emptyPageViewManager = manager
         manager?.set(target: base)
     }
 
+    /// 刷新空白页
     func reload() {
         manager?.reload()
     }
 
+    /// 设置当前 View 的空白页
+    /// - Parameter view: 自定义空白页
     func set(emptyView view: UIView?) {
         manager?.set(emptyView: view)
     }

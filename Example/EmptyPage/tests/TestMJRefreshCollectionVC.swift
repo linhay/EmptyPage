@@ -32,6 +32,11 @@ class TestMJRefreshCollectionVC: SectionCollectionViewController {
         })
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sectionView.mj_header?.beginRefreshing()
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         sectionView.ep.manager?.resize()

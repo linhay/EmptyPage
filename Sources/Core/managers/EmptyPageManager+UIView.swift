@@ -48,6 +48,8 @@ open class EmptyPageViewManager: EmptyPageViewManagerProtocol {
         ep_set(emptyViewProvider: provider)
     }
 
+    /// 设置目标 View 的空白页
+    /// - Parameter view: 自定义空白页
     open func set(emptyView view: UIView?) {
         ep_set(emptyView: view)
     }

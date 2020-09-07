@@ -23,7 +23,8 @@
 import UIKit
 
 public extension EmptyPage where Base: UITableView {
-    
+
+    /// 空白页管理器
     var manager: EmptyPageTableViewManager? {
         if base.useCustomManager {
             return base.emptyPageViewManager as? EmptyPageTableViewManager
@@ -40,11 +41,14 @@ public extension EmptyPage where Base: UITableView {
         return base.emptyPageViewManager as? EmptyPageTableViewManager
     }
 
+    /// 当显示空白页时页面是否可以滚动 | default: false
     var canScrollEnabled: Bool {
         set { manager?.canScrollEnabled = newValue }
         get { manager?.canScrollEnabled ?? false }
     }
-    
+
+    /// 设置当前 View 的空白页管理器
+    /// - Parameter manager: 空白页管理器
     func set(manager: EmptyPageViewManager?) {
         EmptyPageRuntime.swizzingTableView
         base.useCustomManager = true
@@ -52,6 +56,8 @@ public extension EmptyPage where Base: UITableView {
         manager?.set(target: base)
     }
 
+    /// 设置当前 View 的空白页
+    /// - Parameter view: 自定义空白页
     func set(emptyView view: UIView?) {
         EmptyPageRuntime.swizzingTableView
         manager?.set(emptyView: view)

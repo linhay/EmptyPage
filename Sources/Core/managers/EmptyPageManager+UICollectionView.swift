@@ -24,8 +24,11 @@ import UIKit
 
 open class EmptyPageCollectionViewManager: EmptyPageScrollViewManager {
 
+    /// 被设置空白页的 View
     public var collectionView: UICollectionView? { target as? UICollectionView }
 
+    /// 判断数据源是否为空
+    /// - Returns: 数据源是否为空结果
     open override func isEmpty() -> Bool {
         guard let collectionView = collectionView else {
             return false
