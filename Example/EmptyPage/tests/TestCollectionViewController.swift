@@ -122,12 +122,12 @@ fileprivate class TestSection<Cell: UICollectionViewCell>: SectionCollectionProt
 fileprivate class TestCollectionCell: UICollectionViewCell, ConfigurableView, STViewProtocol {
 
     enum Action: String, CaseIterable {
-        case remove_row      = "移除 1 行"
-        case remove_section  = "移除 1 组"
-        case reload          = "刷新"
-        case reload_noData   = "刷新 - 无数据"
-        case add_row         = "添加 1 行"
-        case add_section     = "添加 1 组"
+        case remove_row      = "移除 1 行 || delete last row"
+        case remove_section  = "移除 1 组 || delete last section"
+        case reload          = "刷新 || reloadData"
+        case reload_noData   = "刷新 - 无数据 || reloadData without rows"
+        case add_row         = "添加 1 行 || add a row at last"
+        case add_section     = "添加 1 组 || add a section at last"
     }
 
     static func preferredSize(limit size: CGSize, model: Action?) -> CGSize {
