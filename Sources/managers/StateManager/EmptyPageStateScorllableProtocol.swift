@@ -58,9 +58,7 @@ public extension EmptyPageStateScorllableProtocol where Self: EmptyPageScrollVie
                 return
             }
             if isEmpty {
-                print(self.canScrollEnabled)
                 self.canScrollEnabled = self.scrollableStore[self.state] ?? false
-                print(self.canScrollEnabled)
             }
             self.canScroll(isShowBeforeReload: isShow, isEmptyAfterReload: isEmpty)
             completion?(isEmpty)
