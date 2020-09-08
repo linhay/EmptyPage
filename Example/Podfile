@@ -9,9 +9,8 @@ target 'EmptyPage_Example' do
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit', '5.0.0'
   pod 'Stem', :git => 'https://github.com/linhay/Stem'
-  pod 'SVProgressHUD'
   pod 'MJRefresh'
-#  pod 'LookinServer', :configurations => ['Debug']
+  pod 'LookinServer', :configurations => ['Debug']
   pod 'SwiftLint'
 end
 

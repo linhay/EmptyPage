@@ -21,6 +21,9 @@ class DemoSection: BaseSection {
             return
         }
         switch type {
+        case .work_tableView_dataSource:
+            let vc = TestTableViewViewController()
+            sectionView.st.viewController?.st.push(vc: vc)
         case .work_collectionView_dataSource:
             let vc = TestCollectionViewController()
             sectionView.st.viewController?.st.push(vc: vc)
@@ -43,7 +46,8 @@ class DemoSection: BaseSection {
 
 enum DemoSet: String, CaseIterable, IndexTextCellModelProtocol {
 
-    case work_collectionView_dataSource = "test: CollectionView 变动"
+    case work_collectionView_dataSource = "编辑: UICollectionView"
+    case work_tableView_dataSource      = "编辑: UITableView"
     case work_mjRefresh_cansScroll = "MJRefresh 联动: 空页面时可滚动"
     case work_mjRefresh_cantScroll = "MJRefresh 联动: 空页面时不可滚动"
     case work_manager_noNetwork    = "manager: 配置自动切换无网络状态空页面"

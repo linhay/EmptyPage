@@ -25,26 +25,29 @@ class TestCollectionViewController: SectionCollectionViewController {
         manager.update([createSection()])
     }
 
-    fileprivate func createSection() -> SingleTypeSection<TestCollectionCell> {
-        let section = SingleTypeSection<TestCollectionCell>(TestCollectionCell.Action.allCases)
+    fileprivate func createSection() -> TestSection<TestCollectionCell> {
+        let section = TestSection<TestCollectionCell>(TestCollectionCell.Action.allCases)
 
+        section.sectionInset = .init(top: 0, left: 0, bottom: 20, right: 0)
         section.selectedEvent.delegate(on: self) { [weak section] (self, action) in
             guard let section = section else {
                 return
             }
             switch action {
             case .add_row:
-                section.config(models: section.models + [.add_row])
+                section.insert(at: section.models.count) {
+                    section.config(models: section.models + [.add_row])
+                }
             case .add_section:
-                self.manager.update(self.manager.sections + [self.createSection()])
+                self.manager.insert(section: self.createSection(), at: self.manager.sections.count)
             case .remove_row:
-                var models = section.models
-                models.removeLast()
-                section.config(models: models)
+                section.delete(at: section.models.count - 1) {
+                    var models = section.models
+                    models.removeLast()
+                    section.config(models: models)
+                }
             case .remove_section:
-                var models = self.manager.sections
-                models.removeLast()
-                self.manager.update(models)
+                self.manager.delete(at: self.manager.sections.count - 1)
             case .reload:
                 self.manager.reload()
             case .reload_noData:
@@ -63,6 +66,57 @@ class TestCollectionViewController: SectionCollectionViewController {
         return section
     }
     
+}
+
+fileprivate class TestSection<Cell: UICollectionViewCell>: SectionCollectionProtocol where Cell: ConfigurableView & STViewProtocol {
+
+
+    public private(set) var models: [Cell.Model]
+
+    public let selectedEvent = Delegate<Cell.Model, Void>()
+    public let selectedRowEvent = Delegate<Int, Void>()
+    public let willDisplayEvent = Delegate<Int, Void>()
+    /// cell 样式配置
+    public let configCellStyleEvent = Delegate<(row: Int, cell: Cell), Void>()
+
+    open var minimumLineSpacing: CGFloat = 0
+    open var minimumInteritemSpacing: CGFloat = 0
+    open var sectionInset: UIEdgeInsets = .zero
+
+    public var core: SectionCore?
+    open var itemCount: Int { models.count }
+
+    public init(_ models: [Cell.Model] = []) {
+        self.models = models
+    }
+
+    open func config(models: [Cell.Model]) {
+        self.models = models
+    }
+
+    open func itemSize(at row: Int) -> CGSize {
+        let width = sectionView.bounds.width - sectionInset.left - sectionInset.right
+        return Cell.preferredSize(limit: .init(width: width,
+                                               height: sectionView.bounds.height),
+                                  model: models.value(at: row))
+    }
+
+    open func didSelectItem(at row: Int) {
+        selectedEvent.call(models[row])
+        selectedRowEvent.call(row)
+    }
+
+    open func config(sectionView: UICollectionView) {
+        sectionView.st.register(Cell.self)
+    }
+
+    open func item(at row: Int) -> UICollectionViewCell {
+        let cell = dequeue(at: row) as Cell
+        cell.config(models[row])
+        configCellStyleEvent.call((row: row, cell: cell))
+        return cell
+    }
+
 }
 
 fileprivate class TestCollectionCell: UICollectionViewCell, ConfigurableView, STViewProtocol {
