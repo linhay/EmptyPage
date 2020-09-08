@@ -7,6 +7,7 @@ PODS:
   - EmptyPage/managers (4.0.0)
   - EmptyPage/templates (4.0.0):
     - EmptyPage/core
+  - LookinServer (1.0.0)
   - MJRefresh (3.4.3)
   - ReachabilitySwift (5.0.0)
   - SnapKit (5.0.0)
@@ -54,24 +55,23 @@ PODS:
     - Stem/Runtime
   - Stem/WebKit (0.0.32):
     - Stem/Core
-  - SVProgressHUD (2.2.5)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - EmptyPage (from `../EmptyPage.podspec`)
+  - LookinServer
   - MJRefresh
   - ReachabilitySwift
   - SnapKit (= 5.0.0)
   - Stem (from `https://github.com/linhay/Stem`)
-  - SVProgressHUD
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - LookinServer
     - MJRefresh
     - ReachabilitySwift
     - SnapKit
-    - SVProgressHUD
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -82,18 +82,18 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Stem:
-    :commit: 608e0c09f24041bbfbcc0659a0c3158a9afa7103
+    :commit: 76dec4f10b7d722a639c7105b7f7170d00020430
     :git: https://github.com/linhay/Stem
 
 SPEC CHECKSUMS:
   EmptyPage: ef263cb54e1bcc67af3d62e6464aaf2161c8c072
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   Stem: fa3287de5d52fbf54454bc7ff4e0a033bd36d5de
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: b99a24a6b41610cfcbe1a5d3c4e1d3466ccbe605
+PODFILE CHECKSUM: d7d6884c647760ab42f79bf9f11c7b93aeae26ce
 
 COCOAPODS: 1.9.3

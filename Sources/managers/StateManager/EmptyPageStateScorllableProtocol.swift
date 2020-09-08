@@ -37,6 +37,7 @@ public extension EmptyPageStateScorllableProtocol {
 
 }
 
+/// 默认逻辑代码 
 public extension EmptyPageStateScorllableProtocol where Self: EmptyPageScrollViewManager & EmptyPageStateProtocol {
 
     private var viewProvider: () -> UIView? {
