@@ -24,7 +24,7 @@ import UIKit
 
 extension UIView {
     
-     enum EmptyPageViewKey {
+    enum EmptyPageViewKey {
         static let manager = UnsafeRawPointer(bitPattern: "EmptyPage.uiview.ep.manager".hashValue)!
         static let useCustomManager = UnsafeRawPointer(bitPattern: "EmptyPage.uiview.ep.useCustomManager".hashValue)!
     }
@@ -34,9 +34,15 @@ extension UIView {
         get { return objc_getAssociatedObject(self, EmptyPageViewKey.useCustomManager) as? Bool ?? false }
     }
 
-     var emptyPageViewManager: EmptyPageViewManager? {
+    var emptyPageViewManager: EmptyPageViewManager? {
         set { objc_setAssociatedObject(self, EmptyPageViewKey.manager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
         get { return objc_getAssociatedObject(self, EmptyPageViewKey.manager) as? EmptyPageViewManager }
+    }
+
+    @objc
+    func emptyPage_setBounds(_ value: CGRect) {
+        emptyPage_setBounds(value)
+        emptyPageViewManager?.resize()
     }
 
 }

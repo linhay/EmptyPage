@@ -66,6 +66,12 @@ struct EmptyPageRuntime {
                  in: UICollectionView.self)
     }()
     
+    static let swizzingLayout: Void = {
+        swizzing(sel: #selector(setter: UIView.bounds),
+                 of: #selector(UIView.emptyPage_setBounds(_:)),
+                 in: UIView.self)
+    }()
+    
     /// 交换方法
     ///
     /// - Parameters:

@@ -89,20 +89,19 @@ public extension EmptyPageViewManagerProtocol {
     }
 
     func ep_set(target: UIView?) {
-        guard self.target != target else {
+        guard let target = target, self.target !== target else {
             return
         }
-
         self.targetBox = .init(target)
 
-        guard let target = target else {
+        /// [兼容] kvo 在 ios 12 以下会出现 token 连续释放的
+        if #available(iOS 12, *) {
             self.frameKvoToken?.invalidate()
-            self.frameKvoToken = nil
-            return
-        }
-
-        self.frameKvoToken = target.observe(\.bounds, options: [.new]) { [weak self] (_, _) in
-            self?.resize()
+            self.frameKvoToken = target.observe(\.bounds, options: [.new]) { [weak self] (_, _) in
+                self?.resize()
+            }
+        } else {
+            _ = EmptyPageRuntime.swizzingLayout
         }
     }
 
@@ -111,6 +110,6 @@ public extension EmptyPageViewManagerProtocol {
     }
 
     func ep_set(emptyView view: UIView?) {
-           ep_set(emptyViewProvider: { view })
+        ep_set(emptyViewProvider: { view })
     }
 }

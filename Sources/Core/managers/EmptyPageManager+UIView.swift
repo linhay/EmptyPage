@@ -31,7 +31,7 @@ open class EmptyPageViewManager: EmptyPageViewManagerProtocol {
     open var emptyViewProvider: () -> UIView? = { nil }
 
     public init() {}
-    
+
     public init(target: UIView?) {
         set(target: target)
     }
