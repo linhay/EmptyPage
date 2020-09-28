@@ -47,7 +47,11 @@ enum Standard: String, CaseIterable, IndexTextCellModelProtocol {
         case .text_attributed:
             return TemplateSet.text_attributed().mix()
         case .standard:
-            return TemplateSet.standard1(tapEvent: nil).mix()
+            return TemplateSet
+                .standard1(tapEvent: nil)
+                .mix()
+                .layout(horizontal: .leftSpacer(20), .rightSpacer(20))
+                .layout(vertical: .topAndBottomSpacerRatio(3.0/4))
         }
     }
 }

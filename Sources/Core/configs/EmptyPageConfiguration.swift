@@ -22,45 +22,41 @@
 
 import UIKit
 
-public final class EmptyPageConfig {
+public final class EmptyPageConfiguration {
 
-    public static let shared = EmptyPageConfig()
+    public static let shared = EmptyPageConfiguration()
 
     private init() {}
 
-    /// UIView 的全局 EmptyPageViewManager
+    // Global `EmptyPageViewManager` for UIView.
     public private(set) var viewGloalManager: EmptyPageViewManager?
-    /// UIScrollView 的全局 EmptyPageScrollViewManager
+    // Global `EmptyPageScrollViewManager` for UIScrollView
     public private(set) var scrollViewGloalManager: EmptyPageScrollViewManager?
-    /// UITableView 的全局 EmptyPageTableViewManager
+    // Global `EmptyPageTableViewManager` for UITableView
     public private(set) var tableViewGloalManager: EmptyPageTableViewManager?
-    /// UICollectionView 的全局 EmptyPageCollectionViewManager
+    // Global `EmptyPageCollectionViewManager` for UICollectionView
     public private(set) var collectionViewGloalManager: EmptyPageCollectionViewManager?
 
 }
 
-public extension EmptyPageConfig {
+public extension EmptyPageConfiguration {
 
-    /// 设置 UIView 的全局 EmptyPageViewManager
-    /// - Parameter provider: EmptyPageViewManager
+    /// Set the global `EmptyPageViewManager` for the UIView.
     func setGloalManager(view provider: EmptyPageViewManager?) {
         viewGloalManager = provider
     }
 
-    /// 设置 UIScrollView 的全局 EmptyPageScrollViewManager
-    /// - Parameter provider: EmptyPageScrollViewManager
+    /// Set the global `EmptyPageScrollViewManager` for the UIScrollView.
     func setGloalManager(scrollView provider: EmptyPageScrollViewManager?) {
         scrollViewGloalManager = provider
     }
 
-    /// 设置 UITableView 的全局 EmptyPageTableViewManager
-    /// - Parameter provider: EmptyPageTableViewManager
+    /// Set the global `EmptyPageTableViewManager` for the UIScrollView.
     func setGloalManager(tableView provider: EmptyPageTableViewManager?) {
         tableViewGloalManager = provider
     }
 
-    /// 设置 UICollectionView 的全局 EmptyPageCollectionViewManager
-    /// - Parameter provider: EmptyPageCollectionViewManager
+    /// Set the global `EmptyPageCollectionViewManager` for the UICollectionView.
     func setGloalManager(collectionView provider: EmptyPageCollectionViewManager?) {
         collectionViewGloalManager = provider
     }

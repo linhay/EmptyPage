@@ -353,8 +353,8 @@ enum DZNEmptyDataSet: String, CaseIterable, IndexTextCellModelProtocol {
                 .set(text: "Safari cannot open the page because your iPhone is not connected to the Internet.",
                      color: UIColor("#7d7f7f"),
                      font: UIFont.systemFont(ofSize: 18))
-                .layout(edge: .init(top: 0, left: 20, bottom: 0, right: 20))
                 .mix()
+                .layout(horizontal: .leftSpacer(20), .rightSpacer(20))
         case .skype:
             let attr = NSMutableAttributedString(string: "Keep all your favorite people together",
                                                  attributes: [.font : UIFont(name: "HelveticaNeue-Light", size: 17.75)!,
@@ -365,8 +365,8 @@ enum DZNEmptyDataSet: String, CaseIterable, IndexTextCellModelProtocol {
             attr.append(attr2)
             return EmptyPageView.Template.text
                 .set(attributed: attr)
-                .layout(edge: .init(top: 0, left: 20, bottom: 0, right: 20))
                 .mix()
+                .layout(horizontal: .leftSpacer(20), .rightSpacer(20))
         case .slack:
             return EmptyPageView.Template.standard
                 .config(imageView: { $0.set(image: UIImage(named: "placeholder_slack")) })

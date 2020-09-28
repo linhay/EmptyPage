@@ -31,7 +31,7 @@ public extension EmptyPage where Base: UICollectionView {
         }
 
         if base.emptyPageViewManager == nil {
-            if let placeholder = EmptyPageConfig.shared.collectionViewGloalManager {
+            if let placeholder = EmptyPageConfiguration.shared.collectionViewGloalManager {
                 set(manager: placeholder)
             } else {
                 set(manager: EmptyPageCollectionViewManager())

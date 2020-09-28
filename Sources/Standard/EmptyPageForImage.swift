@@ -57,16 +57,26 @@ public extension EmptyPageForImage {
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
     func layout(size: CGSize) -> Self {
-        let size = customSize ?? size
+        return layout(size: size, isCustom: true)
+    }
+
+    @discardableResult
+    private func layout(size: CGSize?, isCustom: Bool) -> Self {
+        guard let size = customSize ?? size else {
+            height.constant = 0
+            width.constant = 0
+            return self
+        }
+
+        if isCustom {
+            customSize = size
+        }
+
         height.constant = size.height
         width.constant = size.width
-
-        height.priority = .init(rawValue: 752)
-        height.priority = .init(rawValue: 752)
-
         return self
     }
-    
+
 }
 
 // MARK: 深度配置元素 相关函数
@@ -93,7 +103,7 @@ public extension EmptyPageForImage {
     /// - Returns: 为支持链式调用,返回 `EmptyPageForImage`
     @discardableResult
     func set(image: UIImage?) -> Self {
-        layout(size: image?.size ?? .zero)
+        layout(size: image?.size, isCustom: false)
         self.image = image
         return self
     }
@@ -105,7 +115,7 @@ public extension EmptyPageForImage {
             return self
         }
 
-        layout(size: firstImage.size)
+        layout(size: firstImage.size, isCustom: false)
         animationImages = images
         animationDuration = duration
         animationRepeatCount = 0
