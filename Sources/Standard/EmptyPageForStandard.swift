@@ -127,9 +127,9 @@ public extension EmptyPageForStandard {
 
         var rawValue: Int {
             switch self {
-            case .width: return 0
-            case .height: return 1
-            case .insets: return 2
+            case .width:     return 0
+            case .height:    return 1
+            case .insets:    return 2
             case .afterSpac: return 3
             }
         }
@@ -137,10 +137,10 @@ public extension EmptyPageForStandard {
     
     func view(for type: ViewType) -> UIView {
         switch type {
-        case .imageView: return imageView
+        case .imageView:  return imageView
         case .titleLabel: return titleLabel
-        case .textLabel: return textLabel
-        case .button: return button
+        case .textLabel:  return textLabel
+        case .button:     return button
         }
     }
 

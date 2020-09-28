@@ -31,7 +31,7 @@ public extension EmptyPage where Base: UITableView {
         }
         
         if base.emptyPageViewManager == nil {
-            if let placeholder = EmptyPageConfig.shared.tableViewGloalManager {
+            if let placeholder = EmptyPageConfiguration.shared.tableViewGloalManager {
                 set(manager: placeholder)
             } else {
                 set(manager: EmptyPageTableViewManager())

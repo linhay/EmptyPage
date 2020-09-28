@@ -83,6 +83,7 @@ enum TemplateSet {
             .config(imageView: {
                 $0.set(image: UIImage(named: "404"))
                 $0.backgroundColor = UIColor.yellow
+                $0.layout(size: .init(width: 160, height: 160))
             })
             .config(titleLabel: {
                 $0.set(text: "Nobody is following",
@@ -104,6 +105,7 @@ enum TemplateSet {
                 $0.setTitle("Find interesting people to follow >>", for: .normal)
                 $0.set(tapEvent: tapEvent)
             })
+            .layout(view: .imageView, types: .width(160), .height(160))
             .layout(view: .button, types: .height(30))
             .layout(view: .textLabel, types: .afterSpac(10))
             .layout(view: .titleLabel, types: .afterSpac(10))

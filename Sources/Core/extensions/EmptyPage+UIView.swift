@@ -30,7 +30,7 @@ public extension EmptyPage where Base: UIView {
             return base.emptyPageViewManager
         }
 
-        if base.emptyPageViewManager == nil, let placeholder = EmptyPageConfig.shared.viewGloalManager {
+        if base.emptyPageViewManager == nil, let placeholder = EmptyPageConfiguration.shared.viewGloalManager {
             set(manager: placeholder)
         }
 
