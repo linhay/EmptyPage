@@ -89,11 +89,11 @@ https://github.com/linhay/EmptyPage
 
 我们准备了一个 [wiki]( https://github.com/linhay/emptypage/wiki) 页面，可以在那里找到很多有用的示例与用法。
 
-* [安装指南]( https://github.com/linhay/EmptyPage/wiki/Installation-Guide) - 按照它将 `EmptyPage` 集成到你的项目中。
+* [安装指南](https://github.com/linhay/EmptyPage/wiki/Installation-Guide) - 按照它将 `EmptyPage` 集成到你的项目中。
 
-* [用法指南]( https://github.com/linhay/EmptyPage/wiki/Cheat-Sheet ) - 想知道 `EmptyPage` 能做什么，以及在项目中使用时会是什么样子？请参阅本页获取有用的代码片段。如果您已经熟悉，您还可以学习新的技巧来改进使用 `EmptyPage` 的方式！
+* [用法指南](https://github.com/linhay/EmptyPage/wiki/Cheat-Sheet) - 想知道 `EmptyPage` 能做什么，以及在项目中使用时会是什么样子？请参阅本页获取有用的代码片段。如果您已经熟悉，您还可以学习新的技巧来改进使用 `EmptyPage` 的方式！
 
-* [ API 文档]( https://linhay.github.io/emptypage/) - 最后，当你需要更详细的参考时，请记得阅读全文。
+* [API 文档](https://linhay.github.io/EmptyPage/) - 最后，当你需要更详细的参考时，请记得阅读全文。
 
 ## 限制
 
