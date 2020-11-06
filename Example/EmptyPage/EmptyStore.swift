@@ -133,7 +133,9 @@ enum TemplateSet {
                                                                           .font(.systemFont(ofSize: 20, weight: .medium)),
                                                                           .paragraphStyle([.minimumLineHeight(20),
                                                                                            .maximumLineHeight(20)])])
-        return EmptyPageView.Template.text.set(attributed: cn + en)
+        return EmptyPageView.Template.text.set(attributed: cn + en).config { view in
+            view.textAlignment = .center
+        }
     }
     
 }
