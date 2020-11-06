@@ -8,8 +8,8 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        destination: ['platform=iOS Simulator,OS=13.7,name=iPhone 11']
-        swift-version: [5.0]
+        destination: ['iOS Simulator,name=iPhone 11']
+        swift-version: [5.0, 4.2, 4.0]
 
     steps:
     - uses: actions/checkout@v2
