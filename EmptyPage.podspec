@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'managers' do |sp|
+        sp.dependency 'EmptyPage/core'
         sp.source_files = [
         'Sources/managers/*.{h,swift}',
         'Sources/managers/**/**/*.{h,swift}',
