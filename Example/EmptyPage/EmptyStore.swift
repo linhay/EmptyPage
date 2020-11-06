@@ -82,7 +82,7 @@ enum TemplateSet {
         EmptyPageView.Template.standard
             .config(imageView: {
                 $0.set(image: UIImage(named: "404"))
-                $0.backgroundColor = UIColor.yellow
+                $0.contentMode = .scaleAspectFill
                 $0.layout(size: .init(width: 160, height: 160))
             })
             .config(titleLabel: {
