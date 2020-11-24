@@ -40,7 +40,7 @@ open class EmptyPageTableViewManager: EmptyPageScrollViewManager {
             return (0..<view.numberOfSections).contains(where: { view.numberOfRows(inSection: $0) > 0 }) == false
         }
         
-        return false
+        return true
     }
     
 }
