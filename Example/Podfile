@@ -8,7 +8,7 @@ target 'EmptyPage_Example' do
   pod 'ReachabilitySwift'
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
   pod 'SnapKit', '5.0.0'
-  pod 'Stem', :git => 'https://github.com/linhay/Stem'
+  pod 'Stem', '0.0.32'
   pod 'MJRefresh'
   pod 'LookinServer', :configurations => ['Debug']
   pod 'SwiftLint'
