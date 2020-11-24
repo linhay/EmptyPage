@@ -1,11 +1,12 @@
 PODS:
-  - EmptyPage (4.0.0):
-    - EmptyPage/core (= 4.0.0)
-    - EmptyPage/managers (= 4.0.0)
-    - EmptyPage/templates (= 4.0.0)
-  - EmptyPage/core (4.0.0)
-  - EmptyPage/managers (4.0.0)
-  - EmptyPage/templates (4.0.0):
+  - EmptyPage (4.0.1):
+    - EmptyPage/core (= 4.0.1)
+    - EmptyPage/managers (= 4.0.1)
+    - EmptyPage/templates (= 4.0.1)
+  - EmptyPage/core (4.0.1)
+  - EmptyPage/managers (4.0.1):
+    - EmptyPage/core
+  - EmptyPage/templates (4.0.1):
     - EmptyPage/core
   - LookinServer (1.0.0)
   - MJRefresh (3.4.3)
@@ -15,13 +16,11 @@ PODS:
     - Stem/AVKit (= 0.0.32)
     - Stem/Core (= 0.0.32)
     - Stem/CoreText (= 0.0.32)
-    - Stem/CrossPlatform (= 0.0.32)
     - Stem/Custom (= 0.0.32)
     - Stem/Foundation (= 0.0.32)
     - Stem/Fundamentals (= 0.0.32)
     - Stem/NSObject (= 0.0.32)
     - Stem/Runtime (= 0.0.32)
-    - Stem/STUIKit (= 0.0.32)
     - Stem/UIKit (= 0.0.32)
     - Stem/WebKit (= 0.0.32)
   - Stem/AVKit (0.0.32):
@@ -29,11 +28,6 @@ PODS:
   - Stem/Core (0.0.32)
   - Stem/CoreText (0.0.32):
     - Stem/Core
-  - Stem/CrossPlatform (0.0.32):
-    - Stem/Core
-    - Stem/Foundation
-    - Stem/NSObject
-    - Stem/Runtime
   - Stem/Custom (0.0.32):
     - Stem/Core
     - Stem/NSObject
@@ -46,8 +40,6 @@ PODS:
     - Stem/Core
   - Stem/Runtime (0.0.32):
     - Stem/Core
-  - Stem/STUIKit (0.0.32):
-    - Stem/UIKit
   - Stem/UIKit (0.0.32):
     - Stem/Core
     - Stem/Foundation
@@ -63,7 +55,7 @@ DEPENDENCIES:
   - MJRefresh
   - ReachabilitySwift
   - SnapKit (= 5.0.0)
-  - Stem (from `https://github.com/linhay/Stem`)
+  - Stem (= 0.0.32)
   - SwiftLint
 
 SPEC REPOS:
@@ -72,28 +64,22 @@ SPEC REPOS:
     - MJRefresh
     - ReachabilitySwift
     - SnapKit
+    - Stem
     - SwiftLint
 
 EXTERNAL SOURCES:
   EmptyPage:
     :path: "../EmptyPage.podspec"
-  Stem:
-    :git: https://github.com/linhay/Stem
-
-CHECKOUT OPTIONS:
-  Stem:
-    :commit: 76dec4f10b7d722a639c7105b7f7170d00020430
-    :git: https://github.com/linhay/Stem
 
 SPEC CHECKSUMS:
-  EmptyPage: ef263cb54e1bcc67af3d62e6464aaf2161c8c072
+  EmptyPage: be21266851926f18c7eb242b546284180964c9ed
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Stem: fa3287de5d52fbf54454bc7ff4e0a033bd36d5de
+  Stem: d3a0fc348887aa4936f512d1292f6e31d45d068a
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: d7d6884c647760ab42f79bf9f11c7b93aeae26ce
+PODFILE CHECKSUM: 4e89378fb8a4c36d6c993835cf7081eff89c6fea
 
 COCOAPODS: 1.9.3

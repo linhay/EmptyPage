@@ -30,12 +30,17 @@ open class EmptyPageTableViewManager: EmptyPageScrollViewManager {
     /// 判断数据源是否为空
     /// - Returns: 数据源是否为空结果
     open override func isEmpty() -> Bool {
-        guard let tableView = tableView else {
+        guard let view = tableView else {
             return false
         }
         
-        let count = tableView.dataSource?.numberOfSections?(in: tableView) ?? tableView.numberOfSections
-        return (0..<count).contains(where: { tableView.numberOfRows(inSection: $0) > 0 }) == false
+        if let count = view.dataSource?.numberOfSections?(in: view), count > 0 {
+            return (0..<count).contains(where: { (view.dataSource?.tableView(view, numberOfRowsInSection: $0) ?? 0) > 0 }) == false
+        } else if view.numberOfSections > 0 {
+            return (0..<view.numberOfSections).contains(where: { view.numberOfRows(inSection: $0) > 0 }) == false
+        }
+        
+        return false
     }
     
 }

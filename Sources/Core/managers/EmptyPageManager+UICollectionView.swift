@@ -30,12 +30,17 @@ open class EmptyPageCollectionViewManager: EmptyPageScrollViewManager {
     /// 判断数据源是否为空
     /// - Returns: 数据源是否为空结果
     open override func isEmpty() -> Bool {
-        guard let collectionView = collectionView else {
+        guard let view = collectionView else {
             return false
         }
 
-        let count = collectionView.dataSource?.numberOfSections?(in: collectionView) ?? collectionView.numberOfSections
-        return (0..<count).contains(where: { collectionView.numberOfItems(inSection: $0) > 0 }) == false
+        if let count = view.dataSource?.numberOfSections?(in: view), count > 0 {
+            return (0..<count).contains(where: { (view.dataSource?.collectionView(view, numberOfItemsInSection: $0) ?? 0) > 0 }) == false
+        } else if view.numberOfSections > 0 {
+            return (0..<view.numberOfSections).contains(where: { view.numberOfItems(inSection: $0) > 0 }) == false
+        }
+        
+        return false
     }
 
 }
