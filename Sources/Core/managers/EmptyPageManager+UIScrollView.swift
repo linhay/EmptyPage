@@ -31,6 +31,16 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
     /// 可滚动的父视图
     public var scrollView: UIScrollView? { target as? UIScrollView }
 
+    enum ScrollEnabledState: Int {
+        case none
+        case false_true
+        case false_false
+        case true_true
+        case true_false
+    }
+    
+    var scrollEnabledState = ScrollEnabledState.none
+    
     /// 处理 ScrollView 滚动逻辑
     /// - Parameters:
     ///   - isShowBeforeReload: reload 之前空白页时是否正在显示
@@ -42,13 +52,19 @@ open class EmptyPageScrollViewManager: EmptyPageViewManager {
 
         switch (isShow, isEmpty && emptyView != nil) {
         case (false, true):
+            guard scrollEnabledState != .false_true else {
+                return
+            }
+            scrollEnabledState = .false_true
             isScrollEnabled = scrollView.isScrollEnabled
             scrollView.isScrollEnabled = canScrollEnabled
         case (false, false):
-            break
+            scrollEnabledState = .false_false
         case (true, true):
+            scrollEnabledState = .true_true
             scrollView.isScrollEnabled = canScrollEnabled
         case (true, false):
+            scrollEnabledState = .true_false
             scrollView.isScrollEnabled = isScrollEnabled
         }
     }
