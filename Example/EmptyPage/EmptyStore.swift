@@ -109,6 +109,7 @@ enum TemplateSet {
             .layout(view: .button, types: .height(30))
             .layout(view: .textLabel, types: .afterSpac(10))
             .layout(view: .titleLabel, types: .afterSpac(10))
+            .layout(view: .textLabel, types: .height(100))
     }
     
     static func image_normal() -> EmptyPageTemplateProtocol {

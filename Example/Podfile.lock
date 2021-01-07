@@ -1,52 +1,32 @@
 PODS:
-  - EmptyPage (4.0.1):
-    - EmptyPage/core (= 4.0.1)
-    - EmptyPage/managers (= 4.0.1)
-    - EmptyPage/templates (= 4.0.1)
-  - EmptyPage/core (4.0.1)
-  - EmptyPage/managers (4.0.1):
+  - EmptyPage (4.0.2):
+    - EmptyPage/core (= 4.0.2)
+    - EmptyPage/managers (= 4.0.2)
+    - EmptyPage/templates (= 4.0.2)
+  - EmptyPage/core (4.0.2)
+  - EmptyPage/managers (4.0.2):
     - EmptyPage/core
-  - EmptyPage/templates (4.0.1):
+  - EmptyPage/templates (4.0.2):
     - EmptyPage/core
   - LookinServer (1.0.0)
   - MJRefresh (3.4.3)
   - ReachabilitySwift (5.0.0)
   - SnapKit (5.0.0)
-  - Stem (0.0.32):
-    - Stem/AVKit (= 0.0.32)
-    - Stem/Core (= 0.0.32)
-    - Stem/CoreText (= 0.0.32)
-    - Stem/Custom (= 0.0.32)
-    - Stem/Foundation (= 0.0.32)
-    - Stem/Fundamentals (= 0.0.32)
-    - Stem/NSObject (= 0.0.32)
-    - Stem/Runtime (= 0.0.32)
-    - Stem/UIKit (= 0.0.32)
-    - Stem/WebKit (= 0.0.32)
-  - Stem/AVKit (0.0.32):
+  - Stem (0.0.33):
+    - Stem/Core (= 0.0.33)
+    - Stem/CrossPlatform (= 0.0.33)
+    - Stem/STUIKit (= 0.0.33)
+    - Stem/UIKit (= 0.0.33)
+  - Stem/Core (0.0.33)
+  - Stem/CrossPlatform (0.0.33):
     - Stem/Core
-  - Stem/Core (0.0.32)
-  - Stem/CoreText (0.0.32):
+  - Stem/STUIKit (0.0.33):
     - Stem/Core
-  - Stem/Custom (0.0.32):
+    - Stem/CrossPlatform
+    - Stem/UIKit
+  - Stem/UIKit (0.0.33):
     - Stem/Core
-    - Stem/NSObject
-  - Stem/Foundation (0.0.32):
-    - Stem/Core
-    - Stem/Fundamentals
-  - Stem/Fundamentals (0.0.32):
-    - Stem/Core
-  - Stem/NSObject (0.0.32):
-    - Stem/Core
-  - Stem/Runtime (0.0.32):
-    - Stem/Core
-  - Stem/UIKit (0.0.32):
-    - Stem/Core
-    - Stem/Foundation
-    - Stem/NSObject
-    - Stem/Runtime
-  - Stem/WebKit (0.0.32):
-    - Stem/Core
+    - Stem/CrossPlatform
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
@@ -55,7 +35,7 @@ DEPENDENCIES:
   - MJRefresh
   - ReachabilitySwift
   - SnapKit (= 5.0.0)
-  - Stem (= 0.0.32)
+  - Stem (= 0.0.33)
   - SwiftLint
 
 SPEC REPOS:
@@ -72,14 +52,14 @@ EXTERNAL SOURCES:
     :path: "../EmptyPage.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: be21266851926f18c7eb242b546284180964c9ed
+  EmptyPage: c9cfc17563ba994e963fabf44d968ac51e2cfa8c
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
-  Stem: d3a0fc348887aa4936f512d1292f6e31d45d068a
+  Stem: 4cff14a2aa3febfb7e1aff2163b4f684e8fa9e34
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 4e89378fb8a4c36d6c993835cf7081eff89c6fea
+PODFILE CHECKSUM: cd174a9c35e3f255b701798021a94f485f4203b2
 
 COCOAPODS: 1.9.3

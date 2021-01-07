@@ -23,21 +23,21 @@ class DemoSection: BaseSection {
         switch type {
         case .work_tableView_dataSource:
             let vc = TestTableViewViewController()
-            sectionView.st.viewController?.st.push(vc: vc)
+            sectionView.st.viewController?.st.push(vc)
         case .work_collectionView_dataSource:
             let vc = TestCollectionViewController()
-            sectionView.st.viewController?.st.push(vc: vc)
+            sectionView.st.viewController?.st.push(vc)
         case .work_mjRefresh_cansScroll:
             let vc = TestMJRefreshCollectionVC()
             vc.config(canScroll: true)
-            sectionView.st.viewController?.st.push(vc: vc)
+            sectionView.st.viewController?.st.push(vc)
         case .work_mjRefresh_cantScroll:
             let vc = TestMJRefreshCollectionVC()
             vc.config(canScroll: false)
-            sectionView.st.viewController?.st.push(vc: vc)
+            sectionView.st.viewController?.st.push(vc)
         case .work_manager_noNetwork:
             let vc = TestStateViewController()
-            sectionView.st.viewController?.st.push(vc: vc)
+            sectionView.st.viewController?.st.push(vc)
         }
 
     }

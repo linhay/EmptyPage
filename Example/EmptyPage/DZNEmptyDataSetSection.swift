@@ -27,7 +27,7 @@ class DZNEmptyDataSetSection: BaseSection {
         vc.view.backgroundColor = .white
         vc.tableView.separatorStyle = .none
         vc.tableView.ep.set(emptyView: item.view())
-        sectionView.st.viewController?.st.push(vc: vc)
+        sectionView.st.viewController?.st.push(vc)
     }
 
 }
