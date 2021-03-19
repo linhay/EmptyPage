@@ -91,7 +91,7 @@ enum TemplateSet {
                        font: UIFont.boldSystemFont(ofSize: 18))
             })
             .config(textLabel: {
-                $0.set(text: "Following people helps you keep what they're saying and recommending.",
+                $0.set(text: "Following people helps you \n keep what they're saying and recommending.",
                        color: UIColor("#c3ccd1"))
             })
             .config(button: {
@@ -109,7 +109,6 @@ enum TemplateSet {
             .layout(view: .button, types: .height(30))
             .layout(view: .textLabel, types: .afterSpac(10))
             .layout(view: .titleLabel, types: .afterSpac(10))
-            .layout(view: .textLabel, types: .height(100))
     }
     
     static func image_normal() -> EmptyPageTemplateProtocol {

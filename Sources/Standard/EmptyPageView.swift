@@ -137,6 +137,7 @@ public class EmptyPageView: UIView {
         /// Vertical constraints
         do {
             let constraint = topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: 1)
+            constraint.priority = .defaultLow
             constraint.isActive = true
             verticalLayout.topAndBottomHeightRatio = constraint
         }
@@ -144,6 +145,7 @@ public class EmptyPageView: UIView {
         /// Horizontal constraints
         do {
             let constraint = leftGuide.widthAnchor.constraint(equalTo: rightGuide.widthAnchor, multiplier: 1)
+            constraint.priority = .defaultLow
             constraint.isActive = true
             horizontalLayout.leftAndRightSpacerRatio = constraint
         }
@@ -151,28 +153,24 @@ public class EmptyPageView: UIView {
         /// other
         do {
             let constraint = contentView.leftAnchor.constraint(equalTo: leftGuide.rightAnchor, constant: 0)
-            constraint.priority = .defaultHigh
             constraint.isActive = true
             contentViewLayout.left = constraint
         }
 
         do {
             let constraint = contentView.topAnchor.constraint(equalTo: topGuide.bottomAnchor, constant: 0)
-            constraint.priority = .defaultHigh
             constraint.isActive = true
             contentViewLayout.top = constraint
         }
 
         do {
             let constraint = contentView.rightAnchor.constraint(equalTo: rightGuide.leftAnchor, constant: 0)
-            constraint.priority = .defaultHigh
             constraint.isActive = true
             contentViewLayout.right = constraint
         }
 
         do {
             let constraint = contentView.bottomAnchor.constraint(equalTo: bottomGuide.topAnchor, constant: 0)
-            constraint.priority = .defaultHigh
             constraint.isActive = true
             contentViewLayout.bottom = constraint
         }
