@@ -24,7 +24,7 @@ import UIKit
 
 /// `EmptyPageForStandard` 混合样式模板
 open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
-
+    
     public var edge: UIEdgeInsets = .zero
     
     // MARK: - Public property
@@ -36,7 +36,7 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
     public let textLabel = EmptyPageForText(frame: .zero)
     /// 底部按钮 button
     public let button = EmptyPageForButton(frame: .zero)
-
+    
     private var layoutCache = [ViewType: [LayoutType: [NSLayoutConstraint]]]()
     private var views: [UIView] { return [imageView, titleLabel, textLabel, button] }
     
@@ -56,26 +56,26 @@ open class EmptyPageForStandard: UIStackView, EmptyPageTemplateProtocol {
         axis = .vertical
         distribution = .fill
         alignment = .center
-
+        
         views.forEach { view in
             view.isHidden = true
             view.translatesAutoresizingMaskIntoConstraints = false
             addArrangedSubview(view)
         }
-
+        
         titleLabel.config { view in
             view.font = UIFont.systemFont(ofSize: 16)
             view.textColor = UIColor(red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
         }
-
+        
         textLabel.config { view in
             view.font = UIFont.systemFont(ofSize: 14)
             view.textColor = UIColor(red: 153 / 255, green: 153 / 255, blue: 153 / 255, alpha: 1)
         }
-
+        
         _ = layout(type: .afterSpac(20), views: [.imageView])
-        _ = layout(view: .textLabel, types: [.afterSpac(28), .height(20)])
-        _ = layout(view: .titleLabel, types: [.afterSpac(8), .height(22.5)])
+        _ = layout(view: .textLabel, types: [.afterSpac(28), .heightGreaterThanOrEqual(20)])
+        _ = layout(view: .titleLabel, types: [.afterSpac(8), .heightGreaterThanOrEqual(22.5)])
         _ = layout(view: .button, types: [.height(36)])
     }
     
@@ -122,21 +122,25 @@ public extension EmptyPageForStandard {
     enum LayoutType: RawRepresentable, Hashable {
         
         public typealias RawValue = Int
-        case width(_: CGFloat)
-        case height(_: CGFloat)
-        case insets(_: CGFloat)
-        case afterSpac(_: CGFloat)
+        case width(CGFloat)
+        case height(CGFloat)
+        case insets(CGFloat)
+        case afterSpac(CGFloat)
+        case widthGreaterThanOrEqual(CGFloat)
+        case heightGreaterThanOrEqual(CGFloat)
         
         public init?(rawValue: Int) {
             return nil
         }
-
+        
         public var rawValue: Int {
             switch self {
             case .width:     return 0
             case .height:    return 1
             case .insets:    return 2
             case .afterSpac: return 3
+            case .widthGreaterThanOrEqual: return 4
+            case .heightGreaterThanOrEqual: return 5
             }
         }
     }
@@ -149,17 +153,17 @@ public extension EmptyPageForStandard {
         case .button:     return button
         }
     }
-
+    
     func layout(type: LayoutType, views: [ViewType]) -> Self {
         views.forEach({ self.layout($0, type: type) })
         return self
     }
-
+    
     func layout(view: ViewType, types: [LayoutType]) -> Self {
         types.forEach({ self.layout(view, type: $0) })
         return self
     }
-
+    
     func layout(type: LayoutType, views: ViewType...) -> Self {
         return layout(type: type, views: views)
     }
@@ -167,49 +171,60 @@ public extension EmptyPageForStandard {
     func layout(view: ViewType, types: LayoutType...) -> Self {
         return layout(view: view, types: types)
     }
-
+    
+    private func cacheLayout(viewType: ViewType, type: LayoutType,
+                             setting value: CGFloat,
+                             constraints: () -> [NSLayoutConstraint]) {
+        if let caches = layoutCache[viewType]?[type] {
+            caches.forEach { $0.constant = value }
+        } else {
+            let constants = constraints()
+            constants.forEach { $0.isActive = true }
+            if layoutCache[viewType] == nil {
+                layoutCache[viewType] = [type: constants]
+            } else {
+                layoutCache[viewType]![type] = constants
+            }
+        }
+    }
+    
     private func layout(_ viewType: ViewType, type: LayoutType) {
         let view = self.view(for: viewType)
         switch type {
         case .height(let v):
-            if let cache = layoutCache[viewType]?[type]?.first {
-                cache.constant = v
-            } else {
-                let constant = view.heightAnchor.constraint(equalToConstant: v)
-                constant.isActive = true
-                if layoutCache[viewType] == nil {
-                    layoutCache[viewType] = [type: [constant]]
-                } else {
-                    layoutCache[viewType]![type] = [constant]
-                }
+            cacheLayout(viewType: viewType, type: type, setting: v) { () -> [NSLayoutConstraint] in
+                return [view.heightAnchor.constraint(equalToConstant: v)]
             }
         case .width(let v):
-            if let cache = layoutCache[viewType]?[type]?.first {
-                cache.constant = v
-            } else {
-                let constant = view.widthAnchor.constraint(equalToConstant: v)
-                constant.isActive = true
-                if layoutCache[viewType] == nil {
-                    layoutCache[viewType] = [type: [constant]]
-                } else {
-                    layoutCache[viewType]![type] = [constant]
-                }
+            cacheLayout(viewType: viewType, type: type, setting: v) { () -> [NSLayoutConstraint] in
+                return [view.widthAnchor.constraint(equalToConstant: v)]
+            }
+        case .widthGreaterThanOrEqual(let v):
+            cacheLayout(viewType: viewType, type: type, setting: v) { () -> [NSLayoutConstraint] in
+                return [view.widthAnchor.constraint(greaterThanOrEqualToConstant: v)]
+                    .map { item -> NSLayoutConstraint in
+                        item.priority = .defaultHigh
+                        return item
+                    }
+            }
+        case .heightGreaterThanOrEqual(let v):
+            cacheLayout(viewType: viewType, type: type, setting: v) { () -> [NSLayoutConstraint] in
+                return [view.heightAnchor.constraint(greaterThanOrEqualToConstant: v)]
+                    .map { item -> NSLayoutConstraint in
+                        item.priority = .defaultHigh
+                        return item
+                    }
             }
         case .afterSpac(let v):
             addCustomSpacing(v, after: view)
         case .insets(let v):
-            if let caches = layoutCache[viewType]?[type] {
-                caches.forEach { $0.constant = v }
-            } else {
-               let constants = [view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v),
-                                view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v)]
-                NSLayoutConstraint.activate(constants)
-                layoutCache[viewType] = [type: constants]
+            cacheLayout(viewType: viewType, type: type, setting: v) { () -> [NSLayoutConstraint] in
+                return [view.leadingAnchor.constraint(lessThanOrEqualTo: self.leadingAnchor, constant: v),
+                        view.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: v)]
             }
-
         }
     }
-
+    
     private func addCustomSpacing(_ spacing: CGFloat, after arrangedSubview: UIView) {
         if #available(iOS 11.0, *) {
             setCustomSpacing(spacing, after: arrangedSubview)
