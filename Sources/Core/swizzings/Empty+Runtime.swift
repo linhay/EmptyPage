@@ -38,8 +38,9 @@ struct EmptyPageRuntime {
         swizzing(sel: #selector(UITableView.deleteSections(_:with:)),
                  of: #selector(UITableView.emptyPage_deleteSections(_:with:)),
                  in: UITableView.self)
-        swizzing(sel: #selector(UITableView.reloadData),
-                 of: #selector(UITableView.emptyPage_reloadData),
+        
+        swizzing(sel: #selector(UITableView.reloadSections(_:with:)),
+                 of: #selector(UITableView.emptyPage_reloadSections(_:with:)),
                  in: UITableView.self)
     }()
     
@@ -63,6 +64,10 @@ struct EmptyPageRuntime {
         
         swizzing(sel: #selector(UICollectionView.deleteSections(_:)),
                  of: #selector(UICollectionView.emptyPage_deleteSections(_:)),
+                 in: UICollectionView.self)
+        
+        swizzing(sel: #selector(UICollectionView.reloadSections(_:)),
+                 of: #selector(UICollectionView.emptyPage_reloadSections(_:)),
                  in: UICollectionView.self)
     }()
     

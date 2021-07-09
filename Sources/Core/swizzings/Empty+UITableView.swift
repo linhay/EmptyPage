@@ -44,6 +44,11 @@ extension UITableView {
         emptyPageViewManager?.reload()
     }
     
+    @objc func emptyPage_reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
+        self.emptyPage_reloadSections(sections, with: animation)
+        emptyPageViewManager?.reload()
+    }
+    
     @objc func emptyPage_reloadData() {
         self.emptyPage_reloadData()
         emptyPageViewManager?.reload()
