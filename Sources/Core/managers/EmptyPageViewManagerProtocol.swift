@@ -22,7 +22,7 @@
 
 import UIKit
 
-public protocol EmptyPageViewManagerProtocol: class {
+public protocol EmptyPageViewManagerProtocol: AnyObject {
 
     /// 被设置空白页的 View weak 引用.
     var targetBox: EmptyPageWeakBox<UIView> { get set }
