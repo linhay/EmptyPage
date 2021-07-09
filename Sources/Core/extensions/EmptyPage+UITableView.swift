@@ -41,6 +41,8 @@ public extension EmptyPage where Base: UITableView {
         return base.emptyPageViewManager as? EmptyPageTableViewManager
     }
 
+    var displayEvent: EmptyPageDelegate<Bool, Void>? { manager?.displayEvent }
+
     /// 当显示空白页时页面是否可以滚动 | default: false
     var canScrollEnabled: Bool {
         set { manager?.canScrollEnabled = newValue }

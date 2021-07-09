@@ -23,9 +23,8 @@
 import UIKit
 
 open class EmptyPageViewManager: EmptyPageViewManagerProtocol {
-    public var displayEvent: EmptyPageDelegate<Bool, Void>
     
-
+    public var displayEvent = EmptyPageDelegate<Bool, Void>()
     // 父视图
     public var targetBox: EmptyPageWeakBox<UIView> = .init()
     public var emptyBox: EmptyPageWeakBox<UIView> = .init()
