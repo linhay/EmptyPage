@@ -22,7 +22,7 @@
 
 import UIKit
 
-public protocol EmptyPageStateScorllableProtocol: class {
+public protocol EmptyPageStateScorllableProtocol: AnyObject {
     associatedtype State: OptionSet & Hashable
 
     var scrollableStore: [State: Bool] { get set }
