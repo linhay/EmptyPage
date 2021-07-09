@@ -1,12 +1,12 @@
 PODS:
-  - EmptyPage (4.0.3):
-    - EmptyPage/core (= 4.0.3)
-    - EmptyPage/managers (= 4.0.3)
-    - EmptyPage/templates (= 4.0.3)
-  - EmptyPage/core (4.0.3)
-  - EmptyPage/managers (4.0.3):
+  - EmptyPage (4.0.4):
+    - EmptyPage/core (= 4.0.4)
+    - EmptyPage/managers (= 4.0.4)
+    - EmptyPage/templates (= 4.0.4)
+  - EmptyPage/core (4.0.4)
+  - EmptyPage/managers (4.0.4):
     - EmptyPage/core
-  - EmptyPage/templates (4.0.3):
+  - EmptyPage/templates (4.0.4):
     - EmptyPage/core
   - LookinServer (1.0.0)
   - MJRefresh (3.4.3)
@@ -52,7 +52,7 @@ EXTERNAL SOURCES:
     :path: "../EmptyPage.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: 39e865ba8e43aa8b5bdedb5c1a7f86910db46f38
+  EmptyPage: 17156498ded7bac7a89d4e47468ad2f78d88664a
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -62,4 +62,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: cd174a9c35e3f255b701798021a94f485f4203b2
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

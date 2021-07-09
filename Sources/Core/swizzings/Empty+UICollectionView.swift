@@ -44,6 +44,11 @@ extension UICollectionView {
         emptyPageViewManager?.reload()
     }
     
+    @objc func emptyPage_reloadSections(_ sections: IndexSet) {
+        self.emptyPage_reloadSections(sections)
+        emptyPageViewManager?.reload()
+    }
+    
     @objc func emptyPage_reloadData() {
         self.emptyPage_reloadData()
         emptyPageViewManager?.reload()
