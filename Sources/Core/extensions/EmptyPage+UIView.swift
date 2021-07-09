@@ -36,6 +36,8 @@ public extension EmptyPage where Base: UIView {
 
         return base.emptyPageViewManager
     }
+    
+    var displayEvent: EmptyPageDelegate<Bool, Void>? { manager?.displayEvent }
 
     /// 设置当前 View 的空白页管理器
     /// - Parameter manager: 空白页管理器
