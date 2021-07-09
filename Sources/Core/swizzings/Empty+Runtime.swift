@@ -26,6 +26,9 @@ struct EmptyPageRuntime {
     
     /// 替换 tableView 相关函数
     static let swizzingTableView: Void = {
+        swizzing(sel: #selector(UITableView.reloadData),
+                 of: #selector(UITableView.emptyPage_reloadData),
+                 in: UITableView.self)
         swizzing(sel: #selector(UITableView.insertRows(at:with:)),
                  of: #selector(UITableView.emptyPage_insertRows(at:with:)),
                  in: UITableView.self)
@@ -38,7 +41,6 @@ struct EmptyPageRuntime {
         swizzing(sel: #selector(UITableView.deleteSections(_:with:)),
                  of: #selector(UITableView.emptyPage_deleteSections(_:with:)),
                  in: UITableView.self)
-        
         swizzing(sel: #selector(UITableView.reloadSections(_:with:)),
                  of: #selector(UITableView.emptyPage_reloadSections(_:with:)),
                  in: UITableView.self)
@@ -49,23 +51,18 @@ struct EmptyPageRuntime {
         swizzing(sel: #selector(UICollectionView.reloadData),
                  of: #selector(UICollectionView.emptyPage_reloadData),
                  in: UICollectionView.self)
-        
         swizzing(sel: #selector(UICollectionView.insertItems(at:)),
                  of: #selector(UICollectionView.emptyPage_insertItems(at:)),
                  in: UICollectionView.self)
-        
         swizzing(sel: #selector(UICollectionView.deleteItems(at:)),
                  of: #selector(UICollectionView.emptyPage_deleteItems(at:)),
                  in: UICollectionView.self)
-        
         swizzing(sel: #selector(UICollectionView.insertSections(_:)),
                  of: #selector(UICollectionView.emptyPage_insertSections(_:)),
                  in: UICollectionView.self)
-        
         swizzing(sel: #selector(UICollectionView.deleteSections(_:)),
                  of: #selector(UICollectionView.emptyPage_deleteSections(_:)),
                  in: UICollectionView.self)
-        
         swizzing(sel: #selector(UICollectionView.reloadSections(_:)),
                  of: #selector(UICollectionView.emptyPage_reloadSections(_:)),
                  in: UICollectionView.self)
