@@ -24,6 +24,8 @@ import UIKit
 
 public protocol EmptyPageViewManagerProtocol: AnyObject {
 
+    /// 被设置空白页的显示/移除回调.
+    var displayEvent: EmptyPageDelegate<Bool, Void> { get }
     /// 被设置空白页的 View weak 引用.
     var targetBox: EmptyPageWeakBox<UIView> { get set }
     /// 自定义空白页的 weak 引用.
@@ -72,6 +74,7 @@ public extension EmptyPageViewManagerProtocol {
     func ep_reload(completion: ((_ isEmpty: Bool) -> Void)? = nil) {
         emptyView?.removeFromSuperview()
         guard let delegate = target, isEmpty(), let view = emptyViewProvider() else {
+            displayEvent.call(false)
             completion?(false)
             return
         }
@@ -84,7 +87,7 @@ public extension EmptyPageViewManagerProtocol {
         #else
         delegate.sendSubview(toBack: view)
         #endif
-
+        displayEvent.call(true)
         completion?(true)
     }
 
