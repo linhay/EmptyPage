@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		CD0713B2269AC24E00923F03 /* TestReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0713B1269AC24E00923F03 /* TestReusableView.swift */; };
+		CD0713C1269AC53500923F03 /* Stem in Frameworks */ = {isa = PBXBuildFile; productRef = CD0713C0269AC53500923F03 /* Stem */; };
 		CD87ED8025061A7200468FD7 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD87ED7F25061A7200468FD7 /* Example.swift */; };
 		CD87EDB825067D3C00468FD7 /* TestTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD87EDB725067D3C00468FD7 /* TestTableViewViewController.swift */; };
 		CD87EDBC2506812500468FD7 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD87EDBB2506812500468FD7 /* TestCollectionViewController.swift */; };
@@ -44,6 +46,7 @@
 		7A0D4B6758498EB40AB7A721 /* Pods_EmptyPage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A530BC265F9B925295F14521 /* Pods_EmptyPage_Objective_C.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Objective_C.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E3A5E7C2782BD08A8AD275 /* Pods_EmptyPage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmptyPage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0713B1269AC24E00923F03 /* TestReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestReusableView.swift; sourceTree = "<group>"; };
 		CD87ED7F25061A7200468FD7 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		CD87EDB725067D3C00468FD7 /* TestTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewViewController.swift; sourceTree = "<group>"; };
 		CD87EDBB2506812500468FD7 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DA711524FFBB055DF9A88D /* Pods_EmptyPage_Example.framework in Frameworks */,
+				CD0713C1269AC53500923F03 /* Stem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +186,7 @@
 				CDAB9EDA250103530013ACEF /* TestStateViewController.xib */,
 				CD87EDB725067D3C00468FD7 /* TestTableViewViewController.swift */,
 				CD87EDBB2506812500468FD7 /* TestCollectionViewController.swift */,
+				CD0713B1269AC24E00923F03 /* TestReusableView.swift */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -216,6 +221,9 @@
 			dependencies = (
 			);
 			name = EmptyPage_Example;
+			packageProductDependencies = (
+				CD0713C0269AC53500923F03 /* Stem */,
+			);
 			productName = EmptyPage;
 			productReference = 607FACD01AFB9204008FA782 /* EmptyPage_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +254,9 @@
 				Base,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			packageReferences = (
+				CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem" */,
+			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,7 +369,6 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Stem/Stem.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -367,7 +377,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stem.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -398,6 +407,7 @@
 				CD9C189A2498E51700FC0DE9 /* IndexViewController.swift in Sources */,
 				CDF1DE15249A550F0037F7ED /* DZNEmptyDataSetSection.swift in Sources */,
 				CD87ED8025061A7200468FD7 /* Example.swift in Sources */,
+				CD0713B2269AC24E00923F03 /* TestReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +517,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -522,7 +533,10 @@
 				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = linhey.EmptyPage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -541,7 +555,10 @@
 				DEVELOPMENT_TEAM = 8H2PX2432F;
 				INFOPLIST_FILE = EmptyPage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = linhey.EmptyPage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -573,6 +590,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/linhay/Stem.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.41;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD0713C0269AC53500923F03 /* Stem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem" */;
+			productName = Stem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
 }

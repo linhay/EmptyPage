@@ -35,12 +35,37 @@ open class EmptyPageCollectionViewManager: EmptyPageScrollViewManager {
         }
 
         if let count = view.dataSource?.numberOfSections?(in: view), count > 0 {
-            return (0..<count).contains(where: { (view.dataSource?.collectionView(view, numberOfItemsInSection: $0) ?? 0) > 0 }) == false
+            return (0..<count).contains(where: { (view.dataSource?.collectionView(view, numberOfItemsInSection: $0) ?? 0) > 0 || hasHeaderOrFooter(in: $0 )}) == false
         } else if view.numberOfSections > 0 {
-            return (0..<view.numberOfSections).contains(where: { view.numberOfItems(inSection: $0) > 0 }) == false
+            return (0..<view.numberOfSections).contains(where: { view.numberOfItems(inSection: $0) > 0 || hasHeaderOrFooter(in: $0) }) == false
         }
         
         return true
     }
 
+}
+
+private extension EmptyPageCollectionViewManager {
+    
+    func hasHeaderOrFooter(in section: Int) -> Bool {
+        guard let view = collectionView else {
+            return false
+        }
+        
+        guard let delegate = view.delegate as? UICollectionViewDelegateFlowLayout,
+              let layout = view.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return false
+        }
+        
+        if let size = delegate.collectionView?(view, layout: layout, referenceSizeForHeaderInSection: section), min(size.width, size.height) > 0 {
+            return true
+        }
+        
+        if let size = delegate.collectionView?(view, layout: layout, referenceSizeForFooterInSection: section), min(size.width, size.height) > 0 {
+            return true
+        }
+
+        return false
+    }
+    
 }
