@@ -93,6 +93,52 @@ fileprivate class TestSection<Cell: UICollectionViewCell>: SectionCollectionProt
     open func config(models: [Cell.Model]) {
         self.models = models
     }
+    
+    var hiddenHeaderWhenNoItem: Bool = false
+    var hiddenFooterWhenNoItem: Bool = false
+    
+    var showHeader = true
+    var showFooter = true
+    
+    var headerView: UICollectionReusableView? {
+        guard showHeader else {
+            return nil
+        }
+        let view = dequeue(kind: .header) as TestReusableView
+        view.backgroundColor = .red
+        view.st.onTapGesture {
+            self.showHeader = false
+            self.reload()
+        }
+        return view
+    }
+    
+    var headerSize: CGSize {
+        guard showHeader else {
+            return .zero
+        }
+        return .init(width: sectionView.bounds.width, height: 44)
+    }
+    
+    var footerView: UICollectionReusableView? {
+        guard showFooter else {
+            return nil
+        }
+        let view = dequeue(kind: .footer) as TestReusableView
+        view.backgroundColor = .blue
+        view.st.onTapGesture {
+            self.showFooter = false
+            self.reload()
+        }
+        return view
+    }
+    
+    var footerSize: CGSize {
+        guard showFooter else {
+            return .zero
+        }
+        return  .init(width: sectionView.bounds.width, height: 44)
+    }
 
     open func itemSize(at row: Int) -> CGSize {
         let width = sectionView.bounds.width - sectionInset.left - sectionInset.right
@@ -108,6 +154,8 @@ fileprivate class TestSection<Cell: UICollectionViewCell>: SectionCollectionProt
 
     open func config(sectionView: UICollectionView) {
         sectionView.st.register(Cell.self)
+        sectionView.st.register(TestReusableView.self, for: .footer)
+        sectionView.st.register(TestReusableView.self, for: .header)
     }
 
     open func item(at row: Int) -> UICollectionViewCell {

@@ -89,6 +89,45 @@ fileprivate class TestSection<Cell: UITableViewCell>: SectionTableProtocol where
         selectedEvent.call(models[row])
     }
 
+    var showHeader = true
+    var showFooter = true
+
+    var headerView: UITableViewHeaderFooterView? {
+        guard showHeader else {
+            return nil
+        }
+        let header = UITableViewHeaderFooterView(frame: .init(origin: .zero,
+                                                              size: .init(width: sectionView.bounds.width, height: 44)))
+        header.st.onTapGesture {
+            self.showHeader = false
+            self.reload()
+        }
+        header.contentView.backgroundColor = .red
+        return header
+    }
+    
+    var headerHeight: CGFloat {
+        return 44
+    }
+    
+    var footerView: UITableViewHeaderFooterView? {
+        guard showFooter else {
+            return nil
+        }
+        let footer = UITableViewHeaderFooterView(frame: .init(origin: .zero,
+                                                              size: .init(width: sectionView.bounds.width, height: 44)))
+        footer.st.onTapGesture {
+            self.showFooter = false
+            self.reload()
+        }
+        footer.contentView.backgroundColor = .blue
+        return footer
+    }
+    
+    var footerHeight: CGFloat {
+        return 44
+    }
+
     open func itemHeight(at row: Int) -> CGFloat {
         let width = sectionView.bounds.width
         return Cell.preferredSize(limit: .init(width: width,

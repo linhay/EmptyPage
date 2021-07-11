@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Stem",
+        "repositoryURL": "https://github.com/linhay/Stem.git",
+        "state": {
+          "branch": null,
+          "revision": "311f1357e4c8463207c666a40dc2929b51438a31",
+          "version": "0.0.41"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

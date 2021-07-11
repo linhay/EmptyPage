@@ -26,7 +26,7 @@ open class EmptyPageTableViewManager: EmptyPageScrollViewManager {
 
     /// 被设置空白页的 View
     public var tableView: UITableView? { target as? UITableView }
-
+    
     /// 判断数据源是否为空
     /// - Returns: 数据源是否为空结果
     open override func isEmpty() -> Bool {
@@ -34,13 +34,39 @@ open class EmptyPageTableViewManager: EmptyPageScrollViewManager {
             return false
         }
         
-        if let count = view.dataSource?.numberOfSections?(in: view), count > 0 {
-            return (0..<count).contains(where: { (view.dataSource?.tableView(view, numberOfRowsInSection: $0) ?? 0) > 0 }) == false
+        if let dataSource = view.dataSource, let count = view.dataSource?.numberOfSections?(in: view), count > 0 {
+            return (0..<count).contains(where: { dataSource.tableView(view, numberOfRowsInSection: $0) > 0 || hasHeaderOrFooter(in: $0 )}) == false
         } else if view.numberOfSections > 0 {
-            return (0..<view.numberOfSections).contains(where: { view.numberOfRows(inSection: $0) > 0 }) == false
+            return (0..<view.numberOfSections).contains(where: { view.numberOfRows(inSection: $0) > 0 || hasHeaderOrFooter(in: $0) }) == false
         }
         
         return true
+    }
+    
+}
+
+private extension EmptyPageTableViewManager {
+    
+    func hasHeaderOrFooter(in section: Int) -> Bool {
+        guard let view = tableView else {
+            return false
+        }
+        
+        guard let delegate = view.delegate else {
+            return false
+        }
+        
+        if delegate.tableView?(view, viewForHeaderInSection: section) != nil,
+           (delegate.tableView?(view, heightForHeaderInSection: section) ?? view.sectionHeaderHeight) > 0 {
+            return true
+        }
+        
+        if delegate.tableView?(view, viewForFooterInSection: section) != nil,
+           (delegate.tableView?(view, heightForFooterInSection: section) ?? view.sectionFooterHeight) > 0 {
+            return true
+        }
+        
+        return false
     }
     
 }
