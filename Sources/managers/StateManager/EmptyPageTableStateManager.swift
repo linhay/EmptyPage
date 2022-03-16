@@ -29,8 +29,8 @@ open class EmptyPageTableStateManager<State: OptionSet & Hashable>: EmptyPageTab
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
     open override var emptyViewProvider: () -> UIView? {
-        set { _ = newValue }
         get { viewProvider }
+        set { _ = newValue }
     }
     
     public init(state: State) {

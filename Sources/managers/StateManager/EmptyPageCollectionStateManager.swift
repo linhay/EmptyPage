@@ -29,16 +29,12 @@ open class EmptyPageCollectionStateManager<State: OptionSet & Hashable>: EmptyPa
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
     public override var frameKvoToken: NSKeyValueObservation? {
-        set {
-            super.frameKvoToken = newValue
-        }
-        get {
-            super.frameKvoToken
-        }
+        get { super.frameKvoToken }
+        set { super.frameKvoToken = newValue }
     }
     open override var emptyViewProvider: () -> UIView? {
-        set { _ = newValue }
         get { viewProvider }
+        set { _ = newValue }
     }
 
     public init(state: State) {
