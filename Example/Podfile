@@ -7,9 +7,8 @@ install! 'cocoapods', :generate_multiple_pod_projects => true
 target 'EmptyPage_Example' do
   pod 'ReachabilitySwift'
   pod 'EmptyPage', :path => '../EmptyPage.podspec'
-  pod 'SnapKit', '5.0.0'
+  pod 'SnapKit'
   pod 'MJRefresh'
-  pod 'LookinServer', :configurations => ['Debug']
   pod 'SwiftLint'
 end
 

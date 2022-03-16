@@ -255,7 +255,7 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem" */,
+				CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem.git" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -365,7 +365,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EmptyPage_Example/Pods-EmptyPage_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EmptyPage/EmptyPage.framework",
-				"${PODS_ROOT}/LookinServer/LookinServer.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -373,7 +372,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EmptyPage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -592,7 +590,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem" */ = {
+		CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/linhay/Stem.git";
 			requirement = {
@@ -605,7 +603,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		CD0713C0269AC53500923F03 /* Stem */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem" */;
+			package = CD0713BF269AC53500923F03 /* XCRemoteSwiftPackageReference "Stem.git" */;
 			productName = Stem;
 		};
 /* End XCSwiftPackageProductDependency section */
