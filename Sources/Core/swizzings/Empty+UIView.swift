@@ -30,13 +30,13 @@ extension UIView {
     }
 
     var useCustomManager: Bool {
-        set { objc_setAssociatedObject(self, EmptyPageViewKey.useCustomManager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
         get { return objc_getAssociatedObject(self, EmptyPageViewKey.useCustomManager) as? Bool ?? false }
+        set { objc_setAssociatedObject(self, EmptyPageViewKey.useCustomManager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
 
     var emptyPageViewManager: EmptyPageViewManager? {
-        set { objc_setAssociatedObject(self, EmptyPageViewKey.manager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
         get { return objc_getAssociatedObject(self, EmptyPageViewKey.manager) as? EmptyPageViewManager }
+        set { objc_setAssociatedObject(self, EmptyPageViewKey.manager, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
 
     @objc

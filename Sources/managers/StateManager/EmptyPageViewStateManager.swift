@@ -28,8 +28,8 @@ open class EmptyPageViewStateManager<State: OptionSet & Hashable>: EmptyPageView
     open var viewStore: [State: UIView] = [:]
     public let hookProvider = EmptyPageDelegate<State, UIView?>()
     open override var emptyViewProvider: () -> UIView? {
-        set { _ = newValue }
         get { viewProvider }
+        set { _ = newValue }
     }
 
     public init(state: State) {
