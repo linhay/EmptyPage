@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'EmptyPage'
-    s.version          = '4.0.8'
+    s.version          = '4.0.9'
     s.summary          = 'iOS - 轻量级空白页占位图框架...'
 
     s.homepage         = 'https://github.com/linhay/EmptyPage'
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.author           = { 'linhay' => 'is.linhay@outlook.com' }
     s.source = { :git => 'https://github.com/linhay/EmptyPage.git', :tag => s.version.to_s }
 
-    s.swift_version = ['4.0', '4.2', '5.0', '5.1']
+    s.swift_versions = ['5.3']
 
     s.ios.deployment_target = '9.0'
     s.requires_arc = true
