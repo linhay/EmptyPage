@@ -71,7 +71,7 @@ public class EmptyPageView: UIView {
     public enum VerticalLayoutType {
         /// top and bottom guide height ratio
         /// 上下区域高度占比
-        case topAndBottomSpacerRatio(CGFloat)
+        case topAndBottomSpacerRatio(_ multiplier: CGFloat, _ constant: CGFloat = 0)
         /// top guide height
         /// 上区域高度
         case topSpacer(CGFloat)
@@ -225,10 +225,10 @@ public extension EmptyPageView {
 
         verticalLayout.topAndBottomHeightRatio?.isActive = false
         switch type {
-        case .topAndBottomSpacerRatio(let value):
+        case .topAndBottomSpacerRatio(let multiplier, let constant):
             verticalLayout.topGuideHeight?.isActive = false
             verticalLayout.bottomGuideHeight?.isActive = false
-            let constraint = topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: value)
+            let constraint = topGuide.heightAnchor.constraint(equalTo: bottomGuide.heightAnchor, multiplier: multiplier, constant: constant)
             constraint.isActive = true
             verticalLayout.topAndBottomHeightRatio = constraint
         case .topSpacer(let value):
