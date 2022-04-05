@@ -21,6 +21,7 @@ class TestStateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sectionView.contentInset = .init(top: 40, left:100, bottom: 0, right: 0)
         sectionView.ex.set(emptyView: TemplateSet.image_animate().mix(), for: .loading)
         sectionView.ex.set(emptyView: TemplateSet.image_normal().mix(), for: .normal)
         sectionView.ex.set(emptyView: TemplateSet.standard1(tapEvent: nil).mix(), for: .noNetwork)

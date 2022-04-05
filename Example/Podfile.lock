@@ -1,12 +1,12 @@
 PODS:
-  - EmptyPage (4.0.7):
-    - EmptyPage/core (= 4.0.7)
-    - EmptyPage/managers (= 4.0.7)
-    - EmptyPage/templates (= 4.0.7)
-  - EmptyPage/core (4.0.7)
-  - EmptyPage/managers (4.0.7):
+  - EmptyPage (4.0.10):
+    - EmptyPage/core (= 4.0.10)
+    - EmptyPage/managers (= 4.0.10)
+    - EmptyPage/templates (= 4.0.10)
+  - EmptyPage/core (4.0.10)
+  - EmptyPage/managers (4.0.10):
     - EmptyPage/core
-  - EmptyPage/templates (4.0.7):
+  - EmptyPage/templates (4.0.10):
     - EmptyPage/core
   - MJRefresh (3.7.5)
   - ReachabilitySwift (5.0.0)
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../EmptyPage.podspec"
 
 SPEC CHECKSUMS:
-  EmptyPage: 53c1bfb5092b32d2d4ab97c7f1ab738825464b22
+  EmptyPage: 5c0b8683f3e4e83084173aa122807f0b1211b4a4
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
