@@ -68,7 +68,11 @@ public extension EmptyPageViewManagerProtocol {
         guard let delegate = target, let view = emptyView, view.superview == delegate else {
             return
         }
-        view.frame = CGRect(origin: .zero, size: delegate.frame.size)
+        if let delegate = delegate as? UIScrollView {
+            view.frame = CGRect(origin: .init(x: -delegate.contentInset.left, y: -delegate.contentInset.top), size: delegate.frame.size)
+        } else {
+            view.frame = CGRect(origin: .zero, size: delegate.frame.size)
+        }
     }
 
     func ep_reload(completion: ((_ isEmpty: Bool) -> Void)? = nil) {
