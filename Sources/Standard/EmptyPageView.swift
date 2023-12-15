@@ -47,10 +47,17 @@ public class EmptyPageView: UIView {
     let leftGuide   = UILayoutGuide()
     let rightGuide  = UILayoutGuide()
     let bottomGuide = UILayoutGuide()
+    let options     = Options()
 
     private var contentViewLayout = ContentViewLayout()
     private var verticalLayout    = VerticalLayout()
     private var horizontalLayout  = HorizontalLayout()
+    
+    
+    struct Options {
+        /// 支持点击事件穿透
+        var supportClickThrough = true
+    }
 
     /// Vertical constraints
     /// 垂直方向上的约束
@@ -179,6 +186,14 @@ public class EmptyPageView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
+        guard options.supportClickThrough else {
+            return hitView
+        }
+        return hitView == self ? nil : hitView
     }
     
 }
