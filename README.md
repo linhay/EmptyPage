@@ -9,13 +9,13 @@
 
 ## 演示:
 
-| ![](imgs/0.gif) | ![](imgs/1.gif) | ![](imgs/2.gif) |
+| ![0](https://github.com/linhay/EmptyPage/assets/15262434/58addde2-62a7-4c7d-8850-92ff88f7733e) | ![1](https://github.com/linhay/EmptyPage/assets/15262434/06d85536-508f-4e55-a3e4-3cb599de7269) | ![2](https://github.com/linhay/EmptyPage/assets/15262434/fbb54109-6809-4323-a381-638755ed6e33) |
 | :---------------------------------------------: | :---------------------: | :---------------------: |
 | **UICollectionView** | **UITableView** | **多状态切换** |
 
 ## 预置模板视图:
 
-| ![](imgs/4.png) | ![](imgs/3.gif) | ![](imgs/7.png) | ![](imgs/5.png) | ![](imgs/6.png) |
+| ![](https://github.com/linhay/EmptyPage/assets/15262434/de2de664-e2a5-4e1a-a290-df20bff5bd68) | ![](https://github.com/linhay/EmptyPage/assets/15262434/c1fabd31-b48e-437f-a63f-fd1295933c4e) | ![](https://github.com/linhay/EmptyPage/assets/15262434/fed4e247-86fe-4e71-bebd-12c108ed932a) | ![](https://github.com/linhay/EmptyPage/assets/15262434/f0f2cfa2-e35a-4676-9ff9-f47c30c1060f) | ![](https://github.com/linhay/EmptyPage/assets/15262434/5404caf4-42f8-451f-938f-cc503d176f46) |
 | :--: | :--: | :--: | :--: | :--: |
 | **静态图** | **动图** | **纯文本** | **富文本** | **复合型视图** |
 
@@ -48,11 +48,11 @@
         <tr>
             <td>
                 <!--左侧内容-->
-                <img src="imgs/6.png" style="zoom:100%;" />
+                <img src="https://github.com/linhay/EmptyPage/assets/15262434/61a8ed38-8bce-424d-9901-9174bef8d02f" style="zoom:100%;" />
             </td>
             <td>
                 <!--右侧内容-->
-                <img src="imgs/8.png" style="zoom:100%;" />
+                <img src="https://github.com/linhay/EmptyPage/assets/15262434/f47e0e81-c5fd-4cee-909d-830b892a9106" style="zoom:100%;" />
             </td>
         </tr>
    </table>
